@@ -1,0 +1,9 @@
+@import 'variables/sizes';
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#info-container {
+  margin-left: $side-bar-width;
+}
