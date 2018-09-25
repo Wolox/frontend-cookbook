@@ -77,28 +77,28 @@
 }
 // end spinner 1
 
-// spinner 2 - adaptaded of https://loading.io/css/
+// spinner 2
 .spinner-2 {
-  div {
+
+  &::after, &::before {
     animation: spinner2 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border: 6px solid;
     border-color: $white transparent transparent transparent;
     border-radius: 50%;
+    content: '';
     height: 50px;
+    left: 90px;
     position: absolute;
+    top: 80px;
     width: 50px;
-    
-    &:first-child {
-      animation-delay: -0.45s;
-    }
+  }
 
-    &:nth-child(2) {
-      animation-delay: -0.3s;
-    }
+  &::after {
+    animation-delay: -0.3s;
+  }
 
-    &:last-child {
-      animation-delay: -0.15s;
-    }
+  &::before {
+    animation-delay: -0.15s;
   }
 }
 
