@@ -1,0 +1,33 @@
+:root {
+  --percentage: 90%;
+
+  --height: 30px;
+  --width: 400px;
+
+  --containerColor: #aed0da;
+  --colorBar: #2a93d5;
+}
+
+.progress-container {
+  width: var(--width);
+  background-color: var(--containerColor);
+  height: var(--height);
+  margin: 50px;
+
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.progress-bar {
+  width: var(--percentage);
+
+  background: var(--colorBar);
+  height: var(--height);
+  transition: width 0.6s ease;
+  border-radius: 20px;
+
+  .progress-bar-b {
+    width: var(--percentageB);
+  }
+}
