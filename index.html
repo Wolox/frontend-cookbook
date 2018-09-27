@@ -1,33 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Frontend art</title>
-    <link rel="stylesheet"  type="text/css" href="build/application.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="scripts/sidebar.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div id="sidebar">
-        <p id="sidebar-title">Frontend Art</p>
-        <div class="sidebar-menus">
-          <p onclick="back()" id="previous-menu" class="back-button">Volver</p>
-          <ul class="tab-list" id="main">
-            <li onclick="showMenu(this, 'messages')"><p>Componentes</p></li>
-          </ul>
-          <ul class="tab-list" id="messages">
-            <li onclick="setContent('components/input/index.html')"><p>Input</p></li>
-            <li><p>TextArea</p></li>
-            <li><p>Progress Bar</p></li>
-            <li><p>Checkbox</p></li>
-            <li><p>Radio Buttons</p></li>
-            <li><p>Select</p></li>
-            <li><p>Spinner</p></li>
-            <li><p>Slider</p></li>
-          </ul>
-        </div>
+
+<head>
+  <title>Frontend art</title>
+  <link rel="stylesheet" type="text/css" href="build/application.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="scripts/sidebar.js"></script>
+  <script src='components/RadioButtons/index.html'></script>
+</head>
+
+<body>
+  <div class="container">
+    <div id="sidebar">
+      <p id="sidebar-title">Frontend Art</p>
+      <div class="sidebar-menus">
+        <p onclick="back()" id="previous-menu" class="back-button">Volver</p>
+        <ul class="tab-list" id="main">
+          <li onclick="showMenu(this, 'messages')">
+            <p>Componentes</p>
+          </li>
+        </ul>
+        <ul class="tab-list" id="messages">
+          <li onclick="setContent('components/input/index.html')">
+            <p>Input</p>
+          </li>
+          <li>
+            <p>TextArea</p>
+          </li>
+          <li>
+            <p>Progress Bar</p>
+          </li>
+          <li>
+            <p>Checkbox</p>
+          </li>
+          <li onclick="setContent('components/RadioButtons/index.html')">
+            <p>Radio Buttons</p>
+          </li>
+          <li>
+            <p>Select</p>
+          </li>
+          <li>
+            <p>Spinner</p>
+          </li>
+          <li>
+            <p>Slider</p>
+          </li>
+        </ul>
       </div>
-      <div id="info-container"></div>
     </div>
-  </body>
+    <div id="info-container"></div>
+  </div>
+</body>
+
 </html>
