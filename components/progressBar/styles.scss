@@ -8,21 +8,11 @@
   --colorBar: #2a93d5;
 }
 
-body {
-  background-color: #edfafd;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 100px;
-}
-
 .progress-container {
   width: var(--width);
   background-color: var(--containerColor);
   height: var(--height);
-  margin: 20px;
+  margin: 50px;
 
   display: flex;
   align-items: center;
