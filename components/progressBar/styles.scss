@@ -1,17 +1,40 @@
 :root {
-  --percentage: 90%;
+  --percentageBar: 90%;
 
-  --height: 30px;
-  --width: 400px;
+  --progressHeight: 30px;
+  --progressWidth: 400px;
 
   --containerColor: #aed0da;
   --colorBar: #2a93d5;
+  
+  --percentageCircle: 200px;
+  --rotation: 360deg;
+  
+  --size: 200px;
 }
 
+#buttonStart {
+  width: 20px;
+  height: 20px;
+  border: 1px solid red; 
+}
+
+.progress {
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* BAR */
+
 .progress-container {
-  width: var(--width);
+  width: var(--progressWidth);
   background-color: var(--containerColor);
-  height: var(--height);
+  height: var(--progressHeight);
   margin: 50px;
 
   display: flex;
@@ -20,14 +43,66 @@
 }
 
 .progress-bar {
-  width: var(--percentage);
+  width: var(--percentageBar);
 
   background: var(--colorBar);
-  height: var(--height);
+  height: var(--progressHeight);
   transition: width 0.6s ease;
   border-radius: 20px;
+}
 
-  .progress-bar-b {
-    width: var(--percentageB);
-  }
+/* CIRCLE */
+
+.radial-progress {
+  width: var(--size);
+  height: var(--size);
+  margin: 40px;
+}
+
+.circle {
+  width: var(--size);
+  height: var(--size);
+  
+  background-color: var(--containerColor);
+  border-radius: 50%;
+}
+
+#percent {
+  position: absolute;
+  width: 100%;
+  color: var(--colorBar);
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-left: 160px;
+  margin-top: 40px;
+  z-index: 1;
+  font-size: 42px;
+}
+
+#percentCircle {
+  position: absolute;
+  width: 100%;
+  color: var(--colorBar);
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-left: 55px;
+  margin-top: 70px;
+  z-index: 1;
+  font-size: 42px;
+  
+  mix-blend-mode: multiply;
+}
+
+.mask {
+  width: var(--size);
+  height: var(--size);
+  
+  background-color: var(--colorBar);
+  border-radius: 50%;
+  
+  position: absolute;
+  clip: rect(0px, calc(var(--percentageCircle) * 2), var(--size), 0px);
+  
+  transition: 2s transform ease;
+  transform: rotate(var(--rotation));
 }
