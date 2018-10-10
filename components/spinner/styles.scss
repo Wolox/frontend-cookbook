@@ -1,13 +1,16 @@
 @import '../../scss/variables/colors';
 
 .container-spinners {
+  --color: #FFF;
+  --background-color: #333;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .spinner {
-  background-color: $mine-shaft;
+  background-color: var(--background-color);
   border-radius: 5px;
   height: 220px;
   margin: 14px;
@@ -33,7 +36,7 @@
   
   &:before, &:after {
     animation: spinner1 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-    border: 4px solid $white;
+    border: 4px solid var(--color);
     border-radius: 50%;
     content: '';
     left: 0;
@@ -57,7 +60,7 @@
 
 .spinner-1-text {
   bottom: -14px;
-  color: $white;
+  color: var(--color);
   font-size: 12px;
   left: 0;
   position: absolute;
@@ -83,7 +86,7 @@
   &::after, &::before {
     animation: spinner2 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border: 6px solid;
-    border-color: $white transparent transparent transparent;
+    border-color: var(--color) transparent transparent transparent;
     border-radius: 50%;
     content: '';
     height: 50px;
@@ -122,7 +125,7 @@
     transform-origin: 32px 32px;
     
     &:after {
-      background-color: $white;
+      background-color: var(--color);
       border-radius: 50%;
       content: " ";
       height: 6px;
@@ -186,7 +189,7 @@
 
 .spinner-4-dot1, .spinner-4-dot2 {
   animation: spinner4-bounce 2s infinite ease-in-out;
-  background-color: $white;
+  background-color: var(--color);
   border-radius: 50%;
   height: 60%;
   position: absolute;
@@ -221,7 +224,7 @@
 .spinner-5-wrapper::after, .spinner-5-wrapper::before {
   animation: spinner5-bounce 2s infinite ease-in-out;
   border-radius: 50%;
-  background-color: $white;
+  background-color: var(--color);
   content: '';
   height: 100%;
   left: 0;
@@ -253,7 +256,7 @@
   &:before,
   &:after {
     animation: spinner6 2.0s linear infinite;
-    border: 1px dotted $white;
+    border: 1px dotted var(--color);
     border-radius: 50%;
     content: "";
     height: 100%;
@@ -298,7 +301,7 @@
 .spinner-7-wrapper {
   animation: spinner7 1.7s infinite ease, spinner2 1.7s infinite ease;
   border-radius: 50%;
-  color: $white;
+  color: var(--color);
   font-size: 50px;
   height: 50px;
   overflow: hidden;
@@ -343,7 +346,7 @@
 
 .spinner-8 {
   animation-delay: -0.16s;
-  color: $white;
+  color: var(--color);
   font-size: 10px;
   position: relative;
   text-indent: -999px;
@@ -388,7 +391,7 @@
 .spinner-9 {
   animation: spinner2 1.1s infinite linear;
   border: 10px solid;
-  border-color: $black-semi-transparent $white $black-semi-transparent $black-semi-transparent;
+  border-color: $black-semi-transparent var(--color) $black-semi-transparent $black-semi-transparent;
 }
 // end spinner 9
 
@@ -405,7 +408,7 @@
 
 .spinner-10-dot {
   animation: spinner10 1s ease-in infinite;
-  background-color: $white;
+  background-color: var(--color);
   border-radius: 10px;
   height: 10px;
   transform-origin: bottom;
@@ -413,7 +416,7 @@
 }
 
 .spinner-10-text {
-  color: $white;
+  color: var(--color);
   font-size: 11px;
   margin: 10px;
 }
@@ -454,7 +457,7 @@
 
 .spinner-11-circle1 {
   animation : spinner-11-rotate1 1s infinite linear;
-  border-color : $white;
+  border-color : var(--color);
   height: 100px;
   width: 100px;
 }
@@ -504,7 +507,7 @@
   
   &:before {
     animation: cssload-fold-thecube 2.76s infinite linear both;
-    background-color: $white;
+    background-color: var(--color);
     content: "";
     height: 100%;
     left: 0;
@@ -554,3 +557,112 @@
   }
 }
 // end spinner 12
+
+// spinner 13
+.spinner-13,
+.spinner-13::before,
+.spinner-13::after {
+  animation: spinner2 1150ms linear infinite;
+  border: 1px solid var(--color);
+  border-left-color: #737373;
+  border-radius: 50%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+}
+
+.spinner-13 {
+  height: 50px;
+  margin: -24px 0 0 -24px;
+  width: 50px;
+}
+
+.spinner-13::before {
+  animation-duration: 1150ms;
+  content: '';
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  width: 44px;
+}
+
+.spinner-13::after {
+  animation-duration: 2300ms;
+  content: '';
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  width: 56px;
+}
+// end spinner 13
+
+// spinner 14
+.spinner-14 {
+  height: 50px;
+  width: 50px;
+
+  .spinner-14-item {
+    animation: spinner-14 1.3s infinite ease-in-out; 
+    background-color: var(--color);
+    height: 33%;
+    width: 33%;
+    float: left;
+
+    &:first-child, &:nth-child(5), &:last-child { animation-delay: 0.2s; }
+    &:nth-child(2), &:nth-child(6) { animation-delay: 0.3s; }
+    &:nth-child(3) { animation-delay: 0.4s; }
+    &:nth-child(4), &:nth-child(8) { animation-delay: 0.1s; }
+    &:nth-child(7) { animation-delay: 0s; }
+  }
+}
+
+@keyframes spinner-14 {
+  0%, 70%, 100% {
+    transform: scale3D(1, 1, 1);
+  } 35% {
+    transform: scale3D(0, 0, 1);
+  } 
+}
+// end spinner 14
+
+// spinner 15
+.spinner-15 {
+  height: 33px;
+  width: 33px;
+  
+  &::after, &::before {
+    animation: spinner2 2.88s linear infinite;
+    content: '';
+    border: 1px solid var(--color);
+    height: 30px;
+    position: absolute;
+    width: 30px;
+  }
+  
+  &::before {
+    animation-direction: reverse;
+    height: 43px;
+    margin-left: -6.5px;
+    margin-top: -6.5px;
+    width: 43px;
+  }
+}
+// end spinner 15
+
+.container-options {
+  display: flex;
+  justify-content: center;
+  padding: 14px;
+}
+
+.control-form {
+  margin-left: 8px;
+  text-align: center;
+}
+
+.input-control {
+  border: 1px solid darken($grey, 5%);
+  cursor: pointer;
+  display: block;
+  height: 30px;
+  margin: 8px auto 0;
+  width: 50px;
+}
