@@ -1,14 +1,12 @@
 @import 'variables/sizes';
 @import 'variables/colors';
 
-#sidebar {
-  width: $side-bar-width;
-  height: 100vh;
-  padding: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
+.sidebar {
   background-color: $grey;
+  height: 100%;
+  padding: 0;
+  position: relative;
+  min-width: $side-bar-width;
 }
 
 #sidebar-title {

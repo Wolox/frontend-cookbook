@@ -14,6 +14,6 @@ function back() {
 
 function setContent(params) {
   $.get(params, function (data) {
-    $('#info-container').html(data);
+    $('.container > .content').html(data);
   });
 }
