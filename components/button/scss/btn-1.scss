@@ -1,4 +1,4 @@
-:root {
+.btn.btn-1 {
   --btn-color-1: #00F1D1;
   --btn-color-2: #0077FF;
   --btn-text-color: hsl(0, 0%, 15%);
@@ -50,7 +50,7 @@
   text-transform: uppercase;
   display: flex;
   justify-content: center;
-  padding: 10px 25px;
+  padding: 12px 25px;
   position: relative;
 }
 
@@ -69,8 +69,8 @@
   z-index: -1;
 }
 
-.btn.btn-1:hover .btn-1.btn__content::before,
-.btn.btn-1:focus .btn-1.btn__content::before {
+.btn.btn-1:hover .btn__content::before,
+.btn.btn-1:focus .btn__content::before {
   animation-play-state: running;
 }
 

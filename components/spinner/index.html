@@ -1,4 +1,14 @@
-<div class="container-spinners" id="info-container">
+<div class="container-options">
+  <div class="control-form">
+    <label for="inputColor">Color</label>
+    <input class="input-control" type="color" name="changeColor" id="inputColor" value="#FFFFFF">
+  </div>
+  <div class="control-form">
+    <label for="inputBackgroundColor">Background Color</label>
+    <input class="input-control" type="color" name="changeBackgroundColor" id="inputBackgroundColor" value="#333333">
+  </div>
+</div>
+<div class="container-spinners">
   <div class="spinner">
     <div class="spinner-1">
       <h4 class="spinner-1-text">Loading...</h4>
@@ -57,4 +67,39 @@
       <div class="spinner-12-cube spinner-12-c3"></div>
     </div>
   </div>
+  <div class="spinner spinner-flex">
+    <div class="spinner-13"></div>
+  </div>
+  <div class="spinner spinner-flex">
+    <div class="spinner-14">
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+    </div>
+  </div>
+  <div class="spinner spinner-flex">
+    <div class="spinner-15"></div>
+  </div>
 </div>
+
+<script>
+  const inputColor = document.querySelector('#inputColor');
+  const inputBackgroundColor = document.querySelector('#inputBackgroundColor');
+  const containerSpinners = document.querySelector('.container-spinners');
+
+  inputColor.addEventListener('change', (e) => {
+    const color = e.target.value;
+    containerSpinners.style.setProperty('--color', color);
+  });
+
+  inputBackgroundColor.addEventListener('change', (e) => {
+    const color = e.target.value;
+    containerSpinners.style.setProperty('--background-color', color);
+  });
+</script>

@@ -3,7 +3,6 @@
 @import 'scss/btn-3';
 @import 'scss/btn-4';
 @import 'scss/btn-5';
-@import 'scss/btn-6';
 
 button.btn,
 button.btn:active,
@@ -15,7 +14,18 @@ button.btn:disabled {
   cursor: not-allowed;
 }
 
-:root {
+.btn-group {
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+
+  .btn {
+    margin: 5px;
+  }
+}
+
+
+.buttons {
   --btn-radius: 130px;
   --btn-border-radius: 0;
   --btn-border: 2px;
@@ -24,9 +34,8 @@ button.btn:disabled {
   --btn-text-color: #FFFFFF;
   --btn-font-size: 10pt;
   --btn-trn-duration: 150ms;
-}
 
-.btn-group {
-  background-color: red;
-  width: 33%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
