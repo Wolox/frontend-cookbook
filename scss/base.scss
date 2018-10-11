@@ -4,6 +4,17 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-#info-container {
-  margin-left: $side-bar-width;
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+  width: 100%;
 }

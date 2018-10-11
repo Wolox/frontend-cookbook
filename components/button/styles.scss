@@ -1,0 +1,41 @@
+@import 'scss/btn-1';
+@import 'scss/btn-2';
+@import 'scss/btn-3';
+@import 'scss/btn-4';
+@import 'scss/btn-5';
+
+button.btn,
+button.btn:active,
+button.btn:focus {
+  outline: none;
+}
+
+button.btn:disabled {
+  cursor: not-allowed;
+}
+
+.btn-group {
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+
+  .btn {
+    margin: 5px;
+  }
+}
+
+
+.buttons {
+  --btn-radius: 130px;
+  --btn-border-radius: 0;
+  --btn-border: 2px;
+  --btn-color-1: #DF0000;
+  --btn-color-2: #AD0000;
+  --btn-text-color: #FFFFFF;
+  --btn-font-size: 10pt;
+  --btn-trn-duration: 150ms;
+
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
