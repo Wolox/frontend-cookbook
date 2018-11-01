@@ -1,0 +1,116 @@
+$input-color: #A475E4;
+
+.form-wrap {
+  position: relative;
+  height: 50px;
+  width: 300px;
+}
+
+.wrap {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 15px;
+}
+
+.input4 {
+  color: black;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  padding-top: 5px;
+  border: none;
+  font-size: 1em;
+  font-weight: 200;
+  background: none;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.active .input4 {
+  opacity: 1;
+  transition: all 0.5s ease 0.5s;
+}
+
+.svg4 {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  overflow: visible;
+  fill: none;
+  z-index: 5;
+  stroke: black;
+  stroke-width: 3px;
+}
+
+.label4 {
+  color: black;
+  position: absolute;
+  top: 15px;
+  font-size: 1.3em;
+  transition: all 0.5s ease;
+}
+
+.active .label4 {
+  top: 0px;
+  font-size: 1em;
+  color: $input-color;
+  transition: all 0.5s ease 0.6s;
+}
+
+.active + .svg4 {
+  stroke:$input-color;
+  transition: stroke 0.4s ease 0.6s;
+}
+
+.input-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.input:before {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 3px;
+  right: 15px;
+  bottom: -50px;
+  background-color: transparent;
+  transform-origin: inherit;
+  transform: rotate(0deg);
+  transition: transform 0.4s ease, bottom 0.4s ease 0.3s, background-color 0.2s ease 0.6s;
+}
+
+.input:after {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 3px;
+  right: 15px;
+  bottom: -50px;
+  visibility: hidden;
+  background-color: transparent;
+  transform-origin: inherit;
+  transform: rotate(0deg);
+  transition: transform 0.4s ease, visibility 0.4s ease, bottom 0.4s ease 0.3s, background-color 0.2s ease 0.6s, height 0.2s ease 0.6s;
+}
+
+.invalid:before {
+  bottom: 10px;
+  visibility: visible;
+  background-color: $input-color;
+  transform: rotate(40deg);
+  transition: bottom 0.4s ease, transform 0.4s ease 0.3s;
+}
+
+.invalid:after {
+  height: 26px;
+  bottom: 10px;
+  visibility: visible;
+  background-color: $input-color;
+  transform: rotate(-45deg);
+  transition: bottom 0.4s ease, visibility 0.4s ease 0.3s, transform 0.4s ease 0.3s;
+}
