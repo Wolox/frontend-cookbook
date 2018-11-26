@@ -1,0 +1,24 @@
+[v-cloak] {
+  display: none;
+}
+
+body {
+  background-image: url('/assets/wolox_bg.png');
+}
+
+.center {
+  background-color: $translucent-white;
+  height: 100%;
+  left: 20%;
+  position: absolute;
+  text-align: center;
+  width: 60%;
+}
+
+h1 {
+  color: $wolox-green;
+}
+
+.class-to-be-purified {
+  color: $translucent-white;
+}
