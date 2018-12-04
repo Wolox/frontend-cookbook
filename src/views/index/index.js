@@ -2,7 +2,8 @@ import Vue from 'vue'
 
 import { installServiceWorker } from '../../serviceWorkerInstaller'
 
-const Example = () => import(/* webpackChunkName: "example" */ '../../components/Example')
+const  Checkbox = () => import(/* webpackChunkName: "example" */ '../../components/Checkbox')
+const Sidebar = () => import(/* webpackChunkName: "example" */ '../../components/Sidebar')
 
 import './index.pug'
 import './index.scss'
@@ -13,7 +14,8 @@ const vm = new Vue({
     title: 'Frontend Bootstrap!'
   },
   components: {
-    Example
+    Checkbox,
+    Sidebar
   }
 })
 

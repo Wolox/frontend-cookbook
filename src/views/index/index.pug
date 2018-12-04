@@ -1,7 +1,7 @@
 doctype html
-html(lang='en')
+html
   head
-    title title here
+    title Frontend art
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='preload' href='./index.js' as='script')
@@ -9,10 +9,10 @@ html(lang='en')
     link(rel='preload' href='styles.index.css' as='style')
     link(rel='stylesheet' href='styles.index.css')
     script(src='./vendor.js')
+    link(rel='stylesheet', type='text/css', href='build/application.css')
+    script(src='../scripts/progress.js')
   body
-    #app(v-cloak)
-      .center
-        h1
-          | {{ title }}
-        Example
+    #app.container(v-cloak)
+      sidebar
+      checkbox
     script(src='./index.js')
