@@ -1,3 +1,20 @@
+<template>
+  <div class="progress">
+    <div class="progress-container center-loading">
+      <div id="percent">30%</div>
+      <div class="progress-bar">
+      </div>
+    </div>
+    <div class="radial-progress">
+      <div id="percentCircle">30%</div>
+      <div class="circle">
+        <div class="mask">
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<style lang="scss" scoped>
 :root {
   --percentageBar: 90%;
 
@@ -6,17 +23,17 @@
 
   --containerColor: #aed0da;
   --colorBar: #2a93d5;
-  
+
   --percentageCircle: 200px;
   --rotation: 360deg;
-  
+
   --size: 200px;
 }
 
 #buttonStart {
   width: 20px;
   height: 20px;
-  border: 1px solid red; 
+  border: 1px solid red;
 }
 
 .progress {
@@ -62,7 +79,7 @@
 .circle {
   width: var(--size);
   height: var(--size);
-  
+
   background-color: var(--containerColor);
   border-radius: 50%;
 }
@@ -89,20 +106,21 @@
   margin-top: 70px;
   z-index: 1;
   font-size: 42px;
-  
+
   mix-blend-mode: multiply;
 }
 
 .mask {
   width: var(--size);
   height: var(--size);
-  
+
   background-color: var(--colorBar);
   border-radius: 50%;
-  
+
   position: absolute;
   clip: rect(0px, calc(var(--percentageCircle) * 2), var(--size), 0px);
-  
+
   transition: 2s transform ease;
   transform: rotate(var(--rotation));
 }
+</style>
