@@ -41,11 +41,11 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-  @import './button/scss/btn-1';
-  @import './button/scss/btn-2';
-  @import './button/scss/btn-3';
-  @import './button/scss/btn-4';
-  @import './button/scss/btn-5';
+  @import './Button/scss/btn-1';
+  @import './Button/scss/btn-2';
+  @import './Button/scss/btn-3';
+  @import './Button/scss/btn-4';
+  @import './Button/scss/btn-5';
 
   button.btn,
   button.btn:active,
