@@ -68,26 +68,26 @@
 </template>
 
 <script>
-const inputColor = document.querySelector('#inputColor');
-const inputBackgroundColor = document.querySelector('#inputBackgroundColor');
-const containerSpinners = document.querySelector('.container-spinners');
+// const inputColor = document.querySelector('#inputColor');
+// const inputBackgroundColor = document.querySelector('#inputBackgroundColor');
+// const containerSpinners = document.querySelector('.container-spinners');
 
-inputColor.addEventListener('change', (e) => {
-  const color = e.target.value;
-  containerSpinners.style.setProperty('--color', color);
-});
+// inputColor.addEventListener('change', (e) => {
+//   const color = e.target.value;
+//   containerSpinners.style.setProperty('--color', color);
+// });
 
-inputBackgroundColor.addEventListener('change', (e) => {
-  const color = e.target.value;
-  containerSpinners.style.setProperty('--background-color', color);
-});
+// inputBackgroundColor.addEventListener('change', (e) => {
+//   const color = e.target.value;
+//   containerSpinners.style.setProperty('--background-color', color);
+// });
 
 export default {}
 </script>
 
 
 <style lang="scss" scoped>
-  @import '../../scss/variables/colors';
+  @import '../scss/variables/colors';
 
   .container-spinners {
     --color: #FFF;

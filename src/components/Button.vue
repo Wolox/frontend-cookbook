@@ -1,40 +1,40 @@
 <template lang="pug">
   .buttons
-  .btn-group.btn-group-1
-    button.btn.btn-1(disabled='')
-      .btn__content
-        | cancel
-    button.btn.btn-1
-      .btn__content
-        | submit
-  .btn-group.btn-group-2
-    button.btn.btn-2(disabled='')
-      .btn__content
-        | cancel
-    button.btn.btn-2
-      .btn__content
-        | submit
-  .btn-group.btn-group-3
-    button.btn.btn-3(disabled='')
-      .btn__content
-        | cancel
-    button.btn.btn-3
-      .btn__content
-        | submit
-  .btn-group.btn-group-4
-    button.btn.btn-4(disabled='')
-      .btn__content
-        | cancel
-    button.btn.btn-4
-      .btn__content
-        | submit
-  .btn-group.btn-group-5
-    button.btn.btn-5(disabled='')
-      .btn__content
-        | cancel
-    button.btn.btn-5
-      .btn__content
-        | submit
+    .btn-group.btn-group-1
+      button.btn.btn-1(disabled='')
+        .btn__content
+          | cancel
+      button.btn.btn-1
+        .btn__content
+          | submit
+    .btn-group.btn-group-2
+      button.btn.btn-2(disabled='')
+        .btn__content
+          | cancel
+      button.btn.btn-2
+        .btn__content
+          | submit
+    .btn-group.btn-group-3
+      button.btn.btn-3(disabled='')
+        .btn__content
+          | cancel
+      button.btn.btn-3
+        .btn__content
+          | submit
+    .btn-group.btn-group-4
+      button.btn.btn-4(disabled='')
+        .btn__content
+          | cancel
+      button.btn.btn-4
+        .btn__content
+          | submit
+    .btn-group.btn-group-5
+      button.btn.btn-5(disabled='')
+        .btn__content
+          | cancel
+      button.btn.btn-5
+        .btn__content
+          | submit
 </template>
 <script>
 export default {}
