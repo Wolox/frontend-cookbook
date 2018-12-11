@@ -33,10 +33,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './Input/scss/input1';
-@import './Input/scss/input2';
-@import './Input/scss/input3';
-@import './Input/scss/input4';
+@import 'Input/input1';
+@import 'Input/input2';
+@import 'Input/input3';
+@import 'Input/input4';
 
 .input-section-container {
   padding: 40px;

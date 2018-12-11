@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 import { installServiceWorker } from '../../serviceWorkerInstaller'
 
-const  Checkbox = () => import(/* webpackChunkName: "example" */ '../../components/Spinner')
+const  Checkbox = () => import(/* webpackChunkName: "example" */ '../../components/Button')
 const Sidebar = () => import(/* webpackChunkName: "example" */ '../../components/Sidebar')
 
 import './index.pug'
