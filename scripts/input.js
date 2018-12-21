@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 // INPUT 1
 $('.input-wrapper .input-base')
 .focus(function() {

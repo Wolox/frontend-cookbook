@@ -17,10 +17,6 @@
   padding: 20px;
 }
 
-#main {
-  display: block;
-}
-
 .tab-list {
   padding: 0;
   display: none;
@@ -48,7 +44,7 @@
 #previous-menu {
   &.active {
     color: #4a5759;
-  
+
     &:hover {
       color: darkgrey;
       cursor: pointer;

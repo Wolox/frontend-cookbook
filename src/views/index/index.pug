@@ -13,6 +13,6 @@ html
     script(src='../scripts/progress.js')
   body
     #app.container(v-cloak)
-      sidebar
-      checkbox
+      sidebar(:change="changeView", :gilada='4234232')
+      component(:is='currentComponent')
     script(src='./index.js')
