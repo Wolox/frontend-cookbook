@@ -1,4 +1,63 @@
-@import '../../scss/variables/colors';
+<template lang="pug">
+#checkbox
+  .container-options
+    .control-form
+      label(for='primaryRadioColor') Primary Color
+      input#primaryRadioColor.input-control(type='color' value='#636060')
+    .control-form
+      label(for='secondaryRadioColor') Secondary Color
+      input#secondaryRadioColor.input-control(type='color' value='#FFFFFF')
+    .control-form
+      label(for='activeRadioColor') Active Color
+      input#activeRadioColor.input-control(type='color' value='#00D478')
+    .control-form
+      label(for='radioBackgroundColor') Background Color
+      input#radioBackgroundColor.input-control(type='color' value='#333333')
+  .container-checkbox
+    .item-checkbox
+      .checkbox-1
+        input#checkbox-1.checkbox(type='checkbox' name='checkbox-1')
+        label(for='checkbox-1')
+    .item-checkbox
+      .checkbox-2
+        input#checkbox-2.checkbox(type='checkbox')
+        label(for='checkbox-2')
+          svg(width='18px' height='18px' viewbox='0 0 18 18')
+            path(d='M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z')
+            polyline(points='1 9 7 14 15 4')
+    .item-checkbox
+      .checkbox-3
+        input#checkbox-3.checkbox(type='checkbox')
+        label(data-off='OFF' data-on='ON' for='checkbox-3')
+    .item-checkbox
+      .checkbox-4
+        input#checkbox-4.checkbox(type='checkbox')
+        label(for='checkbox-4')
+    .item-checkbox
+      .checkbox-5
+        input#checkbox-5.checkbox(type='checkbox')
+        label(data-off='Nope' data-on='Yeah!' for='checkbox-5')
+    .item-checkbox
+      .checkbox-6
+        input#checkbox-6.checkbox(type='checkbox')
+        label(for='checkbox-6') Checkbox 6
+    .item-checkbox
+      .checkbox-7
+        input#checkbox-7.checkbox(type='checkbox')
+        label(for='checkbox-7') Checkbox 7
+    .item-checkbox
+      .checkbox-8
+        input#checkbox-8.checkbox(type='checkbox')
+        label(for='checkbox-8')
+</template>
+<script>
+import '../../scripts/checkbox.js'
+
+export default {}
+</script>
+
+<style lang="scss" scoped>
+  @import '../scss/variables/_colors';
 $transition-duration: 330ms;
 $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 
@@ -460,90 +519,4 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     width: 42px;
   }
 }
-/* Checkbox 8 */
-
-/* Checkbox 9 */
-/* .checkbox-3 {
-  label {
-    margin: 0 auto;
-    user-select: none;
-    cursor: pointer;
-
-    span {
-      display: inline-block;
-      vertical-align: middle;
-      transform: translate3d(0,0,0);
-
-      &:first-child {
-        position: relative;
-        width: 18px;
-        height: 18px;
-        border-radius: 3px;
-        transform: scale(1);
-        vertical-align: middle;
-        border: 1px solid #9098A9;
-        transition: all .2s ease;
-
-        svg {
-          position: absolute;
-          top: 3px;
-          left: 2px;
-          fill: none;
-          stroke: #FFFFFF;
-          stroke-width: 2;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-          stroke-dasharray: 16px;
-          stroke-dashoffset: 16px;
-          transition: all .3s ease;
-          transition-delay: .1s;
-          transform: translate3d(0,0,0);
-        }
-
-        &::before {
-          content: "";
-          width: 100%;
-          height: 100%;
-          background: #506EEC;
-          display: block;
-          transform: scale(0);
-          opacity: 1;
-          border-radius: 50%;
-        }
-      }
-
-      &:last-child{
-        padding-left: 8px;
-      }
-    }
-
-    &:hover span:first-child {
-      border-color: #506EEC ;
-    }
-  }
-  
-  input:checked + label {
-    span {
-      &:first-child {
-        background: #506EEC;
-        border-color: #506EEC;
-        animation: wave .4s ease;
-
-        svg {
-          stroke-dashoffset: 0;
-        }
-
-        &::before {
-          transform: scale(3.5);
-          opacity: 0;
-          transition: all .6s ease;
-        }
-      }
-    }
-  }
-}
-
-@keyframes wave {
-  50% { transform: scale(.9); }
-} */
-/* Checkbox 9 */
+</style>

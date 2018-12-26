@@ -1,9 +1,7 @@
+@import 'variables/sizes';
+
 [v-cloak] {
   display: none;
-}
-
-body {
-  background-image: url('/assets/wolox_bg.png');
 }
 
 .center {
@@ -21,4 +19,24 @@ h1 {
 
 .class-to-be-purified {
   color: $translucent-white;
+}
+
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+  width: 100%;
 }
