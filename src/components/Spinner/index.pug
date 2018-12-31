@@ -1,0 +1,60 @@
+#spinner
+  detail(:title="titleSelected" :isVisible="showDetail" :onClick="onCloseDetail")
+  h2.title Spinner
+  .container-spinners
+    card(title='Waves' :onClick="onShowDetail")
+      .spinner-1
+        h4.spinner-1-text Loading...
+    card.spinner-flex(title='Circle' :onClick="onShowDetail")
+      .spinner-2
+    card.spinner-flex.spinner-3(title='Dots' :onClick="onShowDetail")
+      div
+      div
+      div
+      div
+      div
+      div
+      div
+    card.spinner-4.spinner-flex(title='Dot couple' :onClick="onShowDetail")
+      .spinner-4-wrapper
+        .spinner-4-dot1
+        .spinner-4-dot2
+    card.spinner-flex(title='Pulse' :onClick="onShowDetail")
+      .spinner-5-wrapper
+    card.spinner-flex(title='Big wave' :onClick="onShowDetail")
+      .spinner-6-wrapper
+    card.spinner-flex(title='Circle dot' :onClick="onShowDetail")
+      .spinner-7-wrapper Loading
+    card.spinner-flex(title='Ellipsis' :onClick="onShowDetail")
+      .spinner-8 Loading
+    card.spinner-flex(title='Half circle' :onClick="onShowDetail")
+      .spinner-9
+    card.spinner-flex.spinner-10(title='Jump point' :onClick="onShowDetail")
+      .spinner-10-dots
+        .spinner-10-dot
+      h6.spinner-10-text Loading
+    card.spinner-flex(title='Atomic rings' :onClick="onShowDetail")
+      .spinner-11-circle.spinner-11-circle1
+      .spinner-11-circle.spinner-11-circle2
+      .spinner-11-circle.spinner-11-circle3
+    card.spinner-flex(title='Complete square' :onClick="onShowDetail")
+      .spinner-12
+        .spinner-12-cube.spinner-12-c1
+        .spinner-12-cube.spinner-12-c2
+        .spinner-12-cube.spinner-12-c4
+        .spinner-12-cube.spinner-12-c3
+    card.spinner-flex(title='Rings inside' :onClick="onShowDetail")
+      .spinner-13
+    card.spinner-flex(title='Complete square 2' :onClick="onShowDetail")
+      .spinner-14
+        .spinner-14-item
+        .spinner-14-item
+        .spinner-14-item
+        .spinner-14-item
+        .spinner-14-item
+        .spinner-14-item
+        .spinner-14-item
+        .spinner-14-item
+        .spinner-14-item
+    card.spinner-flex(title='Squares inside' :onClick="onShowDetail")
+      .spinner-15

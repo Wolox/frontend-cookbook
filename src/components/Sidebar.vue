@@ -4,7 +4,7 @@
       // TODO change the image
       img.sidebar-image(src="https://bit.ly/2VcQGe3" alt="Wolox logo")
       h2.sidebar-title.text-big
-        | Front End Cookbook
+        | Frontend Cookbook
       button.button-comeback(data-ref="main-menu")
         i.fas.fa-long-arrow-alt-left all
 

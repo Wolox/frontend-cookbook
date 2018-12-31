@@ -33,9 +33,27 @@ body {
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  margin-left: $sidebar-width;
+  max-width: 100%;
   overflow: auto;
-  width: 100%;
+  width: 1000px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 14px;
+  padding: 14px;
+}
+
+@media screen and (min-width: 1600px) {
+  .content {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .content {
+    margin-left: 0;
+  }
 }
