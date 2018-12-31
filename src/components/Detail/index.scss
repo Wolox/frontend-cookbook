@@ -3,15 +3,16 @@
 
 #detail {
   background-color: $porcelain;
+  height: 100vh;
   padding: 0 14px;
   position: absolute;
   top: 0;
-  transform: translateX(100%);
+  transform: translateY(-150%);
   transition: transform $transition-duration $transition-function;
   z-index: 1;
 
   &.visible {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
