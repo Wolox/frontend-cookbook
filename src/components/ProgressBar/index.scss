@@ -1,53 +1,27 @@
-<template>
-  <div class="progress">
-    <div class="progress-container center-loading">
-      <div id="percent">30%</div>
-      <div class="progress-bar">
-      </div>
-    </div>
-    <div class="radial-progress">
-      <div id="percentCircle">30%</div>
-      <div class="circle">
-        <div class="mask">
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-<style lang="scss" scoped>
-:root {
-  --percentageBar: 90%;
-
-  --progressHeight: 30px;
-  --progressWidth: 400px;
-
-  --containerColor: #aed0da;
-  --colorBar: #2a93d5;
-
-  --percentageCircle: 200px;
-  --rotation: 360deg;
-
-  --size: 200px;
-}
-
-#buttonStart {
-  width: 20px;
-  height: 20px;
-  border: 1px solid red;
-}
+@import '../scss/variables/_sizes';
 
 .progress {
-  width: 100%;
-  height: 100vh;
-  padding: 20px;
+  --percentageBar: 30%;
+  
+  --progressHeight: 30px;
+  --progressWidth: 200px;
+  
+  --containerColor: #aed0da;
+  --colorBar: #2a93d5;
+  
+  --percentageCircle: 200px;
+  --rotation: 360deg;
+  
+  --size: 100px;
+}
 
-  display: flex;
+.item {
   align-items: center;
-  justify-content: space-between;
+  display: flex;
+  justify-content: center;
 }
 
 /* BAR */
-
 .progress-container {
   width: var(--progressWidth);
   background-color: var(--containerColor);
@@ -69,7 +43,6 @@
 }
 
 /* CIRCLE */
-
 .radial-progress {
   width: var(--size);
   height: var(--size);
@@ -90,23 +63,21 @@
   color: var(--colorBar);
   font-weight: 700;
   letter-spacing: 2px;
-  margin-left: 160px;
-  margin-top: 40px;
+  margin-left: 130px;
+  margin-top: 30px;
   z-index: 1;
-  font-size: 42px;
+  font-size: $text-big;
 }
 
 #percentCircle {
   position: absolute;
-  width: 100%;
   color: var(--colorBar);
   font-weight: 700;
   letter-spacing: 2px;
-  margin-left: 55px;
-  margin-top: 70px;
+  margin-left: 30px;
+  margin-top: 40px;
   z-index: 1;
-  font-size: 42px;
-
+  font-size: $text-big;
   mix-blend-mode: multiply;
 }
 
@@ -123,4 +94,3 @@
   transition: 2s transform ease;
   transform: rotate(var(--rotation));
 }
-</style>

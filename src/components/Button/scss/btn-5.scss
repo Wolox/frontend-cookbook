@@ -64,7 +64,6 @@
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: -1;
   transition: var(--btn-trn-duration);
   transform: translateX(calc(-100% + calc(var(--btn-border-radius) * 2)));
 }

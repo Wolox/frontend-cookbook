@@ -15,7 +15,6 @@ export default {
   },
   methods: {
     onShowDetail(value) {
-      console.log("entro", value);
       this.titleSelected = value;
       this.showDetail = true;
     },

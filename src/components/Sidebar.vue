@@ -27,7 +27,7 @@
           | Radio Buttons
         button.item(@click="change()")
           | Select
-        button.item(@click="change('spinner')")
+        button.item.active(@click="change('spinner')")
           | Spinner
         button.item(@click="change()")
           | Slider
@@ -197,6 +197,11 @@ export default {
 
   &:hover {
     color: $blue;
+  }
+
+  &.active {
+    color: $blue;
+    font-weight: bold;
   }
 }
 

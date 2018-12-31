@@ -1,86 +1,11 @@
-<template lang="pug">
-#checkbox
-  .container-options
-    .control-form
-      label(for='primaryRadioColor') Primary Color
-      input#primaryRadioColor.input-control(type='color' value='#636060')
-    .control-form
-      label(for='secondaryRadioColor') Secondary Color
-      input#secondaryRadioColor.input-control(type='color' value='#FFFFFF')
-    .control-form
-      label(for='activeRadioColor') Active Color
-      input#activeRadioColor.input-control(type='color' value='#00D478')
-    .control-form
-      label(for='radioBackgroundColor') Background Color
-      input#radioBackgroundColor.input-control(type='color' value='#333333')
-  .container-checkbox
-    .item-checkbox
-      .checkbox-1
-        input#checkbox-1.checkbox(type='checkbox' name='checkbox-1')
-        label(for='checkbox-1')
-    .item-checkbox
-      .checkbox-2
-        input#checkbox-2.checkbox(type='checkbox')
-        label(for='checkbox-2')
-          svg(width='18px' height='18px' viewbox='0 0 18 18')
-            path(d='M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z')
-            polyline(points='1 9 7 14 15 4')
-    .item-checkbox
-      .checkbox-3
-        input#checkbox-3.checkbox(type='checkbox')
-        label(data-off='OFF' data-on='ON' for='checkbox-3')
-    .item-checkbox
-      .checkbox-4
-        input#checkbox-4.checkbox(type='checkbox')
-        label(for='checkbox-4')
-    .item-checkbox
-      .checkbox-5
-        input#checkbox-5.checkbox(type='checkbox')
-        label(data-off='Nope' data-on='Yeah!' for='checkbox-5')
-    .item-checkbox
-      .checkbox-6
-        input#checkbox-6.checkbox(type='checkbox')
-        label(for='checkbox-6') Checkbox 6
-    .item-checkbox
-      .checkbox-7
-        input#checkbox-7.checkbox(type='checkbox')
-        label(for='checkbox-7') Checkbox 7
-    .item-checkbox
-      .checkbox-8
-        input#checkbox-8.checkbox(type='checkbox')
-        label(for='checkbox-8')
-</template>
-<script>
-import '../../scripts/checkbox.js'
+@import '../scss/variables/_colors';
+@import '../scss/variables/_sizes';
 
-export default {}
-</script>
-
-<style lang="scss" scoped>
-  @import '../scss/variables/_colors';
-$transition-duration: 330ms;
-$transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
-
-.container-checkbox {
-  --primary-color: #636060;
-  --secondary-color: #FFF;
-  --active-color: #00D478;
-  --background-color: #F1F1F1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.item-checkbox {
+.item {
   align-items: center;
-  background-color: var(--background-color);
-  border-radius: 5px;
   display: flex;
-  height: 220px;
   justify-content: center;
-  margin: 14px;
   position: relative;
-  width: 250px;
 }
 
 .checkbox {
@@ -89,42 +14,41 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 
 /* Checkbox 1 */
 .checkbox-1 {
-  height: 48px;
   position: relative;
   user-select: none;
 
   & > input + label::before {
-    background-color: var(--primary-color);
+    background-color: $gray;
     border-radius: 8px;
     content: '';
     cursor: pointer;
     height: 16px;
-    left: 12.8px;
+    left: -14px;
     position: absolute;
-    top: 32px;
+    top: 0;
     transition: background-color $transition-duration $transition-function;
     width: 40px;
   }
 
   & > input + label::after {
-    background-color: var(--secondary-color);
+    background-color: $porcelain;
     border-radius: 16px;
     content: '';
     cursor: pointer;
     height: 20.8px;
-    left: 8px;
+    left: -16px;
     position: absolute;
-    top: 28.8px;
+    top: -2px;
     transition: transform $transition-duration $transition-function;
     width: 20.8px;
   }
 
   & > input:checked + label::before {
-    background-color: var(--active-color);
+    background-color: $caribbean-green;
   }
 
   & > input:checked + label::after {
-    box-shadow: 0 0 8px var(--secondary-color);
+    box-shadow: 0 0 8px rgba($black, 0.4);
     transform: translateX(25.59px);
   }
 }
@@ -141,7 +65,7 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     width: 18px;
 
     &::before {
-      background-color: $black-semi-transparent;
+      background-color: rgba($black, 0.1);
       border-radius: 50%;
       content: '';
       height: 48px;
@@ -156,7 +80,7 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     svg {
       fill: none;
       position: relative;
-      stroke: var(--primary-color);
+      stroke: $gray;
       stroke-linecap: round;
       stroke-linejoin: round;
       stroke-width: 1.5;
@@ -181,14 +105,14 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
       }
 
       svg {
-        stroke: var(--active-color);
+        stroke: $caribbean-green;
       }
     }
   }
 
   & > input:checked + label {
     svg {
-      stroke: var(--active-color);
+      stroke: $caribbean-green;
 
       path {
         stroke-dashoffset: 60;
@@ -208,7 +132,7 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 /* Checkbox 3 */
 .checkbox-3 {
   label {
-    background-color: var(--primary-color);
+    background-color: $gray;
     cursor: pointer;
     height: 28px;
     overflow: hidden;
@@ -219,7 +143,7 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 
     &::after,
     &::before {
-      color: var(--secondary-color);
+      color: $porcelain;
       content: '';
       font-weight: bold;
       left: 0;
@@ -243,7 +167,7 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
   }
 
   input:checked + label {
-    background-color: var(--active-color);
+    background-color: $caribbean-green;
     &::before {
       transform: translateX(-60px);
     }
@@ -258,8 +182,8 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 /* Checkbox 4 */
 .checkbox-4 {
   label {
-    background-color: var(--secondary-color);
-    border: 3px solid var(--primary-color);
+    background-color: $porcelain;
+    border: 3px solid $gray;
     border-radius: 28px;
     cursor: pointer;
     height: 28px;
@@ -270,7 +194,7 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     width: 65px;
 
     &::after {
-      background-color: var(--primary-color);
+      background-color: $gray;
       border-radius: 14px;
       content: '';
       height: 80%;
@@ -283,9 +207,9 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
   }
 
   input:checked + label {
-    border-color: var(--active-color);
+    border-color: $caribbean-green;
     &::after {
-      background-color: var(--active-color);
+      background-color: $caribbean-green;
       transform: translateX(27px);
     }
   }
@@ -306,7 +230,7 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     &::before {
       backface-visibility: hidden;
       border-radius: 4px;
-      color: var(--secondary-color);
+      color: $porcelain;
       content: '';
       font-weight: bold;
       line-height: 28px;
@@ -317,13 +241,13 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     }
 
     &:after {
-      background-color: var(--active-color);
+      background-color: $caribbean-green;
       content: attr(data-on);
       transform: rotateY(-180deg);
     }
 
     &:before {
-      background-color: var(--primary-color);
+      background-color: $gray;
       content: attr(data-off);
     }
 
@@ -351,30 +275,34 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 /* Checkbox 6 */
 .checkbox-6 {
   label {
-    color: #BFBFBF;
+    color: $mine-shaft;
     cursor: pointer;
     padding-left: 28px;
     position: relative;
     transition: color 0.7s $transition-function;
 
     &::before {
-      background-color: var(--active-color);
-      border: 10px solid var(--secondary-color);
+      background-color: $caribbean-green;
+      border: 10px solid $porcelain;
       border-radius: 50%;
       box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2);
       box-sizing: border-box;
       content: '';
-      display: inline-block;
       height: 20px;
       left: 0;
       position: absolute;
+      top: -4px;
       transition: border 0.3s $transition-function;
       width: 20px;
+    }
+
+    &:hover {
+      color: $caribbean-green;
     }
   }
 
   input:checked + label {
-    color: var(--active-color);
+    color: $caribbean-green;
 
     &::before {
       border-width: 3px;
@@ -387,13 +315,16 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 .checkbox-7 {
   input + label {
     align-items: center;
-    border: 3px solid var(--primary-color);
+    border: 3px solid $gray;
     border-radius: 4px;
-    color: var(--primary-color);
+    color: $gray;
     cursor: pointer;
     display: flex;
     height: 30px;
+    left: 0;
+    margin: 0 auto;
     position: absolute;
+    right: 0;
     text-indent: 35px;
     transform: translate(-50%, -50%);
     transition: all $transition-duration $transition-function;
@@ -401,9 +332,13 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     white-space: nowrap;
     width: 30px;
 
+    &:hover {
+      color: $caribbean-green;
+    }
+
     &::after {
-      border-bottom: 3px solid var(--active-color);
-      border-left: 3px solid var(--active-color);
+      border-bottom: 3px solid $caribbean-green;
+      border-left: 3px solid $caribbean-green;
       content: '';
       height: 9px;
       left: 50%;
@@ -418,8 +353,8 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
   }
 
   input:checked + label {
-    border-color: var(--active-color);
-    color: var(--active-color);
+    border-color: $caribbean-green;
+    color: $caribbean-green;
 
     &:after {
       opacity: 1;
@@ -433,8 +368,8 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 .checkbox-8 {
   label {
     align-items: center;
-    background-color: var(--secondary-color);
-    border: 3px solid var(--primary-color);
+    background-color: $porcelain;
+    border: 3px solid $gray;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -445,7 +380,7 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     width: 42px;
 
     &::before {
-      color: var(--primary-color);
+      color: $gray;
       content: '✓';
       font-size: 18px;
       opacity: 0.2;
@@ -453,10 +388,10 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     }
 
     &:hover {
-      border-color: var(--active-color);
+      border-color: $caribbean-green;
 
       &::before {
-        color: var(--active-color);
+        color: $caribbean-green;
       }
     }
   }
@@ -466,7 +401,7 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 
     &::before {
       animation: chk-icon-8 0.3s cubic-bezier(1.000, 0.008, 0.565, 1.650) 0.1s 1 forwards;
-      color: var(--secondary-color);
+      color: $porcelain;
       opacity: 1;
       transform: scale(0);
     }
@@ -505,18 +440,17 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     width: 21px;
   }
   50% {
-    background-color: var(--active-color);
+    background-color: $caribbean-green;
     border-width: 0;
     height: 42px;
     opacity: 0.6;
     width: 42px;
   }
   100% {
-    background-color: var(--active-color);
+    background-color: $caribbean-green;
     border-width: 0;
     height: 42px;
     opacity: 1;
     width: 42px;
   }
 }
-</style>

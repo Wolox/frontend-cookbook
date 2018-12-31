@@ -2,13 +2,15 @@ import Vue from 'vue'
 
 import { installServiceWorker } from '../../serviceWorkerInstaller'
 
-const ButtonGroup = () => import(/* webpackChunkName: "example" */ '../../components/Button')
-const CheckboxGroup = () => import(/* webpackChunkName: "example" */ '../../components/Checkbox')
-const ProgressBar = () => import(/* webpackChunkName: "example" */ '../../components/ProgressBar')
-const RadioButtons = () => import(/* webpackChunkName: "example" */ '../../components/RadioButtons')
+const ButtonGroup = () => import(/* webpackChunkName: "example" */ '../../components/Button/index')
+const CheckboxGroup = () => import(/* webpackChunkName: "example" */ '../../components/Checkbox/index')
+const RadioButtons = () => import(/* webpackChunkName: "example" */ '../../components/RadioButtons/index')
 const Spinner = () => import(/* webpackChunkName: "example" */ '../../components/Spinner/index')
-const InputGroup = () => import(/* webpackChunkName: "example" */ '../../components/Input')
 const Sidebar = () => import(/* webpackChunkName: "example" */ '../../components/Sidebar')
+
+// TODO refactor this components
+const ProgressBar = () => import(/* webpackChunkName: "example" */ '../../components/ProgressBar/index')
+// const InputGroup = () => import(/* webpackChunkName: "example" */ '../../components/Input')
 
 import './index.pug'
 import './index.scss'
@@ -28,7 +30,6 @@ const vm = new Vue({
     CheckboxGroup,
     Sidebar,
     RadioButtons,
-    InputGroup,
     Sidebar,
     ProgressBar,
     ButtonGroup,

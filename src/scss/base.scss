@@ -5,16 +5,12 @@
 }
 
 .center {
-  background-color: $translucent-white;
+  background-color: rgba($white, 0.9);
   height: 100%;
   left: 20%;
   position: absolute;
   text-align: center;
   width: 60%;
-}
-
-h1 {
-  color: $wolox-green;
 }
 
 * {
@@ -39,6 +35,12 @@ body {
   width: 1000px;
 }
 
+.container-components {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .title {
   font-size: 32px;
   font-weight: 700;
@@ -55,5 +57,9 @@ body {
 @media screen and (max-width: 720px) {
   .content {
     margin-left: 0;
+  }
+
+  .title {
+    margin-left: 44px;
   }
 }

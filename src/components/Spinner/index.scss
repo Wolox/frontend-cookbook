@@ -1,11 +1,5 @@
 @import '../scss/variables/colors';
 
-.container-spinners {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .spinner-flex {
   align-items: center;
   display: flex;
@@ -399,8 +393,7 @@
 .spinner-9 {
   animation: spinner2 1.1s infinite linear;
   border: 10px solid;
-  border-color: $black-semi-transparent $mine-shaft $black-semi-transparent
-  $black-semi-transparent;
+  border-color: rgba($black, 0.15) $mine-shaft rgba($black, 0.15) rgba($black, 0.15);
 }
 // end spinner 9
 
