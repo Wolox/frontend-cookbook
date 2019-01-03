@@ -4,13 +4,13 @@
 @import './scss/btn-4';
 @import './scss/btn-5';
 
-button.btn,
-button.btn:active,
-button.btn:focus {
+.btn,
+.btn:active,
+.btn:focus {
   outline: none;
 }
 
-button.btn:disabled {
+.btn:disabled {
   cursor: not-allowed;
 }
 

@@ -1,18 +1,14 @@
 @import '../scss/variables/_sizes';
 
 .progress {
-  --percentageBar: 30%;
-  
-  --progressHeight: 30px;
-  --progressWidth: 200px;
-  
-  --containerColor: #aed0da;
-  --colorBar: #2a93d5;
-  
-  --percentageCircle: 200px;
-  --rotation: 360deg;
-  
-  --size: 100px;
+  #{--percentageBar}: 30%;
+  #{--progressHeight}: 30px;
+  #{--progressWidth}: 200px;
+  #{--containerColor}: #aed0da;
+  #{--colorBar}: #2a93d5;
+  #{--percentageCircle}: 200px;
+  #{--rotation}: 360deg;
+  #{--size}: 100px;
 }
 
 .item {
