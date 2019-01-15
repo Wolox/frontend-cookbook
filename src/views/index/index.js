@@ -6,7 +6,7 @@ const ButtonGroup = () => import(/* webpackChunkName: "example" */ '../../compon
 const CheckboxGroup = () => import(/* webpackChunkName: "example" */ '../../components/Checkbox')
 const ProgressBar = () => import(/* webpackChunkName: "example" */ '../../components/ProgressBar')
 const RadioButtons = () => import(/* webpackChunkName: "example" */ '../../components/RadioButtons')
-const Spinner = () => import(/* webpackChunkName: "example" */ '../../components/Spinner/index')
+const Spinner = () => import(/* webpackChunkName: "example" */ '../../components/Spinner')
 const InputGroup = () => import(/* webpackChunkName: "example" */ '../../components/Input')
 const Sidebar = () => import(/* webpackChunkName: "example" */ '../../components/Sidebar')
 

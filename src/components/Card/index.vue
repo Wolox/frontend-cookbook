@@ -1,5 +1,5 @@
 <template lang="pug">
-  .card(@click='onClick(title)')
+  .card(@click='handleClick(title)')
     h4.card-title {{title}}
     slot
 </template>
@@ -9,7 +9,7 @@ export default {
   name: "card",
   props: {
     title: String,
-    onClick: Function
+    handleClick: Function
   }
 };
 </script>

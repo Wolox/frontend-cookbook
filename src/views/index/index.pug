@@ -16,5 +16,6 @@ html
     #app.container(v-cloak)
       sidebar(:change="changeView")
       .content
-        component(:is='currentComponent')
+        .inner-content
+          component(:is='currentComponent')
     script(src='./index.js')
