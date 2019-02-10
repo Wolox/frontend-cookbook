@@ -1,11 +1,13 @@
 <template lang="pug">
 #spinner
   detail(title=titleSelected is-visible=showDetail @click='onCloseDetail()')
-  h2.title Spinner
+  h2.title
+    | Spinner
   .container-spinners
-    card(title='Waves' :handle-click='onShowDetail')
+    card(title='Waves' @click='onShowDetail')
       .spinner-1
-        h4.spinner-1-text Loading...
+        h4.spinner-1-text
+          | Loading...
     card.spinner-flex(title='Circle' @click='onShowDetail')
       .spinner-2
     card.spinner-flex.spinner-3(title='Dots' @click='onShowDetail')
@@ -62,12 +64,12 @@
 </template>
 
 <script>
-const Card = () => import("../Card/index");
-const Detail = () => import("../Detail/index");
+const Card = () => import('./Card')
+const Detail = () => import('./Detail')
 
 export default {
   data: () => ({
-    titleSelected: "",
+    titleSelected: '',
     showDetail: false
   }),
   components: {
@@ -76,11 +78,11 @@ export default {
   },
   methods: {
     onShowDetail(value) {
-      this.titleSelected = value;
-      this.showDetail = true;
+      this.titleSelected = value
+      this.showDetail = true
     },
     onCloseDetail() {
-      this.showDetail = false;
+      this.showDetail = false
     }
   }
 };

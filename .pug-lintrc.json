@@ -4,7 +4,7 @@
   "disallowAttributeTemplateString": "all",
   "disallowBlockExpansion": true,
   "disallowClassAttributeWithStaticValue": true,
-  "disallowClassLiteralsBeforeAttributes": null,
+  "disallowClassLiteralsBeforeAttributes": true,
   "disallowClassLiteralsBeforeIdLiterals": true,
   "disallowClassLiterals": null,
   "disallowDuplicateAttributes": true,

@@ -14,8 +14,9 @@ html
     script(src='../scripts/progress.js')
   body
     #app.container(v-cloak)
-      sidebar(:change="changeView")
-      .content
-        .inner-content
-          component(:is='currentComponent')
+      sidebar(@list='changeCurrentList')
+      .feed-content
+        h2.title
+          | {{ currentList }}
+        card-list(to-show='spinners')
     script(src='./index.js')

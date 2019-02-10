@@ -13,14 +13,6 @@
   width: 60%;
 }
 
-h1 {
-  color: $wolox-green;
-}
-
-* {
-  font-family: 'Montserrat', sans-serif;
-}
-
 body {
   background-color: $porcelain;
 }
@@ -30,12 +22,6 @@ body {
   height: 100vh;
   overflow: hidden;
   width: 100vw;
-}
-
-.content {
-  margin-left: $sidebar-width;
-  overflow: auto;
-  width: 100%;
 }
 
 .inner-content {

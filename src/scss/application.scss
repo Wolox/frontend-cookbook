@@ -1,6 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900');
-@import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
-
 @import '~wolox-equalizer/equalizer';
+
+@import url('https://fonts.googleapis.com/css?family=Barlow:400,700');
+
+// @import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+
 @import 'variables/colors';
+
+@import './commons/margins';
+@import './commons/display';
+
 @import 'base';
+
+* {
+  font-family: 'Barlow', sans-serif;
+}

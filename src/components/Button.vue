@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang="pug" functional>
   .buttons
     .btn-group.btn-group-1
       button.btn.btn-1(disabled='')
@@ -36,9 +36,6 @@
         .btn__content
           | submit
 </template>
-<script>
-export default {}
-</script>
 
 <style lang="scss" scoped>
   @import 'Button/btn-1';

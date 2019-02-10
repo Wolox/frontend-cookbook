@@ -10,6 +10,8 @@ const Spinner = () => import(/* webpackChunkName: "example" */ '../../components
 const InputGroup = () => import(/* webpackChunkName: "example" */ '../../components/Input')
 const Sidebar = () => import(/* webpackChunkName: "example" */ '../../components/Sidebar')
 
+import CardList from '../../components/CardList'
+
 import './index.pug'
 import './index.scss'
 
@@ -17,16 +19,16 @@ const vm = new Vue({
   el: '#app',
   data: {
     title: 'Frontend Cookbook',
-    currentComponent: 'spinner'
+    currentList: 'spinners'
   },
   methods: {
-    changeView(value) {
-      this.currentComponent = value
+    changeCurrentList(newList) {
+      this.currentList = newList
     }
   },
   components: {
+    CardList,
     CheckboxGroup,
-    Sidebar,
     RadioButtons,
     InputGroup,
     Sidebar,

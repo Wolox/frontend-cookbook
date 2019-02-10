@@ -1,6 +1,6 @@
 config:
   dockerfile: .woloxci/Dockerfile
-  project_name: frontend-bootstrap
+  project_name: frontend-cookbook
 
 steps:
   copy_node_modules:

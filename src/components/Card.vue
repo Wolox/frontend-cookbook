@@ -1,22 +1,21 @@
 <template lang="pug">
-  .card(@click='handleClick(title)')
-    h4.card-title {{title}}
-    slot
+  .card
+    h4.card-title
+      | {{ component.title }}
+    div(v-html='component.html')
 </template>
 
 <script>
 export default {
-  name: "card",
   props: {
-    title: String,
-    handleClick: Function
+    component: { type: Object, required: true }
   }
-};
+}
 </script>
 
 <style lang="scss">
-@import '../../scss/variables/_colors';
-@import '../../scss/variables/_sizes';
+@import 'src/scss/variables/colors';
+@import 'src/scss/variables/sizes';
 
 .card {
   background-color: $white;
