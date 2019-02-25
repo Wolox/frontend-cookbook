@@ -13,10 +13,6 @@
   width: 60%;
 }
 
-body {
-  background-color: $porcelain;
-}
-
 .container {
   display: flex;
   height: 100vh;
@@ -35,6 +31,8 @@ body {
   font-weight: 700;
   margin-top: 14px;
   padding: 14px;
+  text-transform: uppercase;
+  color: $grey-3;
 }
 
 @media screen and (max-width: 720px) {

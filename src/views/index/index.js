@@ -2,13 +2,13 @@ import Vue from 'vue'
 
 import { installServiceWorker } from '../../serviceWorkerInstaller'
 
-const ButtonGroup = () => import(/* webpackChunkName: "example" */ '../../components/Button')
-const CheckboxGroup = () => import(/* webpackChunkName: "example" */ '../../components/Checkbox')
-const ProgressBar = () => import(/* webpackChunkName: "example" */ '../../components/ProgressBar')
-const RadioButtons = () => import(/* webpackChunkName: "example" */ '../../components/RadioButtons')
-const Spinner = () => import(/* webpackChunkName: "example" */ '../../components/Spinner')
-const InputGroup = () => import(/* webpackChunkName: "example" */ '../../components/Input')
-const Sidebar = () => import(/* webpackChunkName: "example" */ '../../components/Sidebar')
+const ButtonGroup = () => import(/* webpackChunkName: "Button" */ '../../components/Button')
+const CheckboxGroup = () => import(/* webpackChunkName: "Checkbox" */ '../../components/Checkbox')
+const ProgressBar = () => import(/* webpackChunkName: "ProgressBar" */ '../../components/ProgressBar')
+const RadioButtons = () => import(/* webpackChunkName: "RadioButton" */ '../../components/RadioButtons')
+const Spinner = () => import(/* webpackChunkName: "Spinner" */ '../../components/Spinner')
+const InputGroup = () => import(/* webpackChunkName: "Input" */ '../../components/Input')
+const Sidebar = () => import(/* webpackChunkName: "Sidebar" */ '../../components/Sidebar')
 
 import CardList from '../../components/CardList'
 

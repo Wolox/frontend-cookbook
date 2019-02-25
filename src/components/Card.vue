@@ -1,5 +1,5 @@
 <template lang="pug">
-  .card
+  .card(:style='cardColor')
     h4.card-title
       | {{ component.title }}
     div(v-html='component.html')
@@ -8,7 +8,14 @@
 <script>
 export default {
   props: {
-    component: { type: Object, required: true }
+    component: { type: Object, required: true },
+    number: { type: Number, required: true }
+  },
+  computed: {
+    cardColor(number) {
+      const colors = ['#D25401', '#2A3E50', '#17BC9B', '#2880B9', '#FECB65', '#AA48EE', '#FF7293', '#CDD2D2'];
+      return { '--card-color': colors[Math.floor(this.$props.number % colors.length)] }
+    }
   }
 }
 </script>
@@ -18,7 +25,7 @@ export default {
 @import 'src/scss/variables/sizes';
 
 .card {
-  background-color: $white;
+  background-color: var(--card-color);
   border-radius: 5px;
   box-shadow: 0 0 0 rgba($black, 0), 0 0 0 1px rgba($black, 0.1);
   cursor: pointer;
@@ -29,6 +36,9 @@ export default {
   position: relative;
   transition: box-shadow $transition-duration $transition-function;
   width: $card-width;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     box-shadow: 0 6px 10px rgba($black, 0.2);
