@@ -1,16 +1,10 @@
 import Vue from 'vue'
 
-import { installServiceWorker } from '../../serviceWorkerInstaller'
+import Feed from '../../components/Feed'
+import Sidebar from '../../components/Sidebar'
 
-const ButtonGroup = () => import(/* webpackChunkName: "Button" */ '../../components/Button')
-const CheckboxGroup = () => import(/* webpackChunkName: "Checkbox" */ '../../components/Checkbox')
-const ProgressBar = () => import(/* webpackChunkName: "ProgressBar" */ '../../components/ProgressBar')
-const RadioButtons = () => import(/* webpackChunkName: "RadioButton" */ '../../components/RadioButtons')
-const Spinner = () => import(/* webpackChunkName: "Spinner" */ '../../components/Spinner')
-const InputGroup = () => import(/* webpackChunkName: "Input" */ '../../components/Input')
-const Sidebar = () => import(/* webpackChunkName: "Sidebar" */ '../../components/Sidebar')
-
-import CardList from '../../components/CardList'
+import spinners from '../../resources/spinners'
+import input from '../../resources/input'
 
 import './index.pug'
 import './index.scss'
@@ -19,23 +13,15 @@ const vm = new Vue({
   el: '#app',
   data: {
     title: 'Frontend Cookbook',
-    currentList: 'spinners'
+    componentsHTML: { spinners: spinners, input: input },
+    currentList: 'spinners',
+    componentsList: spinners
   },
   methods: {
     changeCurrentList(newList) {
       this.currentList = newList
+      this.componentsList = this.componentsHTML[newList]
     }
   },
-  components: {
-    CardList,
-    CheckboxGroup,
-    RadioButtons,
-    InputGroup,
-    Sidebar,
-    ProgressBar,
-    ButtonGroup,
-    Spinner
-  }
+  components: { Feed, Sidebar }
 })
-
-if (process.env.NODE_ENV === 'production') installServiceWorker()

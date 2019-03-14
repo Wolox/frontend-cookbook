@@ -11,7 +11,7 @@ $('.input-wrapper .input-base')
   }
 });
 
-var textInput = $('.input4')[0];
+var textInput = $('.-input4')[0];
 var inputWrap = textInput.parentElement;
 var inputWidth = parseInt(getComputedStyle(inputWrap).width);
 var svgText = Snap('.line');

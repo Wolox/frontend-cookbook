@@ -12,9 +12,9 @@ export default {
     number: { type: Number, required: true }
   },
   computed: {
-    cardColor(number) {
-      const colors = ['#D25401', '#2A3E50', '#17BC9B', '#2880B9', '#FECB65', '#AA48EE', '#FF7293', '#CDD2D2'];
-      return { '--card-color': colors[Math.floor(this.$props.number % colors.length)] }
+    cardColor() {
+      const colors = ['#D25401', '#2A3E50', '#17BC9B', '#2880B9', '#FECB65', '#AA48EE', '#FF7293', '#CDD2D2']
+      return { '--card-color': colors[Math.floor(this.number % colors.length)] }
     }
   }
 }
@@ -25,20 +25,20 @@ export default {
 @import 'src/scss/variables/sizes';
 
 .card {
+  align-items: center;
   background-color: var(--card-color);
   border-radius: 5px;
   box-shadow: 0 0 0 rgba($black, 0), 0 0 0 1px rgba($black, 0.1);
   cursor: pointer;
+  display: flex;
   height: $card-height;
-  margin: 14px;
-  max-width: 100%;
+  justify-content: center;
+  margin: 0 20px 20px 0;
+  max-width: $card-width;
   overflow: hidden;
   position: relative;
   transition: box-shadow $transition-duration $transition-function;
-  width: $card-width;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
 
   &:hover {
     box-shadow: 0 6px 10px rgba($black, 0.2);
@@ -63,5 +63,4 @@ export default {
   transition: transform $transition-duration $transition-function;
   width: 100%;
 }
-
 </style>

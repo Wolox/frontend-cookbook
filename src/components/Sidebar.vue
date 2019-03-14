@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { componentsList } from "../resources/constant";
+import { componentsList } from '../resources/constant';
 
 export default {
   data() {
@@ -27,23 +27,26 @@ export default {
   },
   methods: {
     showNewList(list) {
-      this.$emit("list", list.component);
+      this.$emit('list', list.component);
     }
   }
 };
 </script>
 
-
 <style lang="scss" scoped>
 @import "../scss/variables/colors";
+
 .sidebar-container {
+  background: $sidebar-blue;
   display: flex;
   flex-direction: column;
+  height: 100vh;
   justify-content: space-between;
   max-width: 300px;
   padding: 90px 20px 10px;
+  position: sticky;
+  top: 0;
   width: 100%;
-  background: $sidebar-blue;
 }
 
 .sidebar-header {

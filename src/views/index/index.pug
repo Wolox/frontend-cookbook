@@ -10,13 +10,8 @@ html
     link(rel='icon' type='image/png' href='/assets/favicon.ico')
     link(rel='stylesheet' href='styles.index.css')
     script(src='./vendor.js')
-    link(rel='stylesheet', type='text/css', href='build/application.css')
-    script(src='../scripts/progress.js')
   body
     #app.container(v-cloak)
       sidebar(@list='changeCurrentList')
-      .feed-content
-        h2.title
-          | {{ currentList }}
-        card-list(to-show='spinners')
+      feed(:title='currentList' :components-to-show='componentsList')
     script(src='./index.js')

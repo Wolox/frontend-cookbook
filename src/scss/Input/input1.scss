@@ -1,8 +1,9 @@
-$input-background: #FAFAFA;
-$input-border: #CCC;
-$input-color: #A475E4;
-$input-placeholder-active: #BBB;
-
+#input-1 {
+  $input-background: #FAFAFA;
+  $input-border: #CCC;
+  $input-color: #A475E4;
+  $input-placeholder-active: #BBB;
+}
 // Input 1
 .input-wrapper {
   height: 40px;

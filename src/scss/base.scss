@@ -1,9 +1,5 @@
 @import 'variables/sizes';
 
-[v-cloak] {
-  display: none;
-}
-
 .center {
   background-color: $translucent-white;
   height: 100%;
@@ -15,9 +11,6 @@
 
 .container {
   display: flex;
-  height: 100vh;
-  overflow: hidden;
-  width: 100vw;
 }
 
 .inner-content {
@@ -29,8 +22,6 @@
 .title {
   font-size: 32px;
   font-weight: 700;
-  margin-top: 14px;
-  padding: 14px;
   text-transform: uppercase;
   color: $grey-3;
 }

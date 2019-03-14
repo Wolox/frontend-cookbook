@@ -94,24 +94,21 @@ export default [
   },
   {
     title: 'Rings inside',
-    html: `
-    <div class="spinner-13">
-    </div>
-    `
+    html: `<div class="spinner-13"></div>`
   },
   {
     title: 'Complete square 2',
     html: `
     <div class="spinner-14">
-    <div class="spinner-14-item"></div>
-    <div class="spinner-14-item"></div>
-    <div class="spinner-14-item"></div>
-    <div class="spinner-14-item"></div>
-    <div class="spinner-14-item"></div>
-    <div class="spinner-14-item"></div>
-    <div class="spinner-14-item"></div>
-    <div class="spinner-14-item"></div>
-    <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
+      <div class="spinner-14-item"></div>
     </div>
     `
   },

@@ -9,7 +9,7 @@ export const componentsList = [
   },
   {
     title: 'Inputs',
-    component: 'InputGroup'
+    component: 'input'
   },
   {
     title: 'Progress Bars',
@@ -21,6 +21,6 @@ export const componentsList = [
   },
   {
     title: 'Spinner',
-    component: 'Spinner'
+    component: 'spinners'
   }
 ]
