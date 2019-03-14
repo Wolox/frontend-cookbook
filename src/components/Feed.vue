@@ -28,6 +28,13 @@ export default {
 @import 'src/scss/components/spinners';
 @import 'src/scss/components/input';
 
+.feed-content {
+  width: 100%;
+  margin: 60px auto;
+  max-width: 1080px;
+  width: 100%;
+}
+
 .components-feed {
   display: flex;
   flex-wrap: wrap;
