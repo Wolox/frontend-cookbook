@@ -5,6 +5,7 @@ import Sidebar from '../../components/Sidebar'
 
 import spinners from '../../resources/spinners'
 import input from '../../resources/input'
+import checkboxes from '../../resources/checkboxes'
 
 import './index.pug'
 import './index.scss'
@@ -13,7 +14,7 @@ const vm = new Vue({
   el: '#app',
   data: {
     title: 'Frontend Cookbook',
-    componentsHTML: { spinners: spinners, input: input },
+    componentsHTML: { spinners, input, checkboxes },
     currentList: 'spinners',
     componentsList: spinners
   },

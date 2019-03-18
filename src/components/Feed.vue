@@ -27,6 +27,7 @@ export default {
 @import 'src/scss/variables/colors';
 @import 'src/scss/components/spinners';
 @import 'src/scss/components/input';
+@import 'src/scss/components/checkboxes';
 
 .feed-content {
   width: 100%;

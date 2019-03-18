@@ -1,7 +1,7 @@
 export const componentsList = [
   {
     title: 'Checkboxes',
-    component: 'CheckboxGroup'
+    component: 'checkboxes'
   },
   {
     title: 'Radio Buttons',
