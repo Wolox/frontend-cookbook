@@ -3,12 +3,7 @@
     h2.title.m-bottom-4
       | {{ title }}
     .components-feed
-      card(
-        v-for='(comp, index) in componentsToShow'
-        :component='comp'
-        :number='index'
-        :key='index'
-      )
+      card(v-for='(comp, index) in componentsToShow' :component='comp' :number='index' :key='comp.title')
 </template>
 
 <script>
@@ -24,10 +19,20 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'src/scss/variables/colors';
-@import 'src/scss/components/spinners';
-@import 'src/scss/components/input';
-@import 'src/scss/components/checkboxes';
+@import 'variables/colors';
+
+// TODO: refine the code in the components
+@import 'components/spinners';
+@import 'components/input';
+@import 'components/checkboxes';
+@import 'components/progressBars';
+@import 'components/radioButtons';
+@import 'components/buttons/buttons';
+@import 'components/buttons/btn-1';
+@import 'components/buttons/btn-2';
+@import 'components/buttons/btn-3';
+@import 'components/buttons/btn-4';
+@import 'components/buttons/btn-5';
 
 .feed-content {
   width: 100%;

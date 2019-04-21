@@ -1,3 +1,5 @@
+// TODO: remove the components to another more escalable way to import
+
 export const componentsList = [
   {
     title: 'Checkboxes',
@@ -5,7 +7,7 @@ export const componentsList = [
   },
   {
     title: 'Radio Buttons',
-    component: 'RadioButtons'
+    component: 'radioButtons'
   },
   {
     title: 'Inputs',
@@ -13,11 +15,11 @@ export const componentsList = [
   },
   {
     title: 'Progress Bars',
-    component: 'ProgressBar'
+    component: 'progressBars'
   },
   {
     title: 'Buttons',
-    component: 'ButtonGroup'
+    component: 'buttons'
   },
   {
     title: 'Spinner',

@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import 'src/scss/variables/colors';
 @import 'src/scss/variables/sizes';
 
@@ -29,7 +29,6 @@ export default {
   background-color: var(--card-color);
   border-radius: 5px;
   box-shadow: 0 0 0 rgba($black, 0), 0 0 0 1px rgba($black, 0.1);
-  cursor: pointer;
   display: flex;
   height: $card-height;
   justify-content: center;

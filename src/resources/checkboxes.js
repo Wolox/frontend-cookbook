@@ -3,7 +3,7 @@ export default [
     title: 'Checkbox 1',
     html: `
     <div class="item-checkbox">
-      <div class="checkbox-1>
+      <div class="checkbox-1">
         <input id="checkbox-1" class="checkbox" type="checkbox" name="checkbox-1" />
         <label for="checkbox-1"></label>
       </div>
@@ -30,7 +30,7 @@ export default [
     title: 'Checkbox 3',
     html: `
     <div class="item-checkbox">
-      <div class="checkbox-3>
+      <div class="checkbox-3">
         <input id="checkbox-3" class="checkbox" type="checkbox" />
         <label data-off="OFF" data-on="ON" for="checkbox-3"></label>
       </div>
@@ -41,7 +41,7 @@ export default [
     title: 'Checkbox 4',
     html: `
     <div class="item-checkbox">
-      <div class="checkbox-4>
+      <div class="checkbox-4">
         <input id="checkbox-4" class="checkbox" type="checkbox"/>
         <label for="checkbox-4"></label>
       </div>
@@ -52,9 +52,9 @@ export default [
     title: 'Checkbox 5',
     html: `
     <div class="item-checkbox">
-      <div class="checkbox-5>
+      <div class="checkbox-5">
         <input id="checkbox-5" class="checkbox" type="checkbox"/>
-        <label data-off="Nope" data-on="Yeah!" for="checkbox-1"></label>
+        <label data-off="Nope" data-on="Yeah!" for="checkbox-5"></label>
       </div>
     </div>
     `
@@ -63,7 +63,7 @@ export default [
     title: 'Checkbox 6',
     html: `
     <div class="item-checkbox">
-      <div class="checkbox-6>
+      <div class="checkbox-6">
         <input id="checkbox-6" class="checkbox" type="checkbox" />
         <label for="checkbox-6">Checkbox 6</label>
       </div>
@@ -71,10 +71,10 @@ export default [
     `
   },
   {
-    title: '',
+    title: 'Checkbox 7',
     html: `
     <div class="item-checkbox">
-      <div class="checkbox-7>
+      <div class="checkbox-7">
         <input id="checkbox-7" class="checkbox" type="checkbox" />
         <label for="checkbox-7">Checkbox 7</label>
       </div>
@@ -82,10 +82,10 @@ export default [
     `
   },
   {
-    title: '',
+    title: 'Checkbox 8',
     html: `
     <div class="item-checkbox">
-      <div class="checkbox-8>
+      <div class="checkbox-8">
         <input id="checkbox-8" class="checkbox" type="checkbox" />
         <label for="checkbox-8"></label>
       </div>
