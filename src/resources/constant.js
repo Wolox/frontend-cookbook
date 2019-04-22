@@ -23,6 +23,7 @@ export const componentsList = [
   },
   {
     title: 'Spinner',
-    component: 'spinners'
+    component: 'spinners',
+    isSelected: true // TODO delete this because is only for testing
   }
 ]

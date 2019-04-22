@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Card from './Card'
+import Card from "./Card";
 
 export default {
   props: {
@@ -15,7 +15,7 @@ export default {
     componentsToShow: { type: Array, required: true }
   },
   components: { Card }
-}
+};
 </script>
 
 <style lang="scss">
@@ -35,9 +35,9 @@ export default {
 @import 'components/buttons/btn-5';
 
 .feed-content {
-  width: 100%;
-  margin: 60px auto;
+  margin: 0 auto;
   max-width: 1080px;
+  padding: 80px 20px 20px 80px;
   width: 100%;
 }
 
@@ -45,4 +45,5 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
+
 </style>
