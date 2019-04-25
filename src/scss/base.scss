@@ -1,12 +1,7 @@
 @import 'variables/sizes';
 
-.center {
-  background-color: $translucent-white;
-  height: 100%;
-  left: 20%;
-  position: absolute;
-  text-align: center;
-  width: 60%;
+.full-width {
+  width: 100%;
 }
 
 .container {
@@ -20,10 +15,10 @@
 }
 
 .title {
+  color: $grey-3;
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
-  color: $grey-3;
 }
 
 @media screen and (max-width: 720px) {

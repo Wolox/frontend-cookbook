@@ -1,8 +1,8 @@
 <template lang="pug">
-  .feed-content
+  .feed-content.full-width
     h2.title.m-bottom-4
       | {{ title }}
-    .components-feed
+    .row.wrap
       card(v-for='(comp, index) in componentsToShow' :component='comp' :number='index' :key='comp.title')
 </template>
 
@@ -38,12 +38,6 @@ export default {
   margin: 0 auto;
   max-width: 1080px;
   padding: 80px 20px 20px 80px;
-  width: 100%;
-}
-
-.components-feed {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 </style>

@@ -1,12 +1,12 @@
 <template lang="pug">
-  .sidebar-container
+  .column.sidebar-container.space-between.full-width
     .sidebar-upper-section
-      .sidebar-header
+      .column.sidebar-header
         h2.sidebar-title.sidebar-title-wolox
           | wolox
         h3.sidebar-title
           | Front End Cookbook
-      .content-links
+      .column.content-links.start
         button.simple-link.m-bottom-2(
           v-for='(list, index) in componentsList'
           :key='index'
@@ -15,11 +15,10 @@
           @click='showNewList(list)'
         )
           | {{ list.title }}
-    div.sidebar-footer
-      span.m-left-2
+    div.column.center.sidebar-footer-text
       | </> with ♥ by Wolox Front-End Army
-      button.sidebar-footer-set-style.m-top-1
-        i.fas.fa-palette.icon-palette
+      button.sidebar-footer-set-style.m-top-1.row.middle.center.full-width
+        i.fas.fa-palette.m-right-1
         | set style
 </template>
 
@@ -46,27 +45,18 @@ export default {
 
 .sidebar-container {
   background-color: $sidebar-blue;
-  display: flex;
-  flex-direction: column;
   height: 100vh;
-  justify-content: space-between;
   max-width: 300px;
   position: sticky;
   top: 0;
-  width: 100%;
 }
 
 .sidebar-header {
-  display: flex;
-  flex-direction: column;
   padding: 90px 20px 0 30px;
 }
 
 .content-links {
-  align-items: flex-start;
   color: $white;
-  display: flex;
-  flex-direction: column;
   padding: 0 20px 0 30px;
 }
 
@@ -105,7 +95,7 @@ export default {
   }
 }
 
-.sidebar-footer {
+.sidebar-footer-text {
   color: $white;
   font-size: 14px;
 }
@@ -130,28 +120,20 @@ export default {
 }
 
 .sidebar-footer-set-style {
-  align-items: center;
   background-color: $science-blue;
   color: $white;
   cursor: pointer;
-  display: flex;
   font-size: 18px;
   font-weight: bold;
   height: 51px;
-  justify-content: center;
   letter-spacing: 0.24px;
   text-transform: uppercase;
   transition: all $transition-duration $transition-function;
-  width: 100%;
 
   &:hover {
     background-color: $white;
     color: $science-blue;
   }
-}
-
-.icon-palette {
-  margin-right: 10px;
 }
 
 </style>
