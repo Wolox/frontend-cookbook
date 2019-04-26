@@ -27,3 +27,16 @@ export const componentsList = [
     isSelected: true // TODO delete this because is only for testing
   }
 ]
+
+export const mainRadioButtons = [
+  {
+    text: 'Fecha de subida',
+    id: 'radioDateUpload',
+    name: 'mainRadioButtons'
+  },
+  {
+    text: 'Populares',
+    id: 'radioPopular',
+    name: 'mainRadioButtons'
+  }
+]
