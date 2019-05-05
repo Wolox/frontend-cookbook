@@ -2,8 +2,8 @@ export default [
   {
     title: 'Radio 1',
     html: `
-    <div class="radio-button">
-      <label class="circle-progress-radio">
+    <div>
+      <label class="circle-progress-radio m-right-2">
         <input type='radio' name='radio-grp' />
         <svg width='20px' height='20px' viewbox='0 0 20 20'>
           <circle cx='10' cy='10' r='9' />
@@ -20,39 +20,39 @@ export default [
         </svg>
       </label>
     </div>
-    `
+    `,
+    author: 'RickyFortNoSeMurio'
   },
   {
     title: 'Radio 2',
     html: `
-    <div class="radio-button">
-      <div class="custom-radios">
-        <input id="color-1" type='radio' name='color' value='color-1' checked='' />
-        <label for='color-1'>
-          <span>
-            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg' alt='Checked Icon' />
-          </span>
-        </label>
-        <input id="color-2" type='radio' name='color' value='color-2') />
-        <label for='color-2'>
-          <span>
-            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg' alt='Checked Icon' />
-          </span>
-        </label>
-        <input id="color-3" type='radio' name='color' value='color-3' />
-        <label for='color-3'>
-          <span>
-            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg' alt='Checked Icon' />
-          </span>
-        </label>
-        <input id="color-4" type='radio' name='color' value='color-4' />
-        <label for='color-4'>
-          <span>
-            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg' alt='Checked Icon' />
-          </span>
-        </label>
-      </div>
+    <div class="custom-radios">
+      <input id="color-1" type='radio' name='color' value='color-1' checked='' />
+      <label for='color-1'>
+        <span>
+          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg' alt='Checked Icon' />
+        </span>
+      </label>
+      <input id="color-2" type='radio' name='color' value='color-2') />
+      <label for='color-2'>
+        <span>
+          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg' alt='Checked Icon' />
+        </span>
+      </label>
+      <input id="color-3" type='radio' name='color' value='color-3' />
+      <label for='color-3'>
+        <span>
+          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg' alt='Checked Icon' />
+        </span>
+      </label>
+      <input id="color-4" type='radio' name='color' value='color-4' />
+      <label for='color-4'>
+        <span>
+          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg' alt='Checked Icon' />
+        </span>
+      </label>
     </div>
-    `
+    `,
+    author: 'RickyFortNoSeMurio'
   }
 ]

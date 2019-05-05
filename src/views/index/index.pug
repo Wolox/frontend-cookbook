@@ -13,5 +13,5 @@ html
   body
     #app.container(v-cloak)
       sidebar(@list='changeCurrentList')
-      feed(:title='currentList' :components-to-show='componentsList')
+      feed(:title='componentTitle' :components-to-show='componentsList')
     script(src='./index.js')
