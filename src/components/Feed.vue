@@ -3,16 +3,16 @@
     .row.space-between.middle.m-bottom-4
       h2.title
         | {{ title }}
-      radioButton(:elements='mainRadioButtons')
+      radio-button(:elements='mainRadioButtons')
     .card-container
       card(v-for='(comp, index) in componentsToShow' :component='comp' :number='index' :key='comp.title')
 </template>
 
 <script>
-import Card from "./Card";
-import RadioButton from "./RadioButton";
+import Card from './Card'
+import RadioButton from './RadioButton'
 
-import { mainRadioButtons } from "../resources/constant";
+import { mainRadioButtons } from '../resources/constant'
 
 export default {
   data() {

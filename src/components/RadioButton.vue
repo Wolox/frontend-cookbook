@@ -1,8 +1,9 @@
 <template lang="pug">
   .container
-    div(v-for='(list, index) in elements')
+    div(v-for='(list) in elements' :key='list.id')
       input(:id='list.id' type="radio" :name='list.name')
-      label(:for='list.id') {{ list.text }}
+      label(:for='list.id')
+        | {{ list.text }}
 </template>
 
 <script>
