@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Card from "./Card";
+import Card from './Card';
 
 export default {
   props: {
@@ -15,11 +15,11 @@ export default {
     componentsToShow: { type: Array, required: true }
   },
   components: { Card }
-};
+}
 </script>
 
 <style lang="scss">
-@import 'variables/colors';
+@import "variables/colors";
 
 // TODO: refine the code in the components
 @import 'components/spinners';
@@ -39,5 +39,4 @@ export default {
   max-width: 1080px;
   padding: 80px 20px 20px 80px;
 }
-
 </style>
