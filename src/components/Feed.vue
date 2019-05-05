@@ -25,7 +25,7 @@ export default {
     componentsToShow: { type: Array, required: true }
   },
   components: { Card, RadioButton }
-};
+}
 </script>
 
 <style lang="scss">
