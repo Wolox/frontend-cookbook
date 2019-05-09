@@ -1,31 +1,13 @@
 @import '../scss/variables/colors';
 
-.radio-buttons-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 100px 10px;
-}
-
-.radio-button {
-  align-items: center;
-  background-color: $grey;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  height: 100px;
-  padding: 20px;
-  width: 250px;
-}
-
 .circle-progress-radio svg {
   fill: none;
   vertical-align: middle;
 }
 
 .circle-progress-radio svg circle {
-  stroke-width: 2;
   stroke: #C8CCD4;
+  stroke-width: 2;
 }
 
 .circle-progress-radio svg path {
@@ -33,15 +15,15 @@
 }
 
 .circle-progress-radio svg path.inner {
-  stroke-width: 6;
   stroke-dasharray: 19;
   stroke-dashoffset: 19;
+  stroke-width: 6;
 }
 
 .circle-progress-radio svg path.outer {
-  stroke-width: 2;
   stroke-dasharray: 57;
   stroke-dashoffset: 57;
+  stroke-width: 2;
 }
 
 .circle-progress-radio input {
@@ -72,46 +54,46 @@
   width: 100%;
 }
 
-.custom-radios input[type="radio"] {
+.custom-radios input[type='radio'] {
   display: none;
 }
 
-.custom-radios input[type="radio"] + label span {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  margin: 10px;
-  vertical-align: middle;
-  cursor: pointer;
+.custom-radios input[type='radio'] + label span {
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 50%;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
-  background-repeat: no-repeat;
-  background-position: center;
-  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
   line-height: 44px;
+  margin: 10px;
+  text-align: center;
+  vertical-align: middle;
+  width: 40px;
 }
 
 .custom-radios label span img {
   opacity: 0;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .custom-radios #color-1 + label span {
-  background-color: #2ecc71;
+  background-color: #2ECC71;
 }
 
 .custom-radios #color-2 + label span {
-  background-color: #3498db;
+  background-color: #3498DB;
 }
 
 .custom-radios #color-3 + label span {
-  background-color: #f1c40f;
+  background-color: #F1C40F;
 }
 
 .custom-radios #color-4 + label span {
-  background-color: #e74c3c;
+  background-color: #E74C3C;
 }
 
-.custom-radios input[type="radio"]:checked + label span img {
+.custom-radios input[type='radio']:checked + label span img {
   opacity: 1;
 }

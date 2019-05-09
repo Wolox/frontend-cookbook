@@ -1,108 +1,58 @@
-:root {
-  --percentageBar: 90%;
-
-  --progressHeight: 30px;
-  --progressWidth: 400px;
-
-  --containerColor: #aed0da;
-  --colorBar: #2a93d5;
-
-  --percentageCircle: 200px;
-  --rotation: 360deg;
-
-  --size: 200px;
-}
-
-#buttonStart {
-  width: 20px;
-  height: 20px;
-  border: 1px solid red;
-}
-
-.progress {
-  width: 100%;
-  height: 100vh;
-  padding: 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+$circle-height: 130px;
 
 /* BAR */
-
 .progress-container {
-  width: var(--progressWidth);
-  background-color: var(--containerColor);
-  height: var(--progressHeight);
-  margin: 50px;
-
-  display: flex;
-  align-items: center;
+  background-color: $grey;
   border-radius: 20px;
+  margin: 0 14px;
+  position: relative;
+  width: 100%;
 }
 
 .progress-bar {
-  width: var(--percentageBar);
-
-  background: var(--colorBar);
-  height: var(--progressHeight);
-  transition: width 0.6s ease;
+  background-color: $wolox-green;
   border-radius: 20px;
+  height: 25px;
+  transition: width 0.6s $transition-function;
+  width: 30%;
+}
+
+.percent {
+  color: $wolox-green;
+  font-size: 25px;
+  font-weight: 700;
+  left: 70%;
+  letter-spacing: 2px;
+  position: absolute;
+  top: 25px;
 }
 
 /* CIRCLE */
-
-.radial-progress {
-  width: var(--size);
-  height: var(--size);
-  margin: 40px;
-}
-
 .circle {
-  width: var(--size);
-  height: var(--size);
-
-  background-color: var(--containerColor);
+  background-color: $grey;
   border-radius: 50%;
+  height: $circle-height;
+  position: relative;
+  width: $circle-height;
 }
 
-#percent {
-  position: absolute;
-  width: 100%;
-  color: var(--colorBar);
+.percent-circle {
+  color: $wolox-green;
+  font-size: 40px;
   font-weight: 700;
+  left: 30px;
   letter-spacing: 2px;
-  margin-left: 160px;
-  margin-top: 40px;
-  z-index: 1;
-  font-size: 42px;
-}
-
-#percentCircle {
-  position: absolute;
-  width: 100%;
-  color: var(--colorBar);
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-left: 55px;
-  margin-top: 70px;
-  z-index: 1;
-  font-size: 42px;
-
   mix-blend-mode: multiply;
+  position: absolute;
+  top: 40px;
+  z-index: 1;
 }
 
 .mask {
-  width: var(--size);
-  height: var(--size);
-
-  background-color: var(--colorBar);
+  background-color: $wolox-green;
   border-radius: 50%;
-
+  clip: rect(0px, #{$circle-height/2}, #{$circle-height/2}, 0);
+  height: $circle-height;
   position: absolute;
-  clip: rect(0px, calc(var(--percentageCircle) * 2), var(--size), 0px);
-
-  transition: 2s transform ease;
-  transform: rotate(var(--rotation));
+  width: $circle-height;
 }

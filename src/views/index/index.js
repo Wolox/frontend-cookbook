@@ -19,12 +19,14 @@ const vm = new Vue({
     title: 'Frontend Cookbook',
     componentsHTML: { spinners, input, checkboxes, buttons, progressBars, radioButtons },
     currentList: 'spinners',
-    componentsList: spinners
+    componentsList: spinners,
+    componentTitle: 'Spinners'
   },
   methods: {
     changeCurrentList(newList) {
-      this.currentList = newList
-      this.componentsList = this.componentsHTML[newList]
+      this.currentList = newList.component
+      this.componentsList = this.componentsHTML[newList.component]
+      this.componentTitle = newList.title
     }
   },
   components: { Feed, Sidebar }

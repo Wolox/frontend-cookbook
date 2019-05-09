@@ -11,7 +11,7 @@
           v-for='(list, index) in componentsList'
           :key='index'
           type='button'
-          v-bind:class="{ active: list.isSelected }"
+          v-bind:class="{ active: list.title == itemSelected }"
           @click='showNewList(list)'
         )
           | {{ list.title }}
@@ -28,12 +28,14 @@ import { componentsList } from "../resources/constant";
 export default {
   data() {
     return {
+      itemSelected: 'Spinner',
       componentsList
     };
   },
   methods: {
     showNewList(list) {
-      this.$emit("list", list.component);
+      this.itemSelected = list.title
+      this.$emit("list", list);
     }
   }
 };

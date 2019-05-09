@@ -1,10 +1,10 @@
-.btn.btn-1 {
+.btn-1 {
   --btn-color-1: #00F1D1;
   --btn-color-2: #0077FF;
   --btn-text-color: hsl(0, 0%, 15%);
 }
 
-.btn.btn-1 {
+.btn-1 {
   align-items: center;
   background: none;
   border: 0;
@@ -20,27 +20,27 @@
   transition-property: transform;
 }
 
-.btn.btn-1:disabled {
+.btn-1:disabled {
   --btn-color-1: #FEFEFE;
   --btn-color-2: #878787;
   --btn-text-color: var(--btn-color-2);
   pointer-events: none;
 }
 
-.btn.btn-1 > * {
+.btn-1 > * {
   pointer-events: none;
   user-select: none;
 }
 
-.btn.btn-1:hover {
+.btn-1:hover {
   transform: scale(1.02);
 }
 
-.btn.btn-1:active {
+.btn-1:active {
   transform: scale(0.95);
 }
 
-.btn.btn-1 .btn__content {
+.btn-1 .btn__content {
   align-items: center;
   background: white;
   border-radius: var(--btn-border-radius);
@@ -69,8 +69,8 @@
   z-index: -1;
 }
 
-.btn.btn-1:hover .btn__content::before,
-.btn.btn-1:focus .btn__content::before {
+.btn-1:hover .btn__content::before,
+.btn-1:focus .btn__content::before {
   animation-play-state: running;
 }
 

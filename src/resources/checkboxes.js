@@ -8,14 +8,15 @@ export default [
         <label for="checkbox-1"></label>
       </div>
     </div>
-    `
+    `,
+    author: 'FrankieCapo123'
   },
   {
     title: 'Checkbox 2',
     html: `
     <div class="item-checkbox">
       <div class="checkbox-2">
-        <input id="checckbox-2" class="checkbox" type="checkbox" />
+        <input id="checkbox-2" class="checkbox" type="checkbox" />
         <label for="checkbox-2">
           <svg width="18px" height="18px" viewbox="0 0 18 18">
             <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z" />
@@ -24,7 +25,8 @@ export default [
         </label>
       </div>
     </div>
-    `
+    `,
+    author: 'FrankieCapo123'
   },
   {
     title: 'Checkbox 3',
@@ -35,7 +37,8 @@ export default [
         <label data-off="OFF" data-on="ON" for="checkbox-3"></label>
       </div>
     </div>
-    `
+    `,
+    author: 'FrankieCapo123'
   },
   {
     title: 'Checkbox 4',
@@ -46,7 +49,8 @@ export default [
         <label for="checkbox-4"></label>
       </div>
     </div>
-    `
+    `,
+    author: 'FrankieCapo123'
   },
   {
     title: 'Checkbox 5',
@@ -57,7 +61,8 @@ export default [
         <label data-off="Nope" data-on="Yeah!" for="checkbox-5"></label>
       </div>
     </div>
-    `
+    `,
+    author: 'FrankieCapo123'
   },
   {
     title: 'Checkbox 6',
@@ -68,7 +73,8 @@ export default [
         <label for="checkbox-6">Checkbox 6</label>
       </div>
     </div>
-    `
+    `,
+    author: 'FrankieCapo123'
   },
   {
     title: 'Checkbox 7',
@@ -79,7 +85,8 @@ export default [
         <label for="checkbox-7">Checkbox 7</label>
       </div>
     </div>
-    `
+    `,
+    author: 'FrankieCapo123'
   },
   {
     title: 'Checkbox 8',
@@ -90,6 +97,7 @@ export default [
         <label for="checkbox-8"></label>
       </div>
     </div>
-    `
+    `,
+    author: 'FrankieCapo123'
   }
 ]
