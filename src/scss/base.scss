@@ -1,0 +1,28 @@
+@import 'variables/sizes';
+
+.full-width {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+}
+
+.inner-content {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 1000px;
+}
+
+.title {
+  color: $grey-3;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 720px) {
+  .content {
+    margin-left: 0;
+  }
+}
