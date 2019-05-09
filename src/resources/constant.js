@@ -26,3 +26,16 @@ export const componentsList = [
     component: 'spinners'
   }
 ]
+
+export const mainRadioButtons = [
+  {
+    text: 'Fecha de subida',
+    id: 'radioDateUpload',
+    name: 'mainRadioButtons'
+  },
+  {
+    text: 'Populares',
+    id: 'radioPopular',
+    name: 'mainRadioButtons'
+  }
+]

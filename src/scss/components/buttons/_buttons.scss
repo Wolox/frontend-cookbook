@@ -8,16 +8,6 @@ button.btn:disabled {
   cursor: not-allowed;
 }
 
-.btn-group {
-  display: flex;
-  padding: 10px;
-  margin: 10px;
-
-  .btn {
-    margin: 5px;
-  }
-}
-
 .buttons {
   --btn-radius: 130px;
   --btn-border-radius: 0;
