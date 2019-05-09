@@ -1,25 +1,35 @@
 <template lang="pug">
   .feed-content.full-width
-    h2.title.m-bottom-4
-      | {{ title }}
-    .row.wrap
+    .row.space-between.middle.m-bottom-4
+      h2.title
+        | {{ title }}
+      radio-button(:elements='mainRadioButtons')
+    .card-container
       card(v-for='(comp, index) in componentsToShow' :component='comp' :number='index' :key='comp.title')
 </template>
 
 <script>
-import Card from './Card';
+import Card from './Card'
+import RadioButton from './RadioButton'
+
+import { mainRadioButtons } from '../resources/constant'
 
 export default {
+  data() {
+    return {
+      mainRadioButtons
+    };
+  },
   props: {
     title: { type: String, required: true },
     componentsToShow: { type: Array, required: true }
   },
-  components: { Card }
+  components: { Card, RadioButton }
 }
 </script>
 
 <style lang="scss">
-@import "variables/colors";
+@import 'variables/colors';
 
 // TODO: refine the code in the components
 @import 'components/spinners';
@@ -39,4 +49,23 @@ export default {
   max-width: 1080px;
   padding: 80px 20px 20px 80px;
 }
+
+.card-container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (max-width: 991px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>

@@ -23,7 +23,19 @@ export const componentsList = [
   },
   {
     title: 'Spinner',
-    component: 'spinners',
-    isSelected: true // TODO delete this because is only for testing
+    component: 'spinners'
+  }
+]
+
+export const mainRadioButtons = [
+  {
+    text: 'Fecha de subida',
+    id: 'radioDateUpload',
+    name: 'mainRadioButtons'
+  },
+  {
+    text: 'Populares',
+    id: 'radioPopular',
+    name: 'mainRadioButtons'
   }
 ]

@@ -1,26 +1,10 @@
-$transition-duration: 330ms;
-$transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
+@import '../scss/variables/sizes';
+@import '../scss/variables/colors';
 
-.container-checkbox {
+.item-checkbox {
   --primary-color: #636060;
   --secondary-color: #FFF;
   --active-color: #00D478;
-  --background-color: #F1F1F1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.item-checkbox {
-  align-items: center;
-  background-color: var(--background-color);
-  border-radius: 5px;
-  display: flex;
-  height: 220px;
-  justify-content: center;
-  margin: 14px;
-  position: relative;
-  width: 250px;
 }
 
 .checkbox {
@@ -29,7 +13,6 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 
 /* Checkbox 1 */
 .checkbox-1 {
-  height: 48px;
   position: relative;
   user-select: none;
 
@@ -39,9 +22,9 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     content: '';
     cursor: pointer;
     height: 16px;
-    left: 12.8px;
+    left: -15px;
     position: absolute;
-    top: 32px;
+    top: 0;
     transition: background-color $transition-duration $transition-function;
     width: 40px;
   }
@@ -52,9 +35,9 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     content: '';
     cursor: pointer;
     height: 20.8px;
-    left: 8px;
+    left: -18px;
     position: absolute;
-    top: 28.8px;
+    top: -3px;
     transition: transform $transition-duration $transition-function;
     width: 20.8px;
   }
@@ -166,7 +149,7 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
       line-height: 28px;
       position: absolute;
       text-align: center;
-      text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+      text-shadow: 0 1px 0 rgba($black,0.4);
       transform: skew(10deg);
       transition: transform $transition-duration $transition-function;
       width: 100%;
@@ -291,7 +274,7 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 /* Checkbox 6 */
 .checkbox-6 {
   label {
-    color: #BFBFBF;
+    color: $porcelain;
     cursor: pointer;
     padding-left: 28px;
     position: relative;
@@ -308,6 +291,7 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
       height: 20px;
       left: 0;
       position: absolute;
+      top: -3px;
       transition: border 0.3s $transition-function;
       width: 20px;
     }
@@ -333,6 +317,7 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     cursor: pointer;
     display: flex;
     height: 30px;
+    left: 40%;
     position: absolute;
     text-indent: 35px;
     transform: translate(-50%, -50%);
