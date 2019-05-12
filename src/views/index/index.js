@@ -16,7 +16,6 @@ import './index.scss'
 const vm = new Vue({
   el: '#app',
   data: {
-    title: 'Frontend Cookbook',
     componentsHTML: { spinners, input, checkboxes, buttons, progressBars, radioButtons },
     currentList: 'spinners',
     componentsList: spinners,

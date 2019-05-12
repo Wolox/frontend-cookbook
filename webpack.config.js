@@ -12,16 +12,14 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const rootFiles = ['index', 'serviceWorkerInstaller', 'vendor']
 
 const entry = glob
-  .sync('./src/**/*.js')
-  .reduce(
-    (entries, entryFile) => Object.assign(entries, { [path.parse(entryFile).name]: entryFile }),
-    {}
-  )
+  .sync('./src/views/**/*.js')
+  .reduce((entries, entryFile) => Object.assign(entries, { [path.parse(entryFile).name]: entryFile }), {})
 
 module.exports = {
   entry,
   output: {
-    filename: (chunkFileName) => rootFiles.some(file => file === chunkFileName.chunk.name) ? '[name].js' : '[name]/[name].js',
+    filename: chunkFileName =>
+      rootFiles.some(file => file === chunkFileName.chunk.name) ? '[name].js' : '[name]/[name].js',
     path: path.resolve(__dirname, 'build')
   },
   target: 'web',
@@ -45,15 +43,6 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader'
       },
-      // {
-      //   enforce: 'pre',
-      //   test: /\.pug$/,
-      //   exclude: /node_modules/,
-      //   use: {
-      //     loader: 'vue-pug-lint-loader',
-      //     options: require('./.pug-lintrc.json')
-      //   }
-      // },
       {
         test: /\.pug$/,
         oneOf: [
@@ -85,7 +74,7 @@ module.exports = {
           loader: 'eslint-loader',
           options: {
             cache: true,
-            emitError: true,
+            emitError: false,
             emitWarning: true
           }
         }
@@ -113,12 +102,7 @@ module.exports = {
               plugins: () => [
                 require('postcss-flexbugs-fixes'),
                 autoprefixer({
-                  browsers: [
-                    '>1%',
-                    'last 4 versions',
-                    'Firefox ESR',
-                    'not ie <9'
-                  ],
+                  browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie <9'],
                   flexbox: 'no-2009'
                 })
               ]
@@ -144,12 +128,7 @@ module.exports = {
               plugins: () => [
                 require('postcss-flexbugs-fixes'),
                 autoprefixer({
-                  browsers: [
-                    '>1%',
-                    'last 4 versions',
-                    'Firefox ESR',
-                    'not ie <9'
-                  ],
+                  browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie <9'],
                   flexbox: 'no-2009'
                 })
               ]
@@ -158,23 +137,25 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|png|gif|svg|otf)$/,
+        test: /\.(jpg|png|gif|otf)$/,
         use: 'file-loader?name=assets/[name].[ext]'
+      },
+      {
+        test: /\.svg$/,
+        use: 'url-loader'
       }
     ]
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
     new DotEnv(),
-    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false
-    }),
+    new BundleAnalyzerPlugin({ openAnalyzer: false }),
     new VueLoaderPlugin()
   ],
   devtool: 'eval',
   optimization: {
+    namedModules: true,
     splitChunks: {
       chunks: 'async'
     }

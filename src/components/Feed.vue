@@ -5,7 +5,13 @@
         | {{ title }}
       radio-button(:elements='mainRadioButtons')
     .card-container
-      card(v-for='(comp, index) in componentsToShow' :component='comp' :number='index' :key='comp.title')
+      card(
+        v-for='(comp, index) in componentsToShow'
+        :key='comp.title'
+        :component='comp'
+        :category='title'
+        :number='index'
+      )
 </template>
 
 <script>
@@ -53,7 +59,7 @@ export default {
 .card-container {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 @media screen and (max-width: 991px) {

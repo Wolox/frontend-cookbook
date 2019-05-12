@@ -27,3 +27,5 @@ backstop_data
 
 #IDE files
 .vscode
+
+deploy.js
