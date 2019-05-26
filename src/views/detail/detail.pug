@@ -11,17 +11,18 @@ html(lang='en')
     link(rel='stylesheet' href='styles.detail.css')
     script(src='./vendor.js')
   body
-    #app(v-cloak)
+    #app.container(v-cloak)
       sidebar(@list='changeCurrentList')
       .details-container
-        .header
-          h1
-            | {{ component.title }}
+        .row.space-between.baseline
+          h1.component-title
+            | {{ componentToRender.title }}
           .author
             span
-              | by {{ component.author }}
+              | by {{ componentToRender.author }}
         #host.component-render-container
-          //- component
-        .code-container
-          
+        .code-container.row
+          code-snippet.item-1(title='HTML' :code='componentToRender.html')
+          code-snippet.item-1(title='SCSS' :code='componentToRender.css')
+          code-snippet.item-1(title='JS' :code='componentToRender.js')
     script(src='/detail/detail.js')

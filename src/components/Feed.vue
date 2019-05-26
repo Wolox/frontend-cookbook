@@ -36,6 +36,7 @@ export default {
 
 <style lang="scss">
 @import 'variables/colors';
+@import 'variables/sizes';
 
 // TODO: refine the code in the components
 @import 'components/spinners';
@@ -52,7 +53,7 @@ export default {
 
 .feed-content {
   margin: 0 auto;
-  max-width: 1080px;
+  max-width: $content-max-width;
   padding: 80px 20px 20px 80px;
 }
 

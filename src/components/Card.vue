@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import { spacesToHyphen } from '../utils'
+
 export default {
   props: {
     component: { type: Object, required: true },
@@ -15,7 +17,9 @@ export default {
   },
   computed: {
     detailURL() {
-      return `/detail?category=${this.category.toLowerCase()}&component=${this.component.title.toLowerCase()}`
+      const categoryParam = spacesToHyphen(this.category).toLowerCase()
+      const componentParam = spacesToHyphen(this.component.title).toLowerCase()
+      return `/detail?category=${categoryParam}&component=${componentParam}`
     },
     cardColor() {
       const colors = [ '#D25401', '#2A3E50', '#17BC9B', '#2880B9', '#FECB65', '#AA48EE', '#FF7293', '#CDD2D2' ]
