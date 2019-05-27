@@ -145,6 +145,10 @@ module.exports = {
       {
         test: /\.svg$/,
         use: 'url-loader'
+      },
+      {
+        test: /\.glsl$/,
+        loader: 'webpack-glsl-loader'
       }
     ]
   },
