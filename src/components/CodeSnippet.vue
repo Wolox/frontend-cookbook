@@ -1,11 +1,30 @@
-<template lang="pug" functional>
+<template lang="pug">
   .code-container
     .section-title.column.middle
       h4
-        | {{ props.title }}
-    code
-      | {{ props.code }}
+        | {{ title }}
+    code(v-html='highlightedCode')
 </template>
+
+<script>
+import Prism from 'prismjs'
+
+Prism.highlightAll()
+
+export default {
+  props: {
+    title: { type: String, required: true },
+    lang: { type: String, required: true },
+    code: { type: String, required: true }
+  },
+  computed: {
+    highlightedCode() {
+      return Prism.highlight(this.code, Prism.languages[this.lang], this.lang)
+    }
+  }
+}
+</script>
+
 
 <style lang="scss" scoped>
 @import 'src/scss/variables/colors';

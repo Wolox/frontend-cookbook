@@ -2,7 +2,13 @@
   "plugins": [
     "transform-object-rest-spread",
     "dynamic-import-webpack",
-    "syntax-dynamic-import"
+    "syntax-dynamic-import",
+    ["prismjs", {
+      "languages": ["markup", "javascript", "scss"],
+      "plugins": ["line-numbers"],
+      "theme": "default",
+      "css": true
+    }]
   ],
   "presets": [
     ["env", {

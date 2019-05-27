@@ -22,7 +22,7 @@ html(lang='en')
               | by {{ componentToRender.author }}
         #host.component-render-container
         .code-container.row
-          code-snippet.item-1(title='HTML' :code='componentToRender.html')
-          code-snippet.item-1(title='SCSS' :code='componentToRender.css')
-          code-snippet.item-1(title='JS' :code='componentToRender.js')
+          code-snippet.item-1(lang='html' title='HTML' :code='componentToRender.html')
+          code-snippet.item-1(lang='scss' title='SCSS' :code='componentToRender.css')
+          //- code-snippet.item-1(lang='javascript' title='JS' :code='componentToRender.js')
     script(src='/detail/detail.js')
