@@ -18,6 +18,11 @@ const vm = new Vue({
     componentToRender: mock,
     currentList: category
   },
+  mounted() {
+    const elem = document.querySelector('#host')
+    const shadowRoot = elem.attachShadow({mode: 'open'})
+    shadowRoot.innerHTML = `${mock.html}<style>${mock.css}</style>`
+  },
   methods: {
     changeCurrentList(newList) {
       this.currentList = newList.component
