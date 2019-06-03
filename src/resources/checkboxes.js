@@ -1,5 +1,6 @@
 export default [
   {
+    id: 'checkbox-1',
     title: 'Checkbox 1',
     html: `
     <div class="item-checkbox">
@@ -12,6 +13,7 @@ export default [
     author: 'FrankieCapo123'
   },
   {
+    id: 'checkbox-2',
     title: 'Checkbox 2',
     html: `
     <div class="item-checkbox">
@@ -29,6 +31,7 @@ export default [
     author: 'FrankieCapo123'
   },
   {
+    id: 'checkbox-3',
     title: 'Checkbox 3',
     html: `
     <div class="item-checkbox">
@@ -41,6 +44,7 @@ export default [
     author: 'FrankieCapo123'
   },
   {
+    id: 'checkbox-4',
     title: 'Checkbox 4',
     html: `
     <div class="item-checkbox">
@@ -53,6 +57,7 @@ export default [
     author: 'FrankieCapo123'
   },
   {
+    id: 'checkbox-5',
     title: 'Checkbox 5',
     html: `
     <div class="item-checkbox">
@@ -65,6 +70,7 @@ export default [
     author: 'FrankieCapo123'
   },
   {
+    id: 'checkbox-6',
     title: 'Checkbox 6',
     html: `
     <div class="item-checkbox">
@@ -77,6 +83,7 @@ export default [
     author: 'FrankieCapo123'
   },
   {
+    id: 'checkbox-7',
     title: 'Checkbox 7',
     html: `
     <div class="item-checkbox">
@@ -89,6 +96,7 @@ export default [
     author: 'FrankieCapo123'
   },
   {
+    id: 'checkbox-8',
     title: 'Checkbox 8',
     html: `
     <div class="item-checkbox">

@@ -1,6 +1,5 @@
 'use strict'
 
-const webpack = require('webpack')
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -9,24 +8,21 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const glob = require('glob')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const { GenerateSW } = require('workbox-webpack-plugin')
 
 const rootFiles = ['index', 'serviceWorkerInstaller', 'vendor']
 
 const entry = glob
-  .sync('./src/**/*.js')
-  .reduce(
-    (entries, entry) =>
-      Object.assign(entries, { [path.parse(entry).name]: entry }),
-      { vendor: ['vue'] }
-  )
+  .sync('./src/views/**/*.js')
+  .reduce((entries, entryFile) => Object.assign(entries, { [path.parse(entryFile).name]: entryFile }), {
+    vendor: ['vue']
+  })
 
 module.exports = {
   entry,
   output: {
-    filename: (chunkFileName) => {
-      if (rootFiles.some(file => file === chunkFileName.chunk.name)) return '[name].js'
-      else return '[name]/[name].js'
-    },
+    filename: chunkFileName =>
+      rootFiles.some(file => file === chunkFileName.chunk.name) ? '[name].js' : '[name]/[name].js',
     path: path.resolve(__dirname, 'build')
   },
   target: 'web',
@@ -44,15 +40,6 @@ module.exports = {
         use: 'vue-loader'
       },
       {
-        enforce: 'pre',
-        test: /\.pug$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'vue-pug-lint-loader',
-          options: require('./.pug-lintrc.json')
-        }
-      },
-      {
         test: /\.pug$/,
         oneOf: [
           // this applies to `<template lang="pug">` in Vue components
@@ -67,8 +54,7 @@ module.exports = {
                 loader: 'file-loader',
                 options: {
                   name(file) {
-                    if (file.includes('index')) return '[name].html'
-                    else return '[name]/index.html'
+                    return file.includes('index') ? '[name].html' : '[name]/index.html'
                   }
                 }
               },
@@ -92,7 +78,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: ['node_modules'],
+        exclude: /node_modules/,
         use: 'babel-loader'
       },
       {
@@ -108,12 +94,7 @@ module.exports = {
               plugins: () => [
                 require('postcss-flexbugs-fixes'),
                 autoprefixer({
-                  browsers: [
-                    '>1%',
-                    'last 4 versions',
-                    'Firefox ESR',
-                    'not ie <9'
-                  ],
+                  browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie <9'],
                   flexbox: 'no-2009'
                 })
               ]
@@ -122,7 +103,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [path.resolve(__dirname,'src/scss')]
+              includePaths: [path.resolve(__dirname, 'src/scss')]
             }
           }
         ]
@@ -139,12 +120,7 @@ module.exports = {
               plugins: () => [
                 require('postcss-flexbugs-fixes'),
                 autoprefixer({
-                  browsers: [
-                    '>1%',
-                    'last 4 versions',
-                    'Firefox ESR',
-                    'not ie <9'
-                  ],
+                  browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie <9'],
                   flexbox: 'no-2009'
                 })
               ]
@@ -153,17 +129,26 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|png|gif|svg|otf)$/,
+        test: /\.(jpg|png|gif|otf)$/,
         use: [
           {
             loader: 'url-loader',
             options: {
               limit: 10000,
               name: 'assets/[name].[ext]',
-              fallback: 'file-loader',
+              fallback: 'file-loader'
             }
-          }
+          },
+          'image-webpack-loader'
         ]
+      },
+      {
+        test: /\.svg$/,
+        use: 'url-loader'
+      },
+      {
+        test: /\.glsl$/,
+        loader: 'webpack-glsl-loader'
       }
     ]
   },
@@ -176,6 +161,21 @@ module.exports = {
      */
     new MiniCssExtractPlugin({
       filename: 'styles.[name].css'
+    }),
+    new GenerateSW({
+      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+      runtimeCaching: [
+        {
+          urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+          handler: 'cacheFirst',
+          options: {
+            cacheName: 'images',
+            expiration: {
+              maxEntries: 10
+            }
+          }
+        }
+      ]
     })
   ],
   optimization: {

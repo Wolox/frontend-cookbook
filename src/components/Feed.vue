@@ -5,7 +5,13 @@
         | {{ title }}
       radio-button(:elements='mainRadioButtons')
     .card-container
-      card(v-for='(comp, index) in componentsToShow' :component='comp' :number='index' :key='comp.title')
+      card(
+        v-for='(comp, index) in componentsToShow'
+        :key='comp.title'
+        :component='comp'
+        :category='title'
+        :number='index'
+      )
 </template>
 
 <script>
@@ -30,6 +36,7 @@ export default {
 
 <style lang="scss">
 @import 'variables/colors';
+@import 'variables/sizes';
 
 // TODO: refine the code in the components
 @import 'components/spinners';
@@ -46,14 +53,14 @@ export default {
 
 .feed-content {
   margin: 0 auto;
-  max-width: 1080px;
+  max-width: $content-max-width;
   padding: 80px 20px 20px 80px;
 }
 
 .card-container {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 @media screen and (max-width: 991px) {

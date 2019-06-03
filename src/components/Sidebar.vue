@@ -4,7 +4,7 @@
       .column.sidebar-header
         h2.sidebar-title.sidebar-title-wolox
           | wolox
-        h3.sidebar-title
+        a.sidebar-title(href='/')
           | Front End Cookbook
       .column.content-links.start
         button.simple-link.m-bottom-2(

@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+  head
+    title Front-End Cookbook
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='preload' href='./detail.js' as='script')
+    link(rel='preload' href='./vendor.js' as='script')
+    link(rel='preload' href='styles.detail.css' as='style')
+    link(rel='icon' type='image/png' href='/assets/favicon.ico')
+    link(rel='stylesheet' href='styles.detail.css')
+    script(src='./vendor.js')
+  body
+    #app.container(v-cloak)
+      sidebar(@list='changeCurrentList')
+      .details-container
+        .row.space-between.baseline
+          h1.component-title
+            | {{ componentToRender.title }}
+          .author
+            span
+              | by {{ componentToRender.author }}
+        #host.component-render-container
+        .code-container.row
+          code-snippet.item-1(lang='html' title='HTML' :code='componentToRender.html')
+          code-snippet.item-1(lang='scss' title='SCSS' :code='componentToRender.css')
+          code-snippet.item-1(v-if='componentToRender.js' lang='javascript' title='JS' :code='componentToRender.js')
+    script(src='/detail/detail.js')
