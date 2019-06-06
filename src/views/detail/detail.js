@@ -7,6 +7,7 @@ import './detail.pug'
 import './detail.scss'
 
 import mock from '../../utils/mock'
+import { getComponentFile } from '../../utils/graphql';
 
 const urlParams = new URLSearchParams(window.location.search)
 const category = urlParams.get('category')
@@ -17,6 +18,18 @@ const vm = new Vue({
   data: {
     componentToRender: mock,
     currentList: category
+  },
+  created () {
+    let html = {};
+    let scss = {};
+    let componentName = component.split('-').join(' ');
+    componentName = componentName[0].toUpperCase() + componentName.slice(1);
+    getComponentFile(category, componentName, 'index.html')
+      .then(jsonfile => html = jsonfile);
+    
+    getComponentFile(category, componentName, 'styles.scss')
+      .then(jsonfile => scss = jsonfile);
+    this.componentToRender = { title: component, html, css: scss };
   },
   mounted() {
     const elem = document.querySelector('#host')
@@ -30,5 +43,5 @@ const vm = new Vue({
       this.componentTitle = newList.title
     }
   },
-  components: { Sidebar, CodeSnippet }
+  components: { Sidebar, CodeSnippet },
 })

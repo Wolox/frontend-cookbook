@@ -18,9 +18,9 @@ const vm = new Vue({
   el: '#app',
   data: {
     componentsHTML: { spinners, input, checkboxes, buttons, progressBars, radioButtons },
-    currentList: 'spinners',
+    currentList: 'buttons',
     componentsList: spinners,
-    componentTitle: 'Spinners'
+    componentTitle: 'Buttons'
   },
   methods: {
     changeCurrentList(newList) {
