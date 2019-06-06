@@ -12,6 +12,7 @@ import radioButtons from '../../resources/radioButtons'
 
 import './index.pug'
 import './index.scss'
+import '../../utils/graphql'
 
 const vm = new Vue({
   el: '#app',
@@ -24,8 +25,11 @@ const vm = new Vue({
   methods: {
     changeCurrentList(newList) {
       this.currentList = newList.component
-      this.componentsList = this.componentsHTML[newList.component]
+      this.componentsList = this.getComponentHTML(newList.component)
       this.componentTitle = newList.title
+    },
+    getComponentHTML(component) {
+      return this.componentsHTML[component]
     }
   },
   components: { Feed, Sidebar }

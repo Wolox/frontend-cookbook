@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/Wolox/frontend-bootstrap",
   "dependencies": {
+    "graphql.js": "^0.6.2",
     "prismjs": "^1.16.0",
     "vue": "^2.5.17",
     "wolox-equalizer": "0.0.2"
