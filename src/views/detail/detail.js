@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import 'regenerator-runtime/runtime'
 
 import Sidebar from '../../components/Sidebar'
 import CodeSnippet from '../../components/CodeSnippet'
@@ -6,8 +7,7 @@ import CodeSnippet from '../../components/CodeSnippet'
 import './detail.pug'
 import './detail.scss'
 
-import mock from '../../utils/mock'
-import { getComponentFile } from '../../utils/graphql';
+import { getComponentFiles, getAuthors } from '../../utils/componentService'
 
 const urlParams = new URLSearchParams(window.location.search)
 const category = urlParams.get('category')
@@ -16,25 +16,21 @@ const component = urlParams.get('component')
 const vm = new Vue({
   el: '#app',
   data: {
-    componentToRender: mock,
+    componentTitle: component.replace('-', ' '),
+    html: '',
+    scss: '',
+    js: null,
     currentList: category
   },
-  created () {
-    let html = {};
-    let scss = {};
-    let componentName = component.split('-').join(' ');
-    componentName = componentName[0].toUpperCase() + componentName.slice(1);
-    getComponentFile(category, componentName, 'index.html')
-      .then(jsonfile => html = jsonfile);
-    
-    getComponentFile(category, componentName, 'styles.scss')
-      .then(jsonfile => scss = jsonfile);
-    this.componentToRender = { title: component, html, css: scss };
-  },
   mounted() {
-    const elem = document.querySelector('#host')
-    const shadowRoot = elem.attachShadow({mode: 'open'})
-    shadowRoot.innerHTML = `${mock.html}<style>${mock.css}</style>`
+    getComponentFiles(category, component).then(response => {
+      this.html = response.html
+      this.scss = response.scss
+      const elem = document.querySelector('#host')
+      const shadowRoot = elem.attachShadow({mode: 'open'})
+      shadowRoot.innerHTML = `${this.html}<style>${this.scss}</style>`
+    })
+    getAuthors(category, component).then(response => console.log(response))
   },
   methods: {
     changeCurrentList(newList) {

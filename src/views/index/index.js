@@ -12,7 +12,6 @@ import radioButtons from '../../resources/radioButtons'
 
 import './index.pug'
 import './index.scss'
-import '../../utils/graphql'
 
 const vm = new Vue({
   el: '#app',

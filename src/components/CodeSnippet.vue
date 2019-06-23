@@ -3,7 +3,8 @@
     .section-title.column.middle
       h4
         | {{ title }}
-    code(v-html='highlightedCode')
+    pre
+      code(v-html='highlightedCode' :class='`language-${lang}`')
 </template>
 
 <script>
@@ -39,5 +40,19 @@ export default {
   height: 40px;
   text-align: center;
   width: 90px;
+}
+
+pre {
+  background: none;
+}
+
+code {
+  font-size: 14px;
+}
+</style>
+
+<style lang="scss">
+span.token {
+  font-size: inherit;
 }
 </style>
