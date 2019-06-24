@@ -7,7 +7,7 @@ import CodeSnippet from '../../components/CodeSnippet'
 import './detail.pug'
 import './detail.scss'
 
-import { getComponentFiles, getAuthors } from '../../utils/componentService'
+import { getComponentFiles } from '../../services/componentService'
 
 const urlParams = new URLSearchParams(window.location.search)
 const category = urlParams.get('category')
@@ -38,5 +38,5 @@ const vm = new Vue({
       this.componentTitle = newList.title
     }
   },
-  components: { Sidebar, CodeSnippet },
+  components: { Sidebar, CodeSnippet }
 })
