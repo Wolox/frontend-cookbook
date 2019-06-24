@@ -30,7 +30,6 @@ const vm = new Vue({
       const shadowRoot = elem.attachShadow({mode: 'open'})
       shadowRoot.innerHTML = `${this.html}<style>${this.scss}</style>`
     })
-    getAuthors(category, component).then(response => console.log(response))
   },
   methods: {
     changeCurrentList(newList) {

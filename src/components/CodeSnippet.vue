@@ -45,10 +45,6 @@ export default {
 pre {
   background: none;
 }
-
-code {
-  font-size: 14px;
-}
 </style>
 
 <style lang="scss">
