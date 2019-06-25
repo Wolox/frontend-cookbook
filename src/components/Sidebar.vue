@@ -11,7 +11,7 @@
           v-for='(list, index) in componentsList'
           :key='index'
           type='button'
-          v-bind:class="{ active: list.title == itemSelected }"
+          v-bind:class="{ active: list.name == itemSelected }"
           @click='showNewList(list)'
         )
           | {{ list.name }}
@@ -28,7 +28,7 @@ import { getCategories } from '../services/componentService'
 export default {
   data() {
     return {
-      itemSelected: 'Spinner',
+      itemSelected: '',
       componentsList: []
     };
   },

@@ -1,9 +1,9 @@
 import api from '../config/api'
 
-const queryBuild = (name, target = '', query) => ({
+const queryBuilder = (name, target = '', query) => ({
   query: `
     query ${name} {
-      repository(owner: "Wolox", name: "frontend-cookbook") {
+      repository(owner: "wolox", name: "frontend-cookbook") {
         object(expression: "components${target}") {
           ${query}
         }
@@ -11,45 +11,40 @@ const queryBuild = (name, target = '', query) => ({
     }`
   })
 
-export const getComponentFiles = (componentType, component) =>
-  api.post('', queryBuild('componentsFiles', `:${componentType}/${component}`, `
-    ... on Tree {
-      entries {
-        ... on TreeEntry {
-          name
-          object {
-            ... on Blob {
-              text
-            }
+const filesQuery = `
+  ... on Tree {
+    entries {
+      ... on TreeEntry {
+        name
+        object {
+          ... on Blob {
+            text
           }
         }
       }
-    }`))
+    }
+  }`
 
-export const getAllComponentsByCategory = category =>
-  api.post('', queryBuild('componentsByCategory', `:${category}`, `
+export const getComponentFiles = async (componentType, component) => {
+  const response = await api.post('', queryBuilder('componentsFiles', `:${componentType}/${component}`, filesQuery))
+  return response.data.data.repository.object.entries
+}
+
+export const getAllComponentsByCategory = async category => {
+  const response = await api.post('', queryBuilder('componentsByCategory', `:${category}`, `
     ... on Tree {
       entries {
         name
         object {
-          ... on Tree {
-            entries {
-              ... on TreeEntry {
-                name
-                object {
-                  ... on Blob {
-                    text
-                  }
-                }
-              }
-            }
-          }
+          ${filesQuery}
         }
       }
     }`))
+    return response.data.data.repository.object.entries
+  }
 
 export const getCategories = async () => {
-  const response = await api.post('', queryBuild(`getCategories`, '', `
+  const response = await api.post('', queryBuilder(`getCategories`, '', `
     ... on Commit {
       tree {
         entries {
