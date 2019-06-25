@@ -24,9 +24,8 @@ const vm = new Vue({
   },
   mounted() {
     getComponentFiles(category, component).then(response => {
-      const { html, scss } = response.data.data
-      this.html = html.content.text
-      this.scss = scss.content.text
+      this.html = response[0].object.text
+      this.scss = response[1].object.text
       const elem = document.querySelector('#host')
       const shadowRoot = elem.attachShadow({mode: 'open'})
       shadowRoot.innerHTML = `${this.html}<style>${this.scss}</style>`
