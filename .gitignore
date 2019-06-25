@@ -29,3 +29,5 @@ backstop_data
 .vscode
 
 deploy.js
+
+.env*

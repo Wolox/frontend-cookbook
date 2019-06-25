@@ -15,11 +15,12 @@
   font-size: 36px;
   font-weight: bold;
   line-height: 43px;
+  text-transform: capitalize;
 }
 
 .code-container {
   background-color: $white;
-  padding: 35px;
+  padding: 35px 10px;
 
   &:not(:last-child) {
     border-right: 1px solid $catskill-white;

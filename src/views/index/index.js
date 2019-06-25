@@ -17,15 +17,18 @@ const vm = new Vue({
   el: '#app',
   data: {
     componentsHTML: { spinners, input, checkboxes, buttons, progressBars, radioButtons },
-    currentList: 'spinners',
+    currentList: 'buttons',
     componentsList: spinners,
-    componentTitle: 'Spinners'
+    componentTitle: 'Buttons'
   },
   methods: {
     changeCurrentList(newList) {
       this.currentList = newList.component
-      this.componentsList = this.componentsHTML[newList.component]
+      this.componentsList = this.getComponentHTML(newList.component)
       this.componentTitle = newList.title
+    },
+    getComponentHTML(component) {
+      return this.componentsHTML[component]
     }
   },
   components: { Feed, Sidebar }

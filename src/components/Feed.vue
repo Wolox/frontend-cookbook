@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       mainRadioButtons
-    };
+    }
   },
   props: {
     title: { type: String, required: true },
@@ -74,5 +74,4 @@ export default {
     grid-template-columns: 1fr;
   }
 }
-
 </style>

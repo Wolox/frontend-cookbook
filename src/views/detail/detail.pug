@@ -16,13 +16,11 @@ html(lang='en')
       .details-container
         .row.space-between.baseline
           h1.component-title
-            | {{ componentToRender.title }}
+            | {{ componentTitle }}
           .author
-            span
-              | by {{ componentToRender.author }}
         #host.component-render-container
         .code-container.row
-          code-snippet.item-1(lang='html' title='HTML' :code='componentToRender.html')
-          code-snippet.item-1(lang='scss' title='SCSS' :code='componentToRender.css')
-          code-snippet.item-1(v-if='componentToRender.js' lang='javascript' title='JS' :code='componentToRender.js')
+          code-snippet.item-1(lang='html' title='HTML' :code='html')
+          code-snippet.item-1(lang='scss' title='SCSS' :code='scss')
+          code-snippet.item-1(v-if='js' lang='javascript' title='JS' :code='js')
     script(src='/detail/detail.js')
