@@ -8,6 +8,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const glob = require('glob')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const DotEnv = require('dotenv-webpack')
 const { GenerateSW } = require('workbox-webpack-plugin')
 
 const rootFiles = ['index', 'serviceWorkerInstaller', 'vendor']
@@ -154,6 +155,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
+    new DotEnv(),
     new VueLoaderPlugin(),
     /**
      * Known issue for the CSS Extract Plugin in Ubuntu 16.04: You'll need to install

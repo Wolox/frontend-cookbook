@@ -8,13 +8,13 @@
           | Front End Cookbook
       .column.content-links.start
         button.simple-link.m-bottom-2(
-          v-for='(list, index) in componentsList'
+          v-for='(category, index) in categories'
           :key='index'
           type='button'
-          v-bind:class="{ active: list.name == itemSelected }"
-          @click='showNewList(list)'
+          v-bind:class="{ active: category.name == itemSelected }"
+          @click='showNewList(category)'
         )
-          | {{ list.name }}
+          | {{ category.name }}
     div.column.center.sidebar-footer-text
       | </> with ♥ by Wolox Front-End Army
       button.sidebar-footer-set-style.m-top-1.row.middle.center.full-width
@@ -29,18 +29,26 @@ export default {
   data() {
     return {
       itemSelected: '',
-      componentsList: []
+      categories: []
     };
   },
   created() {
     getCategories().then(response => {
-      this.componentsList = response
+      this.categories = response
     })
   },
   methods: {
     showNewList(list) {
       this.itemSelected = list.name
       this.$emit('list', list.name)
+    }
+  },
+  watch: {
+    categories(newValue, oldValue) {
+      if (newValue.length && oldValue.length === 0) {
+        this.itemSelected = newValue[0]
+        this.showNewList(newValue[0])
+      }
     }
   }
 };

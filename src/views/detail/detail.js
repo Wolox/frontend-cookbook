@@ -19,7 +19,6 @@ const vm = new Vue({
     componentTitle: component.replace('-', ' '),
     html: '',
     scss: '',
-    js: null,
     currentList: category
   },
   mounted() {
@@ -33,6 +32,7 @@ const vm = new Vue({
   },
   methods: {
     changeCurrentList(newList) {
+      localStorage.setItem('category', newList)
       this.currentList = newList.component
       this.componentsList = this.componentsHTML[newList.component]
       this.componentTitle = newList.title
