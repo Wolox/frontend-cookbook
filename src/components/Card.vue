@@ -3,7 +3,7 @@
     .card-content.full-width.row.middle.center(v-html='component.html')
     a.card-info.column.full-width(:href='detailURL' )
       h4.card-title.m-bottom-1
-        | {{ component.title }}
+        | {{ displayableName }}
 </template>
 
 <script>
@@ -16,6 +16,9 @@ export default {
     number: { type: Number, required: true }
   },
   computed: {
+    displayableName() {
+      return this.component.title.replace('-', ' ')
+    },
     detailURL() {
       const categoryParam = spacesToHyphen(this.category).toLowerCase()
       const componentParam = spacesToHyphen(this.component.title).toLowerCase()
@@ -81,6 +84,7 @@ $card-info-content: 45px;
   color: $black;
   font-size: 18px;
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .author {

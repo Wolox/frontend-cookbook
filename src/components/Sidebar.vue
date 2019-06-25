@@ -14,7 +14,7 @@
           v-bind:class="{ active: list.title == itemSelected }"
           @click='showNewList(list)'
         )
-          | {{ list.title }}
+          | {{ list.name }}
     div.column.center.sidebar-footer-text
       | </> with ♥ by Wolox Front-End Army
       button.sidebar-footer-set-style.m-top-1.row.middle.center.full-width
@@ -23,19 +23,24 @@
 </template>
 
 <script>
-import { componentsList } from "../resources/constant";
+import { getCategories } from '../services/componentService'
 
 export default {
   data() {
     return {
       itemSelected: 'Spinner',
-      componentsList
+      componentsList: []
     };
+  },
+  created() {
+    getCategories().then(response => {
+      this.componentsList = response
+    })
   },
   methods: {
     showNewList(list) {
-      this.itemSelected = list.title
-      this.$emit("list", list);
+      this.itemSelected = list.name
+      this.$emit('list', list.name)
     }
   }
 };
