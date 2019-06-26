@@ -1,0 +1,63 @@
+$white: #FFF;
+
+.spinner-3 {
+  div {
+    animation: spinner2 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    left: -32px;
+    position: relative;
+    top: -32px;
+    transform-origin: 32px 32px;
+
+    &::after {
+      background-color: $white;
+      border-radius: 50%;
+      content: ' ';
+      height: 6px;
+      margin: -3px 0 0 -3px;
+      position: absolute;
+      width: 6px;
+    }
+
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        animation-delay: -#{$i * 0.036}s;
+
+        &::after {
+          left: #{55 - $i * 5}px;
+        }
+      }
+    }
+
+    &:nth-child(1)::after {
+      top: 50px;
+    }
+
+    &:nth-child(2)::after {
+      top: 54px;
+    }
+
+    &:nth-child(3)::after {
+      top: 57px;
+    }
+
+    &:nth-child(4)::after {
+      top: 58px;
+    }
+
+    &:nth-child(5)::after {
+      top: 57px;
+    }
+
+    &:nth-child(6)::after {
+      top: 54px;
+    }
+
+    &:nth-child(7)::after {
+      top: 50px;
+    }
+
+    &:nth-child(8)::after {
+      top: 45px;
+    }
+  }
+}

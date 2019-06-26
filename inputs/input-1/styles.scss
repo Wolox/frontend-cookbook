@@ -1,0 +1,46 @@
+$white: #FFF;
+
+.input-wrapper {
+  border: 1px solid $white;
+  border-radius: 2px;
+  height: 40px;
+  margin-bottom: 20px;
+  max-width: 300px;
+  position: relative;
+
+  .input-label {
+    color: $white;
+    font-weight: 300;
+    left: 50%;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s;
+  }
+
+  .input-base {
+    background-color: transparent;
+    border: none;
+    color: $white;
+    font-size: 14px;
+    font-weight: 300;
+    height: 100%;
+    padding: 15px 10px 0 5px;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+
+    &.filled-input + .input-label,
+    &:focus + .input-label {
+      font-size: 12px;
+      font-weight: 300;
+      left: 5px;
+      top: 2px;
+      transform: translate(0, 0);
+      transition: all 0.2s;
+    }
+  }
+}
