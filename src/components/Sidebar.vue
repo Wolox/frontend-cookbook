@@ -12,7 +12,7 @@
           :key='index'
           type='button'
           v-bind:class="{ active: category.name == itemSelected }"
-          @click='showNewList(category)'
+          @click='selectCategory(category, true)'
         )
           | {{ category.name }}
     div.column.center.sidebar-footer-text
@@ -35,20 +35,14 @@ export default {
   created() {
     getCategories().then(response => {
       this.categories = response
+      const selectedCategory = localStorage.getItem('category')
+      this.selectCategory(selectedCategory !== 'undefined' ? { name: selectedCategory} : this.categories[0])
     })
   },
   methods: {
-    showNewList(list) {
-      this.itemSelected = list.name
-      this.$emit('list', list.name)
-    }
-  },
-  watch: {
-    categories(newValue, oldValue) {
-      if (newValue.length && oldValue.length === 0) {
-        this.itemSelected = newValue[0]
-        this.showNewList(newValue[0])
-      }
+    selectCategory(category, goToFeed = false) {
+      this.itemSelected = category.name
+      this.$emit('list', { category: category.name, goToFeed})
     }
   }
 };

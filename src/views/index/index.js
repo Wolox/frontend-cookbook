@@ -15,14 +15,16 @@ const vm = new Vue({
   data: {
     currentList: '',
     componentsList: [],
-    componentTitle: ''
+    categoryInFeed: ''
   },
   methods: {
-    changeCurrentList(newList) {
-      getAllComponentsByCategory(newList).then(response => {
-        this.currentList = newList
+    changeCurrentList({ category }) {
+      const categoryToShow = category ? category : localStorage.getItem('category')
+      getAllComponentsByCategory(categoryToShow).then(response => {
+        localStorage.setItem('category', categoryToShow)
+        this.currentList = categoryToShow
         this.componentsList = getComponentsCode(response)
-        this.componentTitle = newList
+        this.categoryInFeed = categoryToShow
       })
     },
     getComponentHTML(component) {

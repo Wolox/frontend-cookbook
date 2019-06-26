@@ -24,18 +24,16 @@ const vm = new Vue({
   mounted() {
     getComponentFiles(category, component).then(response => {
       this.html = response[0].object.text
-      this.scss = response[1].object.text
+      this.scss = response[2].object.text
       const elem = document.querySelector('#host')
       const shadowRoot = elem.attachShadow({mode: 'open'})
-      shadowRoot.innerHTML = `${this.html}<style>${this.scss}</style>`
+      shadowRoot.innerHTML = `${this.html}<style>${response[1].object.text}</style>`
     })
   },
   methods: {
-    changeCurrentList(newList) {
-      localStorage.setItem('category', newList)
-      this.currentList = newList.component
-      this.componentsList = this.componentsHTML[newList.component]
-      this.componentTitle = newList.title
+    changeCurrentList({ category, goToFeed }) {
+      localStorage.setItem('category', category)
+      if (goToFeed) window.location.href = '/'
     }
   },
   components: { Sidebar, CodeSnippet }

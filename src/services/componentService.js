@@ -49,8 +49,9 @@ export const getCategories = async () => {
       tree {
         entries {
           name
+          type
         }
       }
     }`))
-  return response.data.data.repository.object.tree.entries.filter(file => file.name[0] !== '.')
+  return response.data.data.repository.object.tree.entries.filter(file => file.type === 'tree' && file.name[0] !== '.')
 }
