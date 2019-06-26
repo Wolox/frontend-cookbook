@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import 'regenerator-runtime/runtime'
 
 import Sidebar from '../../components/Sidebar'
 import CodeSnippet from '../../components/CodeSnippet'

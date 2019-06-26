@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/Wolox/frontend-bootstrap",
   "dependencies": {
+    "@babel/runtime": "^7.4.5",
     "axios": "^0.19.0",
     "graphql.js": "^0.6.2",
     "prismjs": "^1.16.0",
@@ -37,6 +38,7 @@
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "autoprefixer": "^8.2.0",

@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import 'regenerator-runtime/runtime'
 
 import Feed from '../../components/Feed'
 import Sidebar from '../../components/Sidebar'
