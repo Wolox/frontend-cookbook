@@ -3,7 +3,7 @@
     .section-title.column.middle
       h4
         | {{ title }}
-    pre
+    pre.snippet
       code(v-html='highlightedCode' :class='`language-${lang}`')
 </template>
 
@@ -44,6 +44,11 @@ export default {
 
 pre {
   background: none;
+}
+
+.snippet {
+  height: calc(100vh - 180px);
+  overflow-y: scroll;
 }
 </style>
 

@@ -8,13 +8,13 @@
           | Front End Cookbook
       .column.content-links.start
         button.simple-link.m-bottom-2(
-          v-for='(list, index) in componentsList'
+          v-for='(category, index) in categories'
           :key='index'
           type='button'
-          v-bind:class="{ active: list.title == itemSelected }"
-          @click='showNewList(list)'
+          v-bind:class="{ active: category.name == itemSelected }"
+          @click='selectCategory(category, true)'
         )
-          | {{ list.title }}
+          | {{ category.name }}
     div.column.center.sidebar-footer-text
       | </> with ♥ by Wolox Front-End Army
       button.sidebar-footer-set-style.m-top-1.row.middle.center.full-width
@@ -23,19 +23,26 @@
 </template>
 
 <script>
-import { componentsList } from "../resources/constant";
+import { getCategories } from '../services/componentService'
 
 export default {
   data() {
     return {
-      itemSelected: 'Spinner',
-      componentsList
+      itemSelected: '',
+      categories: []
     };
   },
+  created() {
+    getCategories().then(response => {
+      this.categories = response
+      const selectedCategory = localStorage.getItem('category')
+      this.selectCategory(selectedCategory ? { name: selectedCategory} : this.categories[0])
+    })
+  },
   methods: {
-    showNewList(list) {
-      this.itemSelected = list.title
-      this.$emit("list", list);
+    selectCategory(category, goToFeed = false) {
+      this.itemSelected = category.name
+      this.$emit('list', { category: category.name, goToFeed})
     }
   }
 };

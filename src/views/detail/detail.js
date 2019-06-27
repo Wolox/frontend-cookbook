@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import 'regenerator-runtime/runtime'
 
 import Sidebar from '../../components/Sidebar'
 import CodeSnippet from '../../components/CodeSnippet'
@@ -19,23 +18,21 @@ const vm = new Vue({
     componentTitle: component.replace('-', ' '),
     html: '',
     scss: '',
-    js: null,
     currentList: category
   },
   mounted() {
     getComponentFiles(category, component).then(response => {
-      this.html = response.html
-      this.scss = response.scss
+      this.html = response[0].object.text
+      this.scss = response[2].object.text
       const elem = document.querySelector('#host')
       const shadowRoot = elem.attachShadow({mode: 'open'})
-      shadowRoot.innerHTML = `${this.html}<style>${this.scss}</style>`
+      shadowRoot.innerHTML = `${this.html}<style>${response[1].object.text}</style>`
     })
   },
   methods: {
-    changeCurrentList(newList) {
-      this.currentList = newList.component
-      this.componentsList = this.componentsHTML[newList.component]
-      this.componentTitle = newList.title
+    changeCurrentList({ category, goToFeed }) {
+      localStorage.setItem('category', category)
+      if (goToFeed) window.location.href = '/'
     }
   },
   components: { Sidebar, CodeSnippet }

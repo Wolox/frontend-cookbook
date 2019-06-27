@@ -3,12 +3,8 @@ import Vue from 'vue'
 import Feed from '../../components/Feed'
 import Sidebar from '../../components/Sidebar'
 
-import spinners from '../../resources/spinners'
-import input from '../../resources/input'
-import checkboxes from '../../resources/checkboxes'
-import buttons from '../../resources/buttons'
-import progressBars from '../../resources/progressBars'
-import radioButtons from '../../resources/radioButtons'
+import { getAllComponentsByCategory } from '../../services/componentService'
+import { getComponentsCode } from '../../utils'
 
 import './index.pug'
 import './index.scss'
@@ -16,16 +12,19 @@ import './index.scss'
 const vm = new Vue({
   el: '#app',
   data: {
-    componentsHTML: { spinners, input, checkboxes, buttons, progressBars, radioButtons },
-    currentList: 'buttons',
-    componentsList: spinners,
-    componentTitle: 'Buttons'
+    currentList: '',
+    componentsList: [],
+    categoryInFeed: ''
   },
   methods: {
-    changeCurrentList(newList) {
-      this.currentList = newList.component
-      this.componentsList = this.getComponentHTML(newList.component)
-      this.componentTitle = newList.title
+    changeCurrentList({ category }) {
+      const categoryToShow = category ? category : localStorage.getItem('category')
+      getAllComponentsByCategory(categoryToShow).then(response => {
+        localStorage.setItem('category', categoryToShow)
+        this.currentList = categoryToShow
+        this.componentsList = getComponentsCode(response)
+        this.categoryInFeed = categoryToShow
+      })
     },
     getComponentHTML(component) {
       return this.componentsHTML[component]

@@ -1,9 +1,9 @@
 <template lang="pug">
   .card.column.middle.center.full-width(:style='cardColor')
-    .card-content.full-width.row.middle.center(v-html='component.html')
+    .card-content.full-width.row.middle.center(v-bind:id='component.title')
     a.card-info.column.full-width(:href='detailURL' )
       h4.card-title.m-bottom-1
-        | {{ component.title }}
+        | {{ displayableName }}
 </template>
 
 <script>
@@ -16,6 +16,9 @@ export default {
     number: { type: Number, required: true }
   },
   computed: {
+    displayableName() {
+      return this.component.title.replace('-', ' ')
+    },
     detailURL() {
       const categoryParam = spacesToHyphen(this.category).toLowerCase()
       const componentParam = spacesToHyphen(this.component.title).toLowerCase()
@@ -27,6 +30,11 @@ export default {
         '--card-color': colors[ Math.floor(this.number % colors.length) ]
       }
     }
+  },
+  mounted() {
+    const elem = document.querySelector(`#${this.component.title}`)
+    const shadowRoot = elem.attachShadow({ mode: 'open' })
+    shadowRoot.innerHTML = `${this.component.html}<style>${this.component.scss}</style>`
   }
 }
 </script>
@@ -81,6 +89,7 @@ $card-info-content: 45px;
   color: $black;
   font-size: 18px;
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .author {
