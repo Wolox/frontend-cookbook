@@ -36,7 +36,7 @@ export default {
     getCategories().then(response => {
       this.categories = response
       const selectedCategory = localStorage.getItem('category')
-      this.selectCategory(selectedCategory !== 'undefined' ? { name: selectedCategory} : this.categories[0])
+      this.selectCategory(selectedCategory ? { name: selectedCategory} : this.categories[0])
     })
   },
   methods: {
