@@ -14,4 +14,6 @@ html
     #app.container(v-cloak)
       sidebar(@list='changeCurrentList')
       feed(:title='categoryInFeed' :components-to-show='componentsList')
+      button(type='button' @click='loginToGithub')
+        | Login to Github
     script(src='./index.js')

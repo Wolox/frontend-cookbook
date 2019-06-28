@@ -17,6 +17,9 @@ const vm = new Vue({
     categoryInFeed: ''
   },
   methods: {
+    loginToGithub() {
+      window.location.href = `http://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&allow_signup=true&redirect_uri=http://localhost:3000/`
+    },
     changeCurrentList({ category }) {
       const categoryToShow = category ? category : localStorage.getItem('category')
       getAllComponentsByCategory(categoryToShow).then(response => {
