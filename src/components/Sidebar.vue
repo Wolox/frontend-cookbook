@@ -24,6 +24,7 @@
 
 <script>
 import { getCategories } from '../services/componentService'
+import { userIsLoggedIn } from '../services/loginService'
 
 export default {
   data() {
@@ -33,11 +34,13 @@ export default {
     };
   },
   created() {
-    getCategories().then(response => {
-      this.categories = response
-      const selectedCategory = localStorage.getItem('category')
-      this.selectCategory(selectedCategory ? { name: selectedCategory} : this.categories[0])
-    })
+    if (userIsLoggedIn()) {
+      getCategories().then(response => {
+        this.categories = response
+        const selectedCategory = localStorage.getItem('category')
+        this.selectCategory(selectedCategory ? { name: selectedCategory} : this.categories[0])
+      })
+    }
   },
   methods: {
     selectCategory(category, goToFeed = false) {

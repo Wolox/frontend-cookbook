@@ -3,11 +3,19 @@ import Vue from 'vue'
 import Feed from '../../components/Feed'
 import Sidebar from '../../components/Sidebar'
 
+import { loginToGithub } from '../../services/loginService'
 import { getAllComponentsByCategory } from '../../services/componentService'
 import { getComponentsCode } from '../../utils'
 
 import './index.pug'
 import './index.scss'
+
+const urlParams = new URLSearchParams(window.location.search)
+const code = urlParams.get('code')
+
+if (code) {
+  loginToGithub(code)
+}
 
 const vm = new Vue({
   el: '#app',
@@ -18,7 +26,7 @@ const vm = new Vue({
   },
   methods: {
     loginToGithub() {
-      window.location.href = `http://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&allow_signup=true&redirect_uri=http://localhost:3000/`
+      window.location.href = `http://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&redirect_uri=${process.env.REDIRECT_URL}`
     },
     changeCurrentList({ category }) {
       const categoryToShow = category ? category : localStorage.getItem('category')

@@ -15,7 +15,7 @@ const entry = glob
   .sync('./src/views/**/*.js')
   .reduce((entries, entryFile) => Object.assign(entries, { [path.parse(entryFile).name]: entryFile }), {})
 
-module.exports = {
+module.exports = () => ({
   entry,
   output: {
     filename: chunkFileName =>
@@ -28,7 +28,7 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'src'),
     watchContentBase: true,
     compress: true,
-    port: 3000,
+    port: 3001,
     hot: true
   },
   resolve: {
@@ -167,4 +167,4 @@ module.exports = {
   performance: {
     hints: false
   }
-}
+})

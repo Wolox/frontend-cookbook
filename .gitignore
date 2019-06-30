@@ -31,3 +31,4 @@ backstop_data
 deploy.js
 
 .env*
+**/now.json
