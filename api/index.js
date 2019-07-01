@@ -10,6 +10,6 @@ module.exports = (req, res) => {
 
     response.on('end', () => { res.send(data); });
   }).on('error', err => {
-    res.status(500).send(err.message);
+    res.status(500).send({ message: err.message });
   });
 }

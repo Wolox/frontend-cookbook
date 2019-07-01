@@ -24,31 +24,41 @@
 
 <script>
 import { getCategories } from '../services/componentService'
-import { userIsLoggedIn } from '../services/loginService'
 
 export default {
+  props: {
+    isUserLoggedIn: { type: Boolean, required: true }
+  },
   data() {
     return {
       itemSelected: '',
       categories: []
-    };
+    }
+  },
+  watch: {
+    isUserLoggedIn(nextValue) {
+      if (nextValue) this.getCategories()
+    }
   },
   created() {
-    if (userIsLoggedIn()) {
+    if (this.isUserLoggedIn) {
+      this.getCategories()
+    }
+  },
+  methods: {
+    getCategories() {
       getCategories().then(response => {
         this.categories = response
         const selectedCategory = localStorage.getItem('category')
         this.selectCategory(selectedCategory ? { name: selectedCategory} : this.categories[0])
       })
-    }
-  },
-  methods: {
+    },
     selectCategory(category, goToFeed = false) {
       this.itemSelected = category.name
-      this.$emit('list', { category: category.name, goToFeed})
+      this.$emit('list', { category: category.name, goToFeed })
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

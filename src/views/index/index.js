@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Feed from '../../components/Feed'
 import Sidebar from '../../components/Sidebar'
 
-import { loginToGithub } from '../../services/loginService'
+import { loginToGithub, userIsLoggedIn } from '../../services/loginService'
 import { getAllComponentsByCategory } from '../../services/componentService'
 import { getComponentsCode } from '../../utils'
 
@@ -13,19 +13,23 @@ import './index.scss'
 const urlParams = new URLSearchParams(window.location.search)
 const code = urlParams.get('code')
 
-if (code) {
-  loginToGithub(code)
-}
-
 const vm = new Vue({
   el: '#app',
   data: {
     currentList: '',
     componentsList: [],
-    categoryInFeed: ''
+    categoryInFeed: '',
+    isUserLoggedIn: false
+  },
+  created() {
+    if (userIsLoggedIn()) {
+      this.isUserLoggedIn = true
+    } else if (code) {
+      loginToGithub(code).then(() => this.isUserLoggedIn = true)
+    }
   },
   methods: {
-    loginToGithub() {
+    redirectLoginToGithub() {
       window.location.href = `http://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&redirect_uri=${process.env.REDIRECT_URL}`
     },
     changeCurrentList({ category }) {

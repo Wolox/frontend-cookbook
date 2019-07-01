@@ -10,9 +10,10 @@ export const storeToken = response => {
   api.defaults.headers['Authorization'] = `bearer ${token}`
 }
 
-export const loginToGithub = code => axios.get(`https://cookbook-api.wolox-fea.now.sh?code=${code}`).then(response => {
-  storeToken(response)
-  window.history.replaceState({}, document.title, '/')
-})
+export const loginToGithub = code =>
+  axios.get(`https://cookbook-api.wolox-fea.now.sh?code=${code}`).then(response => {
+    storeToken(response)
+    window.history.replaceState({}, document.title, '/')
+  })
 
 export const userIsLoggedIn = () => localStorage.getItem('auth_token') && localStorage.getItem('auth_token') !== 'undefined'
