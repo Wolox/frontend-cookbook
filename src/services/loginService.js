@@ -11,7 +11,7 @@ export const storeToken = response => {
 }
 
 export const loginToGithub = code =>
-  axios.get(`https://cookbook-api.wolox-fea.now.sh?code=${code}`).then(response => {
+  axios.get(`${process.env.AUTH_BASE_URL}?code=${code}`).then(response => {
     storeToken(response)
     window.history.replaceState({}, document.title, '/')
   })

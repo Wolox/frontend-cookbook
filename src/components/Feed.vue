@@ -3,7 +3,6 @@
     .row.space-between.middle.m-bottom-4
       h2.title
         | {{ title }}
-      radio-button(:elements='mainRadioButtons')
     .card-container
       card(
         v-for='(comp, index) in componentsToShow'
@@ -11,24 +10,21 @@
         :component='comp'
         :category='title'
         :number='index'
+        :disabled='!isUserLoggedIn'
       )
+    p.mocked-note.m-top-4(v-if='!isUserLoggedIn')
+      | This components are examples, please log in with your Github account to see all the components.
 </template>
 
 <script>
 import Card from './Card'
 import RadioButton from './RadioButton'
 
-import { mainRadioButtons } from '../resources/constant'
-
 export default {
-  data() {
-    return {
-      mainRadioButtons
-    }
-  },
   props: {
     title: { type: String, required: true },
-    componentsToShow: { type: Array, required: true }
+    componentsToShow: { type: Array, required: true },
+    isUserLoggedIn: { type: Boolean, required: true }
   },
   components: { Card, RadioButton }
 }
@@ -48,6 +44,14 @@ export default {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(4, 1fr);
+}
+
+.mocked-note {
+  border: 1px solid $red;
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
 }
 
 @media screen and (max-width: 991px) {

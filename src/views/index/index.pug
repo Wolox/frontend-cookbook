@@ -13,7 +13,5 @@ html
   body
     #app.container(v-cloak)
       sidebar(:is-user-logged-in='isUserLoggedIn' @list='changeCurrentList')
-      feed(:title='categoryInFeed' :components-to-show='componentsList')
-      button(v-if='!isUserLoggedIn' type='button' @click='redirectLoginToGithub')
-        | Login to Github
+      feed(:title='categoryInFeed' :components-to-show='componentsList' :is-user-logged-in='isUserLoggedIn')
     script(src='./index.js')

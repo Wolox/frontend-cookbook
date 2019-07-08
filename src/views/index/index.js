@@ -3,8 +3,8 @@ import Vue from 'vue'
 import Feed from '../../components/Feed'
 import Sidebar from '../../components/Sidebar'
 
-import { loginToGithub, userIsLoggedIn } from '../../services/loginService'
-import { getAllComponentsByCategory } from '../../services/componentService'
+import { loginToGithub, userIsLoggedIn, getUserInfo } from '../../services/loginService'
+import { getAllComponentsByCategory, loadMockedComponents } from '../../services/componentService'
 import { getComponentsCode } from '../../utils'
 
 import './index.pug'
@@ -26,12 +26,15 @@ const vm = new Vue({
       this.isUserLoggedIn = true
     } else if (code) {
       loginToGithub(code).then(() => this.isUserLoggedIn = true)
+    } else {
+      loadMockedComponents().then(components => {
+        this.currentList = 'spinners'
+        this.componentsList = components.default
+        this.categoryInFeed = 'spinners'
+      })
     }
   },
   methods: {
-    redirectLoginToGithub() {
-      window.location.href = `http://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&redirect_uri=${process.env.REDIRECT_URL}`
-    },
     changeCurrentList({ category }) {
       const categoryToShow = category ? category : localStorage.getItem('category')
       getAllComponentsByCategory(categoryToShow).then(response => {

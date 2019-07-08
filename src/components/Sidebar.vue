@@ -1,11 +1,12 @@
 <template lang="pug">
-  .column.sidebar-container.space-between.full-width
+  nav.column.sidebar-container.space-between.full-width
     .sidebar-upper-section
       .column.sidebar-header
         h2.sidebar-title.sidebar-title-wolox
           | wolox
         a.sidebar-title(href='/')
           | Front End Cookbook
+        github-login-button(v-if='!isUserLoggedIn' :url='loginToGithubURL')
       .column.content-links.start
         button.simple-link.m-bottom-2(
           v-for='(category, index) in categories'
@@ -15,7 +16,7 @@
           @click='selectCategory(category, true)'
         )
           | {{ category.name }}
-    div.column.center.sidebar-footer-text
+    .column.center.sidebar-footer-text
       | </> with ♥ by Wolox Front-End Army
       button.sidebar-footer-set-style.m-top-1.row.middle.center.full-width
         i.fas.fa-palette.m-right-1
@@ -23,16 +24,24 @@
 </template>
 
 <script>
+import GithubLoginButton from './GithubLoginButton'
+
 import { getCategories } from '../services/componentService'
 
 export default {
   props: {
     isUserLoggedIn: { type: Boolean, required: true }
   },
+  components: { GithubLoginButton },
   data() {
     return {
       itemSelected: '',
       categories: []
+    }
+  },
+  computed: {
+    loginToGithubURL() {
+      return `http://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&redirect_uri=${process.env.REDIRECT_URL}`
     }
   },
   watch: {
@@ -62,8 +71,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../scss/variables/colors';
-@import '../scss/variables/sizes';
+@import 'variables/colors';
+@import 'variables/sizes';
 
 .sidebar-container {
   background-color: $sidebar-blue;
