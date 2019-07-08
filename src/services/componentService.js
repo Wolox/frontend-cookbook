@@ -55,3 +55,11 @@ export const getCategories = async () => {
     }`))
   return response.data.data.repository.object.tree.entries.filter(file => file.type === 'tree' && file.name[0] !== '.')
 }
+
+export const loadMockedComponents = async () => {
+  const response = await new Promise(resolve => {
+    const components = import('../resources/spinners')
+    resolve(components)
+  })
+  return response
+}

@@ -7,6 +7,7 @@ import './detail.pug'
 import './detail.scss'
 
 import { getComponentFiles } from '../../services/componentService'
+import { userIsLoggedIn } from '../../services/loginService'
 
 const urlParams = new URLSearchParams(window.location.search)
 const category = urlParams.get('category')
@@ -15,10 +16,14 @@ const component = urlParams.get('component')
 const vm = new Vue({
   el: '#app',
   data: {
+    isUserLoggedIn: false,
     componentTitle: component.replace('-', ' '),
     html: '',
     scss: '',
     currentList: category
+  },
+  created() {
+    this.isUserLoggedIn = userIsLoggedIn()
   },
   mounted() {
     getComponentFiles(category, component).then(response => {
