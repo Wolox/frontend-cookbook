@@ -96,6 +96,11 @@
     "webpack-serve": "^0.3.1",
     "workbox-webpack-plugin": "^3.6.2"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run sass-build && git add ."
+    }
+  },
   "sassLintConfig": ".sass-lint.yml",
   "pugLingConfig": ".pug-lintrc"
 }
