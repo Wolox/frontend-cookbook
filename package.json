@@ -8,7 +8,8 @@
   "description": "Wolox front-end component cookbook",
   "scripts": {
     "start": "webpack-dev-server --config webpack.js",
-    "sass-build": "node sassBuild.js"
+    "sass-build": "node sassBuild.js",
+    "precommit": "npm run sass-build && git add ."
   },
   "repository": {
     "type": "git",
@@ -94,11 +95,6 @@
     "webpack-monitor": "^1.0.14",
     "webpack-serve": "^0.3.1",
     "workbox-webpack-plugin": "^3.6.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run pug-lint-diff && npm run pug-lint-vue-diff && npm run es-lint-diff && npm run style-lint-diff"
-    }
   },
   "sassLintConfig": ".sass-lint.yml",
   "pugLingConfig": ".pug-lintrc"

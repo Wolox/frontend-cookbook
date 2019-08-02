@@ -17,6 +17,6 @@ async function componentToMount() {
 
 componentToMount().then(() => {
   const shadowHost = document.getElementById('host')
-  const shadowRoot = shadowHost.attachShadow({mode: 'open'})
+  const shadowRoot = shadowHost.attachShadow({mode: 'closed'})
   shadowRoot.innerHTML = `${componentHTML}<style>${componentStyles}</style>`
 })
