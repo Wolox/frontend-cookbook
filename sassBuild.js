@@ -3,7 +3,7 @@ const sass = require('node-sass'),
       path = require('path'),
       glob = require('glob');
 
-const scssFiles = glob.sync('./**/**/**.scss', { ignore: './node_modules/**' });
+const scssFiles = glob.sync('./components/**/**.scss', { ignore: './node_modules/**' });
 
 scssFiles.map(file => {
   const output = path.parse(file).dir + '/styles.css'

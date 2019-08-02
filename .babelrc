@@ -1,17 +1,13 @@
 {
   "plugins": [
-    "transform-object-rest-spread",
-    "dynamic-import-webpack",
-    "syntax-dynamic-import",
-    ["prismjs", {
-      "languages": ["markup", "javascript", "scss"],
-      "plugins": ["line-numbers"],
-      "theme": "default",
-      "css": true
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-syntax-dynamic-import",
+    ["@babel/plugin-transform-runtime", {
+      "regenerator": true
     }]
   ],
   "presets": [
-    ["env", {
+    ["@babel/env", {
       "targets": [
         "last 2 versions", "safari >= 7", "not ie < 9"
       ]
