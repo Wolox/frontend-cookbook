@@ -4,7 +4,7 @@ const queryBuilder = (name, target = '', query) => ({
   query: `
     query ${name} {
       repository(owner: "wolox", name: "frontend-cookbook") {
-        object(expression: "components${target}") {
+        object(expression: "components:components${target}") {
           ${query}
         }
       }
@@ -14,24 +14,22 @@ const queryBuilder = (name, target = '', query) => ({
 const filesQuery = `
   ... on Tree {
     entries {
-      ... on TreeEntry {
-        name
-        object {
-          ... on Blob {
-            text
-          }
+      name
+      object {
+        ... on Blob {
+          text
         }
       }
     }
   }`
 
 export const getComponentFiles = async (componentType, component) => {
-  const response = await api.post('', queryBuilder('componentsFiles', `:${componentType}/${component}`, filesQuery))
+  const response = await api.post('', queryBuilder('componentsFiles', `/${componentType}/${component}`, filesQuery))
   return response.data.data.repository.object.entries
 }
 
 export const getAllComponentsByCategory = async category => {
-  const response = await api.post('', queryBuilder('componentsByCategory', `:${category}`, `
+  const response = await api.post('', queryBuilder('componentsByCategory', `/${category}`, `
     ... on Tree {
       entries {
         name
@@ -45,15 +43,12 @@ export const getAllComponentsByCategory = async category => {
 
 export const getCategories = async () => {
   const response = await api.post('', queryBuilder(`getCategories`, '', `
-    ... on Commit {
-      tree {
-        entries {
-          name
-          type
-        }
+    ... on Tree {
+      entries {
+        name
       }
     }`))
-  return response.data.data.repository.object.tree.entries.filter(file => file.type === 'tree' && file.name[0] !== '.')
+  return response.data.data.repository.object.entries
 }
 
 export const loadMockedComponents = async () => {
