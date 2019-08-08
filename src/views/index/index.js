@@ -23,7 +23,7 @@ const vm = new Vue({
   },
   created() {
     if (process.env.NODE_ENV !== 'production') this.isUserLoggedIn = true
-    else getFeedComponents()
+    else this.getFeedComponents()
   },
   methods: {
     changeCurrentList({ category }) {
