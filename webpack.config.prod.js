@@ -155,7 +155,9 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
-    new DotEnv(),
+    new DotEnv({
+      path: './.env.prod'
+    }),
     new VueLoaderPlugin(),
     /**
      * Known issue for the CSS Extract Plugin in Ubuntu 16.04: You'll need to install

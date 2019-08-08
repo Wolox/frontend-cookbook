@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Feed from '../../components/Feed'
 import Sidebar from '../../components/Sidebar'
 
-import { loginToGithub, userIsLoggedIn, getUserInfo } from '../../services/loginService'
+import { loginToGithub, userIsLoggedIn } from '../../services/loginService'
 import { getAllComponentsByCategory, loadMockedComponents } from '../../services/componentService'
 import { getComponentsCode } from '../../utils'
 
@@ -22,17 +22,8 @@ const vm = new Vue({
     isUserLoggedIn: false
   },
   created() {
-    if (userIsLoggedIn()) {
-      this.isUserLoggedIn = true
-    } else if (code) {
-      loginToGithub(code).then(() => this.isUserLoggedIn = true)
-    } else {
-      loadMockedComponents().then(components => {
-        this.currentList = 'spinners'
-        this.componentsList = components.default
-        this.categoryInFeed = 'spinners'
-      })
-    }
+    if (process.env.NODE_ENV !== 'production') this.isUserLoggedIn = true
+    else this.getFeedComponents()
   },
   methods: {
     changeCurrentList({ category }) {
@@ -46,6 +37,19 @@ const vm = new Vue({
     },
     getComponentHTML(component) {
       return this.componentsHTML[component]
+    },
+    getFeedComponents() {
+      if (userIsLoggedIn()) {
+        this.isUserLoggedIn = true
+      } else if (code) {
+        loginToGithub(code).then(() => this.isUserLoggedIn = true)
+      } else {
+        loadMockedComponents().then(components => {
+          this.currentList = 'spinners'
+          this.componentsList = components.default
+          this.categoryInFeed = 'spinners'
+        })
+      }
     }
   },
   components: { Feed, Sidebar }

@@ -15,7 +15,8 @@
     "lint": "sass-lint 'src/**/*.scss' -v -q",
     "create-view": "vg view",
     "create-component": "vg component",
-    "deploy": "npm run build && node deploy.js"
+    "deploy": "npm run build && now --target staging --name cookbook build",
+    "deploy-prod": "npm run build && now --target production --name cookbook build"
   },
   "repository": {
     "type": "git",

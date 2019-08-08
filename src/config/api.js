@@ -6,7 +6,14 @@ const headers = {
   'Accept': 'application/json'
 }
 
-if (authToken && authToken !== 'undefined') headers['Authorization'] = `bearer ${authToken}`
+let authHeader
+
+if (process.env.NODE_ENV !== 'production') {
+  authHeader = `bearer ${process.env.GITHUB_TOKEN}`
+} else if (authToken && authToken !== 'undefined') {
+  authHeader = `bearer ${authToken}`
+}
+headers['Authorization'] = authHeader
 
 const api = axios.create({
   baseURL: 'https://api.github.com/graphql',

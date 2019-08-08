@@ -23,7 +23,7 @@ const vm = new Vue({
     currentList: category
   },
   created() {
-    this.isUserLoggedIn = userIsLoggedIn()
+    this.isUserLoggedIn = process.env.NODE_ENV !== 'production' ? true : userIsLoggedIn()
   },
   mounted() {
     getComponentFiles(category, component).then(response => {
