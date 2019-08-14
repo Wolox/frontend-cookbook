@@ -1,4 +1,21 @@
+button.btn,
+button.btn:active,
+button.btn:focus {
+  outline: none;
+}
+
 .btn-1 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  --btn-radius: 130px;
+  --btn-border-radius: 0;
+  --btn-border: 2px;
+  --btn-color-1: #DF0000;
+  --btn-color-2: #AD0000;
+  --btn-text-color: #FFFFFF;
+  --btn-font-size: 10pt;
+  --btn-trn-duration: 150ms;
   --btn-color-1: #00F1D1;
   --btn-color-2: #0077FF;
   --btn-text-color: hsl(0, 0%, 15%);

@@ -1,3 +1,22 @@
+button.btn,
+button.btn:active,
+button.btn:focus {
+  outline: none;
+}
+
+.btn {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  --btn-border-radius: 0;
+  --btn-border: 2px;
+  --btn-color-1: #DF0000;
+  --btn-color-2: #AD0000;
+  --btn-text-color: #FFFFFF;
+  --btn-font-size: 10pt;
+  --btn-trn-duration: 150ms;
+}
+
 .btn.btn-2 {
   align-items: center;
   background-color: var(--btn-color-1);

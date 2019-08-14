@@ -30,5 +30,5 @@ backstop_data
 
 deploy.js
 
-.env
+.env*
 now.json
