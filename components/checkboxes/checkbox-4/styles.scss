@@ -18,7 +18,7 @@ $transition-duration: 330ms;
     border-radius: 28px;
     cursor: pointer;
     height: 28px;
-    padding: 2px;
+    padding: 3px;
     position: relative;
     transition: border $transition-duration $transition-function;
     user-select: none;
@@ -31,7 +31,7 @@ $transition-duration: 330ms;
       height: 80%;
       left: 0;
       position: absolute;
-      transform: translateX(5px);
+      transform: translateX(6px);
       transition: all $transition-duration $transition-function;
       width: 50%;
     }
@@ -41,7 +41,7 @@ $transition-duration: 330ms;
     border-color: var(--active-color);
     &::after {
       background-color: var(--active-color);
-      transform: translateX(27px);
+      transform: translateX(50%);
     }
   }
 }

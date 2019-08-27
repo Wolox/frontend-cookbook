@@ -19,7 +19,7 @@ $transition-duration: 330ms;
     color: var(--primary-color);
     cursor: pointer;
     display: flex;
-    height: 30px;
+    height: 20px;
     left: 40%;
     position: absolute;
     text-indent: 35px;
@@ -27,7 +27,7 @@ $transition-duration: 330ms;
     transition: all $transition-duration $transition-function;
     user-select: none;
     white-space: nowrap;
-    width: 30px;
+    width: 20px;
 
     &::after {
       border-bottom: 3px solid var(--active-color);
@@ -51,7 +51,7 @@ $transition-duration: 330ms;
 
     &:after {
       opacity: 1;
-      width: 35px;
+      width: 30px;
     }
   }
 }

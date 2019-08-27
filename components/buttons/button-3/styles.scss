@@ -1,4 +1,15 @@
-:root {
+.btn {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  --btn-radius: 130px;
+  --btn-border-radius: 0;
+  --btn-border: 2px;
+  --btn-color-1: #DF0000;
+  --btn-color-2: #AD0000;
+  --btn-text-color: #FFF;
+  --btn-font-size: 10pt;
+  --btn-trn-duration: 150ms;
   --btn-skew-angle: -20deg;
   --btn-content-skew-angle: calc(var(--btn-skew-angle) * -1);
 }

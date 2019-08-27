@@ -1,8 +1,17 @@
 $white: #FFF;
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .spinner-3 {
   div {
-    animation: spinner2 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     left: -32px;
     position: relative;
     top: -32px;
