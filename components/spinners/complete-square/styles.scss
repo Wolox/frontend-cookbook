@@ -1,0 +1,68 @@
+$white: #FFF;
+
+.spinner {
+  height: 70px;
+  transform: rotateZ(45deg);
+  width: 70px;
+}
+
+.spinner-cube {
+  float: left;
+  height: 50%;
+  transform: scale(1.1) rotateZ(0);
+  width: 50%;
+
+  &::before {
+    animation: cssload-fold-thecube 2.76s infinite linear both;
+    background-color: $white;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform-origin: 100% 100%;
+    width: 100%;
+  }
+}
+
+.spinner-c2 {
+  transform: scale(1.1) rotateZ(90deg);
+
+  &::before {
+    animation-delay: 0.35s;
+  }
+}
+
+.spinner-c3 {
+  transform: scale(1.1) rotateZ(180deg);
+
+  &::before {
+    animation-delay: 0.69s;
+  }
+}
+
+.spinner-c4 {
+  transform: scale(1.1) rotateZ(270deg);
+
+  &::before {
+    animation-delay: 1.04s;
+  }
+}
+
+@keyframes cssload-fold-thecube {
+  0%,
+  10% {
+    opacity: 0;
+    transform: perspective(129px) rotateX(-180deg);
+  }
+  25%,
+  75% {
+    opacity: 1;
+    transform: perspective(129px) rotateX(0deg);
+  }
+  90%,
+  100% {
+    opacity: 0;
+    transform: perspective(129px) rotateY(180deg);
+  }
+}
