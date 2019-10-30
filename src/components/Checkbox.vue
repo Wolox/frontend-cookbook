@@ -534,29 +534,29 @@ $height: 35px;
 $duration: 450ms;
 
 .checkbox-9 {
-  position: relative;
-  display: flex;
-  justify-content: space-around;
   align-items: center;
-  user-select: none;
   background: var(--secondary-color);
   border-radius: $height / 2;
+  display: flex;
   height: $height;
+  justify-content: space-around;
+  position: relative;
+  user-select: none;  
   width: $width;
   
   input {
+    border-radius: 25px;
+    height: $height;
+    outline: none;     
     position: relative;
     width: $width;
-    height: $height;
-    border-radius: 25px;
-    outline: none;     
   }
   
   span {
-    z-index: 2;
-    pointer-events: none;
     font-weight: bold;
+    pointer-events: none;
     transition: color $duration ease;
+    z-index: 2;
   }
   
   .label-left {
@@ -605,5 +605,4 @@ $duration: 450ms;
     }
   } 
 }
-
 </style>
