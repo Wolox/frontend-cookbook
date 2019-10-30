@@ -49,6 +49,12 @@
       .checkbox-8
         input#checkbox-8.checkbox(type='checkbox')
         label(for='checkbox-8')
+    .item-checkbox
+      .checkbox-9
+        input#checkbox-9.checkbox(type='checkbox')
+        label(for='checkbox-9')
+        span.label-left Choice1
+        span.label-right Choice2
 </template>
 <script>
 import '../../scripts/checkbox.js'
@@ -519,4 +525,85 @@ $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
     width: 42px;
   }
 }
+/* Checkbox 8 */
+
+/* Checkbox 9 */
+
+$width: 180px;
+$height: 35px;
+$duration: 450ms;
+
+.checkbox-9 {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  user-select: none;
+  background: var(--secondary-color);
+  border-radius: $height / 2;
+  height: $height;
+  width: $width;
+  
+  input {
+    position: relative;
+    width: $width;
+    height: $height;
+    border-radius: 25px;
+    outline: none;     
+  }
+  
+  span {
+    z-index: 2;
+    pointer-events: none;
+    font-weight: bold;
+    transition: color $duration ease;
+  }
+  
+  .label-left {
+    color: var(--secondary-color);
+  }
+  
+  .label-right {
+    color: var(--primary-color);
+  }
+
+
+  label {
+    display: block;
+    height: $height;
+    position: absolute;
+    width: $width;
+
+    &::after {
+      background: var(--active-color);
+      border-radius: 25px;
+      content: '';
+      height: $height;
+      position: absolute;
+      transition:
+        background $duration ease,
+        transform $duration ease;
+      width: $width/2;
+    }
+  }
+  
+  input:checked {
+    + label::after {
+      transform: translateX(100%);
+    }
+  }
+
+  input:checked + label {
+    + .label-left {
+      color: var(--primary-color);
+    }
+  }
+    
+  input:checked + label + .label-left {
+    + .label-right {
+      color: var(--secondary-color);
+    }
+  } 
+}
+
 </style>
