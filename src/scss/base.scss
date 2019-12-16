@@ -5,6 +5,7 @@
 }
 
 .container {
+  background-color: $white;
   display: flex;
 }
 
@@ -15,7 +16,7 @@
 }
 
 .title {
-  color: $grey-3;
+  color: $black;
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;

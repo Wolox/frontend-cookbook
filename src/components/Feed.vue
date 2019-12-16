@@ -1,8 +1,7 @@
 <template lang="pug">
   .feed-content.full-width
-    .row.space-between.middle.m-bottom-4
-      h2.title
-        | {{ title }}
+    h2.title.m-bottom-4
+      | {{ title }}
     .card-container
       card(
         v-for='(comp, index) in componentsToShow'
@@ -17,8 +16,8 @@
 </template>
 
 <script>
-import Card from './Card'
-import RadioButton from './RadioButton'
+import Card from "./Card";
+import RadioButton from "./RadioButton";
 
 export default {
   props: {
@@ -27,7 +26,7 @@ export default {
     isUserLoggedIn: { type: Boolean, required: true }
   },
   components: { Card, RadioButton }
-}
+};
 </script>
 
 <style lang="scss">
@@ -54,15 +53,32 @@ export default {
   width: 100%;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: $big-screen) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 1024px) {
   .card-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: $small-screen) {
+  .feed-content {
+    padding: 70px 20px 20px;
+  }
+
   .card-container {
     grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .title {
+    display: block;
+    text-align: center;
   }
 }
+
 </style>

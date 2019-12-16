@@ -20,7 +20,7 @@ const vm = new Vue({
     componentTitle: component.replace('-', ' '),
     html: '',
     scss: '',
-    currentList: category
+    currentCode: 'html'
   },
   created() {
     this.isUserLoggedIn = process.env.NODE_ENV !== 'production' ? true : userIsLoggedIn()
@@ -30,7 +30,7 @@ const vm = new Vue({
       this.html = response[0].object.text
       this.scss = response[2].object.text
       const elem = document.querySelector('#host')
-      const shadowRoot = elem.attachShadow({mode: 'open'})
+      const shadowRoot = elem.attachShadow({ mode: 'open' })
       shadowRoot.innerHTML = `${this.html}<style>${response[1].object.text}</style>`
     })
   },
@@ -38,6 +38,9 @@ const vm = new Vue({
     changeCurrentList({ category, goToFeed }) {
       localStorage.setItem('category', category)
       if (goToFeed) window.location.href = '/'
+    },
+    changeCurrentCode(type) {
+      this.currentCode = type
     }
   },
   components: { Sidebar, CodeSnippet }

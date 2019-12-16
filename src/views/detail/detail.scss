@@ -1,39 +1,65 @@
 @import 'application';
 
-.container {
-  background-color: $light-grey;
-}
-
 .details-container {
-  margin: 80px auto 0;
+  margin: 0 auto;
   max-width: $content-max-width;
+  padding: 80px 20px 20px 80px;
   width: 100%;
-}
-
-.component-title {
-  color: $grey-3;
-  font-size: 36px;
-  font-weight: bold;
-  line-height: 43px;
-  text-transform: capitalize;
 }
 
 .code-container {
   background-color: $white;
-  padding: 35px 10px;
+  height: 600px;
+  padding-top: 30px;
+  position: relative;
+}
 
-  &:not(:last-child) {
-    border-right: 1px solid $catskill-white;
+.code {
+  left: 0;
+  position: absolute;
+  top: 90px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform $transition-duration $transition-function;
+
+  &.isVisible {
+    transform: scaleY(1);
+    transition-delay: 200ms;
+  }
+}
+
+.button-type {
+  background-color: $catskill-white;
+  border-radius: 4px;
+  font-weight: 600;
+  height: 40px;
+  margin-right: 15px;
+  text-align: center;
+  transition: all $transition-duration $transition-function;
+  width: 90px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover,
+  &.active {
+    background-color: $sidebar-blue;
+    color: $white;
   }
 }
 
 .component-render-container {
   align-items: center;
-  background-color: $wolox-green;
-  border-radius: 8px 8px 0 0;
+  background-color: $porcelain;
   display: flex;
-  height: 470px;
+  height: 350px;
   justify-content: center;
-  margin-top: 40px;
   width: 100%;
+}
+
+@media screen and (max-width: $small-screen) {
+  .details-container {
+    padding: 70px 20px 20px;
+  }
 }
