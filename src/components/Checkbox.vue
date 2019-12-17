@@ -535,8 +535,8 @@ $duration: 450ms;
 
 .checkbox-9 {
   align-items: center;
-  background: var(--secondary-color);
-  border-radius: $height / 2;
+  background-color: var(--secondary-color);
+  border-radius: 25px;
   display: flex;
   height: $height;
   justify-content: space-around;
@@ -581,28 +581,22 @@ $duration: 450ms;
       height: $height;
       position: absolute;
       transition:
-        background $duration ease,
+        background-color $duration ease,
         transform $duration ease;
       width: $width/2;
     }
   }
   
-  input:checked {
-    + label::after {
-      transform: translateX(100%);
-    }
+  input:checked + label::after {
+    transform: translateX(100%);
   }
 
-  input:checked + label {
-    + .label-left {
-      color: var(--primary-color);
-    }
+  input:checked + label + .label-left {
+    color: var(--primary-color);
   }
     
-  input:checked + label + .label-left {
-    + .label-right {
-      color: var(--secondary-color);
-    }
+  input:checked + label + .label-left + .label-right {
+    color: var(--secondary-color);
   } 
 }
 </style>
