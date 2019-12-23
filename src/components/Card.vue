@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { spacesToHyphen } from "../utils";
+import { spacesToHyphen } from '../utils'
 
 export default {
   props: {
@@ -51,7 +51,7 @@ export default {
     const shadowRoot = elem.attachShadow({ mode: "open" });
     shadowRoot.innerHTML = `${this.component.html}<style>${this.component.css}</style>`;
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

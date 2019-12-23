@@ -19,10 +19,10 @@ html(lang='en')
         #host.component-render-container
         .code-container
           .row
-            button.button-type(type='button' @click='changeCurrentCode("html")' v-bind:class='{ active: currentCode == "html" }')
+            button.button-type(type='button' @click='changeCurrentCode("html")' :class='{ active: currentCode == "html" }')
               | HTML
-            button.button-type(type='button' @click='changeCurrentCode("scss")' v-bind:class='{ active: currentCode == "scss" }')
+            button.button-type(type='button' @click='changeCurrentCode("scss")' :class='{ active: currentCode == "scss" }')
               | SCSS
-          code-snippet.code(lang='html' title='HTML' :code='html' v-bind:class='{ isVisible: currentCode == "html" }')
-          code-snippet.code(lang='scss' title='SCSS' :code='scss' v-bind:class='{ isVisible: currentCode == "scss" }')
+          code-snippet.code(lang='html' title='HTML' :code='html' :class='{ isVisible: currentCode == "html" }')
+          code-snippet.code(lang='scss' title='SCSS' :code='scss' :class='{ isVisible: currentCode == "scss" }')
     script(src='/detail/detail.js')

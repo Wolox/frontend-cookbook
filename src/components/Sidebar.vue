@@ -24,9 +24,9 @@
 </template>
 
 <script>
-import GithubLoginButton from "./GithubLoginButton";
+import GithubLoginButton from './GithubLoginButton'
 
-import { getCategories } from "../services/componentService";
+import { getCategories } from '../services/componentService'
 
 export default {
   props: {
@@ -74,7 +74,7 @@ export default {
       console.log(this.sidebarIsOpen);
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
