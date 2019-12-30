@@ -1,9 +1,9 @@
 <template lang="pug">
-  nav.column.sidebar-container.space-between.full-width
+  nav.column.sidebar-container.space-between.full-width(v-bind:class="{ visible: sidebarIsOpen }")
+    button.button-container(type="button" @click='toggleSidebar()' v-bind:class="{ active: sidebarIsOpen }")
+      span.hamburger(v-bind:class="{ active: sidebarIsOpen }")
     .sidebar-upper-section
       .column.sidebar-header
-        h2.sidebar-title.sidebar-title-wolox
-          | wolox
         a.sidebar-title(href='/')
           | Front End Cookbook
         github-login-button(v-if='!isUserLoggedIn' :url='loginToGithubURL')
@@ -35,36 +35,43 @@ export default {
   components: { GithubLoginButton },
   data() {
     return {
-      itemSelected: '',
-      categories: []
-    }
+      itemSelected: "",
+      categories: [],
+      sidebarIsOpen: false
+    };
   },
   computed: {
     loginToGithubURL() {
-      return `http://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&redirect_uri=${process.env.REDIRECT_URL}`
+      return `http://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&redirect_uri=${process.env.REDIRECT_URL}`;
     }
   },
   watch: {
     isUserLoggedIn(nextValue) {
-      if (nextValue) this.getCategories()
+      if (nextValue) this.getCategories();
     }
   },
   created() {
     if (this.isUserLoggedIn) {
-      this.getCategories()
+      this.getCategories();
     }
   },
   methods: {
     getCategories() {
       getCategories().then(response => {
-        this.categories = response
-        const selectedCategory = localStorage.getItem('category')
-        this.selectCategory(selectedCategory ? { name: selectedCategory} : this.categories[0])
-      })
+        this.categories = response;
+        const selectedCategory = localStorage.getItem("category");
+        this.selectCategory(
+          selectedCategory ? { name: selectedCategory } : this.categories[0]
+        );
+      });
     },
     selectCategory(category, goToFeed = false) {
-      this.itemSelected = category.name
-      this.$emit('list', { category: category.name, goToFeed })
+      this.itemSelected = category.name;
+      this.$emit("list", { category: category.name, goToFeed });
+    },
+    toggleSidebar() {
+      this.sidebarIsOpen = !this.sidebarIsOpen;
+      console.log(this.sidebarIsOpen);
     }
   }
 }
@@ -77,13 +84,14 @@ export default {
 .sidebar-container {
   background-color: $sidebar-blue;
   height: 100vh;
-  max-width: 300px;
   position: sticky;
   top: 0;
+  transition: transform $transition-duration $transition-function;
+  width: 300px;
 }
 
 .sidebar-header {
-  padding: 90px 20px 0 30px;
+  padding: 90px 20px 50px 30px;
 }
 
 .content-links {
@@ -134,20 +142,9 @@ export default {
 .sidebar-title {
   color: $white;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 600;
   letter-spacing: 2px;
   line-height: 29px;
-  margin-bottom: 50px;
-  width: 124px;
-}
-
-.sidebar-title-wolox {
-  font-size: 30px;
-  font-weight: 500;
-  letter-spacing: 15px;
-  margin-bottom: 60px;
-  text-transform: uppercase;
-  width: auto;
 }
 
 .sidebar-footer-set-style {
@@ -164,6 +161,105 @@ export default {
   &:hover {
     background-color: $white;
     color: $science-blue;
+  }
+}
+
+%line {
+  background-color: $mine-shaft;
+  border-radius: 10px;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.button-container {
+  cursor: pointer;
+  display: none;
+  height: 25px;
+  position: absolute;
+  right: -50px;
+  top: 20px;
+  transition: transform $transition-duration $transition-function;
+  width: 30px;
+
+  &.active {
+    transform: translateX(-70px);
+    > .hamburger {
+      background-color: $white;
+
+      &::after,
+      &::before {
+        background-color: $white;
+      }
+    }
+  }
+
+  &:hover {
+    > .hamburger {
+      background-color: $science-blue;
+
+      &::after,
+      &::before {
+        background-color: $science-blue;
+      }
+    }
+  }
+}
+
+.hamburger {
+  @extend %line;
+
+  top: 5px;
+  transition: transform 0.28s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+  &::after,
+  &::before {
+    @extend %line;
+
+    content: '';
+    display: block;
+    transition: all $transition-duration $transition-function;
+  }
+
+  &::before {
+    top: 8px;
+    transition: opacity 100ms ease;
+  }
+
+  &::after {
+    top: 15px;
+    transition: transform 0.28s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+
+  &.active {
+    transform: translate3d(0, 8px, 0) rotate(135deg);
+    transition-delay: 75ms;
+
+    &::before {
+      opacity: 0;
+    }
+
+    &::after {
+      transform: translate3d(0, -15px, 0) rotate(-270deg);
+      transition-delay: 75ms;
+    }
+  }
+}
+
+@media screen and (max-width: $medium-screen) {
+  .button-container {
+    display: initial;
+  }
+
+  .sidebar-container {
+    position: fixed;
+    transform: translateX(-100%);
+    z-index: $z-index-sidebar;
+
+    &.visible {
+      transform: translateX(0);
+    }
   }
 }
 

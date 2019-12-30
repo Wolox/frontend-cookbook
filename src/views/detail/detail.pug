@@ -14,12 +14,15 @@ html(lang='en')
     #app.container(v-cloak)
       sidebar(:is-user-logged-in='isUserLoggedIn' @list='changeCurrentList')
       .details-container
-        .row.space-between.baseline
-          h1.component-title
-            | {{ componentTitle }}
-          .author
+        h1.title.m-bottom-5
+          | {{ componentTitle }}
         #host.component-render-container
-        .code-container.row
-          code-snippet.item-1(lang='html' title='HTML' :code='html')
-          code-snippet.item-1(lang='scss' title='SCSS' :code='scss')
+        .code-container
+          .row
+            button.button-type(type='button' @click='changeCurrentCode("html")' :class='{ active: currentCode == "html" }')
+              | HTML
+            button.button-type(type='button' @click='changeCurrentCode("scss")' :class='{ active: currentCode == "scss" }')
+              | SCSS
+          code-snippet.code(lang='html' title='HTML' :code='html' :class='{ isVisible: currentCode == "html" }')
+          code-snippet.code(lang='scss' title='SCSS' :code='scss' :class='{ isVisible: currentCode == "scss" }')
     script(src='/detail/detail.js')
