@@ -1,24 +1,23 @@
-$black: #000;
-
 $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 $transition-duration: 330ms;
-
-.item-checkbox {
-  --primary-color: #636060;
-  --secondary-color: #FFF;
-  --active-color: #00D478;
-}
 
 .checkbox {
   display: none;
 }
 
 .checkbox-3 {
+  --primary-color: #636060;
+  --secondary-color: #FFF;
+  --active-color: #00D478;
+  align-items: center;
+  display: flex;
+
   label {
     background-color: var(--primary-color);
     cursor: pointer;
     height: 28px;
     overflow: hidden;
+    position: relative;
     transform: skew(-10deg);
     transition: background-color $transition-duration $transition-function;
     user-select: none;
@@ -26,14 +25,16 @@ $transition-duration: 330ms;
 
     &::after,
     &::before {
+      align-items: center;
       color: var(--secondary-color);
-      content: '';
-      font-weight: bold;
+      display: flex;
+      font-weight: 600;
+      height: 100%;
+      justify-content: center;
       left: 0;
-      line-height: 28px;
+      line-height: 1.1;
       position: absolute;
-      text-align: center;
-      text-shadow: 0 1px 0 rgba($black,0.4);
+      text-shadow: 0 1px 0 rgba(#000, 0.4);
       transform: skew(10deg);
       transition: transform $transition-duration $transition-function;
       width: 100%;
@@ -51,6 +52,7 @@ $transition-duration: 330ms;
 
   input:checked + label {
     background-color: var(--active-color);
+
     &::before {
       transform: translateX(-60px);
     }

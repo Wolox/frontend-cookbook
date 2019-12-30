@@ -1,17 +1,15 @@
 $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 $transition-duration: 330ms;
 
-.item-checkbox {
-  --primary-color: #636060;
-  --secondary-color: #FFF;
-  --active-color: #00D478;
-}
-
 .checkbox {
   display: none;
 }
 
 .checkbox-8 {
+  --primary-color: #636060;
+  --secondary-color: #FFF;
+  --active-color: #00D478;
+
   label {
     align-items: center;
     background-color: var(--secondary-color);
@@ -29,7 +27,7 @@ $transition-duration: 330ms;
       color: var(--primary-color);
       content: '✓';
       font-size: 18px;
-      opacity: 0.2;
+      opacity: 0.5;
       transition: opacity 0.3s 0.1s ease;
     }
 
