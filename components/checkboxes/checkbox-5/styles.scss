@@ -1,17 +1,16 @@
 $transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
 $transition-duration: 330ms;
 
-.item-checkbox {
-  --primary-color: #636060;
-  --secondary-color: #FFF;
-  --active-color: #00D478;
-}
-
 .checkbox {
   display: none;
 }
 
 .checkbox-5 {
+  --primary-color: #636060;
+  --secondary-color: #FFF;
+  --active-color: #00D478;
+  display: flex;
+
   label {
     cursor: pointer;
     height: 28px;
@@ -25,8 +24,7 @@ $transition-duration: 330ms;
       backface-visibility: hidden;
       border-radius: 4px;
       color: var(--secondary-color);
-      content: '';
-      font-weight: bold;
+      font-weight: 600;
       line-height: 28px;
       position: absolute;
       text-align: center;
@@ -34,13 +32,13 @@ $transition-duration: 330ms;
       width: 100%;
     }
 
-    &:after {
+    &::after {
       background-color: var(--active-color);
       content: attr(data-on);
       transform: rotateY(-180deg);
     }
 
-    &:before {
+    &::before {
       background-color: var(--primary-color);
       content: attr(data-off);
     }
