@@ -1,16 +1,18 @@
 @import '~wolox-equalizer/equalizer.scss';
 
 .explanation {
-  margin: 40px auto;
   font-size: 18px;
+  margin: 40px auto;
 }
 
 .container {
   align-items: center;
-  background: #8dc63f;
+  background-color: #2A3E50;
   display: flex;
   height: 470px;
   justify-content: center;
+  margin: 0 auto;
   max-width: 1080px;
+  max-width: 470px;
   width: 100%;
 }

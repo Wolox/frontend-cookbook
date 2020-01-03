@@ -10,6 +10,9 @@ async function componentToMount() {
   const response = await new Promise(async resolve => {
     await import(`../components/${category}/${component}/index.html`).then(resp => { componentHTML = resp.default })
     await import(`../components/${category}/${component}/styles.scss`).then(resp => { componentStyles = resp.default[0][1] })
+    /* await import(`../components/${category}/${component}/index.js`).then(resp => {
+      console.log(resp)
+    }) */
     resolve(componentHTML)
   })
   return response
