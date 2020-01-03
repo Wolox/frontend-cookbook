@@ -1,0 +1,3 @@
+.container{display:flex;flex-direction:column}.item{position:relative}.item:hover>.label{color:#ccc;transform:translateX(5px)}.item:hover>.label::before{border:3px solid #ccc}.radio-btn{opacity:0;position:absolute;visibility:hidden}.radio-btn:checked+.label{color:#ccc;transform:translateX(5px)}.radio-btn:checked+.label::before{background-color:#fff;border:3px solid #ccc}.label{align-items:center;color:#fff;cursor:pointer;display:flex;font-size:14px;padding:10px 0;transition:all 0.25s ease}.label::before{border:2px solid #fff;border-radius:50%;content:'';height:15px;margin-right:10px;transition:all 0.25s ease;width:15px}
+
+/*# sourceMappingURL=styles.css */

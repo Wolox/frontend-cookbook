@@ -1,0 +1,27 @@
+$black: #000;
+$white: #FFF;
+
+.container {
+  display: flex;
+
+  input[type='radio'] {
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+
+    &::after {
+      border-radius: 8px;
+      color: darken($white, 10%);
+      content: attr(data-icon);
+      font-size: 30px;
+      padding: 15px;
+      transition: box-shadow 1s, color 1s;
+    }
+
+    &:hover::after,
+    &:checked::after {
+      box-shadow: 2px 2px 14px rgba($black, 0.4);
+      color: $white;
+    }
+  }
+}
