@@ -1,0 +1,3 @@
+.spinner-14{height:50px;width:50px}.spinner-14 .spinner-14-item{animation:spinner-14 1.3s infinite ease-in-out;background-color:#fff;float:left;height:33%;width:33%}.spinner-14 .spinner-14-item:first-child,.spinner-14 .spinner-14-item:nth-child(5),.spinner-14 .spinner-14-item:last-child{animation-delay:0.2s}.spinner-14 .spinner-14-item:nth-child(2),.spinner-14 .spinner-14-item:nth-child(6){animation-delay:0.3s}.spinner-14 .spinner-14-item:nth-child(3){animation-delay:0.4s}.spinner-14 .spinner-14-item:nth-child(4),.spinner-14 .spinner-14-item:nth-child(8){animation-delay:0.1s}.spinner-14 .spinner-14-item:nth-child(7){animation-delay:0s}@keyframes spinner-14{0%,70%,100%{transform:scale3D(1, 1, 1)}35%{transform:scale3D(0, 0, 1)}}
+
+/*# sourceMappingURL=styles.css */

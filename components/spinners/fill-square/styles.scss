@@ -1,0 +1,48 @@
+$white: #FFF;
+
+.spinner-14 {
+  height: 50px;
+  width: 50px;
+
+  .spinner-14-item {
+    animation: spinner-14 1.3s infinite ease-in-out;
+    background-color: $white;
+    float: left;
+    height: 33%;
+    width: 33%;
+
+    &:first-child,
+    &:nth-child(5),
+    &:last-child {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(2),
+    &:nth-child(6) {
+      animation-delay: 0.3s;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    &:nth-child(4),
+    &:nth-child(8) {
+      animation-delay: 0.1s;
+    }
+
+    &:nth-child(7) {
+      animation-delay: 0s;
+    }
+  }
+}
+
+@keyframes spinner-14 {
+  0%,
+  70%,
+  100% {
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    transform: scale3D(0, 0, 1);
+  }
+}

@@ -1,0 +1,3 @@
+.spinner-9,.spinner-9::after{border-radius:50%;height:80px;width:80px}.spinner-9{animation:rotate 1.1s infinite linear;border:10px solid;border-color:gray #fff gray gray}@keyframes rotate{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+/*# sourceMappingURL=styles.css */
