@@ -47,7 +47,7 @@ $darken-white: darken($white, 40%);
     &::after {
       opacity: 1;
       transform: scale(1);
-      transition: all 0.2s cubic-bezier(0.35,0.9,0.4,0.9);
+      transition: all 0.2s cubic-bezier(0.35, 0.9, 0.4, 0.9);
     }
   }
 }
