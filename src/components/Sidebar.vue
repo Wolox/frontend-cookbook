@@ -18,26 +18,32 @@
           | {{ category.name }}
     .column.center.sidebar-footer-text
       | </> with ♥ by Wolox Front-End Army
-      button.sidebar-footer-set-style.m-top-1.row.middle.center.full-width
+      button.sidebar-footer-set-style.m-top-1.row.middle.center.full-width(@click='stilyng = !stilyng')
         i.fas.fa-palette.m-right-1
         | set style
+    .styling-container.full-width(:class='{ open: stilyng }')
+      button.sidebar-footer-set-style.m-top-1.row.middle.center.full-width.m-bottom-5(@click='stilyng = !stilyng')
+        i.fas.fa-palette.m-right-1
+        | CLOSE
+      theme-selector
 </template>
 
 <script>
 import GithubLoginButton from './GithubLoginButton'
-
+import ThemeSelector from './ThemeSelector'
 import { getCategories } from '../services/componentService'
 
 export default {
   props: {
     isUserLoggedIn: { type: Boolean, required: true }
   },
-  components: { GithubLoginButton },
+  components: { GithubLoginButton, ThemeSelector },
   data() {
     return {
       itemSelected: "",
       categories: [],
-      sidebarIsOpen: false
+      sidebarIsOpen: false,
+      stilyng: false
     };
   },
   computed: {
@@ -86,6 +92,7 @@ export default {
   height: 100vh;
   position: sticky;
   top: 0;
+  position: relative;
   transition: transform $transition-duration $transition-function;
   width: 300px;
 }
@@ -244,6 +251,20 @@ export default {
       transform: translate3d(0, -15px, 0) rotate(-270deg);
       transition-delay: 75ms;
     }
+  }
+}
+
+.styling-container {
+  position: absolute;
+  background: $sidebar-blue;
+  bottom: 0;
+  top: 0;
+  transform: translateY(100%);
+  transition: transform 0.2s ease-in-out;
+  color: $white;
+
+  &.open {
+    transform: translateY(0);
   }
 }
 

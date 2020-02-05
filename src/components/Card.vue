@@ -49,7 +49,8 @@ export default {
   mounted() {
     const elem = document.querySelector(`#${this.component.title}`);
     const shadowRoot = elem.attachShadow({ mode: "open" });
-    shadowRoot.innerHTML = `${this.component.html}<style>${this.component.css}</style>`;
+    const midiv = `<div style="background: var(--global-primary-color); padding: 10px;">test<div>`
+    shadowRoot.innerHTML = `${midiv}${this.component.html}<style>:host { --micolor: var(--global-primary-color, yellow); }  ${this.component.css}</style>`;
   }
 }
 </script>
