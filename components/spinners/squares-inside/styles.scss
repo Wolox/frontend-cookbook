@@ -1,0 +1,33 @@
+$white: #FFF;
+
+.spinner-15 {
+  height: 33px;
+  width: 33px;
+
+  &::after,
+  &::before {
+    animation: rotate 2.88s linear infinite;
+    border: 1px solid $white;
+    content: '';
+    height: 30px;
+    position: absolute;
+    width: 30px;
+  }
+
+  &::before {
+    animation-direction: reverse;
+    height: 43px;
+    margin-left: -6.5px;
+    margin-top: -6.5px;
+    width: 43px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

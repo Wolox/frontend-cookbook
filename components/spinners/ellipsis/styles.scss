@@ -1,0 +1,47 @@
+$white: #FFF;
+
+.spinner-8,
+.spinner-8::before,
+.spinner-8::after {
+  animation: spinner8 1.8s infinite ease-in-out;
+  animation-fill-mode: both;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+
+.spinner-8 {
+  animation-delay: -0.16s;
+  color: $white;
+  font-size: 10px;
+  position: relative;
+  text-indent: -999px;
+  top: -25px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+  }
+
+  &::before {
+    animation-delay: -0.32s;
+    left: -3.5em;
+  }
+
+  &::after {
+    left: 3.5em;
+  }
+}
+
+@keyframes spinner8 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}

@@ -1,0 +1,3 @@
+.spinner-13,.spinner-13::before,.spinner-13::after{animation:rotate 1150ms linear infinite;border:1px solid #fff;border-left-color:gray;border-radius:50%;left:50%;position:absolute;top:50%}.spinner-13{height:50px;margin:-24px 0 0 -24px;width:50px}.spinner-13::before{animation-duration:1150ms;content:'';height:44px;margin:-22px 0 0 -22px;width:44px}.spinner-13::after{animation-duration:2300ms;content:'';height:56px;margin:-28px 0 0 -28px;width:56px}@keyframes rotate{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+/*# sourceMappingURL=styles.css */
