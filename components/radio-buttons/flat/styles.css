@@ -1,0 +1,3 @@
+.container{display:flex;flex-direction:column}.button-label{background-color:#fff;border-radius:8px;box-shadow:0 3px 10px rgba(0,0,0,0.2),inset 0 -3px 0 rgba(0,0,0,0.22);color:#000;cursor:pointer;font-size:15px;margin-bottom:15px;padding:10px 20px;transition:all 0.3s ease;user-select:none}.button-label:hover{background-color:#e6e6e6;color:#000}.button-label:active{box-shadow:0 3px 10px rgba(0,0,0,0.2),inset 0 -1px 0 rgba(0,0,0,0.22);transform:translateY(2px)}.radio-label{display:none}.radio-label:checked+.button-label{background-color:#bfbfbf;box-shadow:0 3px 10px rgba(0,0,0,0.2),inset 0 -1px 0 rgba(0,0,0,0.22);color:#f2f2f2;transform:translateY(2px)}
+
+/*# sourceMappingURL=styles.css */

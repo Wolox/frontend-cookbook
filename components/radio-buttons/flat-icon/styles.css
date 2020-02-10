@@ -1,0 +1,3 @@
+.container{display:flex}.container input[type='radio']{appearance:none;cursor:pointer;outline:none}.container input[type='radio']::after{border-radius:8px;color:#e6e6e6;content:attr(data-icon);font-size:30px;padding:15px;transition:box-shadow 1s, color 1s}.container input[type='radio']:hover::after,.container input[type='radio']:checked::after{box-shadow:2px 2px 14px rgba(0,0,0,0.4);color:#fff}
+
+/*# sourceMappingURL=styles.css */

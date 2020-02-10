@@ -1,0 +1,62 @@
+$transition-function: cubic-bezier(0.790, 0.010, 0.375, 0.995);
+$white: #FFF;
+$darken-white: darken($white, 40%);
+
+.radio {
+  align-items: center;
+  color: $white;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 15px;
+  position: relative;
+
+  .label {
+    border: 2px solid $darken-white;
+    border-radius: 100%;
+    height: 20px;
+    margin-right: 10px;
+    position: relative;
+    width: 20px;
+
+    &::after {
+      background-color: $white;
+      border-radius: 50%;
+      content: '';
+      height: 10px;
+      left: 5px;
+      opacity: 0.08;
+      pointer-events: none;
+      position: absolute;
+      top: 5px;
+      transform: scale(0);
+      transition: all 0.2s $transition-function;
+      width: 10px;
+    }
+  }
+
+
+  &:hover .label::after {
+    transform: scale(3.6);
+  }
+
+  input[type='radio']:checked + .label {
+    border-color: $white;
+
+    &::after {
+      opacity: 1;
+      transform: scale(1);
+      transition: all 0.2s cubic-bezier(0.35, 0.9, 0.4, 0.9);
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}

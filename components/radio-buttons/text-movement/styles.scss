@@ -1,0 +1,56 @@
+$white: #FFF;
+$darken-white: darken($white, 20%);
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  position: relative;
+
+  &:hover > .label {
+    color: $darken-white;
+    transform: translateX(5px);
+
+    &::before {
+      border: 3px solid $darken-white;
+    }
+  }
+}
+
+.radio-btn {
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+
+  &:checked + .label {
+    color: $darken-white;
+    transform: translateX(5px);
+
+    &::before {
+      background-color: $white;
+      border: 3px solid $darken-white;
+    }
+  }
+}
+
+.label {
+  align-items: center;
+  color: $white;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  padding: 10px 0;
+  transition: all 0.25s ease;
+
+  &::before {
+    border: 2px solid $white;
+    border-radius: 50%;
+    content: '';
+    height: 15px;
+    margin-right: 10px;
+    transition: all 0.25s ease;
+    width: 15px;
+  }
+}
