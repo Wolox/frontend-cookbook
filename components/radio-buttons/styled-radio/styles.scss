@@ -7,6 +7,10 @@ $white: #FFF;
 
   input {
     display: none;
+
+    &:checked + label::after {
+      transform: scale(1);
+    }
   }
 
   & > label {
@@ -38,9 +42,5 @@ $white: #FFF;
       transition: transform 0.2s ease-in-out;
       width: 12px;
     }
-  }
-
-  &:checked + label::after {
-    transform: scale(1);
   }
 }

@@ -28,13 +28,13 @@ $transition-duration: 330ms;
       height: 20px;
       left: 0;
       position: absolute;
-      top: -2px;
+      top: 0;
       transition: border 0.3s $transition-function;
       width: 20px;
     }
   }
 
-  input:checked + label {
+  input:checked+label {
     color: var(--active-color);
 
     &::before {

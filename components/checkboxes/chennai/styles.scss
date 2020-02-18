@@ -15,7 +15,7 @@ $transition-duration: 330ms;
   position: relative;
   user-select: none;
 
-  & > input + label::before {
+  &>input+label::before {
     background-color: var(--primary-color);
     border-radius: 8px;
     content: '';
@@ -28,7 +28,7 @@ $transition-duration: 330ms;
     width: 40px;
   }
 
-  & > input + label::after {
+  &>input+label::after {
     background-color: var(--secondary-color);
     border-radius: 16px;
     content: '';
@@ -36,16 +36,16 @@ $transition-duration: 330ms;
     height: 20.8px;
     left: -18px;
     position: absolute;
-    top: -3px;
+    top: -2px;
     transition: transform $transition-duration $transition-function;
     width: 20.8px;
   }
 
-  & > input:checked + label::before {
+  &>input:checked+label::before {
     background-color: var(--active-color);
   }
 
-  & > input:checked + label::after {
+  &>input:checked+label::after {
     box-shadow: 0 0 8px var(--secondary-color);
     transform: translateX(25.59px);
   }
