@@ -1,6 +1,6 @@
 <template lang="pug">
   .feed-content.full-width
-    h2.title.m-bottom-4
+    h2.title.m-bottom-6
       | {{ title }}
     .card-container
       card(
@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import Card from './Card'
-import RadioButton from './RadioButton'
+import Card from "./Card";
+import RadioButton from "./RadioButton";
 
 export default {
   props: {
@@ -26,12 +26,12 @@ export default {
     isUserLoggedIn: { type: Boolean, required: true }
   },
   components: { Card, RadioButton }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import 'variables/colors';
-@import 'variables/sizes';
+@import "variables/colors";
+@import "variables/sizes";
 
 .feed-content {
   margin: 0 auto;
@@ -43,6 +43,7 @@ export default {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
 }
 
 .mocked-note {
@@ -80,5 +81,4 @@ export default {
     text-align: center;
   }
 }
-
 </style>

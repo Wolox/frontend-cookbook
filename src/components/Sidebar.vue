@@ -4,8 +4,8 @@
       span.hamburger(v-bind:class="{ active: sidebarIsOpen }")
     .sidebar-upper-section
       .column.sidebar-header
-        a.sidebar-title(href='/')
-          | Front End Cookbook
+        a(href='/')
+          img.sidebar-logo(src="assets/logo.svg" alt="Cookbook Wolox")
         github-login-button(v-if='!isUserLoggedIn' :url='loginToGithubURL')
       .column.content-links.start
         button.simple-link.m-bottom-2(
@@ -17,16 +17,16 @@
         )
           | {{ category.name }}
     .column.center.sidebar-footer-text
-      | </> with ♥ by Wolox Front-End Army
-      button.sidebar-footer-set-style.m-top-1.row.middle.center.full-width
+      | </> with ♥ by Front-End Army
+      button.sidebar-footer-set-style.m-top-2.row.middle.center.full-width
         i.fas.fa-palette.m-right-1
         | set style
 </template>
 
 <script>
-import GithubLoginButton from './GithubLoginButton'
+import GithubLoginButton from "./GithubLoginButton";
 
-import { getCategories } from '../services/componentService'
+import { getCategories } from "../services/componentService";
 
 export default {
   props: {
@@ -74,12 +74,12 @@ export default {
       console.log(this.sidebarIsOpen);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import 'variables/colors';
-@import 'variables/sizes';
+@import "variables/colors";
+@import "variables/sizes";
 
 .sidebar-container {
   background-color: $sidebar-blue;
@@ -91,7 +91,7 @@ export default {
 }
 
 .sidebar-header {
-  padding: 90px 20px 50px 30px;
+  padding: 90px 20px 50px 10px;
 }
 
 .content-links {
@@ -113,7 +113,7 @@ export default {
 
   &::before {
     background-color: $white;
-    content: '';
+    content: "";
     height: 100%;
     left: -14px;
     opacity: 0;
@@ -137,14 +137,6 @@ export default {
 .sidebar-footer-text {
   color: $white;
   font-size: 14px;
-}
-
-.sidebar-title {
-  color: $white;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  line-height: 29px;
 }
 
 .sidebar-footer-set-style {
@@ -207,6 +199,10 @@ export default {
   }
 }
 
+.sidebar-logo {
+  width: 100%;
+}
+
 .hamburger {
   @extend %line;
 
@@ -217,7 +213,7 @@ export default {
   &::before {
     @extend %line;
 
-    content: '';
+    content: "";
     display: block;
     transition: all $transition-duration $transition-function;
   }
@@ -262,5 +258,4 @@ export default {
     }
   }
 }
-
 </style>

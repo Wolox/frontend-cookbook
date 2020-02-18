@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Front-End Cookbook
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='preload' href='./home/home.js' as='script')
+    link(rel='preload' href='./vendor.js' as='script')
+    link(rel='preload' href='styles.home.css' as='style')
+    link(rel='icon' type='image/png' href='/assets/favicon.ico')
+    link(rel='stylesheet' href='styles.home.css')
+    script(src='./vendor.js')
+  body
+    #app.container(v-cloak)
+      sidebar(:is-user-logged-in='isUserLoggedIn' @list='changeCurrentList')
+      feed(:title='categoryInFeed' :components-to-show='componentsList' :is-user-logged-in='isUserLoggedIn')
+    script(src='./home/home.js')

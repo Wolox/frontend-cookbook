@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import Prism from 'prismjs'
+import Prism from "prismjs";
 
 Prism.highlightAll();
 
@@ -18,7 +18,7 @@ export default {
       return Prism.highlight(this.code, Prism.languages[this.lang], this.lang);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -31,6 +31,7 @@ pre {
 .snippet {
   height: 510px;
   overflow-y: auto;
+  padding: 15px;
   width: 100%;
 }
 
