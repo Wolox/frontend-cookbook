@@ -1,5 +1,4 @@
 $white: #FFF;
-$darken-white: darken($white, 50%);
 
 .spinner-11 {
   height: 100%;
@@ -19,26 +18,26 @@ $darken-white: darken($white, 50%);
   animation: spinner-11-rotate1 1s infinite linear;
   border-color: $white;
   height: 100px;
-  left: 40.5%;
-  top: 40%;
+  left: 25%;
+  top: 25%;
   width: 100px;
 }
 
 .spinner-11-circle2 {
   animation: spinner-11-rotate2 1s infinite linear;
-  border-color: $darken-white;
+  border-color: $white;
   height: 70px;
-  left: 43.5%;
-  top: 43.5%;
+  left: 32.5%;
+  top: 32.5%;
   width: 70px;
 }
 
 .spinner-11-circle3 {
   animation: spinner-11-rotate3 1s infinite linear;
-  border-color: rgba($darken-white, 0.6);
+  border-color: $white;
   height: 10px;
-  left: 50%;
-  top: 50%;
+  left: 47%;
+  top: 47%;
   width: 10px;
 }
 
@@ -46,6 +45,7 @@ $darken-white: darken($white, 50%);
   0% {
     transform: rotateZ(20deg) rotateY(0deg);
   }
+
   100% {
     transform: rotateZ(100deg) rotateY(360deg);
   }
@@ -55,6 +55,7 @@ $darken-white: darken($white, 50%);
   0% {
     transform: rotateZ(100deg) rotateX(0deg);
   }
+
   100% {
     transform: rotateZ(0deg) rotateX(360deg);
   }
@@ -64,6 +65,7 @@ $darken-white: darken($white, 50%);
   0% {
     transform: rotateZ(100deg) rotateX(-360deg);
   }
+
   100% {
     transform: rotateZ(-360deg) rotateX(360deg);
   }
