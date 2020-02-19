@@ -1,6 +1,6 @@
 <template lang="pug">
   .feed-content.full-width
-    h2.title.m-bottom-4
+    h2.title.m-bottom-6
       | {{ title }}
     .card-container
       card(
@@ -43,6 +43,7 @@ export default {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
 }
 
 .mocked-note {
@@ -80,5 +81,4 @@ export default {
     text-align: center;
   }
 }
-
 </style>

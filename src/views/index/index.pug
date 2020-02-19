@@ -11,7 +11,10 @@ html
     link(rel='stylesheet' href='styles.index.css')
     script(src='./vendor.js')
   body
-    #app.container(v-cloak)
-      sidebar(:is-user-logged-in='isUserLoggedIn' @list='changeCurrentList')
-      feed(:title='categoryInFeed' :components-to-show='componentsList' :is-user-logged-in='isUserLoggedIn')
+    #app(v-cloak)
+    .container.column.middle.center
+      h1.big-title.fadeInUp
+        | Front End Cookbook
+      a.row.middle.center.link.fadeInUp.delay(href='/home')
+        | Let's  Go
     script(src='./index.js')

@@ -14,10 +14,41 @@ html(lang='en')
     #app.container(v-cloak)
       sidebar(:is-user-logged-in='isUserLoggedIn' @list='changeCurrentList')
       .details-container
-        h1.title.m-bottom-5
-          | {{ componentTitle }}
-        #host.component-render-container
-        .code-container
+        .row.space-between.m-bottom-4.middle
+          h1.title.m-bottom-2
+            | {{ componentTitle }}
+          a.row.middle.github-link(href="https://github.com/Wolox/frontend-cookbook" target="blank")
+            | by Tincho_otaku
+        .container-component
+          #host.component-render-container
+          .checkbox
+            input(id='chkChange' type='checkbox' v-model='isSettingsVisible')
+            label(data-on='Code' data-off='Settings' for='chkChange')
+        .code-container.column(v-if='isSettingsVisible')
+          h6.subtitle.m-bottom-10
+            | Configure your component
+          .column.config-content
+            .row.m-bottom-10
+              span.subtitle.separator.item-1
+                | Color
+              .column.item-2
+                .row.space-between.middle.m-bottom-5
+                  label.label(for='theme-color')
+                    | Theme color
+                  input.input-color(id='theme-color' type='color')
+                .row.space-between.middle
+                  label.label(for='background-color')
+                    | Background color
+                  input.input-color(id='background-color' type='color' value='#FECB65')
+            .row
+              span.subtitle.separator.item-1
+                | Size
+              .column.item-2
+                .row.space-between.middle
+                  label.label(for='figure-size')
+                    | Figure size
+                  input.input-general(id='figure-size' type='number' value='10')
+        .code-container(v-if='!isSettingsVisible')
           .row
             button.button-type(type='button' @click='changeCurrentCode("html")' :class='{ active: currentCode == "html" }')
               | HTML

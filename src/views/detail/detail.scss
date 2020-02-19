@@ -16,14 +16,15 @@
 
 .code {
   left: 0;
+  opacity: 0;
+  pointer-events: none;
   position: absolute;
   top: 90px;
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform $transition-duration $transition-function;
+  transition: opacity $transition-duration $transition-function;
 
   &.isVisible {
-    transform: scaleY(1);
+    opacity: 1;
+    pointer-events: all;
     transition-delay: 200ms;
   }
 }
@@ -51,11 +52,143 @@
 
 .component-render-container {
   align-items: center;
-  background-color: $porcelain;
+  background-color: $golden-tainoi;
   display: flex;
   height: 350px;
   justify-content: center;
   width: 100%;
+}
+
+.github-link {
+  color: $mine-shaft;
+
+  &::before {
+    background: url('../../assets/github-dark.png') no-repeat;
+    background-size: 100%;
+    content: '';
+    height: 20px;
+    margin-right: 10px;
+    position: relative;
+    width: 20px;
+  }
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+.container-component {
+  position: relative;
+}
+
+.checkbox {
+  bottom: 16px;
+  position: absolute;
+  right: 16px;
+
+  & > input {
+    display: none;
+  }
+
+  & > label {
+    background-color: $white;
+    border: 1px solid $porcelain;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 28px;
+    overflow: hidden;
+    position: relative;
+    transition: background-color $transition-duration $transition-function;
+    user-select: none;
+    width: 60px;
+
+    &::after,
+    &::before {
+      align-items: center;
+      color: $science-blue;
+      display: flex;
+      font-size: $text-small;
+      font-weight: 300;
+      height: 100%;
+      justify-content: center;
+      left: 0;
+      line-height: 1.1;
+      position: absolute;
+      transition: transform $transition-duration $transition-function;
+      width: 100%;
+    }
+
+    &::after {
+      content: attr(data-on);
+      transform: translateY(60px);
+    }
+
+    &::before {
+      content: attr(data-off);
+    }
+
+    &:hover {
+      background-color: $porcelain;
+    }
+  }
+
+  & > input:checked + label {
+    &::before {
+      transform: translateY(-60px);
+    }
+
+    &::after {
+      transform: translateY(0);
+    }
+  }
+}
+
+.config-content {
+  max-width: 100%;
+  width: 470px;
+}
+
+.subtitle {
+  color: $limed-spruce;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.1;
+
+  &.separator {
+    position: relative;
+
+    &::before {
+      background-color: darken($porcelain, 10%);
+      content: '';
+      height: 100%;
+      position: absolute;
+      right: 40px;
+      top: 0;
+      width: 1px;
+    }
+  }
+}
+
+.label {
+  color: $oslo-gray;
+  font-size: 16px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.input-color {
+  border: 1px solid $oslo-gray;
+  border-radius: 4px;
+  height: 24px;
+  width: 24px;
+}
+
+.input-general {
+  border: 1px solid $oslo-gray;
+  border-radius: 4px;
+  padding: 8px 10px;
+  width: 64px;
 }
 
 @media screen and (max-width: $small-screen) {

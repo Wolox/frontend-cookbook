@@ -1,9 +1,11 @@
 <template lang="pug">
   .card.column.middle.center.full-width(:style='cardColor')
     .card-content.full-width.row.middle.center(v-bind:id='component.title')
-    a.card-info.column.full-width(:href='detailURL')
-      h4.card-title.m-bottom-1
+    .card-info.column.full-width
+      h4.card-title.m-bottom-2
         | {{ displayableName }}
+      a.card-button(:href='detailURL')
+        | Watch more...
 </template>
 
 <script>
@@ -57,7 +59,7 @@ export default {
 <style lang="scss" scoped>
 @import 'variables/colors';
 @import 'variables/sizes';
-$card-info-content: 45px;
+$card-info-content: 70px;
 
 .card {
   background-color: var(--card-color);
@@ -67,10 +69,6 @@ $card-info-content: 45px;
   max-width: 255px;
   position: relative;
   transition: box-shadow $transition-duration $transition-function;
-
-  &:hover {
-    box-shadow: 2px 2px 5px rgba($black, 0.3);
-  }
 }
 
 .card-content {
@@ -85,12 +83,18 @@ $card-info-content: 45px;
   display: flex;
   height: $card-info-content;
   padding: 16px;
-  transition: all $transition-duration $transition-function;
   width: 100%;
+}
+
+.card-button {
+  align-self: start;
+  color: $sidebar-blue;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color $transition-duration $transition-function;
 
   &:hover {
-    background-color: $sidebar-blue;
-    color: $white;
+    color: $science-blue;
   }
 }
 
@@ -100,5 +104,4 @@ $card-info-content: 45px;
   font-weight: bold;
   text-transform: capitalize;
 }
-
 </style>

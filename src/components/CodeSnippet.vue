@@ -31,6 +31,7 @@ pre {
 .snippet {
   height: 510px;
   overflow-y: auto;
+  padding: 15px;
   width: 100%;
 }
 
