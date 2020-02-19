@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import Card from "./Card";
-import RadioButton from "./RadioButton";
+import Card from './Card'
+import RadioButton from './RadioButton'
 
 export default {
   props: {
@@ -26,12 +26,12 @@ export default {
     isUserLoggedIn: { type: Boolean, required: true }
   },
   components: { Card, RadioButton }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "variables/colors";
-@import "variables/sizes";
+@import 'variables/colors';
+@import 'variables/sizes';
 
 .feed-content {
   margin: 0 auto;

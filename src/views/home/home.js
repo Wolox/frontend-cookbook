@@ -2,18 +2,9 @@ import Vue from 'vue'
 
 import Feed from '../../components/Feed'
 import Sidebar from '../../components/Sidebar'
-
-import {
-  loginToGithub,
-  userIsLoggedIn
-} from '../../services/loginService'
-import {
-  getAllComponentsByCategory,
-  loadMockedComponents
-} from '../../services/componentService'
-import {
-  getComponentsCode
-} from '../../utils'
+import { loginToGithub, userIsLoggedIn } from '../../services/loginService'
+import { getAllComponentsByCategory, loadMockedComponents } from '../../services/componentService'
+import { getComponentsCode } from '../../utils'
 
 import './home.pug'
 import './home.scss'

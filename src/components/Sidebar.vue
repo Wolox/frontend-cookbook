@@ -4,7 +4,7 @@
       span.hamburger(v-bind:class="{ active: sidebarIsOpen }")
     .sidebar-upper-section
       .column.sidebar-header
-        a(href='/')
+        a(href='/home')
           img.sidebar-logo(src="assets/logo.svg" alt="Cookbook Wolox")
         github-login-button(v-if='!isUserLoggedIn' :url='loginToGithubURL')
       .column.content-links.start
@@ -24,9 +24,8 @@
 </template>
 
 <script>
-import GithubLoginButton from "./GithubLoginButton";
-
-import { getCategories } from "../services/componentService";
+import GithubLoginButton from './GithubLoginButton'
+import { getCategories } from '../services/componentService'
 
 export default {
   props: {
@@ -74,12 +73,12 @@ export default {
       console.log(this.sidebarIsOpen);
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "variables/colors";
-@import "variables/sizes";
+@import 'variables/colors';
+@import 'variables/sizes';
 
 .sidebar-container {
   background-color: $sidebar-blue;
@@ -113,7 +112,7 @@ export default {
 
   &::before {
     background-color: $white;
-    content: "";
+    content: '';
     height: 100%;
     left: -14px;
     opacity: 0;
@@ -213,7 +212,7 @@ export default {
   &::before {
     @extend %line;
 
-    content: "";
+    content: '';
     display: block;
     transition: all $transition-duration $transition-function;
   }
@@ -258,4 +257,5 @@ export default {
     }
   }
 }
+
 </style>

@@ -6,12 +6,8 @@ import CodeSnippet from '../../components/CodeSnippet'
 import './detail.pug'
 import './detail.scss'
 
-import {
-  getComponentFiles
-} from '../../services/componentService'
-import {
-  userIsLoggedIn
-} from '../../services/loginService'
+import { getComponentFiles } from '../../services/componentService'
+import { userIsLoggedIn } from '../../services/loginService'
 
 const urlParams = new URLSearchParams(window.location.search)
 const category = urlParams.get('category')
@@ -47,7 +43,7 @@ const vm = new Vue({
       goToFeed
     }) {
       localStorage.setItem('category', category)
-      if (goToFeed) window.location.href = '/'
+      if (goToFeed) window.location.href = '/home'
     },
     changeCurrentCode(type) {
       this.currentCode = type
