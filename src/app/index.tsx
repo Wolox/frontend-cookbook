@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
+import React, { useEffect } from 'react';
 
+import AuthProvider from '../context/AuthProvider';
 import { apiSetup } from '../config/api';
 import store from '../redux/store';
 
 import Routes from './components/Routes';
+
 import '../scss/application.scss';
 
-class App extends Component {
-  componentDidMount() {
+function App() {
+  useEffect(() => {
     apiSetup(store.dispatch);
-  }
+  }, []);
 
-  render() {
-    return (
-      <Provider store={store}>
-        <Routes />
-      </Provider>
-    );
-  }
+  return (
+    <AuthProvider>
+      <Routes />
+    </AuthProvider>
+  );
 }
 
 export default App;

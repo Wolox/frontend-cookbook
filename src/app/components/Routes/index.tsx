@@ -1,8 +1,8 @@
 import React, { lazy } from 'react';
-import { ConnectedRouter } from 'connected-react-router';
+import { Router } from 'react-router';
 import { Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
-import { history } from '../../../redux/store';
 import Suspense from '../Suspense';
 import Routes from '../../../constants/routes';
 
@@ -11,10 +11,11 @@ import styles from './styles.module.scss';
 
 const Home = lazy(() => import('../../screens/Dashboard'));
 const Login = lazy(() => import('../../screens/Login'));
+const history = createBrowserHistory();
 
 function AppRoutes() {
   return (
-    <ConnectedRouter history={history}>
+    <Router history={history}>
       <div className={styles.container}>
         <Suspense>
           <Switch>
@@ -23,7 +24,7 @@ function AppRoutes() {
           </Switch>
         </Suspense>
       </div>
-    </ConnectedRouter>
+    </Router>
   );
 }
 

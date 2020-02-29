@@ -1,29 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Login from './layout';
 
-class LoginContainer extends Component {
-  handleLogin = () => {
+function LoginContainer() {
+  const handleLogin = () => {
     // TODO implement function
   };
 
-  handleEmailChange = () => {
+  const handleEmailChange = () => {
     // TODO implement function
   };
 
-  handlePasswordChange = () => {
+  const handlePasswordChange = () => {
     // TODO implement function
   };
 
-  render() {
-    return (
-      <Login
-        onEmailChange={this.handleEmailChange}
-        onPasswordChange={this.handlePasswordChange}
-        onLogin={this.handleLogin}
-      />
-    );
-  }
+  return <h1>Login</h1>;
 }
 
 export default LoginContainer;
