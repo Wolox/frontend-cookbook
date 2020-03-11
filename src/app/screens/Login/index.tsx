@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Login from './layout';
-
 function LoginContainer() {
   const handleLogin = () => {
     // TODO implement function

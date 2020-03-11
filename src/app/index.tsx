@@ -1,17 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+
+import { GlobalContext } from '~context/GlobalProvider';
 
 import AuthProvider from '../context/AuthProvider';
 import { apiSetup } from '../config/api';
-import store from '../redux/store';
 
 import Routes from './components/Routes';
 
 import '../scss/application.scss';
 
 function App() {
+  const { globalStore, dispatch } = useContext(GlobalContext);
   useEffect(() => {
-    apiSetup(store.dispatch);
-  }, []);
+    document.title = globalStore.title;
+    apiSetup(dispatch);
+  }, [dispatch, globalStore]);
 
   return (
     <AuthProvider>
