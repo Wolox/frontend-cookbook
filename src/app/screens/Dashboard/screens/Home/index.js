@@ -1,20 +1,15 @@
 import React from 'react';
 
-import logo from './assets/logo.svg';
+import Sidebar from '~components/Sidebar';
+
+import { CATEGORIES } from './constants';
 import styles from './styles.module.scss';
 
 function Home() {
   return (
-    <div className={styles.app}>
-      <header className={styles.appHeader}>
-        <img src={logo} className={styles.appLogo} alt="logo" />
-        <p className={styles.text}>
-          Edit <code>src/app/index.js</code> and save to reload.
-        </p>
-        <a className={styles.appLink} href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+    <div className={styles.container}>
+      <Sidebar categories={CATEGORIES} />
+      {/* <Feed />*/}
     </div>
   );
 }
