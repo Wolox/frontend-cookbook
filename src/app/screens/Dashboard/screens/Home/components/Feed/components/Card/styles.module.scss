@@ -11,7 +11,11 @@ $card-info-content: 70px;
   height: 255px;
   max-width: 255px;
   position: relative;
-  transition: box-shadow $transition-duration $transition-function;
+  transition: box-shadow $transition-duration $transition-function, transform $transition-duration ease; /* stylelint-disable-line */
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .card-content {

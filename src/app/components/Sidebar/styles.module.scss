@@ -53,3 +53,34 @@
     }
   }
 }
+
+.selected {
+  color: $white;
+  font-weight: 600;
+
+  &::before {
+    opacity: 1;
+  }
+}
+
+.sidebar-footer {
+  color: $white;
+  font-size: 14px;
+}
+
+.sidebar-set-style {
+  background-color: $science-blue;
+  color: $white;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  height: 51px;
+  letter-spacing: 0.24px;
+  text-transform: uppercase;
+  transition: all $transition-duration $transition-function;
+
+  &:hover {
+    background-color: $white;
+    color: $science-blue;
+  }
+}
