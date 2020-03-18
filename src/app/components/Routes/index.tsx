@@ -19,7 +19,7 @@ function AppRoutes() {
       <div className={`row full-width ${styles.container}`}>
         <Suspense>
           <Sidebar />
-          <Switch>
+          <Switch>-
             <AuthenticatedRoute isPublicRoute exact path={Routes.HOME} component={Home} />
             <AuthenticatedRoute isPublicRoute exact path={Routes.LOGIN} component={Login} />
           </Switch>
