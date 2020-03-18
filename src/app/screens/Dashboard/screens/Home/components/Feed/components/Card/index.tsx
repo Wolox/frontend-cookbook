@@ -28,7 +28,7 @@ function Card({ component, number }: Props) {
       <div className={`full-width row middle center ${styles.cardContent}`} id={component.title} />
       <div className={`full-width column ${styles.cardInfo}`}>
         <h4 className={`m-bottom-2 ${styles.cardTitle}`}>{component.title}</h4>
-        <a className={styles.cardButton} href="google.com">Watch more...</a>
+        <a className={styles.cardButton} href="">Watch more...</a>
       </div>
     </div>
   );

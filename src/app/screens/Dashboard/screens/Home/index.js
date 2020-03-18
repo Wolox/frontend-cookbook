@@ -4,7 +4,6 @@ import Sidebar from '~components/Sidebar';
 
 import Feed from './components/Feed';
 import { CATEGORIES, getComponentsCode } from './constants';
-import styles from './styles.module.scss';
 
 function Home() {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -12,7 +11,7 @@ function Home() {
   const handleSelect = useMemo(() => event => setSelectedCategory(event.target.id), []);
 
   return (
-    <div className={styles.container}>
+    <div className="row">
       <Sidebar categories={CATEGORIES} selectedCategory={selectedCategory} handleSelect={handleSelect} />
       <Feed title={selectedCategory} components={getComponentsCode()} />
     </div>

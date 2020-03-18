@@ -7,6 +7,9 @@ module.exports = {
     }],
     'scss/no-duplicate-dollar-variables': [ true, {
       ignoreInsideAtRules: ['if', 'mixin', 'media']
+    }],
+    'at-rule-empty-line-before': [ "always", {
+      ignoreAtRules: ['import']
     }]
   }
 };
