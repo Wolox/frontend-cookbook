@@ -20,7 +20,7 @@ function Card({ component, number }: Props) {
     if (shadowRoot) {
       shadowRoot.innerHTML = `${component.html}<style>${component.css}</style>`;
     };
-  }, [component]);
+  }, [component.css, component.html, component.title]);
 
   const cardColor = { '--card-color': COLORS[Math.floor(number % COLORS.length)] } as React.CSSProperties;
   return (

@@ -1,6 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
 
+import Routes from '~constants/routes';
+
+import logo from 'assets/logo.svg';
+
 import styles from './styles.module.scss';
 
 interface Props {
@@ -16,7 +20,9 @@ function Sidebar({ categories, selectedCategory, handleSelect }: Props) {
   return (
     <div className={cn(styles.sidebarContainer, 'column space-between')}>
       <div className={styles.sidebarUpperSection}>
-        <div className={styles.sidebarHeader} />
+        <div className={cn('column', styles.sidebarHeader)}>
+          <a href={Routes.HOME}><img src={logo} alt="Cookbook Wolox" className="full-width" /></a>
+        </div>
         <div className={`column ${styles.contentLinks} start`}>
           {categories &&
             categories.map(category => (

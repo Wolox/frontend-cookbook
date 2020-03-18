@@ -1,5 +1,7 @@
 @import '~wolox-equalizer/equalizer';
 
+@import url('https://fonts.googleapis.com/css?family=Barlow:400,500,700');
+
 @import 'layout';
 
 @import 'margins';
@@ -7,6 +9,10 @@
 @import 'components';
 
 // TODO: Edit this global styles
+
+* {
+  font-family: Barlow, sans-serif;
+}
 
 body {
   margin: 0;
