@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from './components/Card';
+import Card from '../Card';
 import styles from './styles.module.scss';
 
 interface Props {

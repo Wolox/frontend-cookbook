@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { Link } from "react-router-dom";
 import cn from 'classnames';
 
@@ -6,21 +6,18 @@ import Routes from '~constants/routes';
 
 import logo from 'assets/logo.svg';
 
+import { CATEGORIES } from './constants';
+
 import styles from './styles.module.scss';
 
-interface Props {
-  categories: Array<{
-    id: number | string,
-    name: string
-  }>,
-  selectedCategory: string,
-  handleSelect: (event: React.MouseEvent<HTMLElement>) => void
-}
-
-function Sidebar({ categories, selectedCategory, handleSelect }: Props) {
+function Sidebar() {
   const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
 
+  const [selectedCategory, setSelectedCategory] = useState('');
+
   const toggleSidebar = useCallback(() => setsidebarIsOpen(!sidebarIsOpen), [sidebarIsOpen]);
+
+  const handleSelect = useMemo(() => (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => setSelectedCategory((event.target as any).id), []);
 
   return (
     <div className={cn(styles.sidebarContainer, 'column space-between', { [styles.visible]: sidebarIsOpen })}>
@@ -32,8 +29,8 @@ function Sidebar({ categories, selectedCategory, handleSelect }: Props) {
         <Link to={Routes.HOME}><img src={logo} alt="Cookbook Wolox" className="full-width" /></Link>
         </div>
         <div className={`column ${styles.contentLinks} start`}>
-          {categories &&
-            categories.map(category => (
+          {CATEGORIES &&
+            CATEGORIES.map(category => (
               <button
                 type="button"
                 key={category.id}

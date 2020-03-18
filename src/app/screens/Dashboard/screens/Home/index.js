@@ -1,19 +1,21 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 
-import Sidebar from '~components/Sidebar';
-
-import Feed from './components/Feed';
-import { CATEGORIES, getComponentsCode } from './constants';
+import Card from './components/Card';
+import styles from './styles.module.scss';
+import { getComponentsCode } from './constants';
 
 function Home() {
-  const [selectedCategory, setSelectedCategory] = useState('');
-
-  const handleSelect = useMemo(() => event => setSelectedCategory(event.target.id), []);
-
+  const COMPONENTS = getComponentsCode(); /* TODO: graphQL */
+  const title = 'BUTTONS'; /* TODO: get from Context */
   return (
-    <div className="row">
-      <Sidebar categories={CATEGORIES} selectedCategory={selectedCategory} handleSelect={handleSelect} />
-      <Feed title={selectedCategory} components={getComponentsCode()} />
+    <div className={`full-width ${styles.feedContent}`}>
+      <h2 className="m-bottom-6 title">{title}</h2>
+      <div className={styles.cardContainer}>
+        {COMPONENTS &&
+          COMPONENTS.map((comp, index) => (
+            <Card key={comp.title} number={index} component={comp} category={title} />
+          ))}
+      </div>
     </div>
   );
 }
