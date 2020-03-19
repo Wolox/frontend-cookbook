@@ -1,8 +1,10 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useContext } from 'react';
 import { Link } from "react-router-dom";
 import cn from 'classnames';
 
 import Routes from '~constants/routes';
+import { GlobalContext } from '~context/GlobalProvider';
+import { actionCreators } from '~context/GlobalProvider/actions';
 
 import logo from 'assets/logo.svg';
 
@@ -11,13 +13,13 @@ import { CATEGORIES } from './constants';
 import styles from './styles.module.scss';
 
 function Sidebar() {
-  const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
+  const { globalStore, dispatch } = useContext(GlobalContext);
 
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
 
   const toggleSidebar = useCallback(() => setsidebarIsOpen(!sidebarIsOpen), [sidebarIsOpen]);
 
-  const handleSelect = useMemo(() => (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => setSelectedCategory((event.target as any).id), []);
+  const handleSelect = useMemo(() => (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => dispatch(actionCreators.selectCategory((event.target as any).id)), []);
 
   return (
     <div className={cn(styles.sidebarContainer, 'column space-between', { [styles.visible]: sidebarIsOpen })}>
@@ -35,7 +37,7 @@ function Sidebar() {
                 type="button"
                 key={category.id}
                 id={category.name}
-                className={cn(styles.simpleLink, { [styles.selected]: selectedCategory === category.name })}
+                className={cn(styles.simpleLink, { [styles.selected]: globalStore.category === category.name })}
                 onClick={handleSelect}
               >
                 {category.name}
