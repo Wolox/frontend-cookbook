@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo, useContext } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
 import Routes from '~constants/routes';
@@ -28,7 +28,7 @@ function Sidebar() {
       </button>
       <div className={styles.sidebarUpperSection}>
         <div className={`column ${styles.sidebarHeader}`}>
-        <Link to={Routes.HOME}><img src={logo} alt="Cookbook Wolox" className="full-width" /></Link>
+          <Link to={Routes.HOME}><img src={logo} alt="Cookbook Wolox" className="full-width" /></Link>
         </div>
         <div className={`column ${styles.contentLinks} start`}>
           {CATEGORIES &&
