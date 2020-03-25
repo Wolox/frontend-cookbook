@@ -15,7 +15,7 @@ module.exports = {
           '~screens': './src/app/screens',
           '~config': './src/config',
           '~constants': './src/constants',
-          '~redux': './src/redux',
+          '~context': './src/context',
           '~services': './src/services',
           '~utils': './src/utils'
         }

@@ -1,26 +1,24 @@
-import React, { useState, useMemo } from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import React, { useContext } from 'react';
 
-import Sidebar from '~components/Sidebar';
-import { getCategories } from '~utils/queries';
+import { GlobalContext } from '~context/GlobalProvider';
 
-import Feed from './components/Feed';
-import { CATEGORIES, getComponentsCode } from './constants';
+import Card from './components/Card';
 import styles from './styles.module.scss';
+import { getComponentsCode } from './constants';
 
 function Home() {
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const { loading, data } = useQuery(getCategories());
-  const categories = !loading && data ? data.repository.object.entries : null;
-  const handleSelect = useMemo(() => event => setSelectedCategory(event.target.id), []);
+  const COMPONENTS = getComponentsCode(); /* TODO: graphQL */
+  const { globalStore } = useContext(GlobalContext);
+  const { category } = globalStore;
   return (
-    <div className={styles.container}>
-      <Sidebar
-        categories={categories ? categories : CATEGORIES}
-        selectedCategory={selectedCategory}
-        handleSelect={handleSelect}
-      />
-      <Feed title={selectedCategory} components={getComponentsCode()} />
+    <div className={`full-width ${styles.feedContent}`}>
+      <h2 className="m-bottom-6 title">{category}</h2>
+      <div className={styles.cardContainer}>
+        {COMPONENTS &&
+          COMPONENTS.map((comp, index) => (
+            <Card key={comp.title} number={index} component={comp} category={category} />
+          ))}
+      </div>
     </div>
   );
 }

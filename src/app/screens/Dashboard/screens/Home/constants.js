@@ -1,26 +1,3 @@
-export const CATEGORIES = [
-  {
-    oid: 0,
-    name: 'BUTTONS'
-  },
-  {
-    oid: 1,
-    name: 'CHECKBOXES'
-  },
-  {
-    oid: 2,
-    name: 'INPUTS'
-  },
-  {
-    oid: 3,
-    name: 'RADIO-BUTTONS'
-  },
-  {
-    oid: 4,
-    name: 'SPINNERS'
-  }
-];
-
 export const COMPONENTS = [
   {
     name: 'button-1',

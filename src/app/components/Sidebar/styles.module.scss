@@ -1,5 +1,4 @@
 @import 'variables/colors';
-
 @import 'variables/sizes';
 
 .sidebar-container {
@@ -82,5 +81,107 @@
   &:hover {
     background-color: $white;
     color: $science-blue;
+  }
+}
+
+%line {
+  background-color: $mine-shaft;
+  border-radius: 10px;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.hamburger {
+
+  @extend %line;
+  top: 5px;
+  transition: transform 0.28s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+  &::after,
+  &::before {
+
+    @extend %line;
+    content: '';
+    display: block;
+    transition: all $transition-duration $transition-function;
+  }
+
+  &::before {
+    top: 8px;
+    transition: opacity 1s ease;
+  }
+
+  &::after {
+    top: 15px;
+    transition: transform 0.28s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+}
+
+.button-active {
+  transform: translateX(-70px);
+
+  > .hamburger {
+    background-color: $white;
+
+    &::after,
+    &::before {
+      background-color: $white;
+    }
+  }
+}
+
+.button-container {
+  cursor: pointer;
+  display: none;
+  height: 25px;
+  position: absolute;
+  right: -50px;
+  top: 20px;
+  transition: transform $transition-duration $transition-function;
+  width: 30px;
+
+  &:hover {
+
+    > .hamburger {
+      background-color: $science-blue;
+
+      &::after,
+      &::before {
+        background-color: $science-blue;
+      }
+    }
+  }
+}
+
+.hamburger-active {
+  transform: translate3d(0, 8px, 0) rotate(135deg);
+  transition-delay: 7.5s;
+
+  &::before {
+    opacity: 0;
+  }
+
+  &::after {
+    transform: translate3d(0, -15px, 0) rotate(-270deg);
+    transition-delay: 7.5s;
+  }
+}
+
+@media screen and (max-width: $medium-screen) {
+
+  .button-container {
+    display: initial;
+  }
+
+  .sidebar-container {
+    position: fixed;
+    transform: translateX(-100%);
+    z-index: $z-index-sidebar;
+  }
+
+  .visible {
+    transform: translateX(0);
   }
 }

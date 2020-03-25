@@ -4,6 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 import { ApolloProvider } from '@apollo/react-hooks';
 
 import { client } from 'config/apollo-client';
+import GlobalProvider from '~context/GlobalProvider';
 
 import App from './app';
 import './config/i18n';
@@ -14,7 +15,9 @@ const render = () => {
   ReactDOM.render(
     <ApolloProvider client={client}>
       <AppContainer>
-        <App />
+        <GlobalProvider>
+          <App />
+        </GlobalProvider>
       </AppContainer>
     </ApolloProvider>,
     document.getElementById('root')
