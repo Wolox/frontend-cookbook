@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import { ApolloProvider } from '@apollo/react-hooks';
+
+import { client } from 'config/apollo-client';
 
 import App from './app';
 import './config/i18n';
@@ -9,9 +12,11 @@ import { register } from './serviceWorker';
 
 const render = () => {
   ReactDOM.render(
-    <AppContainer>
-      <App />
-    </AppContainer>,
+    <ApolloProvider client={client}>
+      <AppContainer>
+        <App />
+      </AppContainer>
+    </ApolloProvider>,
     document.getElementById('root')
   );
 };
