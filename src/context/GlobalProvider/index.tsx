@@ -1,9 +1,10 @@
 import React, { createContext, useReducer } from 'react';
 
 import { globalReducer, globalState } from './reducer';
+import { GlobalState } from './interfaces';
 
 export interface GlobalContextInterface {
-  globalStore: typeof globalState;
+  globalStore: GlobalState;
   dispatch: React.Dispatch<any>;
 }
 
