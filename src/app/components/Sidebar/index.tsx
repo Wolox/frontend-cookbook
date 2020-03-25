@@ -5,9 +5,10 @@ import cn from 'classnames';
 
 import Routes from '~constants/routes';
 import logo from 'assets/logo.svg';
-import { actionCreators } from '~context/GlobalProvider/actions';
-import { GlobalContext } from '~context/GlobalProvider';
 import { getCategories } from '~utils/queries';
+
+import { actionCreators } from '../../../context/GlobalProvider/actions';
+import { GlobalContext } from '../../../context/GlobalProvider';
 
 import { CATEGORIES } from './constants';
 import styles from './styles.module.scss';
