@@ -6,7 +6,7 @@ interface User {
 }
 
 export interface Auth {
-  currentUser?: User;
+  currentUser?: User | null;
 }
 
 export interface SetUserAction extends Action {
