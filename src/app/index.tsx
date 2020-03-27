@@ -1,24 +1,26 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
+import React, { useEffect } from 'react';
 
+import { useGlobalContext } from '~context/GlobalProvider';
+
+import AuthProvider from '../context/AuthProvider';
 import { apiSetup } from '../config/api';
-import store from '../redux/store';
 
 import Routes from './components/Routes';
+
 import '../scss/application.scss';
 
-class App extends Component {
-  componentDidMount() {
-    apiSetup(store.dispatch);
-  }
+function App() {
+  const { state, dispatch } = useGlobalContext();
+  useEffect(() => {
+    document.title = state.title;
+    apiSetup(dispatch);
+  }, [dispatch, state]);
 
-  render() {
-    return (
-      <Provider store={store}>
-        <Routes />
-      </Provider>
-    );
-  }
+  return (
+    <AuthProvider>
+      <Routes />
+    </AuthProvider>
+  );
 }
 
 export default App;
