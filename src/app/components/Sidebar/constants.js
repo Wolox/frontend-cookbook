@@ -1,22 +1,23 @@
 export const CATEGORIES = [
+  /* TODO: Delete when using Github API */
   {
     id: 0,
-    name: 'BUTTONS'
+    name: 'buttons'
   },
   {
     id: 1,
-    name: 'CHECKBOXES'
+    name: 'checkboxes'
   },
   {
     id: 2,
-    name: 'INPUTS'
+    name: 'inputs'
   },
   {
     id: 3,
-    name: 'RADIO-BUTTONS'
+    name: 'radio-buttons'
   },
   {
     id: 4,
-    name: 'SPINNERS'
+    name: 'spinners'
   }
 ];
