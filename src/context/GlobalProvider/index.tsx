@@ -1,25 +1,26 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useContext } from 'react';
+
+import withProvider from '~components/WithProvider';
+import RenderChild from '~utils/renderChild';
 
 import { globalReducer, globalState } from './reducer';
+import { GlobalState } from './interfaces';
 
 export interface GlobalContextInterface {
-  globalStore: typeof globalState;
+  state: GlobalState;
   dispatch: React.Dispatch<any>;
 }
 
 export const GlobalContext = createContext<GlobalContextInterface>({
-  globalStore: { ...globalState },
+  state: { ...globalState },
   // eslint-disable-next-line @typescript-eslint/no-empty-function, no-empty-function
   dispatch: () => {}
 });
 
-interface Props {
-  children: React.ReactNode;
-}
+export const useGlobalContext = () => useContext(GlobalContext);
 
-function GlobalProvider({ children }: Props) {
-  const [globalStore, dispatch] = useReducer(globalReducer, globalState);
-  return <GlobalContext.Provider value={{ globalStore, dispatch }}>{children}</GlobalContext.Provider>;
-}
-
-export default GlobalProvider;
+export default withProvider({
+  Context: GlobalContext,
+  reducer: globalReducer,
+  state: globalState
+})(RenderChild);

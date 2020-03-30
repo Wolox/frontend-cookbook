@@ -13,7 +13,7 @@ import { CATEGORIES } from './constants';
 import styles from './styles.module.scss';
 
 function Sidebar() {
-  const { globalStore, dispatch } = useContext(GlobalContext);
+  const { state, dispatch } = useContext(GlobalContext);
 
   const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
 
@@ -37,7 +37,7 @@ function Sidebar() {
                 type="button"
                 key={category.id}
                 id={category.name}
-                className={cn(styles.simpleLink, { [styles.selected]: globalStore.category === category.name })}
+                className={cn(styles.simpleLink, { [styles.selected]: state.category === category.name })}
                 onClick={handleSelect}
               >
                 {category.name}

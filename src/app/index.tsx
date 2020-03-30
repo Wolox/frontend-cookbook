@@ -1,6 +1,6 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 
-import { GlobalContext } from '~context/GlobalProvider';
+import { useGlobalContext } from '~context/GlobalProvider';
 
 import AuthProvider from '../context/AuthProvider';
 import { apiSetup } from '../config/api';
@@ -10,11 +10,11 @@ import Routes from './components/Routes';
 import '../scss/application.scss';
 
 function App() {
-  const { globalStore, dispatch } = useContext(GlobalContext);
+  const { state, dispatch } = useGlobalContext();
   useEffect(() => {
-    document.title = globalStore.title;
+    document.title = state.title;
     apiSetup(dispatch);
-  }, [dispatch, globalStore]);
+  }, [dispatch, state]);
 
   return (
     <AuthProvider>

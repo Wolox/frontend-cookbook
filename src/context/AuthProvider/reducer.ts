@@ -1,17 +1,16 @@
 import { createReducer } from '~utils/reducer';
+import { Action } from '~constants/interfaces/store';
 
 import { actions } from './actions';
+import { Auth, SetUserAction } from './interfaces';
 
-export const authState = {
+export const authState: Auth = {
   currentUser: null
 };
 
 const reducer = {
-  [actions.SET_USER]: (state: any, { payload }: { payload: string }) => ({ ...state, currentUser: payload }),
-  [actions.REMOVE_USER]: (state: any) => ({ ...state, currentUser: null })
+  [actions.SET_USER]: (state: Auth, { payload }: SetUserAction) => ({ ...state, currentUser: payload }),
+  [actions.REMOVE_USER]: (state: Auth) => ({ ...state, currentUser: null })
 };
-
-type Action = { type: string };
-
 export const authReducer = <A extends Action>(state = authState, action: A) =>
-  createReducer(reducer, state, action);
+  createReducer<Auth>(reducer, state, action);
