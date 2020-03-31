@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import logo from './assets/logo.svg';
+import { GlobalContext } from '~context/GlobalProvider';
+
+import Card from './components/Card';
 import styles from './styles.module.scss';
+import { getComponentsCode } from './constants';
 
 function Home() {
+  const COMPONENTS = getComponentsCode(); /* TODO: graphQL */
+  const { state } = useContext(GlobalContext);
+  const { category } = state;
   return (
-    <div className={styles.app}>
-      <header className={styles.appHeader}>
-        <img src={logo} className={styles.appLogo} alt="logo" />
-        <p className={styles.text}>
-          Edit <code>src/app/index.js</code> and save to reload.
-        </p>
-        <a className={styles.appLink} href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+    <div className={`full-width ${styles.feedContent}`}>
+      <h2 className="m-bottom-6 title">{category}</h2>
+      <div className={styles.cardContainer}>
+        {COMPONENTS &&
+          COMPONENTS.map((comp, index) => (
+            <Card key={comp.title} number={index} component={comp} category={category} />
+          ))}
+      </div>
     </div>
   );
 }
