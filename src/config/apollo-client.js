@@ -1,13 +1,11 @@
 import ApolloClient from 'apollo-boost';
 
-export const client = new ApolloClient({
-  uri: 'https://api.github.com/graphql',
-  request: operation => {
-    const authHeader = process.env.NODE_ENV !== 'production' && process.env.REACT_APP_GITHUB_TOKEN;
-    operation.setContext({
-      headers: {
-        authorization: `Bearer ${authHeader}`
-      }
-    });
-  }
-});
+const configApolloParameters = { uri: 'https://api.github.com/graphql' };
+
+if (process.env.NODE_ENV !== 'production') {
+  configApolloParameters.request = operation =>
+    operation.setContext({ headers: { authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}` } });
+}
+
+console.log(configApolloParameters);
+export const client = new ApolloClient(configApolloParameters);
