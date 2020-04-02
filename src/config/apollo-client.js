@@ -7,5 +7,4 @@ if (process.env.NODE_ENV !== 'production') {
     operation.setContext({ headers: { authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}` } });
 }
 
-console.log(configApolloParameters);
 export const client = new ApolloClient(configApolloParameters);
