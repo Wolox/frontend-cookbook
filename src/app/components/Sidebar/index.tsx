@@ -6,9 +6,8 @@ import cn from 'classnames';
 import Routes from '~constants/routes';
 import logo from 'assets/logo.svg';
 import { getCategories } from '~utils/queries';
-
-import { actionCreators } from '../../../context/GlobalProvider/actions';
-import { GlobalContext } from '../../../context/GlobalProvider';
+import { actionCreators } from '~context/GlobalProvider/actions';
+import { GlobalContext } from '~context/GlobalProvider';
 
 import { Categories } from './interface';
 import { CATEGORIES } from './constants';
