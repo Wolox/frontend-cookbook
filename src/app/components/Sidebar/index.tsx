@@ -10,11 +10,12 @@ import { getCategories } from '~utils/queries';
 import { actionCreators } from '../../../context/GlobalProvider/actions';
 import { GlobalContext } from '../../../context/GlobalProvider';
 
+import { Categories } from './interface';
 import { CATEGORIES } from './constants';
 import styles from './styles.module.scss';
 
 function Sidebar() {
-  const { globalStore, dispatch } = useContext(GlobalContext);
+  const { state, dispatch } = useContext(GlobalContext);
   const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
   const { loading, data } = useQuery(getCategories());
   const categories = !loading && data ? data.repository.object.entries : CATEGORIES;
@@ -42,13 +43,13 @@ function Sidebar() {
         </div>
         <div className={`column ${styles.contentLinks} start`}>
           {categories &&
-            categories.map(category => (
+            categories.map((category: Categories) => (
               <button
                 type="button"
                 key={category.oid}
                 id={category.name}
                 className={cn(styles.simpleLink, {
-                  [styles.selected]: globalStore.category === category.name
+                  [styles.selected]: state.category === category.name
                 })}
                 onClick={handleSelect}
               >
