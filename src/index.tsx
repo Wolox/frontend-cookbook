@@ -5,7 +5,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 
 import { client } from 'config/apollo-client';
 
-import GlobalProvider from './context/GlobalProvider';
+import GlobalProvider from '~context/GlobalProvider';
 import App from './app';
 import './config/i18n';
 import './scss/application.scss';

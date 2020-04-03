@@ -1,20 +1,19 @@
 import { createReducer } from '~utils/reducer';
+import { Action } from '~constants/interfaces/store';
 
 import { actions } from './actions';
-
-interface GlobalState { [key: string]: any }
+import { GlobalState, SetTitleAction, SelectCategoryAction } from './interfaces';
 
 export const globalState: GlobalState = {
   title: 'Wolox Cookbook',
   category: ''
 };
-
 const reducer = {
-  [actions.SET_TITLE]: (state: GlobalState, { payload }: { payload: string }) => ({ ...state, title: payload }),
-  [actions.SELECT_CATEGORY]: (state: GlobalState, { payload }: { payload: string }) => ({ ...state, category: payload })
+  [actions.SET_TITLE]: (state: any, { payload }: SetTitleAction) => ({ ...state, title: payload }),
+  [actions.SELECT_CATEGORY]: (state: any, { payload }: { payload: SelectCategoryAction }) => ({
+    ...state,
+    category: payload
+  })
 };
-
-type Action = { type: string };
-
 export const globalReducer = <A extends Action>(state = globalState, action: A) =>
-  createReducer(reducer, state, action);
+  createReducer<GlobalState>(reducer, state, action);
