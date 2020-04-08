@@ -5,12 +5,10 @@ interface Props {
   reducer: any;
   state: object;
 }
-
 export interface ContextInterface {
   dispatch?: React.Dispatch<any>;
   state?: any;
 }
-
 function withProvider({ Context, reducer, state: initialState }: Props) {
   return function Wrapped(WrappedComponent: Function) {
     return function PropsProxy(props: any) {
@@ -23,5 +21,4 @@ function withProvider({ Context, reducer, state: initialState }: Props) {
     };
   };
 }
-
 export default withProvider;
