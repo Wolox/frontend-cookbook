@@ -21,7 +21,7 @@ function AppRoutes() {
         <Suspense>
           <Sidebar />
           <Switch>
-            <AuthenticatedRoute isPublicRoute exact path={Routes.HOME} component={Home} />
+            <AuthenticatedRoute isPrivateRoute exact path={Routes.HOME} component={Home} />
             <AuthenticatedRoute isPublicRoute exact path={Routes.LOGIN} component={Login} />
           </Switch>
         </Suspense>
