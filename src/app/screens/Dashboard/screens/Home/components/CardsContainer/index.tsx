@@ -4,17 +4,10 @@ import { withSpinner } from '~components/Spinner';
 
 import Card from '../Card';
 import styles from './styles.module.scss';
+import { CardsContainerProps } from './interface';
 
-interface Props {
-  components: {
-    title: string,
-    html: string,
-    css: string
-  }[],
-  category: string
-}
 
-function CardsContainer({ components, category }: Props) {
+function CardsContainer({ components, category }: CardsContainerProps) {
   return (
     <div className={styles.cardContainer}>
       {!!components?.length &&
