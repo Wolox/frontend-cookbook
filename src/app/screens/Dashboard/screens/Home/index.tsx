@@ -12,7 +12,7 @@ function Home() {
   const { state } = useContext(GlobalContext);
   const { category } = state;
   const { loading, data } = useQuery(getAllComponentsByCategory(category));
-  const components = !loading && data ? getComponentsCode(data.repository.object.entries) : [];
+  const components = data ? getComponentsCode(data.repository.object.entries) : [];
   return (
     <div className={`full-width ${styles.feedContent}`}>
       <h2 className="m-bottom-6 title">{category}</h2>

@@ -17,7 +17,7 @@ interface Props {
 function CardsContainer({ components, category }: Props) {
   return (
     <div className={styles.cardContainer}>
-      {components &&
+      {!!components?.length &&
         components.map((comp, index) => (
           <Card key={comp.title} number={index} component={comp} category={category} />
         ))}
