@@ -9,15 +9,19 @@ import { getCategories } from '~utils/queries';
 import { actionCreators } from '~context/GlobalProvider/actions';
 import { GlobalContext } from '~context/GlobalProvider';
 
-import { Categories } from './interface';
-import { CATEGORIES } from './constants';
+import { Categories, User } from './interface';
 import styles from './styles.module.scss';
 
-function Sidebar() {
+function Sidebar({ currentUser }: User) {
   const { state, dispatch } = useContext(GlobalContext);
   const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
-  const { loading, data } = useQuery(getCategories());
-  const categories = !loading && data ? data.repository.object.entries : CATEGORIES;
+  const [categories, setCategories] = useState([]);
+
+  if (currentUser) {
+    const { loading, data } = useQuery(getCategories());
+    !loading && data && setCategories(data);
+  }
+
   const toggleSidebar = useCallback(() => setsidebarIsOpen(!sidebarIsOpen), [sidebarIsOpen]);
 
   const handleSelect = useMemo(
@@ -25,6 +29,12 @@ function Sidebar() {
       dispatch(actionCreators.selectCategory((event.target as any).id)),
     [dispatch]
   );
+
+  const loginToGithubURL = () =>
+    `http://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}redirect_uri=${
+      process.env.REACT_APP_REDIRECT_URL
+    }`;
+
   return (
     <div className={cn(styles.sidebarContainer, 'column space-between', { [styles.visible]: sidebarIsOpen })}>
       <button
@@ -40,9 +50,9 @@ function Sidebar() {
             <img src={logo} alt="Cookbook Wolox" className="full-width" />
           </Link>
         </div>
-        <div className={`column ${styles.contentLinks} start`}>
-          {categories &&
-            categories.map((category: Categories) => (
+        {currentUser ? (
+          <div className={`column ${styles.contentLinks} start`}>
+            {categories.map((category: Categories) => (
               <button
                 type="button"
                 key={category.oid}
@@ -55,7 +65,12 @@ function Sidebar() {
                 {category.name}
               </button>
             ))}
-        </div>
+          </div>
+        ) : (
+          <a className={styles.githubLogin} href={loginToGithubURL()}>
+            Login with Github
+          </a>
+        )}
       </div>
       <div className={`${styles.sidebarFooter} column center`}>
         {'</> with ♥ by Front-End Army'}

@@ -19,10 +19,21 @@ export const getCurrentUser = () => {
 };
 export const removeCurrentUser = () => LocalStorageService.removeSessionToken();
 
-export const login = () =>
-  // TODO: Implement call to authentication API here
-  new Promise(resolve => {
-    setTimeout(() => {
-      resolve({ ok: true, data: { sessionToken: 'token' } });
-    }, 750); // eslint-disable-line no-magic-numbers
+const getTokenFromResponse = queryParams =>
+  queryParams.match(/access_token=[a-z0-9]+/g)[0].substring('access_token='.length);
+
+export const storeToken = response => {
+  const token = getTokenFromResponse(response.data);
+  localStorage.setItem('auth_token', token);
+};
+
+export const loginToGithub = code => {
+  const authApi = api.setBaseURL(`${process.env.REACT_APP_AUTH_BASE_URL}?code=${code}`);
+  return authApi.get().then(response => {
+    storeToken(response);
+    window.history.replaceState({}, document.title, '/');
   });
+};
+
+export const userIsLoggedIn = () =>
+  localStorage.getItem('auth_token') && localStorage.getItem('auth_token') !== 'undefined';

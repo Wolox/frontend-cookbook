@@ -8,8 +8,10 @@ import { getComponentsCode } from './constants';
 
 function Home() {
   const COMPONENTS = getComponentsCode(); /* TODO: graphQL */
-  const { state } = useContext(GlobalContext);
-  const { category } = state;
+  const {
+    state: { category }
+  } = useContext(GlobalContext);
+
   return (
     <div className={`full-width ${styles.feedContent}`}>
       <h2 className="m-bottom-6 title">{category}</h2>

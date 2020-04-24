@@ -53,6 +53,38 @@
   }
 }
 
+.github-login {
+  align-items: center;
+  border: 1px solid $white;
+  border-radius: 6px;
+  color: $white;
+  display: flex;
+  height: 45px;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 200px;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    background-size: 100%;
+    content: '';
+    height: 20px;
+    position: relative;
+    margin-right: 10px;
+    width: 20px;
+  }
+
+  &:hover {
+    background: $white;
+    color: $black;
+
+    &::before {
+      background-size: 100%;
+    }
+  }
+}
+
 .selected {
   color: $white;
   font-weight: 600;
