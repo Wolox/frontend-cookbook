@@ -1,0 +1,14 @@
+@import 'variables/sizes';
+
+.dashboard-container {
+  margin: 0 auto;
+  max-width: $content-max-width;
+  padding: 80px 20px 20px 80px;
+}
+
+@media screen and (max-width: $small-screen) {
+
+  .feed-content {
+    padding: 70px 20px 20px;
+  }
+}
