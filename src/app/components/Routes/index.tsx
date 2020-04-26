@@ -9,8 +9,8 @@ import Routes from '../../../constants/routes';
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 import styles from './styles.module.scss';
 
-const Home = lazy(() => import('../../screens/Dashboard'));
-const Login = lazy(() => import('../../screens/Login'));
+const Home = lazy(() => import('~screens/Dashboard/'));
+const Login = lazy(() => import('~screens/Login'));
 const Sidebar = lazy(() => import('../Sidebar'));
 const history = createBrowserHistory();
 
@@ -21,7 +21,7 @@ function AppRoutes() {
         <Suspense>
           <Sidebar />
           <Switch>
-            <AuthenticatedRoute isPrivateRoute exact path={Routes.HOME} component={Home} />
+            <AuthenticatedRoute isPrivateRoute path={Routes.HOME} component={Home} />
             <AuthenticatedRoute isPublicRoute exact path={Routes.LOGIN} component={Login} />
           </Switch>
         </Suspense>
