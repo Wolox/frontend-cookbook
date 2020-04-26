@@ -10,7 +10,8 @@
       "~components/*": ["app/components/*"],
       "~screens/*": ["app/screens/*"],
       "~config/*": ["app/config/*"],
-      "~schema/*": ["schema/*"]
+      "~schema/*": ["schema/*"],
+      "~hooks/*": ["hooks/*"]
     }
   }
 }
