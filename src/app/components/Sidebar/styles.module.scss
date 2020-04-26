@@ -41,9 +41,9 @@
     width: 2px;
   }
 
-  &.active,
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     color: $white;
     font-weight: 600;
 
