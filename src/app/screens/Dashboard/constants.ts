@@ -1,1 +1,1 @@
-export const DEFAULT_ROUTE = '/categories/inputs';
+export const DEFAULT_ROUTE = '/inputs';

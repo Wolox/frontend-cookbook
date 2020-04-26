@@ -7,7 +7,7 @@ import { getComponentsCode } from '~utils/components';
 
 import CardsContainer from './components/CardsContainer';
 
-function Home() {
+function Category() {
   const { category } = useParams();
   const { loading, data } = useQuery(getAllComponentsByCategory(category as string));
   const components = getComponentsCode(data?.repository.object.entries);
@@ -19,4 +19,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Category;

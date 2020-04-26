@@ -29,7 +29,7 @@ function Sidebar() {
       </button>
       <div className={styles.sidebarUpperSection}>
         <div className={`column ${styles.sidebarHeader}`}>
-          <Link to={Routes.HOME}>
+          <Link to={Routes.DASHBOARD}>
             <img src={logo} alt="Cookbook Wolox" className="full-width" />
           </Link>
         </div>
@@ -41,7 +41,7 @@ function Sidebar() {
                 className={cn(styles.simpleLink, {
                   [styles.selected]: categoryType === category.name
                 })}
-                to={Routes.CATEGORIES.replace(':category', category.name)}
+                to={Routes.CATEGORY.replace(':category', category.name)}
               >
                 {category.name}
               </Link>

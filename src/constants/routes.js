@@ -1,7 +1,7 @@
 const Routes = {
-  HOME: '/',
-  CATEGORIES: '/categories/:category',
-  DETAIL: '/categories/:category/:component',
+  DASHBOARD: '/',
+  CATEGORY: '/:category',
+  DETAIL: '/:category/:component',
   LOGIN: '/login',
   RECOVER_PASSWORD: '/forgot_password'
 };
