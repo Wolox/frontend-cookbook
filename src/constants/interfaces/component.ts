@@ -7,4 +7,4 @@ export interface Component {
       };
     }[];
   };
-};
+}

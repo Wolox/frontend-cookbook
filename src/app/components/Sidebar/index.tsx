@@ -1,30 +1,23 @@
-import React, { useState, useCallback, useMemo, useContext } from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import cn from 'classnames';
 
 import Routes from '~constants/routes';
 import logo from 'assets/logo.svg';
 import { getCategories } from '~utils/queries';
-import { actionCreators } from '~context/GlobalProvider/actions';
-import { GlobalContext } from '~context/GlobalProvider';
 
 import { Categories } from './interface';
 import { CATEGORIES } from './constants';
 import styles from './styles.module.scss';
 
 function Sidebar() {
-  const { state, dispatch } = useContext(GlobalContext);
+  const categoryType = useLocation().pathname.split('/')[2];
   const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
   const { loading, data } = useQuery(getCategories());
   const categories = !loading && data ? data.repository.object.entries : CATEGORIES;
-  const toggleSidebar = useCallback(() => setsidebarIsOpen(!sidebarIsOpen), [sidebarIsOpen]);
+  const toggleSidebar = () => setsidebarIsOpen(!sidebarIsOpen);
 
-  const handleSelect = useMemo(
-    () => (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
-      dispatch(actionCreators.selectCategory((event.target as any).id)),
-    [dispatch]
-  );
   return (
     <div className={cn(styles.sidebarContainer, 'column space-between', { [styles.visible]: sidebarIsOpen })}>
       <button
@@ -43,17 +36,15 @@ function Sidebar() {
         <div className={`column ${styles.contentLinks} start`}>
           {categories &&
             categories.map((category: Categories) => (
-              <button
-                type="button"
+              <Link
                 key={category.oid}
-                id={category.name}
                 className={cn(styles.simpleLink, {
-                  [styles.selected]: state.category === category.name
+                  [styles.selected]: categoryType === category.name
                 })}
-                onClick={handleSelect}
+                to={Routes.CATEGORIES.replace(':category', category.name)}
               >
                 {category.name}
-              </button>
+              </Link>
             ))}
         </div>
       </div>
