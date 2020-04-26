@@ -1,0 +1,48 @@
+@import 'variables/colors';
+@import 'variables/sizes';
+
+.code-container {
+  height: 600px;
+  padding-top: 30px;
+}
+
+.code-type-button {
+  background-color: $catskill-white;
+  border-radius: 4px;
+  font-weight: 600;
+  height: 40px;
+  margin-right: 15px;
+  text-align: center;
+  transition: all $transition-duration $transition-function;
+  width: 90px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    background-color: $sidebar-blue;
+    color: $white;
+  }
+}
+
+.button-active {
+  background-color: $sidebar-blue;
+  color: $white;
+}
+
+.code-snippets {
+  position: relative;
+}
+
+.code {
+  opacity: 0;
+  position: absolute;
+  transition: opacity $transition-duration $transition-function;
+}
+
+.code-visible {
+  opacity: 1;
+  pointer-events: all;
+  transition-delay: 200;
+}
