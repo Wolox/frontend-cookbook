@@ -1,0 +1,14 @@
+@import 'variables/colors';
+
+code span {
+  font-size: inherit;
+}
+
+pre.code-snippet {
+  background: $catskill-white;
+  margin: 0;
+  max-height: 510px;
+  overflow-y: auto;
+  padding: 15px;
+  width: 100%;
+}
