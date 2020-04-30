@@ -1,39 +1,25 @@
-import React, { useState, useCallback, useMemo, useContext } from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
 import Routes from '~constants/routes';
 import logo from 'assets/logo.svg';
-import { getCategories } from '~utils/queries';
-import { actionCreators } from '~context/GlobalProvider/actions';
-import { GlobalContext } from '~context/GlobalProvider';
+import { useAuthContext } from '~context/AuthProvider';
 
-import { Categories, User } from './interface';
 import styles from './styles.module.scss';
+import ListCategories from './components/ListCategories';
 
-function Sidebar({ currentUser }: User) {
-  const { state, dispatch } = useContext(GlobalContext);
+function Sidebar() {
   const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
-  const [categories, setCategories] = useState([]);
+  const {
+    state: { currentUser }
+  } = useAuthContext();
 
-  if (currentUser) {
-    const { loading, data } = useQuery(getCategories());
-    !loading && data && setCategories(data);
-  }
+  const loginToGithubURL = `http://github.com/login/oauth/authorize?client_id=${
+    process.env.REACT_APP_CLIENT_ID
+  }redirect_uri=${process.env.REACT_APP_REDIRECT_URL}`;
 
   const toggleSidebar = useCallback(() => setsidebarIsOpen(!sidebarIsOpen), [sidebarIsOpen]);
-
-  const handleSelect = useMemo(
-    () => (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
-      dispatch(actionCreators.selectCategory((event.target as any).id)),
-    [dispatch]
-  );
-
-  const loginToGithubURL = () =>
-    `http://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}redirect_uri=${
-      process.env.REACT_APP_REDIRECT_URL
-    }`;
 
   return (
     <div className={cn(styles.sidebarContainer, 'column space-between', { [styles.visible]: sidebarIsOpen })}>
@@ -51,23 +37,9 @@ function Sidebar({ currentUser }: User) {
           </Link>
         </div>
         {currentUser ? (
-          <div className={`column ${styles.contentLinks} start`}>
-            {categories.map((category: Categories) => (
-              <button
-                type="button"
-                key={category.oid}
-                id={category.name}
-                className={cn(styles.simpleLink, {
-                  [styles.selected]: state.category === category.name
-                })}
-                onClick={handleSelect}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
+          <ListCategories />
         ) : (
-          <a className={styles.githubLogin} href={loginToGithubURL()}>
+          <a className={styles.githubLogin} href={loginToGithubURL}>
             Login with Github
           </a>
         )}

@@ -1,13 +1,11 @@
 import ApolloClient from 'apollo-boost';
 
 // eslint-disable-next-line init-declarations
-let authHeader = '';
 const authToken = localStorage.getItem('auth_token');
+let authHeader = authToken;
 
 if (process.env.NODE_ENV !== 'production') {
-  authHeader = process.env.REACT_APP_GITHUB_TOKEN;
-} else if (authToken && authToken !== 'undefined') {
-  authHeader = authToken;
+  authHeader = '45cf68376ef425ba6aded64ef885954038914298';
 }
 
 const configApolloParameters = {
