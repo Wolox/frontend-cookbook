@@ -23,6 +23,7 @@ const code = urlParams.get('code');
 function AppRoutes() {
   const { dispatch } = useAuthContext();
   const { setUser } = actionCreators;
+
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') {
       dispatch(setUser(true));
