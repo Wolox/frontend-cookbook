@@ -3,9 +3,9 @@ import React from 'react';
 import { withSpinner } from '~components/Spinner';
 
 import Card from '../Card';
+
 import styles from './styles.module.scss';
 import { CardsContainerProps } from './interface';
-
 
 function CardsContainer({ components, category }: CardsContainerProps) {
   return (

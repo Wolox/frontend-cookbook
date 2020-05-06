@@ -1,17 +1,17 @@
 import React from 'react';
 
 function LoginContainer() {
-  const handleLogin = () => {
-    // TODO implement function
-  };
+  // TODO implement function
+  // const handleLogin = () => {
+  // };
 
-  const handleEmailChange = () => {
-    // TODO implement function
-  };
+  // TODO implement function
+  // const handleEmailChange = () => {
+  // };
 
-  const handlePasswordChange = () => {
-    // TODO implement function
-  };
+  // TODO implement function
+  // const handlePasswordChange = () => {
+  // };
 
   return <h1>Login</h1>;
 }
