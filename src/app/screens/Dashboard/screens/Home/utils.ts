@@ -4,8 +4,11 @@ export const getComponentsCode = (components: Component[]) =>
   components?.length
     ? components.map((comp: Component) => ({
         title: comp.name,
-        html: comp.object.entries[0].object.text,
-        css: comp.object.entries[1].object.text,
-        scss: comp.object.entries[2].object.text
+        config: JSON.parse(
+          comp.object.entries.find(entry => entry.name === 'config.json')?.object.text || '{}'
+        ),
+        html: comp.object.entries.find(entry => entry.name === 'index.html')?.object.text,
+        css: comp.object.entries.find(entry => entry.name === 'styles.css')?.object.text,
+        scss: comp.object.entries.find(entry => entry.name === 'styles.scss')?.object.text
       }))
     : [];

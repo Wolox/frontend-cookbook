@@ -6,7 +6,7 @@ import { GlobalState, SetTitleAction, SelectCategoryAction } from './interfaces'
 
 export const globalState: GlobalState = {
   title: 'Wolox Cookbook',
-  category: 'inputs'
+  category: 'buttons'
 };
 const reducer = {
   [actions.SET_TITLE]: (state: any, { payload }: SetTitleAction) => ({ ...state, title: payload }),

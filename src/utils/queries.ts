@@ -1,9 +1,11 @@
 import { gql } from 'apollo-boost';
 
+// TODO: Update components-react-dev-and-config when merged. Maybe extract this branch reference?
+
 const queryBuilder = (name: string, target = '', query: string) => gql`
   query ${name} {
     repository(owner: "wolox", name: "frontend-cookbook") {
-      object(expression: "components:components${target}") {
+      object(expression: "components-react-dev-and-config:components${target}") {
         ${query}
       }
     }
