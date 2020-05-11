@@ -28,7 +28,6 @@ function AuthenticatedRoute({
   const {
     state: { currentUser }
   } = useAuthContext();
-  console.log(currentUser, 'lakjflaksjdf');
   return (
     <Route
       {...props}

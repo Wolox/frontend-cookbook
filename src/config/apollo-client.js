@@ -5,7 +5,7 @@ const authToken = localStorage.getItem('auth_token');
 let authHeader = authToken;
 
 if (process.env.NODE_ENV !== 'production') {
-  authHeader = process.env.REACT_APP_GITHUB_TOKEN;
+  authHeader = '45cf68376ef425ba6aded64ef885954038914298';
 }
 
 const configApolloParameters = {
