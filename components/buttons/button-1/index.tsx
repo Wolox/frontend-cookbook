@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../styles.scss';
+import './styles.scss';
 
 function Button1() {
   return (
