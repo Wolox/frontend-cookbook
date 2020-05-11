@@ -76,7 +76,8 @@ AuthenticatedRoute.defaultProps = {
    * TODO Add this if you need it
    * isPublicRoute: true,
    */
-  currentUser: false
+  // TODO: Remove when login is ready
+  currentUser: true
 };
 
 export default AuthenticatedRoute;
