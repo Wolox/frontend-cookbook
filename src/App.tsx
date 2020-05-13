@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, Fragment } from 'react';
 
 import './scss/layout.scss';
 import './styles.scss';
@@ -28,16 +28,16 @@ function App() {
     <div className="row">
       <ul>
         {CATEGORIES.map(({ name, components }) => (
-          <>
+          <Fragment key={name}>
             <li>{name}</li>
             <ul>
               {components.map((component) => (
-                <li>
+                <li key={component}>
                   <a href={`/?category=${name}&component=${component}`}>{component}</a>
                 </li>
               ))}
             </ul>
-          </>
+          </Fragment>
         ))}
       </ul>
       <div>

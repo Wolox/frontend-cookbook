@@ -2,12 +2,13 @@
   "name": "frontend-cookbook",
   "version": "1.0.0",
   "engines": {
-    "node": "8.5.0",
-    "npm": "5.3.0"
+    "node": ">= 10.15.3",
+    "npm": ">= 6.9.0"
   },
   "description": "Wolox front-end component cookbook",
   "scripts": {
     "start": "webpack-dev-server --config webpack.js --env=react",
+    "build": "webpack --config webpack.js --env=react",
     "sass-build": "node sassBuild.js",
     "precommit": "npm run sass-build && git add ."
   },
