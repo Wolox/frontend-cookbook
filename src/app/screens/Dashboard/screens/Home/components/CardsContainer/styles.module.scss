@@ -1,0 +1,35 @@
+@import 'variables/colors';
+@import 'variables/sizes';
+
+.card-container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.loader-container {
+  margin: auto;
+}
+
+@media screen and (max-width: $big-screen) {
+
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: $medium-screen) {
+
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: $small-screen) {
+
+  .card-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
