@@ -22,6 +22,9 @@ export const removeCurrentUser = () => LocalStorageService.removeSessionToken();
 
 export const loginToGithub = code =>
   api.post(`?code=${code}`).then(response => {
+    if (!response.ok) {
+      throw response;
+    }
     setCurrentUser({ sessionToken: response });
     window.history.replaceState({}, document.title, '/');
   });
