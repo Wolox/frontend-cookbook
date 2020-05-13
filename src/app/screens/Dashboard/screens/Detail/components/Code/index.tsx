@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import cn from 'classnames';
+import JSZip from 'jszip';
+import { saveAs } from 'file-saver';
 
 import CodeSnippet from '~components/CodeSnippet';
 
@@ -19,9 +21,20 @@ function Code({ html, scss }: Props) {
   const handleHtmlClick = () => setCurrentCode(CODE.HTML);
   const handleScssClick = () => setCurrentCode(CODE.SCSS);
 
+  const downloadZip = useCallback(() => {
+    var zip = new JSZip();
+    zip.file("index.html", html);
+    zip.file("style.scss", scss);
+    zip.generateAsync({ type: "blob" })
+      .then(function (content) {
+        saveAs(content, "code.zip");
+      });
+  }, []);
+
   return (
     <div className={styles.codeContainer}>
-      <div className="row m-bottom-4">
+      <div className="row space-between m-bottom-4">
+        <div>
         <button
           className={cn(styles.codeTypeButton, { [styles.buttonActive]: isHtml })}
           type="button"
@@ -37,10 +50,28 @@ function Code({ html, scss }: Props) {
         >
           SCSS
         </button>
+        </div>
+        <button 
+          className={`${styles.downloadButton} ${styles.codeTypeButton}`}
+          type="button" 
+          onClick={downloadZip}
+        >
+          Download code
+        </button>
       </div>
       <div className={styles.codeSnippets}>
-        <CodeSnippet className={cn(styles.code, { [styles.codeVisible]: isHtml })} code={html} lang="html" />
-        <CodeSnippet className={cn(styles.code, { [styles.codeVisible]: isScss })} code={scss} lang="scss" />
+        <CodeSnippet
+          className={cn(styles.code, { [styles.codeVisible]: isHtml })}
+          code={html}
+          lang="html"
+        />
+
+        <CodeSnippet
+          className={cn(styles.code, { [styles.codeVisible]: isScss })}
+          code={scss}
+          lang="scss"
+        />
+
       </div>
     </div>
   );
