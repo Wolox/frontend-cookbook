@@ -10,7 +10,7 @@ export interface Component {
   };
 }
 
-export interface CookbookComponent {
+export interface Recipe {
   title: string;
   html: string;
   css: string;

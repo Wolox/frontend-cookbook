@@ -2,13 +2,13 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { CookbookComponent } from '../../interface';
+import { Recipe } from '../../interface';
 
 import { COLORS } from './constants';
 import styles from './styles.module.scss';
 
 interface Props {
-  component: CookbookComponent;
+  component: Recipe;
   number: number;
   category: string;
 }
