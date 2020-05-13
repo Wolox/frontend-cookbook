@@ -16,7 +16,7 @@ function Detail() {
   
   const downloadZip = useCallback(() => {
     const { html, scss, css } = componentCode;
-    var zip = new JSZip();
+    const zip = new JSZip();
     zip.file("index.html", html as string);
     zip.file("style.scss", scss as string);
     zip.file("style.css", css as string);
