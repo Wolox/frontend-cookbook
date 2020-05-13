@@ -10,16 +10,25 @@ import styles from './styles.module.scss';
 interface Props {
   title: string;
   componentCode: {
-    html: string;
-    css: string;
-    scss: string;
+    html: {
+      name: string,
+      content: string,
+    };
+    css: {
+      name: string;
+      content: string;
+    };
+    scss: {
+      name: string;
+      content: string;
+    };
   };
   onDownload: () => void;
 }
 
 function DetailContainer({ title, componentCode, onDownload }: Props) {
   const { html, css, scss } = componentCode;
-  const shadowElem = useShadow<HTMLDivElement>({ html, css });
+  const shadowElem = useShadow<HTMLDivElement>({ html: html.content, css: css.content });
   const [isCodeVisible, setIsCodeVisible] = useState(false);
 
   const handleClick = () => setIsCodeVisible(!isCodeVisible);
@@ -44,7 +53,7 @@ function DetailContainer({ title, componentCode, onDownload }: Props) {
           <label htmlFor="chkButton" />
         </div>
       </div>
-      {isCodeVisible ? <Code html={html} scss={scss} onDownload={onDownload} /> : <Settings />}
+      {isCodeVisible ? <Code html={html.content} scss={scss.content} onDownload={onDownload} /> : <Settings />}
     </>
   );
 }

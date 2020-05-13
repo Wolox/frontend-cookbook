@@ -10,8 +10,14 @@ import styles from './styles.module.scss';
 interface Props {
   component: {
     title: string;
-    html: string;
-    css: string;
+    html: {
+      name: string;
+      content: string;
+    };
+    css: {
+      name: string;
+      content: string;
+    };
   };
   number: number;
   category: string;
@@ -20,7 +26,7 @@ interface Props {
 function Card({ component, number }: Props) {
   const { html, css } = component;
   const { category } = useParams();
-  const shadowElem = useShadow<HTMLDivElement>({ html, css });
+  const shadowElem = useShadow<HTMLDivElement>({ html: html.content, css: css.content });
   const linkRoute = Routes.DETAIL.replace(':category', category as string).replace(
     ':component',
     component.title

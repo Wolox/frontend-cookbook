@@ -15,11 +15,11 @@ function Detail() {
   const componentCode = getComponentCode(data?.repository);
   
   const downloadZip = useCallback(() => {
-    const { html, scss, css } = componentCode;
     const zip = new JSZip();
-    zip.file("index.html", html as string);
-    zip.file("style.scss", scss as string);
-    zip.file("style.css", css as string);
+    const { title, ...files} = componentCode;
+    Object.values(files).forEach(({name, content}) => {
+      zip.file(name, content as string);
+    })
     zip.generateAsync({ type: "blob" })
       .then(function (content) {
         saveAs(content, "code.zip");
