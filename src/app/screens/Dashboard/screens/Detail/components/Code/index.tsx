@@ -1,7 +1,5 @@
 import React, { useState, useCallback } from 'react';
 import cn from 'classnames';
-import JSZip from 'jszip';
-import { saveAs } from 'file-saver';
 
 import CodeSnippet from '~components/CodeSnippet';
 
@@ -11,25 +9,16 @@ import styles from './styles.module.scss';
 interface Props {
   html: string;
   scss: string;
+  onDownload: () => void;
 }
 
-function Code({ html, scss }: Props) {
+function Code({ html, scss, onDownload }: Props) {
   const [currentCode, setCurrentCode] = useState<CODE>(CODE.HTML);
   const isHtml = currentCode === CODE.HTML;
   const isScss = currentCode === CODE.SCSS;
 
   const handleHtmlClick = () => setCurrentCode(CODE.HTML);
   const handleScssClick = () => setCurrentCode(CODE.SCSS);
-
-  const downloadZip = useCallback(() => {
-    var zip = new JSZip();
-    zip.file("index.html", html);
-    zip.file("style.scss", scss);
-    zip.generateAsync({ type: "blob" })
-      .then(function (content) {
-        saveAs(content, "code.zip");
-      });
-  }, []);
 
   return (
     <div className={styles.codeContainer}>
@@ -54,7 +43,7 @@ function Code({ html, scss }: Props) {
         <button 
           className={`${styles.downloadButton} ${styles.codeTypeButton}`}
           type="button" 
-          onClick={downloadZip}
+          onClick={onDownload}
         >
           Download code
         </button>
