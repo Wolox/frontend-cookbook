@@ -22,6 +22,14 @@ $card-info-content: 70px;
   position: relative;
 }
 
+.card-readme {
+  overflow: auto;
+}
+
+.card-iframe {
+  border-style: none;
+}
+
 .card-info {
   background-color: $white;
   border-radius: 0 0 5px 5px;

@@ -10,10 +10,12 @@ export interface Component {
   };
 }
 
+// TODO: Recipe should have one of readme, config, or html as required
 export interface Recipe {
   title: string;
   html: string;
   css: string;
+  readme: string;
   config: {
     thumbnailURL: string;
   };
