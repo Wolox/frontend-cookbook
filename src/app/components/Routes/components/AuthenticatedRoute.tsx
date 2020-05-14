@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
 import { RouteProps } from 'react-router';
 
+import { useAuthContext } from '~context/AuthProvider';
 import Routes from '~constants/routes';
 
 const DEFAULT_PUBLIC_ROUTE = Routes.LOGIN;
@@ -11,7 +12,6 @@ interface Props extends RouteProps {
   component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
   isPublicRoute?: boolean;
   isPrivateRoute?: boolean;
-  currentUser: boolean;
 }
 
 function AuthenticatedRoute({
@@ -22,10 +22,12 @@ function AuthenticatedRoute({
   isPublicRoute,
   isPrivateRoute,
   // initialized,
-  currentUser,
   component: Comp,
   ...props
 }: Props) {
+  const {
+    state: { currentUser }
+  } = useAuthContext();
   return (
     <Route
       {...props}
