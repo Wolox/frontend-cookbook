@@ -1,9 +1,7 @@
 const Routes = {
   DASHBOARD: '/',
-  CATEGORY: '/:category',
-  DETAIL: '/:category/:component',
-  LOGIN: '/login',
-  RECOVER_PASSWORD: '/forgot_password'
+  CATEGORY: '/categories/:category',
+  DETAIL: '/:category/:component'
 };
 
 export default Routes;

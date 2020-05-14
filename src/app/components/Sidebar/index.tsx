@@ -6,19 +6,18 @@ import cn from 'classnames';
 import Routes from '~constants/routes';
 import { getCategories } from '~utils/queries';
 import { useAuthContext } from '~context/AuthProvider';
-
-import { Categories } from './interface';
-import ListCategories from './components/ListCategories';
-
 import logo from 'assets/logo.svg';
 
+import { Categories } from './interface';
 import styles from './styles.module.scss';
 
 function Sidebar() {
   const categoryType = useLocation().pathname.split('/')[2];
   const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
 
-  const { state: { currentUser } } = useAuthContext();
+  const {
+    state: { currentUser }
+  } = useAuthContext();
 
   const { loading, data } = useQuery(getCategories());
   const categories = !loading && data ? data.repository.object.entries : [];

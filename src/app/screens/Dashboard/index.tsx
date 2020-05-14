@@ -12,7 +12,7 @@ function Dashboard() {
   return (
     <div className={`full-width ${styles.dashboardContainer}`}>
       <Switch>
-        <Route exact path={Routes.CATEGORY} component={Category} />
+        <Route path={Routes.CATEGORY} component={Category} />
         <Route exact path={Routes.DETAIL} component={Detail} />
         <Redirect to={DEFAULT_ROUTE} />
       </Switch>

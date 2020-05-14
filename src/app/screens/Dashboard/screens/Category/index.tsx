@@ -9,7 +9,7 @@ import CardsContainer from './components/CardsContainer';
 
 function Category() {
   const { category } = useParams();
-  useEffect(() => { console.log(category); debugger;}, [])
+  useEffect(() => { console.log(category); debugger;}, []);
   const { loading, data } = useQuery(getAllComponentsByCategory(category as string));
   const components = getComponentsCode(data?.repository.object?.entries);
   return (
