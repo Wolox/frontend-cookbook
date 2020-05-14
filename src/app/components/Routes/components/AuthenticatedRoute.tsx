@@ -5,7 +5,7 @@ import { RouteProps } from 'react-router';
 import Routes from '~constants/routes';
 
 const DEFAULT_PUBLIC_ROUTE = Routes.LOGIN;
-const DEFAULT_PRIVATE_ROUTE = Routes.HOME;
+const DEFAULT_PRIVATE_ROUTE = Routes.DASHBOARD;
 
 interface Props extends RouteProps {
   component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
