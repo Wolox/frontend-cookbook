@@ -1,4 +1,4 @@
-## Button-2
+## Button-2
 
 Tu use this button component just copy the code bellow to your components folder!
 
