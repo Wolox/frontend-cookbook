@@ -30,7 +30,7 @@ function Detail() {
     <DetailsContainer
       loading={loading}
       title={component}
-      componentCode={componentCode}
+      component={componentCode}
       onDownload={downloadZip}
     />
   );

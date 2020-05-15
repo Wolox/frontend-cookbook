@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 
 import { withSpinner } from '~components/Spinner';
-import useShadow from '~hooks/useShadow';
+
+import ShadowComponent from '../Category/components/ShadowComponent';
+import RecipePreview from '../Category/components/RecipePreview';
+import { Recipe } from '../../../../../constants/interfaces/component';
 
 import Settings from './components/Options';
 import Code from './components/Code';
@@ -9,26 +12,12 @@ import styles from './styles.module.scss';
 
 interface Props {
   title: string;
-  componentCode: {
-    html: {
-      name: string;
-      content: string;
-    };
-    css: {
-      name: string;
-      content: string;
-    };
-    scss: {
-      name: string;
-      content: string;
-    };
-  };
+  component: Recipe;
   onDownload: () => void;
 }
 
-function DetailContainer({ title, componentCode, onDownload }: Props) {
-  const { html, css, scss } = componentCode;
-  const shadowElem = useShadow<HTMLDivElement>({ html: html.content, css: css.content });
+function DetailContainer({ title, component, onDownload }: Props) {
+  const { html, scss } = component;
   const [isCodeVisible, setIsCodeVisible] = useState(false);
 
   const handleClick = () => setIsCodeVisible(!isCodeVisible);
@@ -47,7 +36,7 @@ function DetailContainer({ title, componentCode, onDownload }: Props) {
         </a>
       </div>
       <div className={styles.detailsComponent}>
-        <div ref={shadowElem} />
+        <RecipePreview component={component} />
         <div className={styles.settingsCheckbox}>
           <input type="checkbox" id="chkButton" onClick={handleClick} />
           <label htmlFor="chkButton" />

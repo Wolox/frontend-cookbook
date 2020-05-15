@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import Routes from '~constants/routes';
 import { Recipe } from '~constants/interfaces/component';
 
-import Thumbnail from '../Thumbnail/index';
+import RecipePreview from '../RecipePreview/index';
 
 import { COLORS } from './constants';
 import styles from './styles.module.scss';
@@ -27,7 +27,7 @@ function Card({ component, number }: Props) {
   return (
     // eslint-disable-next-line react/forbid-dom-props
     <div className={`column middle center full-width ${styles.card}`} style={cardColor}>
-      <Thumbnail component={component} className={styles.cardContent} />
+      <RecipePreview thumbnail component={component} className={styles.cardContent} />
       <div className={`full-width column ${styles.cardInfo}`}>
         <h4 className={`m-bottom-2 ${styles.cardTitle}`}>{component.title}</h4>
         <Link to={linkRoute}>Watch more...</Link>

@@ -8,18 +8,17 @@ import ShadowComponent from '../ShadowComponent';
 import styles from './styles.module.scss';
 
 interface Props {
-  className: string;
+  className?: string;
   component: Recipe;
+  thumbnail?: boolean;
 }
 
-function Thumbnail({ className, component }: Props) {
-  if (component.config.thumbnailURL) {
+function RecipePreview({ className, component, thumbnail }: Props) {
+  const componentUrl = thumbnail ? component.config.thumbnailURL : component.config.detailURL;
+  if (componentUrl) {
     return (
       <div className={`full-width row middle center ${className}`}>
-        <iframe
-          src={component.config.thumbnailURL}
-          className={`full-width row middle center ${styles.cardIframe}`}
-        />
+        <iframe src={componentUrl} className={`full-width row middle center ${styles.cardIframe}`} />
       </div>
     );
   }
@@ -36,4 +35,4 @@ function Thumbnail({ className, component }: Props) {
   return <ShadowComponent component={component} className={`full-width row middle center ${className}`} />;
 }
 
-export default Thumbnail;
+export default RecipePreview;

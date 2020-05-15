@@ -20,8 +20,10 @@ export interface Recipe {
   title: string;
   html: RecipeFile;
   css: RecipeFile;
+  scss: RecipeFile;
   readme?: RecipeFile;
   config: {
     thumbnailURL: string;
+    detailURL: string;
   };
 }
