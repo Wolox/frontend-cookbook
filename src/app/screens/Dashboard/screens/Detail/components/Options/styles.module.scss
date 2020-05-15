@@ -1,0 +1,35 @@
+@import 'variables/colors';
+
+.settings-container {
+  background-color: $white;
+  height: 600px;
+  padding-top: 30px;
+  position: relative;
+}
+
+.settings-options {
+  max-width: 100%;
+  width: 470px;
+}
+
+.setting-label {
+  color: $oslo-gray;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.setting-input-color {
+  border: 1px solid $oslo-gray;
+  border-radius: 4px;
+  height: 24px;
+  width: 24px;
+}
+
+.setting-input-size {
+  border: 1px solid $oslo-gray;
+  border-radius: 4px;
+  padding: 8px 10px;
+  width: 64px;
+}

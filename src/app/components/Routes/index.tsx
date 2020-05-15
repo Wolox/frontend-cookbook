@@ -13,7 +13,7 @@ import Routes from '../../../constants/routes';
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 import styles from './styles.module.scss';
 
-const Home = lazy(() => import('../../screens/Dashboard'));
+const Home = lazy(() => import('~screens/Dashboard/'));
 const Sidebar = lazy(() => import('../Sidebar'));
 const history = createBrowserHistory();
 
@@ -21,7 +21,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const code = urlParams.get('code');
 
 function AppRoutes() {
-  const { dispatch, state } = useAuthContext();
+  const { dispatch } = useAuthContext();
   const { setUser } = actionCreators;
 
   useEffect(() => {
@@ -37,14 +37,12 @@ function AppRoutes() {
   return (
     <Router history={history}>
       <div className={`row full-width ${styles.container}`}>
-        {state.currentUser !== null && (
-          <Suspense>
-            <Sidebar />
-            <Switch>
-              <AuthenticatedRoute isPrivateRoute exact path={Routes.HOME} component={Home} />
-            </Switch>
-          </Suspense>
-        )}
+        <Suspense>
+          <Sidebar />
+          <Switch>
+            <AuthenticatedRoute isPrivateRoute path={Routes.DASHBOARD} component={Home} />
+          </Switch>
+        </Suspense>
       </div>
     </Router>
   );

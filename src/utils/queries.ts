@@ -24,6 +24,9 @@ const filesQuery = `
 
 export const getCategories = () => queryBuilder('getCategories', '', '... on Tree {entries {name oid} }');
 
+export const getComponentFiles = (componentType: string, component: string) =>
+  queryBuilder('componentsFiles', `/${componentType}/${component}`, filesQuery);
+
 export const getAllComponentsByCategory = (category: string) =>
   queryBuilder(
     'componentsByCategory',

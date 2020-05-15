@@ -1,10 +1,6 @@
 import { create } from 'apisauce';
 
-const baseURL = 'http://wolox.com';
-
-if (baseURL === 'http://wolox.com') {
-  console.warn('API baseURL has not been properly initialized'); // eslint-disable-line no-console
-}
+const baseURL = process.env.REACT_APP_AUTH_BASE_URL;
 
 const STATUS_CODES = {
   unauthorized: 401

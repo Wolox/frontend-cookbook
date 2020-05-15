@@ -23,3 +23,24 @@
   line-height: 1;
   text-transform: uppercase;
 }
+
+.subtitle {
+  color: $limed-spruce;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.1;
+
+  &.separator {
+    position: relative;
+
+    &::before {
+      background-color: darken($porcelain, 10%);
+      content: '';
+      height: 100%;
+      position: absolute;
+      right: 40px;
+      top: 0;
+      width: 1px;
+    }
+  }
+}

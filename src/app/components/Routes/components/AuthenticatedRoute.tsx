@@ -5,8 +5,8 @@ import { RouteProps } from 'react-router';
 import { useAuthContext } from '~context/AuthProvider';
 import Routes from '~constants/routes';
 
-const DEFAULT_PUBLIC_ROUTE = Routes.LOGIN;
-const DEFAULT_PRIVATE_ROUTE = Routes.HOME;
+const DEFAULT_PUBLIC_ROUTE = Routes.DASHBOARD;
+const DEFAULT_PRIVATE_ROUTE = Routes.DASHBOARD;
 
 interface Props extends RouteProps {
   component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
@@ -78,7 +78,7 @@ AuthenticatedRoute.defaultProps = {
    * TODO Add this if you need it
    * isPublicRoute: true,
    */
-  currentUser: false
+  currentUser: true
 };
 
 export default AuthenticatedRoute;

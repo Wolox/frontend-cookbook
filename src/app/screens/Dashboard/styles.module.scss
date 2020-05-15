@@ -1,7 +1,6 @@
-@import 'variables/colors';
 @import 'variables/sizes';
 
-.feed-content {
+.dashboard-container {
   margin: 0 auto;
   max-width: $content-max-width;
   padding: 80px 20px 20px 80px;
@@ -11,10 +10,5 @@
 
   .feed-content {
     padding: 70px 20px 20px;
-  }
-
-  .title {
-    display: block;
-    text-align: center;
   }
 }

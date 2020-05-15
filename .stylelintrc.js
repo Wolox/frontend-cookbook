@@ -10,6 +10,9 @@ module.exports = {
     }],
     'at-rule-empty-line-before': [ "always", {
       ignoreAtRules: ['import']
+    }],
+    'selector-no-qualifying-type': [ true, {
+      ignore: ['class']
     }]
   }
 };

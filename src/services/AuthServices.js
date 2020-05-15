@@ -9,21 +9,26 @@ export const setCurrentUser = currentUser => {
   LocalStorageService.setSessionToken(currentUser.sessionToken);
 };
 
+const getTokenFromResponse = queryParams =>
+  queryParams.match(/access_token=[a-z0-9]+/g)[0].substring('access_token='.length);
+
+export const storeToken = response => {
+  const token = getTokenFromResponse(response.data);
+  localStorage.setItem('auth_token', token);
+};
+
 export const getCurrentUser = () => {
   const currentSessionToken = LocalStorageService.getSessionToken();
-  if (currentSessionToken) {
-    api.setHeader('Authorization', currentSessionToken);
-    return true;
-  }
+  if (currentSessionToken) return true;
   return false;
 };
 
 export const removeCurrentUser = () => LocalStorageService.removeSessionToken();
 
 export const loginToGithub = code =>
-  api.post(`?code=${code}`).then(response => {
+  api.get(`?code=${code}`).then(response => {
     if (response.ok) {
-      setCurrentUser({ sessionToken: response });
+      storeToken(response);
     }
     window.history.replaceState({}, document.title, '/');
   });
