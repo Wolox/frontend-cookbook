@@ -22,17 +22,17 @@ const code = urlParams.get('code');
 
 function AppRoutes() {
   const { dispatch } = useAuthContext();
-  const { setUser } = actionCreators;
+  const { setUserLoggedIn } = actionCreators;
 
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') {
-      dispatch(setUser(true));
+      dispatch(setUserLoggedIn(true));
     } else if (getCurrentUser()) {
-      dispatch(setUser(true));
+      dispatch(setUserLoggedIn(true));
     } else if (code) {
-      loginToGithub(code).then(() => dispatch(setUser(true)));
+      loginToGithub(code).then(() => dispatch(setUserLoggedIn(true)));
     }
-  }, [dispatch, setUser]);
+  }, [dispatch, setUserLoggedIn]);
 
   return (
     <Router history={history}>
@@ -40,7 +40,7 @@ function AppRoutes() {
         <Suspense>
           <Sidebar />
           <Switch>
-            <AuthenticatedRoute isPrivateRoute path={Routes.DASHBOARD} component={Home} />
+            <AuthenticatedRoute isPublicRoute path={Routes.DASHBOARD} component={Home} />
           </Switch>
         </Suspense>
       </div>
