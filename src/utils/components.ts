@@ -1,39 +1,28 @@
 import { Component } from '~constants/interfaces/component';
 
-export const getComponentsCode = (components: Component[]) =>
-  components?.length
-    ? components.map((comp: Component) => ({
-        title: comp.name,
-        html: {
-          name: comp.object.entries[0].name,
-          content: comp.object.entries[0].object.text
-        },
-        css: {
-          name: comp.object.entries[1].name,
-          content: comp.object.entries[1].object.text
-        },
-        scss: {
-          name: comp.object.entries[2].name,
-          content: comp.object.entries[2].object.text
-        }
-      }))
-    : [];
+const getComponentByFileName = (comp: Component, fileName: string) => {
+  const file = comp.object.entries.find(entry => entry.name === fileName);
+  return file
+    ? {
+        name: file.name,
+        content: file.object.text
+      }
+    : null;
+};
 
 export const getComponentCode = (comp: Component) =>
   comp
     ? {
         title: comp.name,
-        html: {
-          name: comp.object.entries[0].name,
-          content: comp.object.entries[0].object.text
-        },
-        css: {
-          name: comp.object.entries[1].name,
-          content: comp.object.entries[1].object.text
-        },
-        scss: {
-          name: comp.object.entries[2].name,
-          content: comp.object.entries[2].object.text
-        }
+        config: JSON.parse(
+          comp.object.entries.find(entry => entry.name === 'config.json')?.object.text || '{}'
+        ),
+        readme: getComponentByFileName(comp, 'readme.md'),
+        html: getComponentByFileName(comp, 'index.html'),
+        css: getComponentByFileName(comp, 'styles.css'),
+        scss: getComponentByFileName(comp, 'styles.scss')
       }
     : {};
+
+export const getComponentsCode = (components: Component[]) =>
+  components?.length ? components.map(getComponentCode) : [];

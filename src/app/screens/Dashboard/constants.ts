@@ -1,1 +1,1 @@
-export const DEFAULT_ROUTE = '/inputs';
+export const DEFAULT_ROUTE = '/buttons';
