@@ -6,12 +6,12 @@ import styles from './styles.module.scss';
 
 interface Props {
   component: {
-    title: string,
-    html: string,
-    css: string
-  },
-  number: number,
-  category: string
+    title: string;
+    html: string;
+    css: string;
+  };
+  number: number;
+  category: string;
 }
 
 function Card({ component, number }: Props) {
@@ -20,16 +20,17 @@ function Card({ component, number }: Props) {
     const shadowRoot = elem?.attachShadow({ mode: 'open' });
     if (shadowRoot) {
       shadowRoot.innerHTML = `${component.html}<style>${component.css}</style>`;
-    };
+    }
   }, [component.css, component.html, component.title]);
 
   const cardColor = { '--card-color': COLORS[Math.floor(number % COLORS.length)] } as React.CSSProperties;
   return (
+    // eslint-disable-next-line react/forbid-dom-props
     <div className={`column middle center full-width ${styles.card}`} style={cardColor}>
       <div className={`full-width row middle center ${styles.cardContent}`} id={component.title} />
       <div className={`full-width column ${styles.cardInfo}`}>
         <h4 className={`m-bottom-2 ${styles.cardTitle}`}>{component.title}</h4>
-        <Link to='/'>Watch more...</Link>
+        <Link to="/">Watch more...</Link>
       </div>
     </div>
   );

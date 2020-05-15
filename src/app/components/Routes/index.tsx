@@ -21,7 +21,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const code = urlParams.get('code');
 
 function AppRoutes() {
-  const { dispatch } = useAuthContext();
+  const { dispatch, state } = useAuthContext();
   const { setUser } = actionCreators;
 
   useEffect(() => {
@@ -37,12 +37,14 @@ function AppRoutes() {
   return (
     <Router history={history}>
       <div className={`row full-width ${styles.container}`}>
-        <Suspense>
-          <Sidebar />
-          <Switch>
-            <AuthenticatedRoute isPrivateRoute exact path={Routes.HOME} component={Home} />
-          </Switch>
-        </Suspense>
+        {state.currentUser !== null && (
+          <Suspense>
+            <Sidebar />
+            <Switch>
+              <AuthenticatedRoute isPrivateRoute exact path={Routes.HOME} component={Home} />
+            </Switch>
+          </Suspense>
+        )}
       </div>
     </Router>
   );
