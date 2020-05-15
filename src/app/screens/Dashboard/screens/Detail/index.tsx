@@ -13,20 +13,27 @@ function Detail() {
   const { category, component } = useParams();
   const { data, loading } = useQuery(getComponentFiles(category as string, component as string));
   const componentCode = getComponentCode(data?.repository);
-  
+
   const downloadZip = useCallback(() => {
     const zip = new JSZip();
-    const { title, ...files} = componentCode;
-    Object.values(files).forEach(({name, content}) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { title, ...files } = componentCode;
+    Object.values(files).forEach(({ name, content }) => {
       zip.file(name, content as string);
-    })
-    zip.generateAsync({ type: "blob" })
-      .then(function (content) {
-        saveAs(content, "code.zip");
-      });
+    });
+    zip.generateAsync({ type: 'blob' }).then(content => {
+      saveAs(content, 'code.zip');
+    });
   }, [componentCode]);
 
-  return <DetailsContainer loading={loading} title={component} componentCode={componentCode} onDownload={downloadZip} />;
+  return (
+    <DetailsContainer
+      loading={loading}
+      title={component}
+      componentCode={componentCode}
+      onDownload={downloadZip}
+    />
+  );
 }
 
 export default Detail;

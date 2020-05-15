@@ -10,8 +10,15 @@ export const authState: Auth = {
 };
 
 const reducer = {
-  [actions.SET_USER]: (state: Auth, { payload }: SetUserAction) => ({ ...state, currentUser: payload, isUserLoggedIn: true }),
-  [actions.SET_USER_LOGGED_IN]: (state: Auth, { payload }: SetUserIsLoggedIn) => ({ ...state, isUserLoggedIn: payload }),
+  [actions.SET_USER]: (state: Auth, { payload }: SetUserAction) => ({
+    ...state,
+    currentUser: payload,
+    isUserLoggedIn: true
+  }),
+  [actions.SET_USER_LOGGED_IN]: (state: Auth, { payload }: SetUserIsLoggedIn) => ({
+    ...state,
+    isUserLoggedIn: payload
+  }),
   [actions.REMOVE_USER]: (state: Auth) => ({ ...state, currentUser: null })
 };
 

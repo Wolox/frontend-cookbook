@@ -29,7 +29,7 @@ function Dashboard() {
     } else if (code) {
       loginToGithub(code).then(() => dispatch(actionCreators.setUserLoggedIn(true)));
     }
-  }, [dispatch]);
+  }, [code, dispatch]);
 
   return (
     <div className={`full-width ${styles.dashboardContainer}`}>
