@@ -1,6 +1,8 @@
-import api from '../config/api';
+import { create } from 'apisauce';
 
 import * as LocalStorageService from './LocalStorageService';
+
+const api = create({ baseURL: process.env.REACT_APP_AUTH_BASE_URL });
 
 export const setCurrentUser = currentUser => {
   api.setHeader('Authorization', currentUser.sessionToken);

@@ -7,7 +7,6 @@ import Card from '../Card';
 import styles from './styles.module.scss';
 import { CardsContainerProps } from './interface';
 
-
 function CardsContainer({ components, category }: CardsContainerProps) {
   return (
     <div className={styles.cardContainer}>

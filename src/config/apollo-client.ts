@@ -6,8 +6,9 @@ export const client = new ApolloClient({
     const authToken = localStorage.getItem('auth_token');
     operation.setContext({
       headers: {
-        authorization:
-          process.env.NODE_ENV === 'production' ? `Bearer ${authToken}` : process.env.REACT_APP_GITHUB_TOKEN
+        authorization: `Bearer ${
+          process.env.NODE_ENV === 'production' ? authToken : process.env.REACT_APP_GITHUB_TOKEN
+        }`
       }
     });
   }
