@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 
 import CodeSnippet from '~components/CodeSnippet';
@@ -24,43 +24,34 @@ function Code({ html, scss, onDownload }: Props) {
     <div className={styles.codeContainer}>
       <div className="row space-between m-bottom-4">
         <div>
-        <button
-          className={cn(styles.codeTypeButton, { [styles.buttonActive]: isHtml })}
-          type="button"
-          onClick={handleHtmlClick}
-        >
-          HTML
-        </button>
-        <button
-          className={cn(styles.codeTypeButton, { [styles.buttonActive]: isScss })}
-          type="button"
-          onClick={handleScssClick}
-          value="SCSS"
-        >
-          SCSS
-        </button>
+          <button
+            className={cn(styles.codeTypeButton, { [styles.buttonActive]: isHtml })}
+            type="button"
+            onClick={handleHtmlClick}
+          >
+            HTML
+          </button>
+          <button
+            className={cn(styles.codeTypeButton, { [styles.buttonActive]: isScss })}
+            type="button"
+            onClick={handleScssClick}
+            value="SCSS"
+          >
+            SCSS
+          </button>
         </div>
-        <button 
+        <button
           className={`${styles.downloadButton} ${styles.codeTypeButton}`}
-          type="button" 
+          type="button"
           onClick={onDownload}
         >
           Download code
         </button>
       </div>
       <div className={styles.codeSnippets}>
-        <CodeSnippet
-          className={cn(styles.code, { [styles.codeVisible]: isHtml })}
-          code={html}
-          lang="html"
-        />
+        <CodeSnippet className={cn(styles.code, { [styles.codeVisible]: isHtml })} code={html} lang="html" />
 
-        <CodeSnippet
-          className={cn(styles.code, { [styles.codeVisible]: isScss })}
-          code={scss}
-          lang="scss"
-        />
-
+        <CodeSnippet className={cn(styles.code, { [styles.codeVisible]: isScss })} code={scss} lang="scss" />
       </div>
     </div>
   );

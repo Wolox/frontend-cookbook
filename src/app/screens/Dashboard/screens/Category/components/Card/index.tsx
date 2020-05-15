@@ -34,6 +34,7 @@ function Card({ component, number }: Props) {
 
   const cardColor = { '--card-color': COLORS[Math.floor(number % COLORS.length)] } as React.CSSProperties;
   return (
+    // eslint-disable-next-line react/forbid-dom-props
     <div className={`column middle center full-width ${styles.card}`} style={cardColor}>
       <div ref={shadowElem} className={`full-width row middle center ${styles.cardContent}`} />
       <div className={`full-width column ${styles.cardInfo}`}>

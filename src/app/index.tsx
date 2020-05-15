@@ -1,13 +1,9 @@
-import React, { useEffect } from 'react';
-
-import { useGlobalContext } from '~context/GlobalProvider';
+import React from 'react';
 
 import AuthProvider from '../context/AuthProvider';
-import { apiSetup } from '../config/api';
+import '../scss/application.scss';
 
 import Routes from './components/Routes';
-
-import '../scss/application.scss';
 
 function App() {
   return (

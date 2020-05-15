@@ -11,8 +11,8 @@ interface Props {
   title: string;
   componentCode: {
     html: {
-      name: string,
-      content: string,
+      name: string;
+      content: string;
     };
     css: {
       name: string;
@@ -53,7 +53,11 @@ function DetailContainer({ title, componentCode, onDownload }: Props) {
           <label htmlFor="chkButton" />
         </div>
       </div>
-      {isCodeVisible ? <Code html={html.content} scss={scss.content} onDownload={onDownload} /> : <Settings />}
+      {isCodeVisible ? (
+        <Code html={html.content} scss={scss.content} onDownload={onDownload} />
+      ) : (
+        <Settings />
+      )}
     </>
   );
 }
