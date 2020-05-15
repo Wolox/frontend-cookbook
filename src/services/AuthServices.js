@@ -6,23 +6,27 @@ export const setCurrentUser = currentUser => {
   api.setHeader('Authorization', currentUser.sessionToken);
   LocalStorageService.setSessionToken(currentUser.sessionToken);
 };
+
+const getTokenFromResponse = queryParams =>
+  queryParams.match(/access_token=[a-z0-9]+/g)[0].substring('access_token='.length);
+
+export const storeToken = response => {
+  const token = getTokenFromResponse(response.data);
+  localStorage.setItem('auth_token', token);
+};
+
 export const getCurrentUser = () => {
   const currentSessionToken = LocalStorageService.getSessionToken();
-
-  if (currentSessionToken) {
-    api.setHeader('Authorization', currentSessionToken);
-
-    return true;
-  }
-
+  if (currentSessionToken) return true;
   return false;
 };
+
 export const removeCurrentUser = () => LocalStorageService.removeSessionToken();
 
-export const login = () =>
-  // TODO: Implement call to authentication API here
-  new Promise(resolve => {
-    setTimeout(() => {
-      resolve({ ok: true, data: { sessionToken: 'token' } });
-    }, 750); // eslint-disable-line no-magic-numbers
+export const loginToGithub = code =>
+  api.get(`?code=${code}`).then(response => {
+    if (response.ok) {
+      storeToken(response);
+    }
+    window.history.replaceState({}, document.title, '/');
   });

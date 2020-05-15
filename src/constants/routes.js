@@ -1,5 +1,6 @@
 const Routes = {
   DASHBOARD: '/',
+  PRESENTATION: '/present',
   CATEGORY: '/:category',
   DETAIL: '/:category/:component',
   LOGIN: '/login',

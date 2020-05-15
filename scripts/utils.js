@@ -5,7 +5,7 @@ const chalk = require('chalk');
 const error = errorString => console.error(chalk.red(errorString));
 const success = successString => console.log(chalk.green(successString));
 
-const VALID_ENVS = ['development', 'stage', 'master'];
+const VALID_ENVS = ['development', 'stage', 'production'];
 
 module.exports.validateEnvs = env => {
   if (!VALID_ENVS.includes(env)) {
