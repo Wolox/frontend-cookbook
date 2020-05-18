@@ -7,7 +7,7 @@ const RECIPES_BRANCH = process.env.REACT_APP_RECIPES_BRANCH || 'components';
 const queryBuilder = (name: string, tech: string, target = '', query: string) => gql`
   query ${name} {
     repository(owner: "wolox", name: "frontend-cookbook") {
-      object(expression: "${RECIPES_BRANCH}:recipes-${tech}/components${target}") {
+      object(expression: "${RECIPES_BRANCH}:cookbook-${tech}/recipes${target}") {
         ${query}
       }
     }
