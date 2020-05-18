@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 
 import { withSpinner } from '~components/Spinner';
 
-import ShadowComponent from '../Category/components/ShadowComponent';
 import RecipePreview from '../Category/components/RecipePreview';
-import { Recipe } from '../../../../../constants/interfaces/component';
+import { Recipe } from '../../../../../constants/interfaces/recipe';
 
 import Settings from './components/Options';
 import Code from './components/Code';
@@ -12,12 +11,12 @@ import styles from './styles.module.scss';
 
 interface Props {
   title: string;
-  component: Recipe;
+  recipe: Recipe;
   onDownload: () => void;
 }
 
-function DetailContainer({ title, component, onDownload }: Props) {
-  const { html, scss } = component;
+function DetailContainer({ title, recipe, onDownload }: Props) {
+  const { html, scss } = recipe;
   const [isCodeVisible, setIsCodeVisible] = useState(false);
 
   const handleClick = () => setIsCodeVisible(!isCodeVisible);
@@ -35,8 +34,8 @@ function DetailContainer({ title, component, onDownload }: Props) {
           by Tincho_otaku
         </a>
       </div>
-      <div className={styles.detailsComponent}>
-        <RecipePreview component={component} />
+      <div className={styles.detailsRecipe}>
+        <RecipePreview recipe={recipe} />
         <div className={styles.settingsCheckbox}>
           <input type="checkbox" id="chkButton" onClick={handleClick} />
           <label htmlFor="chkButton" />

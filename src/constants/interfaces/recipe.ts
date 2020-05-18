@@ -1,4 +1,4 @@
-export interface Component {
+export interface GitHubResult {
   name: string;
   object: {
     entries: {

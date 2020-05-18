@@ -7,12 +7,12 @@ import Card from '../Card';
 import styles from './styles.module.scss';
 import { CardsContainerProps } from './interface';
 
-function CardsContainer({ components, category }: CardsContainerProps) {
+function CardsContainer({ recipes, category }: CardsContainerProps) {
   return (
     <div className={styles.cardContainer}>
-      {!!components?.length &&
-        components.map((comp, index) => (
-          <Card key={comp.title} number={index} component={comp} category={category} />
+      {!!recipes?.length &&
+        recipes.map((recipe, index) => (
+          <Card key={recipe.title} number={index} recipe={recipe} category={category} />
         ))}
     </div>
   );

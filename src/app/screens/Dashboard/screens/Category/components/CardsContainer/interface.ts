@@ -1,6 +1,6 @@
-import { Recipe } from '~constants/interfaces/component';
+import { Recipe } from '~constants/interfaces/recipe';
 
 export interface CardsContainerProps {
-  components: Recipe[];
+  recipes: Recipe[];
   category: string;
 }

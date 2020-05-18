@@ -2,7 +2,7 @@ const Routes = {
   DASHBOARD: '/',
   PRESENTATION: '/present',
   CATEGORY: '/:category',
-  DETAIL: '/:category/:component',
+  DETAIL: '/:category/:recipe',
   LOGIN: '/login',
   RECOVER_PASSWORD: '/forgot_password'
 };

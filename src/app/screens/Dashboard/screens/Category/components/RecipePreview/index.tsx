@@ -1,38 +1,38 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import { Recipe } from '~constants/interfaces/component';
+import { Recipe } from '~constants/interfaces/recipe';
 
-import ShadowComponent from '../ShadowComponent';
+import ShadowRecipe from '../ShadowRecipe';
 
 import styles from './styles.module.scss';
 
 interface Props {
   className?: string;
-  component: Recipe;
+  recipe: Recipe;
   thumbnail?: boolean;
 }
 
-function RecipePreview({ className, component, thumbnail }: Props) {
-  const componentUrl = thumbnail ? component.config.thumbnailURL : component.config.detailURL;
-  if (componentUrl) {
+function RecipePreview({ className, recipe, thumbnail }: Props) {
+  const recipeUrl = thumbnail ? recipe.config.thumbnailURL : recipe.config.detailURL;
+  if (recipeUrl) {
     return (
       <div className={`full-width row middle center ${className}`}>
-        <iframe src={componentUrl} className={`full-width row middle center ${styles.cardIframe}`} />
+        <iframe src={recipeUrl} className={`full-width row middle center ${styles.cardIframe}`} />
       </div>
     );
   }
 
-  if (component.readme) {
+  if (recipe.readme) {
     return (
       <ReactMarkdown
         className={`full-width column ${className} ${styles.cardReadme}`}
-        source={component.readme.content}
+        source={recipe.readme.content}
       />
     );
   }
 
-  return <ShadowComponent component={component} className={`full-width row middle center ${className}`} />;
+  return <ShadowRecipe recipe={recipe} className={`full-width row middle center ${className}`} />;
 }
 
 export default RecipePreview;
