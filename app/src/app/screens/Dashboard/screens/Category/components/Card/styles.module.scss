@@ -1,0 +1,60 @@
+@import 'variables/colors';
+@import 'variables/sizes';
+
+$card-info-content: 70px;
+
+.card {
+  background-color: var(--card-color);
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba($black, 0.3);
+  height: 255px;
+  max-width: 255px;
+  position: relative;
+  transition: box-shadow $transition-duration $transition-function, transform $transition-duration ease; /* stylelint-disable-line */
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.card-content {
+  height: calc(100% - #{$card-info-content});
+  position: relative;
+}
+
+.card-readme {
+  overflow: auto;
+}
+
+.card-iframe {
+  border-style: none;
+}
+
+.card-info {
+  background-color: $white;
+  border-radius: 0 0 5px 5px;
+  color: $black;
+  display: flex;
+  height: $card-info-content;
+  padding: 16px;
+  width: 100%;
+}
+
+.card-button {
+  align-self: start;
+  color: $sidebar-blue;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color $transition-duration $transition-function;
+
+  &:hover {
+    color: $science-blue;
+  }
+}
+
+.card-title {
+  color: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: capitalize;
+}

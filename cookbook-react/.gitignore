@@ -1,0 +1,36 @@
+# npm dependencies
+node_modules
+
+# npm log file
+npm-debug.log
+
+# compiled code folder
+build
+
+# webpack monitor results
+monitor
+
+# aws keys file
+config/aws.js
+
+# config keys
+config/secrets.js
+
+# mac files
+.DS_Store
+
+# deploy cache
+.awspublish*
+
+#Backstopjs images
+backstop_data
+
+#IDE files
+.vscode
+
+deploy.js
+
+.env*
+now.json
+
+.vercel
