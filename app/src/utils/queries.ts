@@ -2,9 +2,9 @@ import { gql } from 'apollo-boost';
 
 const RECIPES_BRANCH = process.env.REACT_APP_RECIPES_BRANCH || 'components';
 
-const tech = 'react';
+// const tech = 'react';
 
-const queryBuilder = (name: string, target = '', query: string) => gql`
+const queryBuilder = (name: string, tech: string, target = '', query: string) => gql`
   query ${name} {
     repository(owner: "wolox", name: "frontend-cookbook") {
       object(expression: "${RECIPES_BRANCH}:recipes-${tech}/components${target}") {
@@ -26,14 +26,16 @@ const filesQuery = `
     }
   }`;
 
-export const getCategories = () => queryBuilder('getCategories', '', '... on Tree {entries {name oid} }');
+export const getCategories = (tech: string) =>
+  queryBuilder('getCategories', tech, '', '... on Tree {entries {name oid} }');
 
-export const getRecipeFiles = (recipeType: string, recipe: string) =>
-  queryBuilder('recipesFiles', `/${recipeType}/${recipe}`, filesQuery);
+export const getRecipeFiles = (tech: string, recipeType: string, recipe: string) =>
+  queryBuilder('recipesFiles', tech, `/${recipeType}/${recipe}`, filesQuery);
 
-export const getAllRecipesByCategory = (category: string) =>
+export const getAllRecipesByCategory = (tech: string, category: string) =>
   queryBuilder(
     'recipesByCategory',
+    tech,
     `/${category}`,
     `
     ... on Tree {

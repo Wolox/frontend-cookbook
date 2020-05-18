@@ -6,12 +6,16 @@ import { saveAs } from 'file-saver';
 
 import { getRecipeFiles } from '~utils/queries';
 import { getRecipeCode } from '~utils/recipes';
+import { useGlobalContext } from '~context/GlobalProvider';
 
 import DetailsContainer from './layout';
 
 function Detail() {
   const { category, recipe } = useParams();
-  const { data, loading } = useQuery(getRecipeFiles(category as string, recipe as string));
+  const {
+    state: { tech }
+  } = useGlobalContext();
+  const { data, loading } = useQuery(getRecipeFiles(tech, category as string, recipe as string));
   const recipeCode = getRecipeCode(data?.repository);
 
   const downloadZip = useCallback(() => {

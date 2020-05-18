@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, ChangeEvent } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Link, useLocation } from 'react-router-dom';
 import cn from 'classnames';
@@ -7,6 +7,8 @@ import Routes from '~constants/routes';
 import logo from 'assets/logo.svg';
 import { getCategories } from '~utils/queries';
 import { useAuthContext } from '~context/AuthProvider';
+import { useGlobalContext } from '~context/GlobalProvider';
+import { actionCreators } from '~context/GlobalProvider/actions';
 
 import { Categories } from './interface';
 import styles from './styles.module.scss';
@@ -14,7 +16,14 @@ import styles from './styles.module.scss';
 function Sidebar() {
   const categoryType = useLocation().pathname.split('/')[2];
   const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
-  const { loading, data } = useQuery(getCategories());
+  const {
+    state: { tech },
+    dispatch
+  } = useGlobalContext();
+  const handleTechChange = (event: ChangeEvent<HTMLSelectElement>) =>
+    dispatch(actionCreators.setTech(event.target.value));
+
+  const { loading, data } = useQuery(getCategories(tech));
   const categories = !loading && data ? data.repository.object.entries : [];
   const {
     state: { isUserLoggedIn }
@@ -41,6 +50,13 @@ function Sidebar() {
         </div>
         {isUserLoggedIn ? (
           <div className={`column ${styles.contentLinks} start`}>
+            <div className="row m-bottom-3">
+              <span className={styles.techTitle}>Tech:</span>
+              <select className={styles.techSelect} value={tech} onChange={handleTechChange}>
+                <option value="web">web</option>
+                <option value="react">react</option>
+              </select>
+            </div>
             {categories &&
               categories.map((category: Categories) => (
                 <Link

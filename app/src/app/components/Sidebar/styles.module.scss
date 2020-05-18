@@ -18,6 +18,20 @@
   padding: 0 20px 0 30px;
 }
 
+.tech-title {
+  color: $white;
+  font-size: 16px;
+  line-height: 19px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.tech-select {
+  background-color: transparent;
+  color: $science-blue;
+  appearance: menulist-button;
+}
+
 .simple-link {
   color: $science-blue;
   font-size: 16px;
