@@ -21,9 +21,12 @@ function Detail() {
   const downloadZip = useCallback(() => {
     const zip = new JSZip();
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { title, ...files } = recipeCode;
-    Object.values(files).forEach(({ name, content }) => {
-      zip.file(name, content as string);
+    const { title, css, config, ...files } = recipeCode;
+    Object.values(files).forEach((file) => {
+      if(file){
+        const { name, content } = file;
+        zip.file(name, content as string);
+      }
     });
     zip.generateAsync({ type: 'blob' }).then(content => {
       saveAs(content, 'code.zip');
