@@ -20,7 +20,6 @@ function Detail() {
 
   const downloadZip = useCallback(() => {
     const zip = new JSZip();
-    debugger;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { title, css, config, ...files } = recipeCode;
     Object.values(files).forEach((file) => {
