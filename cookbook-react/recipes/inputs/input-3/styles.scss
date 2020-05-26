@@ -1,10 +1,9 @@
-$white: #FFF;
+$white: #fff;
 
-$input-border: #CCC;
-$input-color: #A475E4;
-$input-placeholder-active: #BBB;
-$input-active-color: #0043CD;
-$input-submit: #696969;
+$input-border: #ccc;
+$input-active-color: #0043cd;
+$input-submit: #5a667f;
+$error: #ea4453;
 
 .input-wrapper {
   height: 40px;
@@ -37,7 +36,7 @@ $input-submit: #696969;
       border-color: $input-submit;
 
       + .input-label {
-        top: 8%;
+        top: 6%;
         left: 15%;
         transform: translate(-50%, -50%);
         color: $input-submit;
@@ -49,11 +48,23 @@ $input-submit: #696969;
       border-color: $input-active-color;
 
       + .input-label {
-        top: 8%;
+        top: 6%;
         left: 15%;
         transform: translate(-50%, -50%);
         color: $input-active-color;
         font-size: 10px;
+      }
+    }
+  }
+
+  .input-error {
+    border: 1px solid $error;
+
+    &:focus,
+    &:not(:placeholder-shown) {
+      border-color: $error;
+      + .input-label {
+        color: $error;
       }
     }
   }
