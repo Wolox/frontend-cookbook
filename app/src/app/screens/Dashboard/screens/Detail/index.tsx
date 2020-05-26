@@ -22,8 +22,8 @@ function Detail() {
     const zip = new JSZip();
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { title, css, config, ...files } = recipeCode;
-    Object.values(files).forEach((file) => {
-      if(file){
+    Object.values(files).forEach(file => {
+      if (file) {
         const { name, content } = file;
         zip.file(name, content as string);
       }
