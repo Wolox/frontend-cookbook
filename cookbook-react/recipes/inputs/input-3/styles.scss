@@ -4,26 +4,23 @@ $input-border: #CCC;
 $input-color: #A475E4;
 $input-placeholder-active: #BBB;
 $input-active-color: #0043CD;
+$input-submit: #696969;
 
 .input-wrapper {
   height: 40px;
-  //border: 1px solid $input-border;
   margin-bottom: 20px;
   position: relative;
   max-width: 150px;
 
   .input-label {
     position: absolute;
-    left: 15%;
+    transition: all 0.2s;
+    left: 20%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    color: $input-active-color;
-    transition: border-color 0.2s linear;
-    font-weight: 300;
     pointer-events: none;
     background-color: $white;
     padding: 4px;
-    font-size: 10px;
-    visibility: hidden;
   }
 
   .input-base {
@@ -31,31 +28,33 @@ $input-active-color: #0043CD;
     height: 100%;
     background-color: transparent;
     border: 1px solid $input-border;
+    transition: border 0.2s linear;
     border-radius: 5px;
     padding: 0 15px 0;
     font-size: 14px;
-    font-weight: 300;
-    transition: color 0.25s;
 
-    &.filled-input + .input-label {
-      top: 2px;
-      left: 5px;
-      font-size: 12px;
-      transform: translate(0, 0);
-      transition: all 0.2s;
-      font-weight: 300;
-      color: $input-placeholder-active;
-    }
+    &:not(:placeholder-shown) {
+      border-color: $input-submit;
 
-    &:focus + .input-label { 
-      visibility: initial;
-    }
-    &:focus::placeholder {
-      color: transparent;
+      + .input-label {
+        top: 8%;
+        left: 15%;
+        transform: translate(-50%, -50%);
+        color: $input-submit;
+        font-size: 10px;
+      }
     }
 
     &:focus {
       border-color: $input-active-color;
+
+      + .input-label {
+        top: 8%;
+        left: 15%;
+        transform: translate(-50%, -50%);
+        color: $input-active-color;
+        font-size: 10px;
+      }
     }
   }
 }
