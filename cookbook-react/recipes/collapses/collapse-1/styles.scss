@@ -1,52 +1,56 @@
 $border-color: #848486;
-$background-color: #fff;
+$background-color: #FFF;
 $title-color: #08080D;
 $icon-width: 14px;
 $icon-height: 10px;
 
 .collapse-wrapper {
-  width: 400px;
+  background-color: $background-color;
   border-top: 1px solid $border-color;
   border-bottom: 1px solid $border-color;
-  background-color: $background-color;
   height: 40px;
   overflow: hidden;
   transition: height 300ms linear;
+  width: 400px;
 
   .title-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
     .title {
-      font-size: 14px;
-      line-height: 18px;
-      font-weight: 800;
-      padding: 10px 0;
       color: $title-color;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 18px;
+      padding: 10px 0;
     }
 
     .icon {
-      position: relative;
-      width: $icon-width;
-      height: $icon-height;
       align-self: center;
-      transition: transform 300ms linear;
+      height: $icon-height;
       margin: 2px;
-    }
-    .icon::before,
-    .icon::after {
-      position: absolute;
-      display: block;
-      content: "";
-      border: $icon-width/2 solid transparent;
-    }
-    .icon::before {
-      top: 0;
-      border-top-color: $border-color;
-    }
-    .icon::after {
-      top: -3px;
-      border-top-color: $background-color;
+      position: relative;
+      transition: transform 300ms linear;
+      width: $icon-width;
+
+      &::before,
+      &::after {
+        border: $icon-width/2 solid transparent;
+        content: "";
+        display: block;
+        position: absolute;
+      }
+
+      &::before {
+        border-top-color: $border-color;
+        top: 0;
+      }
+
+      &::after {
+        border-top-color: $background-color;
+        top: -3px;
+      }
     }
 
     .icon-clicked {
