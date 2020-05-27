@@ -15,7 +15,7 @@ function Collapse({ title, text }: Props) {
     <div id="collapse-1" className="collapse-container">
       <div className={cn("collapse-wrapper", { "collapse-open": open })}>
         <div className="title-container">
-          <span className="title">{title}</span>
+          <h2 className="title">{title}</h2>
           <button type="button" className={cn("icon", { "icon-clicked": open })} onClick={() => setOpen(!open)}></button>
         </div>
         <p className="text">{text}</p>
