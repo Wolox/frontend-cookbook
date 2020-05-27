@@ -1,0 +1,64 @@
+$border-color: #848486;
+$background-color: #fff;
+$title-color: #08080D;
+$icon-width: 14px;
+$icon-height: 10px;
+
+.collapse-wrapper {
+  width: 400px;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  background-color: $background-color;
+  height: 40px;
+  overflow: hidden;
+  transition: height 300ms linear;
+
+  .title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .title {
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 800;
+      padding: 10px 0;
+      color: $title-color;
+    }
+
+    .icon {
+      position: relative;
+      width: $icon-width;
+      height: $icon-height;
+      align-self: center;
+      transition: transform 300ms linear;
+      margin: 2px;
+    }
+    .icon::before,
+    .icon::after {
+      position: absolute;
+      display: block;
+      content: "";
+      border: $icon-width/2 solid transparent;
+    }
+    .icon::before {
+      top: 0;
+      border-top-color: $border-color;
+    }
+    .icon::after {
+      top: -3px;
+      border-top-color: $background-color;
+    }
+
+    .icon-clicked {
+      transform: rotate(180deg) translateY($icon-height/2);
+    }
+  }
+
+  .text {
+    padding: 10px 0;
+  }
+}
+
+.collapse-open {
+  height: 160px;
+}
