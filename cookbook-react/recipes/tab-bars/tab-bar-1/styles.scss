@@ -1,5 +1,6 @@
 .tab-bar-container {
   --active-color: #0043cd;
+  --background-color: #fff;
 }
 
 .tab-bar-wrapper {
@@ -16,5 +17,46 @@
 
   .selected {
     color: var(--active-color);
+  }
+
+  .selector {
+    align-self: flex-end;
+    position: absolute;
+    transition: left 500ms linear;
+    width: 10px;
+    height: 15px;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 23px 15px 23px;
+    }
+
+    &::before {
+      border-color: transparent transparent var(--active-color) transparent;
+      top: 0;
+    }
+
+    &::after {
+      border-color: transparent transparent var(--background-color) transparent;
+      top: 2px;
+    }
+  }
+
+  .selected-0 {
+    left: 110px;
+  }
+
+  .selected-1 {
+    left: 280px;
+  }
+
+  .selected-2 {
+    left: 450px;
   }
 }
