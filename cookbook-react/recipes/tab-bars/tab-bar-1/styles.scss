@@ -1,0 +1,20 @@
+.tab-bar-container {
+  --active-color: #0043cd;
+}
+
+.tab-bar-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 1px solid var(--active-color);
+
+  .option {
+    margin: 20px;
+    font-weight: 800;
+    transition: color 300ms ease;
+  }
+
+  .selected {
+    color: var(--active-color);
+  }
+}
