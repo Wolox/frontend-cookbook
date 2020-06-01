@@ -2,8 +2,8 @@ $items: 3;
 $item-width: (100/$items) * 1%;
 
 .tab-bar-container {
-  --active-color: #0043cd;
-  --background-color: #fff;
+  --active-color: #0043CD;
+  --background-color: #FFF;
 }
 
 .tab-bar-wrapper {
@@ -35,9 +35,9 @@ $item-width: (100/$items) * 1%;
 
     &::before,
     &::after {
-      content: "";
       border-style: solid;
-      border-width: 0 23px 15px 23px;
+      border-width: 0 23px 15px;
+      content: '';
       display: block;
       height: 0;
       position: absolute;
