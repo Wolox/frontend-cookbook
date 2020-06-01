@@ -12,12 +12,12 @@ $item-width: (100/$items) * 1%;
   width: max-content;
 
   .tabs {
-    display: flex;
     border-bottom: 1px solid var(--active-color);
+    display: flex;
 
     .option {
-      padding: 20px;
       font-weight: 800;
+      padding: 20px;
       transition: color 300ms ease;
     }
 
@@ -28,20 +28,20 @@ $item-width: (100/$items) * 1%;
 
   .selector {
     align-self: flex-end;
+    height: 15px;
     position: absolute;
     transition: left 500ms linear;
     width: 46px;
-    height: 15px;
 
     &::before,
     &::after {
       content: "";
-      display: block;
-      position: absolute;
-      width: 0;
-      height: 0;
       border-style: solid;
       border-width: 0 23px 15px 23px;
+      display: block;
+      height: 0;
+      position: absolute;
+      width: 0;
     }
 
     &::before {

@@ -3,36 +3,41 @@ import cn from 'classnames';
 
 import './styles.scss';
 
-function TabBar() {
-  const [selection, setSelection] = useState(null);
+interface Option {
+  label: string;
+  id: number
+}
+
+interface Props {
+  options?: Option[];
+}
+
+function TabBar({ options }: Props) {
+  const [selection, setSelection] = useState<null | number>(null);
+
+  const style = { "--number-of-items": options?.length } as React.CSSProperties
 
   return (
     <div id="tab-bar-1" className="tab-bar-container">
-      <div className="tab-bar-wrapper">
+      <div className="tab-bar-wrapper" /*style={style}*/>
         <span className={`selector selected-${selection}`} />
         <div className="tabs">
+          {options.map((option, idx) => (
           <button
-            className={cn("option", { "selected": selection == 0 })}
-            onClick={() => setSelection(0)}
+            className={cn("option", { "selected": selection == idx })}
+            onClick={() => setSelection(idx)}
           >
-            Sección 1
-        </button>
-          <button
-            className={cn("option", { "selected": selection == 1 })}
-            onClick={() => setSelection(1)}
-          >
-            Sección 2
-        </button>
-          <button
-            className={cn("option", { "selected": selection == 2 })}
-            onClick={() => setSelection(2)}
-          >
-            Sección 3
-        </button>
+            {option ?.label}
+          </button>)
+          )}
         </div>
       </div>
     </div>
-  );
+  )
+}
+
+TabBar.defaultProps = {
+  options: [{ id: 1, label: 'Sección 1' }, { id: 2, label: 'Sección 2' }, { id: 3, label: 'Sección 3' }]
 }
 
 export default TabBar;
