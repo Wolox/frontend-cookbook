@@ -1,0 +1,27 @@
+@import '~wolox-equalizer/equalizer';
+
+@import url('https://fonts.googleapis.com/css?family=Barlow:400,500,700');
+
+@import 'layout';
+
+@import 'margins';
+
+@import 'components';
+
+// TODO: Edit this global styles
+
+* {
+  font-family: Barlow, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, 'Droid Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

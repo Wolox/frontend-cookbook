@@ -1,0 +1,56 @@
+$white: #FFF;
+
+.spinner-1 {
+  height: 80px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  top: 30%;
+  width: 80px;
+
+  &::before,
+  &::after {
+    animation: spinner1 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    border: 4px solid $white;
+    border-radius: 50%;
+    content: '';
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+  }
+
+  &::before {
+    height: 50px;
+    top: 10px;
+    width: 50px;
+  }
+
+  &::after {
+    animation-delay: -0.5s;
+    height: 70px;
+    width: 70px;
+  }
+}
+
+.spinner-1-text {
+  bottom: -14px;
+  color: $white;
+  font-size: 12px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
+@keyframes spinner1 {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1);
+  }
+}

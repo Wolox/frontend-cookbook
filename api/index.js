@@ -1,15 +1,17 @@
-const https = require('https');
+import { get } from 'https';
 
 const url = code =>
-  `https://github.com/login/oauth/access_token?client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}&code=${code}`;
+  `https://github.com/login/oauth/access_token?client_id=${process.env.CLIENT_ID}&client_secret=${
+    process.env.CLIENT_SECRET
+  }&code=${code}`;
 
-module.exports = (req, res) => {
-  https.get(url(req.query.code), response => {
+export default (req, res) => {
+  get(url(req.query.code), response => {
     let data = '';
-    response.on('data', chunk => { data += chunk; });
-
-    response.on('end', () => { res.send(data); });
+    response.on('data', chunk => (data += chunk));
+    response.on('end', () => res.send(data));
   }).on('error', err => {
+    // eslint-disable-next-line no-magic-numbers
     res.status(500).send({ message: err.message });
   });
-}
+};

@@ -1,34 +1,8 @@
-# npm dependencies
-node_modules
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# npm log file
-npm-debug.log
-
-# compiled code folder
-build
-
-# webpack monitor results
-monitor
-
-# aws keys file
-config/aws.js
-
-# config keys
-config/secrets.js
-
-# mac files
+# misc
 .DS_Store
-
-# deploy cache
-.awspublish*
-
-#Backstopjs images
-backstop_data
-
-#IDE files
-.vscode
-
-deploy.js
-
 .env*
-**/now.json
+
+now.json
+.vercel
