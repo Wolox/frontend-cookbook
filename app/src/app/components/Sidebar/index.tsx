@@ -1,6 +1,8 @@
 import React, { useState, useCallback, ChangeEvent } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Link, useLocation } from 'react-router-dom';
+import flatten from 'lodash/flatten';
+import uniq from 'lodash/uniq';
 import cn from 'classnames';
 
 import Routes from '~constants/routes';
@@ -13,6 +15,50 @@ import { actionCreators } from '~context/GlobalProvider/actions';
 import { Categories } from './interface';
 import styles from './styles.module.scss';
 
+const COOKBOOK_PREFIX = 'cookbook-';
+
+interface GithubObject {
+  entries: {
+    name: string;
+  }[];
+}
+
+interface TechsResult {
+  repository: {
+    object: {
+      entries: {
+        name: string;
+        object: {
+          entries: {
+            name: string;
+            object: {
+              entries: Categories[];
+            };
+          }[];
+        };
+      }[];
+    };
+  };
+}
+
+const parseTechs = (data: TechsResult) =>
+  data.repository.object.entries
+    .filter(entry => entry.name.startsWith(COOKBOOK_PREFIX))
+    .map(cookbook => cookbook.name.substring(COOKBOOK_PREFIX.length));
+
+const parseCategories = (data: TechsResult) =>
+  uniq(
+    flatten(
+      data.repository.object.entries
+        .filter(entry => entry.name.startsWith(COOKBOOK_PREFIX))
+        .map(cookbook =>
+          cookbook.object.entries
+            .find(entry => entry.name === 'recipes')
+            ?.object.entries.map(entry => entry.name)
+        )
+    ).filter(category => !!category) as string[]
+  );
+
 function Sidebar() {
   const categoryType = useLocation().pathname.split('/')[2];
   const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
@@ -24,7 +70,9 @@ function Sidebar() {
     dispatch(actionCreators.setTech(event.target.value));
 
   const { loading, data } = useQuery(getCategories(tech));
-  const categories = !loading && data ? data.repository.object.entries : [];
+
+  const categories = !loading && data ? parseCategories(data) : [];
+  const techs = !loading && data ? parseTechs(data) : [];
   const {
     state: { isUserLoggedIn }
   } = useAuthContext();
@@ -53,20 +101,24 @@ function Sidebar() {
             <div className="row m-bottom-3">
               <span className={styles.techTitle}>Tech:</span>
               <select className={styles.techSelect} value={tech} onChange={handleTechChange}>
-                <option value="web">web</option>
-                <option value="react">react</option>
+                <option value="all">Todas</option>
+                {techs.map(techName => (
+                  <option key={techName} value={techName}>
+                    {techName}
+                  </option>
+                ))}
               </select>
             </div>
             {categories &&
-              categories.map((category: Categories) => (
+              categories.map((category: string) => (
                 <Link
-                  key={category.oid}
+                  key={category}
                   className={cn(styles.simpleLink, {
-                    [styles.selected]: categoryType === category.name
+                    [styles.selected]: categoryType === category
                   })}
-                  to={Routes.CATEGORY.replace(':category', category.name)}
+                  to={Routes.CATEGORY.replace(':category', category)}
                 >
-                  {category.name}
+                  {category}
                 </Link>
               ))}
           </div>

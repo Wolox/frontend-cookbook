@@ -13,12 +13,27 @@ function Category() {
   const {
     state: { tech }
   } = useGlobalContext();
-  const { loading, data } = useQuery(getAllRecipesByCategory(tech, category as string));
-  const recipes = getRecipesCode(data?.repository.object?.entries);
+  const { loading: loadingWeb, data: dataWeb } = useQuery(
+    getAllRecipesByCategory('web', category as string),
+    { skip: tech === 'react' }
+  );
+  const { loading: loadingReact, data: dataReact } = useQuery(
+    getAllRecipesByCategory('react', category as string),
+    { skip: tech === 'web' }
+  );
+
+  const recipesWeb = getRecipesCode(
+    dataWeb?.repository.object?.entries.map((entry: any) => ({ ...entry, tech: 'web' }))
+  );
+  const recipesReact = getRecipesCode(
+    dataReact?.repository.object?.entries.map((entry: any) => ({ ...entry, tech: 'react' }))
+  );
+
+  const recipes = !(loadingWeb || loadingReact) && [...(recipesWeb || []), ...(recipesReact || [])];
   return (
     <>
       <h2 className="m-bottom-6 title">{category}</h2>
-      <CardsContainer loading={loading} recipes={recipes} category={category} />
+      <CardsContainer loading={loadingWeb || loadingReact} recipes={recipes} category={category} />
     </>
   );
 }

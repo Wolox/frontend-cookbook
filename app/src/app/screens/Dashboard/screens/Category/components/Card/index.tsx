@@ -26,7 +26,7 @@ function Card({ recipe, number }: Props) {
     <div className={`column middle center full-width ${styles.card}`} style={cardColor}>
       <RecipePreview thumbnail recipe={recipe} className={styles.cardContent} />
       <div className={`full-width column ${styles.cardInfo}`}>
-        <h4 className={`m-bottom-2 ${styles.cardTitle}`}>{recipe.title}</h4>
+        <h4 className={`m-bottom-2 ${styles.cardTitle}`}>{`${recipe.title} (${recipe.tech})`}</h4>
         <Link to={linkRoute}>Watch more...</Link>
       </div>
     </div>
