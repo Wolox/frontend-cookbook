@@ -2,27 +2,18 @@ import { gql } from 'apollo-boost';
 
 const RECIPES_BRANCH = process.env.REACT_APP_RECIPES_BRANCH || 'components';
 
-// const tech = 'react';
+interface QueryBuilderOptions {
+  tech?: string;
+  target?: string;
+  expression?: string;
+}
 
-// TODO: refactor params
 const queryBuilder = (
   name: string,
-  tech: string,
-  target = '',
   query: string,
-  expression = `cookbook-${tech}/recipes`
-  // eslint-disable-next-line max-params
-) => {
-  console.log(`
-    query ${name} {
-      repository(owner: "wolox", name: "frontend-cookbook") {
-        object(expression: "${RECIPES_BRANCH}:${expression}${target}") {
-          ${query}
-        }
-      }
-    }
-  `);
-  return gql`
+  { tech = '', target = '', expression = tech ? `cookbook-${tech}/recipes` : '' }: QueryBuilderOptions = {}
+) =>
+  gql`
   query ${name} {
     repository(owner: "wolox", name: "frontend-cookbook") {
       object(expression: "${RECIPES_BRANCH}:${expression}${target}") {
@@ -31,7 +22,6 @@ const queryBuilder = (
     }
   }
 `;
-};
 
 const filesQuery = `
   ... on Tree {
@@ -45,43 +35,9 @@ const filesQuery = `
     }
   }`;
 
-export const getTechsAndCategories = () =>
-  queryBuilder(
-    'getTechsAndCategories',
-    '',
-    '',
-    `... on Tree {
-        entries {
-          name
-          oid
-          object {
-            ... on Tree {
-              id
-              entries {
-                name
-                object {
-                  ... on Tree {
-                    entries {
-                      name
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-     }`,
-    ''
-  );
-
-// export const getCategories = (tech: string) =>
-//   queryBuilder('getCategories', tech, '', '... on Tree {entries {name oid} }', '');
-
-export const getCategories = (tech: string) =>
+export const getCategoriesAndTechs = () =>
   queryBuilder(
     'getCategories',
-    tech,
-    '',
     `
     ... on Tree {
       entries {
@@ -102,18 +58,18 @@ export const getCategories = (tech: string) =>
           }
         }
       }
-    }`,
-    ''
+    }`
   );
 
 export const getRecipeFiles = (tech: string, recipeType: string, recipe: string) =>
-  queryBuilder('recipesFiles', tech, `/${recipeType}/${recipe}`, filesQuery);
+  queryBuilder('recipesFiles', filesQuery, {
+    tech,
+    target: `/${recipeType}/${recipe}`
+  });
 
 export const getAllRecipesByCategory = (tech: string, category: string) =>
   queryBuilder(
     'recipesByCategory',
-    tech,
-    `/${category}`,
     `
     ... on Tree {
       entries {
@@ -122,5 +78,6 @@ export const getAllRecipesByCategory = (tech: string, category: string) =>
           ${filesQuery}
         }
       }
-    }`
+    }`,
+    { tech, target: `/${category}` }
   );

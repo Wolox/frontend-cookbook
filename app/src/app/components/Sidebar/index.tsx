@@ -7,7 +7,7 @@ import cn from 'classnames';
 
 import Routes from '~constants/routes';
 import logo from 'assets/logo.svg';
-import { getCategories } from '~utils/queries';
+import { getCategoriesAndTechs } from '~utils/queries';
 import { useAuthContext } from '~context/AuthProvider';
 import { useGlobalContext } from '~context/GlobalProvider';
 import { actionCreators } from '~context/GlobalProvider/actions';
@@ -69,7 +69,7 @@ function Sidebar() {
   const handleTechChange = (event: ChangeEvent<HTMLSelectElement>) =>
     dispatch(actionCreators.setTech(event.target.value));
 
-  const { loading, data } = useQuery(getCategories(tech));
+  const { loading, data } = useQuery(getCategoriesAndTechs());
 
   const categories = !loading && data ? parseCategories(data) : [];
   const techs = !loading && data ? parseTechs(data) : [];
