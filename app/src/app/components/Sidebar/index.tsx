@@ -101,6 +101,7 @@ function Sidebar() {
                 ))}
               </select>
             </div>
+            {/* TODO: filter categories without recipes in current tech */}
             {categories &&
               categories.map((category: string) => (
                 <Link
