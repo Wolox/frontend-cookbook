@@ -7,21 +7,13 @@ import cn from 'classnames';
 
 import Routes from '~constants/routes';
 import logo from 'assets/logo.svg';
-import { getCategoriesAndTechs } from '~utils/queries';
+import { getCategoriesAndTechs, COOKBOOK_PREFIX, RECIPES_DIRECTORY } from '~utils/queries';
 import { useAuthContext } from '~context/AuthProvider';
 import { useGlobalContext } from '~context/GlobalProvider';
 import { actionCreators } from '~context/GlobalProvider/actions';
 
 import { Categories } from './interface';
 import styles from './styles.module.scss';
-
-const COOKBOOK_PREFIX = 'cookbook-';
-
-interface GithubObject {
-  entries: {
-    name: string;
-  }[];
-}
 
 interface TechsResult {
   repository: {
@@ -53,7 +45,7 @@ const parseCategories = (data: TechsResult) =>
         .filter(entry => entry.name.startsWith(COOKBOOK_PREFIX))
         .map(cookbook =>
           cookbook.object.entries
-            .find(entry => entry.name === 'recipes')
+            .find(entry => entry.name === RECIPES_DIRECTORY)
             ?.object.entries.map(entry => entry.name)
         )
     ).filter(category => !!category) as string[]

@@ -1,6 +1,8 @@
 import { gql } from 'apollo-boost';
 
 const RECIPES_BRANCH = process.env.REACT_APP_RECIPES_BRANCH || 'components';
+export const COOKBOOK_PREFIX = 'cookbook-';
+export const RECIPES_DIRECTORY = 'recipes';
 
 interface QueryBuilderOptions {
   tech?: string;
@@ -11,7 +13,11 @@ interface QueryBuilderOptions {
 const queryBuilder = (
   name: string,
   query: string,
-  { tech = '', target = '', expression = tech ? `cookbook-${tech}/recipes` : '' }: QueryBuilderOptions = {}
+  {
+    tech = '',
+    target = '',
+    expression = tech ? `${COOKBOOK_PREFIX}${tech}/${RECIPES_DIRECTORY}` : ''
+  }: QueryBuilderOptions = {}
 ) =>
   gql`
   query ${name} {
