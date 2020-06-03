@@ -36,7 +36,12 @@ interface TechsResult {
 const parseTechs = (data: TechsResult) =>
   data.repository.object.entries
     .filter(entry => entry.name.startsWith(COOKBOOK_PREFIX))
-    .map(cookbook => cookbook.name.substring(COOKBOOK_PREFIX.length));
+    .map(cookbook => ({
+      name: cookbook.name.substring(COOKBOOK_PREFIX.length),
+      categories: cookbook.object.entries
+        .find(entry => entry.name === RECIPES_DIRECTORY)
+        ?.object.entries.map(entry => entry.name)
+    }));
 
 const parseCategories = (data: TechsResult) =>
   uniq(
@@ -52,10 +57,10 @@ const parseCategories = (data: TechsResult) =>
   );
 
 function Sidebar() {
-  const categoryType = useLocation().pathname.split('/')[2];
+  const categoryType = useLocation().pathname.split('/')[1];
   const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
   const {
-    state: { tech },
+    state: { tech: selectedTech },
     dispatch
   } = useGlobalContext();
   const handleTechChange = (event: ChangeEvent<HTMLSelectElement>) =>
@@ -92,18 +97,21 @@ function Sidebar() {
           <div className={`column ${styles.contentLinks} start`}>
             <div className="row m-bottom-3">
               <span className={styles.techTitle}>Tech:</span>
-              <select className={styles.techSelect} value={tech} onChange={handleTechChange}>
+              <select className={styles.techSelect} value={selectedTech} onChange={handleTechChange}>
                 <option value="all">Todas</option>
-                {techs.map(techName => (
-                  <option key={techName} value={techName}>
-                    {techName}
+                {techs.map(tech => (
+                  <option key={tech.name} value={tech.name}>
+                    {tech.name}
                   </option>
                 ))}
               </select>
             </div>
-            {/* TODO: filter categories without recipes in current tech */}
+            {/* TODO: refactor filter categories without recipes in current tech, should redirect to fist category? */}
             {categories &&
-              categories.map((category: string) => (
+              (selectedTech === 'all'
+                ? categories
+                : techs.find(tech => tech.name === selectedTech)?.categories || []
+              ).map((category: string) => (
                 <Link
                   key={category}
                   className={cn(styles.simpleLink, {

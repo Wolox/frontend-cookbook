@@ -12,7 +12,7 @@ function CardsContainer({ recipes, category }: CardsContainerProps) {
     <div className={styles.cardContainer}>
       {!!recipes?.length &&
         recipes.map((recipe, index) => (
-          <Card key={recipe.title} number={index} recipe={recipe} category={category} />
+          <Card key={`${recipe.title}-${recipe.tech}`} number={index} recipe={recipe} category={category} />
         ))}
     </div>
   );
