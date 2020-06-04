@@ -26,7 +26,7 @@ const useRecipesQuery = (selectedTech: string, category: string) => {
     };
 
     getTechs().then(techs => {
-      const techQueries = (selectedTech === ALL_TECHS ? techs : [selectedTech]).map(tech =>
+      const techQueries = techs.map(tech =>
         client.query({ query: getAllRecipesByCategory(tech, category) }).then(result => ({
           tech,
           result
