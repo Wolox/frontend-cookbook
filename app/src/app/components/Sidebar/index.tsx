@@ -64,7 +64,6 @@ function Sidebar() {
                 ))}
               </select>
             </div>
-            {/* TODO: refactor filter categories without recipes in current tech, should redirect to fist category? */}
             {categories &&
               (selectedTech === ALL_TECHS
                 ? categories
