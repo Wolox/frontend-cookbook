@@ -6,8 +6,6 @@ import { useGlobalContext } from '~context/GlobalProvider';
 import CardsContainer from './components/CardsContainer';
 import useRecipesQuery from './useRecipesQuery';
 
-// Use getCategories query to get techs
-
 function Category() {
   const { category } = useParams();
   const {
