@@ -17,7 +17,9 @@ interface Props {
 
 function Card({ recipe, number }: Props) {
   const { category } = useParams();
-  const linkRoute = Routes.DETAIL.replace(':category', category as string).replace(':recipe', recipe.title);
+  const linkRoute = Routes.DETAIL.replace(':category', category as string)
+    .replace(':recipe', recipe.title)
+    .replace(':tech', recipe.tech);
 
   const cardColor = { '--card-color': COLORS[Math.floor(number % COLORS.length)] } as React.CSSProperties;
 
