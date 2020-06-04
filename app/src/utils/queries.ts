@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 
-const RECIPES_BRANCH = process.env.REACT_APP_RECIPES_BRANCH || 'components';
+const RECIPES_BRANCH = process.env.REACT_APP_RECIPES_BRANCH || 'master';
 export const COOKBOOK_PREFIX = 'cookbook-';
 export const RECIPES_DIRECTORY = 'recipes';
 
