@@ -7,14 +7,13 @@ import CardsContainer from './components/CardsContainer';
 import useRecipesQuery from './useRecipesQuery';
 
 // Use getCategories query to get techs
-const techs = ['web', 'react'];
 
 function Category() {
   const { category } = useParams();
   const {
     state: { tech: selectedTech }
   } = useGlobalContext();
-  const [loading, data] = useRecipesQuery(selectedTech, techs, category);
+  const { loading, data } = useRecipesQuery(selectedTech, category);
 
   return (
     <>

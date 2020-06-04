@@ -4,9 +4,11 @@ import { Action } from '~constants/interfaces/store';
 import { actions } from './actions';
 import { GlobalState, SetTitleAction, SetTechAction } from './interfaces';
 
+export const ALL_TECHS = 'all';
+
 export const globalState: GlobalState = {
   title: 'Wolox Cookbook',
-  tech: 'all'
+  tech: ALL_TECHS
 };
 const reducer = {
   [actions.SET_TITLE]: (state: GlobalState, { payload }: SetTitleAction) => ({ ...state, title: payload }),

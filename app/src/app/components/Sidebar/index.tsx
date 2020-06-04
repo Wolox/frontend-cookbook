@@ -1,60 +1,18 @@
 import React, { useState, useCallback, ChangeEvent } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Link, useLocation } from 'react-router-dom';
-import flatten from 'lodash/flatten';
-import uniq from 'lodash/uniq';
 import cn from 'classnames';
 
 import Routes from '~constants/routes';
 import logo from 'assets/logo.svg';
-import { getCategoriesAndTechs, COOKBOOK_PREFIX, RECIPES_DIRECTORY } from '~utils/queries';
+import { getCategoriesAndTechs } from '~utils/queries';
 import { useAuthContext } from '~context/AuthProvider';
 import { useGlobalContext } from '~context/GlobalProvider';
 import { actionCreators } from '~context/GlobalProvider/actions';
+import { ALL_TECHS } from '~context/GlobalProvider/reducer';
+import { parseCategories, parseTechs, TechsResult } from '~utils/techs';
 
-import { Categories } from './interface';
 import styles from './styles.module.scss';
-
-interface TechsResult {
-  repository: {
-    object: {
-      entries: {
-        name: string;
-        object: {
-          entries: {
-            name: string;
-            object: {
-              entries: Categories[];
-            };
-          }[];
-        };
-      }[];
-    };
-  };
-}
-
-const parseTechs = (data: TechsResult) =>
-  data.repository.object.entries
-    .filter(entry => entry.name.startsWith(COOKBOOK_PREFIX))
-    .map(cookbook => ({
-      name: cookbook.name.substring(COOKBOOK_PREFIX.length),
-      categories: cookbook.object.entries
-        .find(entry => entry.name === RECIPES_DIRECTORY)
-        ?.object.entries.map(entry => entry.name)
-    }));
-
-const parseCategories = (data: TechsResult) =>
-  uniq(
-    flatten(
-      data.repository.object.entries
-        .filter(entry => entry.name.startsWith(COOKBOOK_PREFIX))
-        .map(cookbook =>
-          cookbook.object.entries
-            .find(entry => entry.name === RECIPES_DIRECTORY)
-            ?.object.entries.map(entry => entry.name)
-        )
-    ).filter(category => !!category) as string[]
-  );
 
 function Sidebar() {
   const categoryType = useLocation().pathname.split('/')[1];
@@ -66,7 +24,7 @@ function Sidebar() {
   const handleTechChange = (event: ChangeEvent<HTMLSelectElement>) =>
     dispatch(actionCreators.setTech(event.target.value));
 
-  const { loading, data } = useQuery(getCategoriesAndTechs());
+  const { loading, data } = useQuery<TechsResult>(getCategoriesAndTechs());
 
   const categories = !loading && data ? parseCategories(data) : [];
   const techs = !loading && data ? parseTechs(data) : [];
@@ -108,7 +66,7 @@ function Sidebar() {
             </div>
             {/* TODO: refactor filter categories without recipes in current tech, should redirect to fist category? */}
             {categories &&
-              (selectedTech === 'all'
+              (selectedTech === ALL_TECHS
                 ? categories
                 : techs.find(tech => tech.name === selectedTech)?.categories || []
               ).map((category: string) => (
