@@ -4,7 +4,7 @@ const argv = require('minimist')(process.argv.slice(2));
 
 const { success, validateEnvs } = require('./utils');
 
-const env = argv._[0] || 'development';
+const env = argv._[0];
 
 validateEnvs(env);
 
