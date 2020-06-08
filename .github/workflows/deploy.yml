@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Create env file
-      run: touch ./app/.env.development
+      run: touch ./app/.env.production
 
     - uses: amondnet/vercel-action@v19.0.1+1
       with:
