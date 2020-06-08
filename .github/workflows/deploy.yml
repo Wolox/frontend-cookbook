@@ -3,7 +3,7 @@ name: Cookbook App Deployment
 
 on:
   push:
-    branches: [ deploy ]
+    branches: [ master ]
 
 jobs:
   deploy:
@@ -17,7 +17,7 @@ jobs:
     - uses: amondnet/vercel-action@v19.0.1+1
       with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          # vercel-args: '--prod'
+          vercel-args: '--prod'
           vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.PROJECT_ID}} 
           working-directory: ./app
