@@ -18,7 +18,7 @@ $item-width: (100/$items) * 1%;
     .option {
       font-weight: 800;
       padding: 20px;
-      transition: color 300ms ease;
+      transition: color 0.3s ease;
     }
 
     .selected {
@@ -30,7 +30,7 @@ $item-width: (100/$items) * 1%;
     align-self: flex-end;
     height: 15px;
     position: absolute;
-    transition: left 500ms linear;
+    transition: left 0.5s linear;
     width: 46px;
 
     &::before,
