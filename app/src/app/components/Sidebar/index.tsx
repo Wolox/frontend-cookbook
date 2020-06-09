@@ -5,26 +5,29 @@ import cn from 'classnames';
 
 import Routes from '~constants/routes';
 import logo from 'assets/logo.svg';
-import { getCategories } from '~utils/queries';
+import { getCategoriesAndTechs } from '~utils/queries';
 import { useAuthContext } from '~context/AuthProvider';
 import { useGlobalContext } from '~context/GlobalProvider';
 import { actionCreators } from '~context/GlobalProvider/actions';
+import { ALL_TECHS } from '~context/GlobalProvider/reducer';
+import { parseCategories, parseTechs, TechsResult } from '~utils/techs';
 
-import { Categories } from './interface';
 import styles from './styles.module.scss';
 
 function Sidebar() {
-  const categoryType = useLocation().pathname.split('/')[2];
+  const categoryType = useLocation().pathname.split('/')[1];
   const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
   const {
-    state: { tech },
+    state: { tech: selectedTech },
     dispatch
   } = useGlobalContext();
   const handleTechChange = (event: ChangeEvent<HTMLSelectElement>) =>
     dispatch(actionCreators.setTech(event.target.value));
 
-  const { loading, data } = useQuery(getCategories(tech));
-  const categories = !loading && data ? data.repository.object.entries : [];
+  const { loading, data } = useQuery<TechsResult>(getCategoriesAndTechs());
+
+  const categories = !loading && data ? parseCategories(data) : [];
+  const techs = !loading && data ? parseTechs(data) : [];
   const {
     state: { isUserLoggedIn }
   } = useAuthContext();
@@ -52,21 +55,28 @@ function Sidebar() {
           <div className={`column ${styles.contentLinks} start`}>
             <div className="row m-bottom-3">
               <span className={styles.techTitle}>Tech:</span>
-              <select className={styles.techSelect} value={tech} onChange={handleTechChange}>
-                <option value="web">web</option>
-                <option value="react">react</option>
+              <select className={styles.techSelect} value={selectedTech} onChange={handleTechChange}>
+                <option value="all">Todas</option>
+                {techs.map(tech => (
+                  <option key={tech.name} value={tech.name}>
+                    {tech.name}
+                  </option>
+                ))}
               </select>
             </div>
             {categories &&
-              categories.map((category: Categories) => (
+              (selectedTech === ALL_TECHS
+                ? categories
+                : techs.find(tech => tech.name === selectedTech)?.categories || []
+              ).map((category: string) => (
                 <Link
-                  key={category.oid}
+                  key={category}
                   className={cn(styles.simpleLink, {
-                    [styles.selected]: categoryType === category.name
+                    [styles.selected]: categoryType === category
                   })}
-                  to={Routes.CATEGORY.replace(':category', category.name)}
+                  to={Routes.CATEGORY.replace(':category', category)}
                 >
-                  {category.name}
+                  {category}
                 </Link>
               ))}
           </div>

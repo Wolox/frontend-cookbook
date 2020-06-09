@@ -14,6 +14,7 @@ export const getRecipeCode = (recipe: GitHubResult) =>
   recipe
     ? {
         title: recipe.name,
+        tech: recipe.tech,
         config: JSON.parse(
           recipe.object.entries.find(entry => entry.name === 'cookbook.json')?.object.text || '{}'
         ),
