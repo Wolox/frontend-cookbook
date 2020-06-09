@@ -1,8 +1,8 @@
-$white: #fff;
+$white: #FFF;
 
 $input-border: #848486;
-$input-active-color: #0043cd;
-$input-submit: #5a667f;
+$input-active-color: #0043CD;
+$input-submit: #5A667F;
 $error: #EA4453;
 $disabled: #B5B5B6;
 
@@ -14,7 +14,7 @@ $disabled: #B5B5B6;
 
   .input-label {
     background-color: $white;
-    left: 20%;
+    left: 30px;
     padding: 4px;
     pointer-events: none;
     position: absolute;
@@ -29,7 +29,8 @@ $disabled: #B5B5B6;
     border-radius: 5px;
     font-size: 14px;
     height: 100%;
-    padding: 0 15px 0;
+    line-height: 20px;
+    padding: 0 15px;
     transition: border 0.2s linear;
     width: 100%;
 
@@ -39,7 +40,8 @@ $disabled: #B5B5B6;
       + .input-label {
         color: $input-submit;
         font-size: 10px;
-        left: 15%;
+        left: 22px;
+        line-height: 15px;
         top: 6%;
         transform: translate(-50%, -50%);
       }
@@ -51,7 +53,8 @@ $disabled: #B5B5B6;
       + .input-label {
         color: $input-active-color;
         font-size: 10px;
-        left: 15%;
+        left: 22px;
+        line-height: 15px;
         top: 6%;
         transform: translate(-50%, -50%);
       }
