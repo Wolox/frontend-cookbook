@@ -1,5 +1,4 @@
 import { TextStyle } from 'react-native';
-
 import { isAndroid } from '@constants/platform';
 import { MONTSERRAT, REGULAR, SEMIBOLD, BOLD, NORMAL, ITALIC } from '@constants/fonts';
 import { StringObject } from '@interfaces/globalInterfaces';

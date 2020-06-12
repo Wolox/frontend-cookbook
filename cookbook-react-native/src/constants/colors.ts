@@ -1,5 +1,5 @@
 export const blue: string = '#288CCB';
-export const darkBlue: string = '#112138'
+export const darkBlue: string = '#112138';
 export const green: string = '#53E69D';
 export const red: string = '#FF0000';
 export const transparent: string = 'transparent';

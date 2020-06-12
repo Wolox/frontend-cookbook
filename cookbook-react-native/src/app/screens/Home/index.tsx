@@ -2,7 +2,6 @@ import React, { useCallback, memo } from 'react';
 import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import CustomOpacityButton from '@buttonsRecipes/custom-opacity-button';
-import CustomText from '@textsRecipes/custom-text';
 import { actionCreators as AuthActions } from '@screensRecipes/login/redux/auth/actions';
 
 import styles from './styles';
@@ -13,7 +12,7 @@ function Home() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.contentContainer} />
+      <View style={styles.contentContainer}>{/* TODO: Test your recipe */}</View>
       <CustomOpacityButton onPress={handleLogout} green title="Logout!" style={styles.home} />
     </View>
   );
