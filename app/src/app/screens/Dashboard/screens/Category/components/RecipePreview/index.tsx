@@ -32,14 +32,6 @@ function RecipePreview({ className, recipe, thumbnail }: Props) {
     );
   }
 
-  if (recipe.gif) {
-    return (
-      <div className={`full-width row middle center ${className}`}>
-        <iframe src={recipe.gif} className={`full-width row middle center ${styles.cardIframe}`} />
-      </div>
-    );
-  }
-
   return <ShadowRecipe recipe={recipe} className={`full-width row middle center ${className}`} />;
 }
 
