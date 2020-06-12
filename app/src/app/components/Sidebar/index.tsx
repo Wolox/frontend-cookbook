@@ -53,10 +53,10 @@ function Sidebar() {
         </div>
         {isUserLoggedIn ? (
           <div className={`column ${styles.contentLinks} start`}>
-            <div className="row m-bottom-3">
-              <span className={styles.techTitle}>Tech:</span>
+            <div className="column m-bottom-3">
+              <span className={styles.techTitle}>Tech</span>
               <select className={styles.techSelect} value={selectedTech} onChange={handleTechChange}>
-                <option value="all">Todas</option>
+                <option value="all">View all</option>
                 {techs.map(tech => (
                   <option key={tech.name} value={tech.name}>
                     {tech.name}

@@ -28,8 +28,21 @@
 
 .tech-select {
   background-color: transparent;
-  color: $science-blue;
-  appearance: menulist-button;
+  color: $white;
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 8px;
+  border-radius: 2px;
+
+  &::before {
+    background: url('../../../assets/logo.svg') no-repeat;
+    background-size: 100%;
+    content: '';
+    height: 20px;
+    margin-right: 10px;
+    position: relative;
+    width: 20px;
+  }
 }
 
 .simple-link {
