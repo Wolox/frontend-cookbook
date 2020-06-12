@@ -1,3 +1,0 @@
-## CustomText
-
-TODO: Show gif

@@ -1,3 +1,0 @@
-## CustomHighlightButton
-
-TODO: Show gif

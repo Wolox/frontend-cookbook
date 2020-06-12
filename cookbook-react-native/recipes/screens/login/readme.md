@@ -1,3 +1,0 @@
-## Login
-
-TODO: Show gif

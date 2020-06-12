@@ -1,3 +1,0 @@
-## CustomOpacityButton
-
-TODO: Show gif

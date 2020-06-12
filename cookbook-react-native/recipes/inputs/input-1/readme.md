@@ -1,3 +1,0 @@
-## CustomTextInput
-
-TODO: Show gif
