@@ -1,10 +1,10 @@
 {
   "thumbnail": {
-    "type": "image",
+    "type": "img",
     "url": "https://raw.githubusercontent.com/Wolox/frontend-cookbook/support-images/cookbook-react/recipes/buttons/button-2/thumbnail.png"
   },
   "detail": {
-    "type": "image",
+    "type": "img",
     "url": "https://raw.githubusercontent.com/Wolox/frontend-cookbook/support-images/cookbook-react/recipes/buttons/button-2/thumbnail.png"
   }
 }

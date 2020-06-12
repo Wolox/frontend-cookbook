@@ -18,7 +18,7 @@ export interface RecipeFile {
 
 type Preview = {
   url: string;
-  type: 'iframe' | 'image';
+  type: 'iframe' | 'img';
 };
 
 // TODO: Recipe should have one of readme, config, or html as required

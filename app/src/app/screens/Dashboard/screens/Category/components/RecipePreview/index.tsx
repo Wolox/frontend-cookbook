@@ -17,7 +17,7 @@ function RecipePreview({ className, recipe, thumbnail }: Props) {
   const preview = thumbnail ? recipe.config.thumbnail : recipe.config.detail;
 
   if (preview) {
-    if (preview.type === 'iframe' || preview.type === 'image') {
+    if (preview.type === 'iframe' || preview.type === 'img') {
       const Elem = preview.type;
       return (
         <div className={`full-width row middle center ${className}`}>
