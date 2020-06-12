@@ -1,4 +1,10 @@
 {
-  "thumbnailURL": "https://cookbook-react.now.sh/?category=buttons&component=button-1&compact=true",
-  "detailURL": "https://cookbook-react.now.sh/?category=buttons&component=button-1&compact=true"
+  "thumbnail": {
+    "type": "iframe",
+    "url": "https://cookbook-react.now.sh/?category=buttons&component=button-1&compact=true"
+  },
+  "detail": {
+    "type": "iframe",
+    "url": "https://cookbook-react.now.sh/?category=buttons&component=button-1&compact=true"
+  }
 }
