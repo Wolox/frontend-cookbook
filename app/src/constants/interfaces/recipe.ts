@@ -20,6 +20,7 @@ export interface RecipeFile {
 export interface Recipe {
   title: string;
   tech: string;
+  gif: RecipeFile;
   html: RecipeFile;
   css: RecipeFile;
   scss: RecipeFile;

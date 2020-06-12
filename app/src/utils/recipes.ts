@@ -18,6 +18,7 @@ export const getRecipeCode = (recipe: GitHubResult) =>
         config: JSON.parse(
           recipe.object.entries.find(entry => entry.name === 'cookbook.json')?.object.text || '{}'
         ),
+        gif: getRecipeByFileName(recipe, 'recipe.gif'),
         readme: getRecipeByFileName(recipe, 'readme.md'),
         html: getRecipeByFileName(recipe, 'index.html'),
         css: getRecipeByFileName(recipe, 'styles.css'),
