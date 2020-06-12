@@ -14,11 +14,12 @@ function Input({ label, disabled, error }: Props) {
     <div id="input-3" className="input-container">
       <div className="input-wrapper">
         <input
+          id="input-tag-3"
           className={cn("input-base", { "input-error": !!error, "input-disabled": disabled })}
           placeholder=" "
           disabled={disabled}
         />
-        <label className={cn("input-label", { "label-disabled": disabled })}>{label}</label>
+        <label htmlFor="input-tag-3" className={cn("input-label", { "label-disabled": disabled })}>{label}</label>
         {!!error && <span className="error-message">{error}</span>}
       </div>
     </div>
