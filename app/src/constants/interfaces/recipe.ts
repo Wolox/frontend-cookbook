@@ -16,6 +16,11 @@ export interface RecipeFile {
   content: string;
 }
 
+type Preview = {
+  url: string;
+  type: 'iframe' | 'image';
+};
+
 // TODO: Recipe should have one of readme, config, or html as required
 export interface Recipe {
   title: string;
@@ -25,7 +30,7 @@ export interface Recipe {
   scss: RecipeFile;
   readme?: RecipeFile;
   config: {
-    thumbnailURL: string;
-    detailURL: string;
+    thumbnail: Preview;
+    detail: Preview;
   };
 }

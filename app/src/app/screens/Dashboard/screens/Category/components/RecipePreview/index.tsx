@@ -14,13 +14,19 @@ interface Props {
 }
 
 function RecipePreview({ className, recipe, thumbnail }: Props) {
-  const recipeUrl = thumbnail ? recipe.config.thumbnailURL : recipe.config.detailURL;
-  if (recipeUrl) {
-    return (
-      <div className={`full-width row middle center ${className}`}>
-        <iframe src={recipeUrl} className={`full-width row middle center ${styles.cardIframe}`} />
-      </div>
-    );
+  const preview = thumbnail ? recipe.config.thumbnail : recipe.config.detail;
+
+  if (preview) {
+    if (preview.type === 'iframe' || preview.type === 'image') {
+      const Elem = preview.type;
+      return (
+        <div className={`full-width row middle center ${className}`}>
+          <Elem src={preview.url} className={`full-width row middle center ${styles.cardIframe}`} />
+        </div>
+      );
+    }
+
+    return null;
   }
 
   if (recipe.readme) {
