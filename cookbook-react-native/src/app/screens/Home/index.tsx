@@ -1,7 +1,8 @@
-import React, { useCallback, memo, useState } from 'react';
+import React, { useCallback, memo } from 'react';
 import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import CustomOpacityButton from '@buttonsRecipes/custom-opacity-button';
+import CustomText from '@textsRecipes/custom-text';
 import { actionCreators as AuthActions } from '@screensRecipes/login/redux/auth/actions';
 
 import styles from './styles';
@@ -12,9 +13,7 @@ function Home() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.contentContainer}>
-      <CustomOpacityButton onPress={()=>{}} green title="Opacity button" style={styles.button} />
-      </View>
+      <View style={styles.contentContainer} />
       <CustomOpacityButton onPress={handleLogout} green title="Logout!" style={styles.home} />
     </View>
   );
