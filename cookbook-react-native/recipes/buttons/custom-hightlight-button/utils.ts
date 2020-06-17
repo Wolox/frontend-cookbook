@@ -1,5 +1,5 @@
-import { ButtonType, ButtonStatus } from './../interfaces';
-import styles, { GENERAL_BOX_SHADOW } from '../styles';
+import { ButtonType, ButtonStatus } from './interfaces';
+import styles, { GENERAL_BOX_SHADOW } from './styles';
 import {
   COLOR,
   UNDERLAY_COLOR,
@@ -7,7 +7,7 @@ import {
   BACKGROUND_COLOR,
   BUTTON_TYPES,
   BUTTON_STATUS
-} from '../constants';
+} from './constants';
 
 export const getButtonType = (secondary?: boolean, link?: boolean) => {
   if (link) return BUTTON_TYPES.LINK;
@@ -29,7 +29,7 @@ const getBackgroundColor = (buttonType: ButtonType, buttonStatus: ButtonStatus) 
 
 const getColor = (buttonType: ButtonType, buttonStatus: ButtonStatus) => COLOR[buttonType][buttonStatus];
 
-const isBorderless = (buttonType: ButtonType) => buttonType === BUTTON_TYPES.LINK;
+const isBorderless = (buttonType: ButtonType) => buttonType !== BUTTON_TYPES.SECONDARY;
 
 const hasShadow = (buttonType: ButtonType, buttonStatus: ButtonStatus) =>
   buttonType === BUTTON_TYPES.LINK || buttonStatus === BUTTON_STATUS.DISABLED;

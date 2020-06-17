@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
-import fonts from './config/fonts';
-import { primaryColor, gray, darkGray, red } from './constants/colors';
-import { SIZES } from './constants/fonts';
+import { blue, gray, darkGray, red } from '@constants/colors';
+import { SIZES } from '@constants/fonts';
+import fonts from '@config/fonts';
 
 export default StyleSheet.create({
   container: {
@@ -25,7 +25,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between'
   },
   bottomBorderFocused: {
-    borderColor: primaryColor
+    borderColor: blue
   },
   bottomBorderError: {
     borderColor: red

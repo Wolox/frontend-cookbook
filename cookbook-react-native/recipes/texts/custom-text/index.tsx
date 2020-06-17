@@ -1,8 +1,8 @@
 import React, { useCallback, memo } from 'react';
 import { Text } from 'react-native';
+import { getCustomStyles } from '@utils/styleUtils';
 
 import { VARIANTS, CustomTextProps } from './constants';
-import { getCustomStyles } from './utils/styleUtils';
 import styles from './styles';
 
 const CustomText = (props: CustomTextProps) => {

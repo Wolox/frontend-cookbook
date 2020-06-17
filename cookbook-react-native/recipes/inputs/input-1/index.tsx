@@ -1,11 +1,11 @@
 import React, { useState, memo } from 'react';
 import { TextInput, View } from 'react-native';
 import CustomText from '@textsRecipes/custom-text';
+import { transparent } from '@constants/colors';
 
 import InputLabel from './components/InputLabel';
 import ShowPassword from './components/ShowPassword';
 import withFormikField from './components/withFormikField';
-import { transparent } from './constants/colors';
 import { CustomTextInputProps as Props } from './interfaces';
 import styles from './styles';
 

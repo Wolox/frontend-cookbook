@@ -1,9 +1,9 @@
 import React, { useCallback, memo } from 'react';
 import { TouchableOpacity, Image } from 'react-native';
 import CustomText from '@textsRecipes/custom-text';
+import { getCustomStyles } from '@utils/styleUtils';
 
 import { VARIANTS, OPACITY, CustomButtonProps } from './constants';
-import { getCustomStyles } from './utils/styleUtils';
 import styles from './styles';
 
 const CustomButton = (props: CustomButtonProps) => {

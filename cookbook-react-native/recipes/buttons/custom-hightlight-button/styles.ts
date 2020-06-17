@@ -1,9 +1,9 @@
 import { StyleSheet, ViewStyle, Platform } from 'react-native';
+import { scale } from '@utils/scalingUtils';
+import { NumberObject } from '@interfaces/globalInterfaces';
+import { gray } from '@constants/colors';
 
-import { shadowColor } from './constants/colors';
-import { scale } from './utils/scaleUtils';
-import { SIZES, BORDER_WIDTH } from './constants/dimentions';
-import { NumberObject } from './constants/interfaces';
+import { SIZES, BORDER_WIDTH } from './constants';
 
 const ICON_SIZE = 20;
 const DEFAULT_BTN_HEIGHT = scale(40);
@@ -14,14 +14,14 @@ const COMMON_PROPS_CONTAINERS: ViewStyle = {
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  paddingHorizontal: scale(30),
+  paddingHorizontal: 30,
   height: DEFAULT_BTN_HEIGHT
 };
 
 export const GENERAL_BOX_SHADOW = {
   ...Platform.select({
     ios: {
-      shadowColor: shadowColor,
+      shadowColor: gray,
       shadowOffset: { width: 0, height: 0 },
       shadowOpacity: 1,
       shadowRadius: 10

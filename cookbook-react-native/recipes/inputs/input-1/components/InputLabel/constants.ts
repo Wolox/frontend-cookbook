@@ -1,4 +1,4 @@
-import { SIZES } from '../../constants/fonts';
+import { SIZES } from '@constants/fonts';
 
 export const TOP_DEGRADE = -25;
 export const LABEL_SIZE = SIZES.SMALL;

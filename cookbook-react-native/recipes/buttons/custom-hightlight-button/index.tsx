@@ -12,11 +12,11 @@ import {
 } from 'react-native';
 import CustomText from '@textsRecipes/custom-text';
 import { CustomTextVariants } from '@textsRecipes/custom-text/constants';
+import { getCustomStyles } from '@utils/styleUtils';
 
 import styles from './styles';
-import { VARIANTS, OPACITY, BUTTON_TYPES } from './constants';
+import { VARIANTS, OPACITY } from './constants';
 import { getUnderlayColor, getStyles, getFontProp, getActivityIndicatorColor, getButtonType, getButtonStatus } from './utils';
-import { getCustomStyles } from './utils/styleUtils';
 
 interface Props extends CustomTextVariants {
   activeOpacity?: number;

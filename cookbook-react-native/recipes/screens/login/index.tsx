@@ -6,10 +6,10 @@ import { Formik } from 'formik';
 import CustomHighlightButton from '@buttonsRecipes/custom-hightlight-button';
 import CustomText from '@textsRecipes/custom-text';
 import { CustomTextInputFormikField } from '@inputsRecipes/input-1';
+import { validationsWrapper, validateRequired, validateEmail } from '@utils/validations/validateUtils';
 
 import { AuthState } from './interfaces/authInterfaces';
 import { actionCreators as AuthActions } from './redux/auth/actions';
-import { validationsWrapper, validateRequired, validateEmail } from './utils/validations/validateUtils';
 import { FIELDS, INITIAL_VALUES } from './constants';
 import './i18n';
 import styles from './styles';

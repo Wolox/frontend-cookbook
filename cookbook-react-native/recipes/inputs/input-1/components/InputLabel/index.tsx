@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated, TextStyle } from 'react-native';
 import CustomText from '@textsRecipes/custom-text';
-
-import { gray, black } from '../../constants/colors';
+import { gray, black } from '@constants/colors';
 
 import {
   ANIMATION_DURATION,

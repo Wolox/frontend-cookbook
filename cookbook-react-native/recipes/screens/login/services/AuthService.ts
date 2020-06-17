@@ -1,7 +1,7 @@
 import { Dispatch } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
+import api from '@config/api';
 
-import api from '../config/api';
 import { CurrentUser, AuthData } from '../interfaces/authInterfaces';
 import { actionCreators as authActions } from '../redux/auth/actions';
 
