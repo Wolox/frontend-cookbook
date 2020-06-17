@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native';
-import { transparent } from '@constants/colors';
-import { SIZES } from '@constants/fonts';
-import fonts from '@config/fonts';
+
+import { transparent } from '../../constants/colors';
+import { SIZES } from '../../constants/fonts';
+import fonts from '../../config/fonts';
 
 export default StyleSheet.create({
   label: {

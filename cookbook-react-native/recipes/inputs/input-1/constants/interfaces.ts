@@ -5,5 +5,3 @@ type GenericObjectInterface<T> = {
 };
 
 export type StringObject = GenericObjectInterface<string>;
-
-export type NumberObject = GenericObjectInterface<number>;

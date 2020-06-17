@@ -1,7 +1,10 @@
-export const white = '#FFF';
-export const transparent = 'trasparent';
-export const  shadowColor = '#E5E5E5';
-export const primaryColor = '#1D8DFA';
-export const secondaryColor = '#0065C7';
-export const disabledBackground = '#F1F1F1';
-export const  disabledColor = '#939393';
+export const white: string = '#FFF';
+export const transparent: string = 'transparent';
+export const  shadowColor: string = '#E5E5E5';
+export const primaryColor: string = '#1D8DFA';
+export const secondaryColor: string = '#0065C7';
+export const disabledBackground: string = '#F1F1F1';
+export const  disabledColor: string = '#939393';
+export const green: string = '#53E69D';
+export const black: string = '#000';
+export const gray: string = '#939393';
