@@ -2,7 +2,8 @@
 @import 'variables/sizes';
 
 .container {
-  background: $blue-ribbon-dark url('../../../assets/bg_login.svg') no-repeat center / cover;
+  background: $blue-ribbon-dark url('../../../assets/bg_login.svg') no-repeat
+    center / cover;
   height: 100vh;
 }
 
@@ -72,6 +73,6 @@
   }
 }
 
-.fade-in-up {
+.fade-in {
   animation: fadeInUp 1s $transition-function $transition-duration both;
 }
