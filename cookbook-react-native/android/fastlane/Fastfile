@@ -1,0 +1,27 @@
+fastlane_require 'pry'
+fastlane_version '2.146.1'
+import 'Fastfile.private'
+
+platform :android do |options| 
+
+  desc "Submit a new QA Release Build to Firebase App Distribution."
+  lane :distribute_qa do |options|
+    distribute_to_firebase environment: :qa, build_number: options[:build_number], version_name: options[:version_name] 
+  end
+
+  desc "Submit a new Stage Release Build to Firebase App Distribution."
+  lane :distribute_stage do |options|
+    distribute_to_firebase environment: :stage, build_number: options[:build_number], version_name: options[:version_name] 
+  end
+
+  desc "Submit a new Production Release Build to Firebase App Distribution."
+  lane :distribute_production do |options|
+    distribute_to_firebase environment: :production, build_number: options[:build_number], version_name: options[:version_name] 
+  end
+
+  desc "Submit a new Production Release Build to Google Play Console."
+  lane :release_production do |options|
+    release_to_play_console environment: :production, build_number: options[:build_number], version_name: options[:version_name] 
+  end
+
+end

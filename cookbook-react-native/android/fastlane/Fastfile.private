@@ -1,0 +1,88 @@
+platform :android do
+
+  desc "Validate"
+  private_lane :validate do |options|
+    # TODO: If the release isn't production, 
+    # validate if there is a user logged on firebase
+    UI.message "Validating..."
+  end
+
+  desc "Builds the app creating the `.apk` or `.aab` files"
+  private_lane :build_application do |options|
+    environment = options[:environment]
+    create_aab = options[:aab]
+    version_name = options[:version_name]
+    build_num = options[:build_number]
+      
+    UI.message "Forced to version name #{version_name}" if version_name != nil
+		gradle(task: "bumperVersionName", properties: { versionName: version_name }) if version_name != nil
+
+		UI.message "Forced to build number #{build_num}" if build_num != nil
+		gradle(task: "bumperVersionCode", properties: { versionCode: build_num }) if build_num != nil
+
+
+		buid_task = get_build_task(environment: environment, aab: create_aab)
+    app_Name = get_environment_info(environment: environment)["APP_NAME"]
+
+    gradle(
+      task: buid_task[:task],
+      flavor: buid_task[:flavor],
+      build_type: "Release",
+      properties: {
+        **(create_aab ?  {} : { appName: app_Name })
+      }
+    )
+
+  end
+
+  desc "Distribute the app to Firebase App Distribution"
+  private_lane :distribute_to_firebase do |options|
+    environment = options[:environment]
+
+    desc "Building .apk file..."
+    build_application(
+      environment: environment, 
+      version_name: options[:version_name],
+      build_number: options[:build_number]
+    )
+
+    desc "Distributing application to Firebase App Distribution..."
+    firebase_info = get_firebase_info(environment: environment)
+    firebase_app_distribution(
+      app: firebase_info[:app],
+      groups: firebase_info[:groups]
+    )
+  end
+
+  desc "Release the app to Google Play Console"
+  private_lane :release_to_play_console do |options|
+    environment = options[:environment]
+
+    desc "Building .aab file..."
+    build_application(
+      environment: environment, 
+      version_name: options[:version_name],
+      build_number: options[:build_number],
+      aab: true
+    )
+
+    desc "Distributing application to Google Play Console..."
+    play_console_info = get_play_console_info(environment: environment)
+    upload_to_play_store(
+      package_name: play_console_info[:package_name],
+      json_key: play_console_info[:key_path], 
+      track: play_console_info[:track],
+      release_status: play_console_info[:release_status],
+      skip_upload_apk: true
+    )
+  end
+
+  def input(message, default)
+    if ENV["RUNNING_ON_CI"] == "true"
+      default
+    else
+      UI.input message
+    end
+  end
+
+end
