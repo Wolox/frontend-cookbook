@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import { useAuthContext } from '~context/AuthProvider';
+import Sidebar from '~components/Sidebar';
 
 import Routes from '../../../constants/routes';
 
@@ -9,7 +9,6 @@ import Category from './screens/Category';
 import Detail from './screens/Detail';
 import { DEFAULT_ROUTE } from './constants';
 import styles from './styles.module.scss';
-import Sidebar from '~components/Sidebar';
 
 function Dashboard() {
   return (
@@ -23,7 +22,7 @@ function Dashboard() {
         </Switch>
       </div>
     </div>
-  )
+  );
 }
 
 export default Dashboard;

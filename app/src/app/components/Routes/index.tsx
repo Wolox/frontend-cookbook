@@ -12,7 +12,7 @@ import Routes from '../../../constants/routes';
 
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 
-const  Login = lazy(()=> import('~screens/Login'));
+const Login = lazy(()=> import('~screens/Login'));
 const Home = lazy(() => import('~screens/Dashboard/'));
 const history = createBrowserHistory();
 
@@ -35,13 +35,13 @@ function AppRoutes() {
 
   return (
     <Router history={history}>
-        <Suspense>
-          <Switch>
-            <AuthenticatedRoute isPublicRoute path={Routes.LOGIN} component={Login} />
-            <AuthenticatedRoute isPrivateRoute path={Routes.DASHBOARD} component={Home} />
-            <Redirect to={Routes.LOGIN} />
-          </Switch>
-        </Suspense>
+      <Suspense>
+        <Switch>
+          <AuthenticatedRoute isPublicRoute path={Routes.LOGIN} component={Login} />
+          <AuthenticatedRoute isPrivateRoute path={Routes.DASHBOARD} component={Home} />
+          <Redirect to={Routes.LOGIN} />
+        </Switch>
+      </Suspense>
     </Router>
   );
 }
