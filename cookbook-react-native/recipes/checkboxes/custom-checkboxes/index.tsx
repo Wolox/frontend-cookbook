@@ -2,6 +2,7 @@ import React, { useState, Key, useRef, useEffect } from 'react';
 import { ViewStyle, TextProps, View, TouchableOpacity } from 'react-native';
 import CustomText from '@textsRecipes/custom-text';
 
+import styles, { errorTextProps } from './styles';
 import Checkbox from './components/Checkbox';
 import { getInitialSelectedState } from './utils';
 
@@ -30,7 +31,8 @@ function CustomCheckboxes<K extends Key = string, V = string>({
   onChange,
   checkboxStyle,
   checkboxContainerStyle,
-  checkboxTextProps
+  checkboxTextProps,
+  error
 }: CustomCheckboxesProps<K, V>) {
   const [selected, setSelected] = useState(getInitialSelectedState<K>(selectedOptions, defaultOption));
 
@@ -53,7 +55,7 @@ function CustomCheckboxes<K extends Key = string, V = string>({
 
   return (
     <View style={style}>
-      <CustomText semiBold style={{margin: 10}}>{title}</CustomText>
+      <CustomText semiBold style={styles.title}>{title}</CustomText>
       {Object.entries<V>(options).map(
         ([key, option]) => (
           <Checkbox<K, V>
@@ -69,6 +71,9 @@ function CustomCheckboxes<K extends Key = string, V = string>({
           />
         )
       )}
+      <View style={styles.errorContainer}>
+        {!!error && <CustomText error textProps={errorTextProps}>{error}</CustomText>}
+      </View>
     </View>
   );
 }
