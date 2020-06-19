@@ -20,6 +20,7 @@ module.exports = {
           '@navigationHelper': './src/app/components/AppNavigator/helper',
           '@buttonsRecipes': './recipes/buttons',
           '@inputsRecipes': './recipes/inputs',
+          '@checkboxesRecipes': './recipes/checkboxes',
           '@textsRecipes': './recipes/texts',
           '@screensRecipes': './recipes/screens'
         }

@@ -25,6 +25,7 @@
       "@navigationHelper": ["src/app/components/AppNavigator/helper.ts"],
       "@buttonsRecipes/*": ["recipes/buttons/*"],
       "@inputsRecipes/*": ["recipes/inputs/*"],
+      "@checkboxesRecipes/*": ["recipes/checkboxes/*"],
       "@textsRecipes/*": ["recipes/texts/*"],
       "@screensRecipes/*": ["recipes/screens/*"],
     },
