@@ -1,39 +1,40 @@
-import React, { useState, Key, useRef, useEffect } from 'react';
-import { ViewStyle, TextProps, View, TouchableOpacity } from 'react-native';
+import React, { useState, Key, useEffect } from 'react';
+import { ViewStyle, TextProps, View } from 'react-native';
 import CustomText from '@textsRecipes/custom-text';
 
 import styles, { errorTextProps } from './styles';
 import Checkbox from './components/Checkbox';
 import { getInitialSelectedState } from './utils';
 
-interface CustomCheckboxesProps<K extends Key, V> {
-  title: string;
-  options: Record<K, V>,
-  selectedOptions?: Array<K>;
-  defaultOption?: K,
-  multioption?: boolean;
-  disabledOptions?: Array<K>;
-  onChange?: (selected: Array<K>) => void;
+interface CustomCheckboxGroupProps<K extends Key, V> {
   checkboxContainerStyle?: ViewStyle;
   checkboxStyle?: ViewStyle;
   checkboxTextProps?: TextProps;
+  defaultOption?: K,
+  disabledOptions?: Array<K>;
+  error?: string | null;
+  multioption?: boolean;
+  onChange?: (selected: Array<K>) => void;
+  options: Record<K, V>,
+  selectedOptions?: Array<K>;
   style?: ViewStyle;
+  title: string;
 }
 
-function CustomCheckboxes<K extends Key = string, V = string>({
-  title,
-  options,
-  defaultOption,
-  selectedOptions,
-  disabledOptions,
-  style,
-  multioption = false,
-  onChange,
+function CustomCheckboxGroup<K extends Key = string, V = string>({
   checkboxStyle,
   checkboxContainerStyle,
   checkboxTextProps,
-  error
-}: CustomCheckboxesProps<K, V>) {
+  defaultOption,
+  disabledOptions,
+  error,
+  multioption = false,
+  onChange,
+  options,
+  selectedOptions,
+  style,
+  title
+}: CustomCheckboxGroupProps<K, V>) {
   const [selected, setSelected] = useState(getInitialSelectedState<K>(selectedOptions, defaultOption));
 
   useEffect(() => {
@@ -77,4 +78,4 @@ function CustomCheckboxes<K extends Key = string, V = string>({
   );
 }
 
-export default CustomCheckboxes;
+export default CustomCheckboxGroup;

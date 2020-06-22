@@ -36,7 +36,7 @@ function Checkbox<K extends Key, T>({
       <View style={[styles.iconContainer, { backgroundColor, borderColor }, checkboxStyle]}>
         {isSelected && <Image source={checkIcon} style={styles.icon} />}
       </View>
-      <CustomText gray={disabled} textProps={textProps} >{option}</CustomText>
+      <CustomText gray={disabled} textProps={textProps}>{option}</CustomText>
     </TouchableOpacity>
   );
 }
