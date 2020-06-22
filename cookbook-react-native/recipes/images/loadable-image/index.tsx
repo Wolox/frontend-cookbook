@@ -39,7 +39,7 @@ function LoadableImage({
   // If you want to have a default image placeholder, remove the conditional to show the image
   // and replace the source with `placeholder || imagePlaceholder`
   return (
-    <View style={[style, styles.container]}>
+    <View style={[styles.container, style]}>
       {(loading || error || !source) && (
         <View style={[styles.contentContainer, styles.fill, { backgroundColor }]}>
           {!!placeholder && <Image source={placeholder} style={styles.fill} resizeMode={placeholderResizeMode} />}
