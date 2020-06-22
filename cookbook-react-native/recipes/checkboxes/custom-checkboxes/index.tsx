@@ -51,7 +51,6 @@ function CustomCheckboxes<K extends Key = string, V = string>({
       ...(multioption ? selected : {}),
       [option]: !selected[option]
     } as Record<K, boolean>);
-    console.tron.log(selected)
 
   return (
     <View style={style}>
