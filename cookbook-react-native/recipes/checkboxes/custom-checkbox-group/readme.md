@@ -33,7 +33,6 @@ If you want to add this recipe to a project that wasn't created with our [bootst
 
 ``` ts
 import CustomCheckboxGroup from '@components/CustomCheckboxGroup';
-import { translateOption } from '@utils/translations.ts';
 
 const optionsRecord = {
   A: 'option A',
