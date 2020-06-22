@@ -6,7 +6,7 @@ import { saveAs } from 'file-saver';
 
 import { getRecipeFiles } from '~utils/queries';
 import { getRecipeCode } from '~utils/recipes';
-import { updateCounter } from 'services/FirebaseService';
+import { updateDownloadsCounter } from 'services/FirebaseService';
 
 import DetailsContainer from './layout';
 
@@ -19,7 +19,7 @@ function Detail() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { title, css, config, ...files } = recipeCode;
 
-    updateDownloadsCounter(recipe);
+    updateDownloadsCounter(tech, recipe);
 
     const zip = new JSZip();
     Object.values(files).forEach(file => {
