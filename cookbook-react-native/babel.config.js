@@ -21,7 +21,8 @@ module.exports = {
           '@buttonsRecipes': './recipes/buttons',
           '@inputsRecipes': './recipes/inputs',
           '@textsRecipes': './recipes/texts',
-          '@screensRecipes': './recipes/screens'
+          '@screensRecipes': './recipes/screens',
+          '@imagesRecipes': './recipes/images'
         }
       }
     ]

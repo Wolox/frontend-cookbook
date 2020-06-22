@@ -27,6 +27,7 @@
       "@inputsRecipes/*": ["recipes/inputs/*"],
       "@textsRecipes/*": ["recipes/texts/*"],
       "@screensRecipes/*": ["recipes/screens/*"],
+      "@imagesRecipes/*": ["recipes/images/*"]
     },
     "skipLibCheck": true
   },
