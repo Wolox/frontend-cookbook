@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     position: 'absolute',
-    backgroundColor: gray,
     alignItems: 'center',
     justifyContent: 'center'
   },
