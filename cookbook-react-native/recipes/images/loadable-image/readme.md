@@ -14,20 +14,18 @@ and
 
 and add this recipe under your `components` folder.
 
-# Usage
+## Usage
 
 ``` ts
 import LoadableImage from '@components/LoadableImage';
-import placeholder from '@assets/placeholder.png';
-import { blue, gray } from '@colors/blue';
+import { blue, white } from '@colors/blue';
 
 function MyImage() {
   return (
     <LoadableImage
-      source={{ uri: '' }}
-      activityIndicatorColor={blue}
-      backgroundColor={gray}
-      placeholder={placeholder}
+      source={{ uri: 'https://www.wolox.com.ar/assets/photo-brain-452a5adf68.png)' }}
+      activityIndicatorColor={white}
+      backgroundColor={blue}
       style={{ width: 100, height: 100 }}
     />
   );
@@ -40,11 +38,11 @@ export default MyImage;
 
 | Prop  | Default  | Type | Description |
 | :------------ |:---------------:| :---------------:| :-----|
-| activityIndicatorColor | - | `string | undefined` | Activity indicator color |
-| backgroundColor | - | `string | undefined` | Placeholder background color |
-| placeholder | - | `number | undefined` | Placeholder local source |
-| placeHolderResizeMode | `cover` | [ImageResizeMode](https://reactnative.dev/docs/image#resizemode)
+| activityIndicatorColor | - | string | Activity indicator color |
+| backgroundColor | - | string | Placeholder background color |
+| placeholder | - | number | Placeholder local source |
+| placeholderResizeMode | `cover` | [ImageResizeMode](https://reactnative.dev/docs/image#resizemode) | placeholder image resize mode
 | source | - | [FastImage.Source](https://github.com/DylanVann/react-native-fast-image#source-object) | Image source |
-| style | - | `ViewStyle | undefined` | Image style |
+| style | - | [ViewStyle](https://reactnative.dev/docs/view-style-props)  | Image container style |
 
 and [FastImageProps](https://github.com/DylanVann/react-native-fast-image#properties)
