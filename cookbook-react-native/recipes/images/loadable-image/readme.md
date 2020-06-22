@@ -1,5 +1,7 @@
 # Cookbook React Native Bootstrap: LoadableImage Recipe
 
+![recipe](https://raw.githubusercontent.com/Wolox/frontend-cookbook/master/cookbook-react-native/recipes/images/loadable-image/recipe.gif)
+
 ## Installation
 
 `yarn add react-native-fast-image`
@@ -18,7 +20,7 @@ and add this recipe under your `components` folder.
 
 ``` ts
 import LoadableImage from '@components/LoadableImage';
-import { blue, white } from '@colors/blue';
+import { blue, white } from '@constants/colors';
 
 function MyImage() {
   return (
