@@ -1,6 +1,8 @@
 # Cookbook React Native Bootstrap: CustomCheckboxGroup Recipe
 
-![recipe](https://raw.githubusercontent.com/Wolox/frontend-cookbook/master/cookbook-react-native/recipes/checkboxes/custom-checkbox-group/recipe.gif)
+<p align="center">
+  <img width="400" height="400" src="https://raw.githubusercontent.com/Wolox/frontend-cookbook/master/cookbook-react-native/recipes/checkboxes/custom-checkbox-group/recipe.gif">
+</p>
 
 ## Installation
 
