@@ -57,7 +57,8 @@ function MyCheckboxGroup() {
 export default MyCheckboxGroup;
 ```
 
-## Props<K entends React.Key = string, V = string>
+## Props
+`<K extends React.Key = string, V = string>`
 
 | Prop  | Default  | Type | Description |
 | :------------ |:---------------:| :---------------:| :-----|
