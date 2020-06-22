@@ -1,5 +1,7 @@
 # Cookbook React Native Bootstrap: CustomCheckboxGroup Recipe
 
+![recipe](https://raw.githubusercontent.com/Wolox/frontend-cookbook/master/cookbook-react-native/recipes/checkboxes/custom-checkbox-group/recipe.gif)
+
 ## Installation
 
 If you want to add this recipe to a project that wasn't created with our [bootstrap](https://github.com/Wolox/wolmo-bootstrap-react-native), you will need to add the following [aliases](https://github.com/tleunen/babel-plugin-module-resolver#readme) and files under them to your project:
