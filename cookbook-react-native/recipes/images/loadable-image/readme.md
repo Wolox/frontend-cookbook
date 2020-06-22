@@ -1,6 +1,8 @@
 # Cookbook React Native Bootstrap: LoadableImage Recipe
 
-![recipe](https://raw.githubusercontent.com/Wolox/frontend-cookbook/master/cookbook-react-native/recipes/images/loadable-image/recipe.gif)
+<p align="center">
+  <img width="200" height="200" src="https://raw.githubusercontent.com/Wolox/frontend-cookbook/master/cookbook-react-native/recipes/images/loadable-image/recipe.gif">
+</p>
 
 ## Installation
 
