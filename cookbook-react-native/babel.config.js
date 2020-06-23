@@ -10,6 +10,7 @@ module.exports = {
         alias: {
           '@app': './src/app',
           '@buttonsRecipes': './recipes/buttons',
+          '@checkboxesRecipes': './recipes/checkboxes',
           '@components': './src/app/components',
           '@config': './src/config',
           '@constants': './src/constants',
@@ -21,6 +22,7 @@ module.exports = {
           '@screensRecipes': './recipes/screens',
           '@services': './src/services',
           '@redux': './src/redux',
+          '@utils': './src/utils',
           '@textsRecipes': './recipes/texts',
           '@utils': './src/utils'
         }

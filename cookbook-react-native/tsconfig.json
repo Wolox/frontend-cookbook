@@ -15,6 +15,7 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@buttonsRecipes/*": ["recipes/buttons/*"],
+      "@checkboxesRecipes/*": ["recipes/checkboxes/*"],
       "@components/*": ["src/app/components/*"],
       "@config/*": ["src/config/*"],
       "@constants/*": ["src/constants/*"],
