@@ -37,7 +37,7 @@ That url and type would be used to render an iframe with a web component or an i
 
 If there isn't a `cookbook.json` with that content in your recipe, it would show a fragment of your recipe `readme.md`. Be sure to always add one!
 
-So, if we add a `button-1` recipe to `cookbook-react`, the project tree jerarchy should look like this:
+So, if we add a `button-1` recipe to `cookbook-react`, the project tree hierarchy should look like this:
 
 ```
 wolox-cookbook/
