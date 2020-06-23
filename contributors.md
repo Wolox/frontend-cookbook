@@ -40,7 +40,7 @@ If there isn't a `cookbook.json` with that content in your recipe, it would show
 So, if we add a `button-1` recipe to `cookbook-react`, the project tree jerarchy should look like this:
 
 ```
-frontend-cookbook/
+wolox-cookbook/
 |_ cookbook-react/
   |_ recipes/
     |_ buttons/
