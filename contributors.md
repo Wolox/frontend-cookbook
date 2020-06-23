@@ -35,7 +35,7 @@ Now that you have your own recipe, you can add a `cookbook.json` file with the f
 
 That url and type would be used to render an iframe with a web component or an illustrative image (jpg, png or gif).
 
-If there isn't a `cookbook.json` with that content in your recipe, it would show a fragment of you recipe `readme.md`. Be sure to always add one!
+If there isn't a `cookbook.json` with that content in your recipe, it would show a fragment of your recipe `readme.md`. Be sure to always add one!
 
 So, if we add a `button-1` recipe to `cookbook-react`, the project tree jerarchy should look like this:
 
