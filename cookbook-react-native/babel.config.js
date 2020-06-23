@@ -9,20 +9,22 @@ module.exports = {
         extensions: ['.ios.js', '.android.js', '.js', '.jsx', '.ts', '.tsx', '.json'],
         alias: {
           '@app': './src/app',
+          '@buttonsRecipes': './recipes/buttons',
+          '@checkboxesRecipes': './recipes/checkboxes',
           '@components': './src/app/components',
           '@config': './src/config',
           '@constants': './src/constants',
+          '@imagesRecipes': './recipes/images',
+          '@inputsRecipes': './recipes/inputs',
           '@interfaces': './src/interfaces',
+          '@navigationHelper': './src/app/components/AppNavigator/helper',
           '@screens': './src/app/screens',
+          '@screensRecipes': './recipes/screens',
           '@services': './src/services',
           '@redux': './src/redux',
           '@utils': './src/utils',
-          '@navigationHelper': './src/app/components/AppNavigator/helper',
-          '@buttonsRecipes': './recipes/buttons',
-          '@inputsRecipes': './recipes/inputs',
-          '@checkboxesRecipes': './recipes/checkboxes',
           '@textsRecipes': './recipes/texts',
-          '@screensRecipes': './recipes/screens'
+          '@utils': './src/utils'
         }
       }
     ]
