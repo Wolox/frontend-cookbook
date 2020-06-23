@@ -17,7 +17,7 @@ REACT_APP_RECIPES_BRANCH=XXXX
 REACT_APP_GITHUB_TOKEN=XXXX
 ```
 
-Where `REACT_APP_RECIPES_BRANCH` is the name of a remote branch, you can try with `master`, and `REACT_APP_GITHUB_TOKEN` is a [github personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
+Where `REACT_APP_RECIPES_BRANCH` is the name of a remote branch (e.g. `master`) and `REACT_APP_GITHUB_TOKEN` is a [Github personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
 
 Then move to `/app` and install dependencies running:
 
@@ -31,4 +31,4 @@ Is important to remember that you would run `REACT_APP_RECIPES_BRANCH` remote br
 
 ## Contributing
 
-Check our [contributors](./contributors.md) file and thanks for your time!
+Check our [contributors](./contributors.md) file and thanks for your time! 💙💚

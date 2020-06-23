@@ -7,8 +7,10 @@
 ### New Cookbook
 
 To add a new cookbook create a `cookbook-xxx` folder where `xxx` would be the TECH name, then add a `recipes` folder inside.
-Don't forget to link the new tech to this [readme](./readme.md)!
+
 You can create a base project inside to help our collaborators to develop future recipes, as long as it has a `recipes` folder.
+
+And don't forget to link the new tech to this [readme](./readme.md)!
 
 ### New recipe
 
@@ -31,7 +33,7 @@ Now that you have your own recipe, you can add a `cookbook.json` file with the f
 }
 ```
 
-That url and type would be used to render and iframe with a web component or an illustrtive image (jpg, png or gif).
+That url and type would be used to render and iframe with a web component or an illustrative image (jpg, png or gif).
 
 If there isn't a `cookbook.json` with that content in your recipe, it would show a fragment of you recipe `readme.md`. Be sure to always add one!
 
