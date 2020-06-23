@@ -37,7 +37,7 @@ Under you cookbook folder, if doesn't exist already, create yor category folder,
 
 Now that you have your own recipe, you can add inside a `cookbook.json` file with the following content:
 
-``` json
+```
 {
   "thumbnail": {
     "type": "img" | "iframe",
