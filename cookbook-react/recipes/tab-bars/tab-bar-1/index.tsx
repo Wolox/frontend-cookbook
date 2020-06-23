@@ -15,20 +15,20 @@ interface Props {
 function TabBar({ options }: Props) {
   const [selection, setSelection] = useState<null | number>(null);
 
-  const style = { "--number-of-items": options?.length } as React.CSSProperties
+  const style = { "--number-of-items": options ?.length } as React.CSSProperties
 
   return (
     <div id="tab-bar-1" className="tab-bar-container">
-      <div className="tab-bar-wrapper" /*style={style}*/>
+      <div className="tab-bar-wrapper">
         <span className={`selector selected-${selection}`} />
         <div className="tabs">
           {options.map((option, idx) => (
-          <button
-            className={cn("option", { "selected": selection == idx })}
-            onClick={() => setSelection(idx)}
-          >
-            {option ?.label}
-          </button>)
+            <button
+              className={cn("option", { "selected": selection == idx })}
+              onClick={() => setSelection(idx)}
+            >
+              {option ?.label}
+            </button>)
           )}
         </div>
       </div>
