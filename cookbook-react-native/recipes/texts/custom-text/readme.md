@@ -48,6 +48,8 @@ export default MyText;
 
 ## Props
 
+| Prop  | Default  | Type | Description |
+| :------------ |:---------------:| :---------------:| :-----|
 | bold | `false` | boolean | If true, uses the font weight to `bold`. |
 | semiBold | `false` | boolean | If true, uses the font weight to `semi bold`. |
 | italic | `false` | boolean | If true, uses the `italic` font style. |

@@ -80,6 +80,8 @@ export default MyForm;
 
 ## Props
 
+| Prop  | Default  | Type | Description |
+| :------------ |:---------------:| :---------------:| :-----|
 | animated | `false` | boolean | If true, animates the text input label. |
 | disabled | `false` | boolean | If true, text is not editable and renders a `gray` border bottom. |
 | error | `false` | string | The value to show for the text error. |
@@ -92,7 +94,7 @@ export default MyForm;
 | labelStyle | - | [TextStyleProps](https://reactnative.dev/docs/text-style-props) | Overrides the label style. |
 | multiline | `false` | boolean | If true, the text input can be multiple lines. |
 | onChange | - | function | Callback that is called when the text input's text changes. |
-| placeholder | - | The string that will be rendered before text input has been entered. |
+| placeholder | -  | string | The string that will be rendered before text input has been entered. |
 | placeholderColor | - | string | The text color of the placeholder string. |
 | secureTextEntry | `false` | boolean | If true, the text input obscures the text entered so that sensitive text like passwords stay secure. You can toggle this value with `showEye` |
 | showError | `false` | boolean | If true, renders a `red` border bottom. |

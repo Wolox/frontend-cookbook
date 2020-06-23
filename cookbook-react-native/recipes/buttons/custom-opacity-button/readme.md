@@ -50,7 +50,7 @@ export default MyButton;
 | Prop  | Default  | Type | Description |
 | :------------ |:---------------:| :---------------:| :-----|
 | activeOpacity | `0.7` | number | Determines what the opacity of the wrapped view should be when touch is active. |
-| black | - | boolean | If true, sets the wrapped view background color to `black`. |
+| black | `false` | boolean | If true, sets the wrapped view background color to `black`. |
 | borderless | `false` | boolean | If true, removes the wrapped view border width, and set its width to `auto`. |
 | disabled | `false` | boolean | If true, disable all interactions for this component with visual feedback. |
 | icon | - | number | Icon source. |

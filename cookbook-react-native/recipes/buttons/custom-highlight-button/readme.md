@@ -66,7 +66,7 @@ export default MyButton;
 | icon | - | number | Icon source. |
 | iconStyle | - | [ImageStyle](https://reactnative.dev/docs/image-style-props) | Icon style. |
 | large | `false` | boolean | If true, the min width of the wrapped view would be `SIZES.LARGE`, otherwise it would be `SIZES.SMALL`. |
-| link | `false` | If true, the wrapped view would be transparent and borderless. |
+| link | `false` | boolean | If true, the wrapped view would be transparent and borderless. |
 | loading | `false` | boolean| If true, an activity indicator would be rendered instead of the button. |
 | medium | `false | boolean | If true, the min width of the wrapped view would be `SIZES.MEDIUM`, otherwise it would be `SIZES.SMALL`. |
 | onPress | - | [TouchableHighlightProps.onPress](https://reactnative.dev/docs/touchablewithoutfeedback#onpress) | Called as soon as the touch is released. |
