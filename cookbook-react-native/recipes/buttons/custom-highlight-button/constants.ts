@@ -4,7 +4,7 @@ import { scale } from '@utils/scalingUtils';
 
 import { ButtonType, ButtonStatus } from './interfaces';
 
-export const VARIANTS = ['borderless', 'small', 'medium', 'large'];
+export const VARIANTS = ['small', 'medium', 'large'];
 
 export const OPACITY = {
   DEFAULT: 0.7

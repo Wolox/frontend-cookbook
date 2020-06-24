@@ -26,16 +26,16 @@ interface Props extends CustomTextVariants {
   disabled?: boolean;
   icon?: number;
   iconStyle?: ImageStyle;
+  large?: boolean;
   link?: boolean;
   loading?: boolean;
+  medium?: boolean;
   onPress: TouchableHighlightProps['onPress'];
   secondary?: boolean;
-  style?: ViewStyle;
-  title?: string;
-  textStyle?: TextStyle;
   small?: boolean;
-  medium?: boolean;
-  large?: boolean;
+  style?: ViewStyle;
+  textStyle?: TextStyle;
+  title?: string;
 }
 
 const CustomHighlightButton = ({
