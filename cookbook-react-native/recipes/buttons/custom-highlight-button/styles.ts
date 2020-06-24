@@ -6,8 +6,10 @@ import { gray } from '@constants/colors';
 import { SIZES, BORDER_WIDTH } from './constants';
 
 const ICON_SIZE = 20;
-const DEFAULT_BTN_HEIGHT = scale(40);
-const BIG_BTN_HEIGHT = scale(48);
+const BTN_HEIGHT = {
+  DEFAULT: scale(40),
+  BIG: scale(48)
+};
 const BORDER_RADIUS = 10;
 
 const COMMON_PROPS_CONTAINERS: ViewStyle = {
@@ -15,7 +17,7 @@ const COMMON_PROPS_CONTAINERS: ViewStyle = {
   alignItems: 'center',
   justifyContent: 'center',
   paddingHorizontal: 30,
-  height: DEFAULT_BTN_HEIGHT
+  height: BTN_HEIGHT.DEFAULT
 };
 
 export const GENERAL_BOX_SHADOW = {
@@ -46,7 +48,7 @@ export default StyleSheet.create({
     borderWidth: BORDER_WIDTH.BOLD
   },
   bigContainer: {
-    borderRadius: BIG_BTN_HEIGHT / 2
+    borderRadius: BTN_HEIGHT.BIG / 2
   },
   containerLoading: {
     ...COMMON_PROPS_CONTAINERS

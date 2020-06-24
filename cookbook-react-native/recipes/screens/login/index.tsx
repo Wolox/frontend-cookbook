@@ -3,9 +3,9 @@ import { Keyboard, TouchableOpacity, View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import i18next from 'i18next';
 import { Formik } from 'formik';
-import CustomHighlightButton from '@buttonsRecipes/custom-hightlight-button';
+import CustomHighlightButton from '@buttonsRecipes/custom-highlight-button';
 import CustomText from '@textsRecipes/custom-text';
-import { CustomTextInputFormikField } from '@inputsRecipes/input-1';
+import { CustomTextInputFormikField } from '@inputsRecipes/custom-text-input';
 import { validationsWrapper, validateRequired, validateEmail } from '@utils/validations/validateUtils';
 
 import { AuthState } from './interfaces/authInterfaces';
