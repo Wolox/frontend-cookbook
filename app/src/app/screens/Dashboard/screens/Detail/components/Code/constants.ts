@@ -1,4 +1,5 @@
 export enum CODE {
   HTML = 'html',
-  SCSS = 'scss'
+  SCSS = 'scss',
+  README = 'readme'
 }

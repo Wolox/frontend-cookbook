@@ -10,8 +10,9 @@ const getRecipeByFileName = (recipe: GitHubResult, fileName: string) => {
     : null;
 };
 
-export const getRecipeCode = (recipe: GitHubResult) =>
-  recipe
+export const getRecipeCode = (recipe: GitHubResult) => {
+  debugger;
+  return recipe
     ? {
         title: recipe.name,
         tech: recipe.tech,
@@ -24,6 +25,7 @@ export const getRecipeCode = (recipe: GitHubResult) =>
         scss: getRecipeByFileName(recipe, 'styles.scss')
       }
     : {};
+};
 
 export const getRecipesCode = (recipes: GitHubResult[]) =>
   recipes?.length ? recipes.map(getRecipeCode) : [];

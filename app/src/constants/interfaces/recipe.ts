@@ -34,3 +34,31 @@ export interface Recipe {
     detail: Preview;
   };
 }
+
+export enum FileTypes {
+  file = 'file',
+  folder = 'folder'
+}
+
+export interface TreeFileItem {
+  type: FileTypes;
+  name: string;
+  content: any;
+}
+
+export interface TreeFolderItem {
+  type: FileTypes;
+  name: string;
+  content: TreeFileItem[];
+}
+
+export interface TreeRecipeItem {
+  name: string;
+  files: Array<TreeFileItem | TreeFolderItem>;
+}
+
+export interface SelectedFile {
+  code: string;
+  name: string;
+  lang: string;
+}

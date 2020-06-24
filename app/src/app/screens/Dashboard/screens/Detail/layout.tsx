@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { withSpinner } from '~components/Spinner';
 
 import RecipePreview from '../Category/components/RecipePreview';
-import { Recipe } from '../../../../../constants/interfaces/recipe';
+import { Recipe, SelectedFile } from '../../../../../constants/interfaces/recipe';
+import Tree from '../../../../components/Tree';
 
 import Settings from './components/Options';
 import Code from './components/Code';
@@ -20,6 +21,9 @@ function DetailContainer({ title, recipe, onDownload }: Props) {
   const [isCodeVisible, setIsCodeVisible] = useState(false);
 
   const handleClick = () => setIsCodeVisible(!isCodeVisible);
+
+  // const [fileData, setFileData] = useState<{ name: string, code: string, lang: string }>({ name: '', code: '', lang: '' });
+  // const handleFileSelect = ( data: SelectedFile ) => { setFileData(data); }
 
   return (
     <>
@@ -42,8 +46,19 @@ function DetailContainer({ title, recipe, onDownload }: Props) {
         </div>
       </div>
       {isCodeVisible ? (
-        <Code html={html.content} scss={scss.content} onDownload={onDownload} />
+        // <div className={styles.filesStructureContainer}>
+        //   <Tree handleSelect={handleFileSelect}/>
+        <Code
+          // code={fileData.code}
+          // name={fileData.name}
+          // lang={fileData.lang}
+          html={html.content}
+          scss={scss.content}
+          readme="hola"
+          onDownload={onDownload}
+        />
       ) : (
+        // </div>
         <Settings />
       )}
     </>

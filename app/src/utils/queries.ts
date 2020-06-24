@@ -29,17 +29,57 @@ const queryBuilder = (
   }
 `;
 
-const filesQuery = `
-  ... on Tree {
-    entries {
-      name
-      object {
-        ... on Blob {
-          text
+// const filesQuery = `
+//   ... on Tree {
+//     entries {
+//       name
+//       object {
+//         ... on Blob {
+//           text
+//         }
+//       }
+//     }
+//   }`;
+
+const filesQuery = `    
+... on Tree {
+  entries {
+    name
+    object {
+      ... on Blob {
+        text
+      }
+      ... on Tree {
+        entries {
+          name
+          object {
+            ... on Blob {
+              text
+            }
+            ... on Tree {
+              entries {
+                name
+                object {
+                  ... on Blob {
+                    text
+                  }
+                  ... on Tree {
+                    entries {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
-  }`;
+  }
+}`;
+//     }
+//   }
+// }
 
 export const getCategoriesAndTechs = () =>
   queryBuilder(

@@ -1,0 +1,62 @@
+@import 'variables/colors';
+@import 'variables/sizes';
+
+.tree {
+  align-items: flex-start;
+  background: $limed-spruce;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 10px 0;
+  overflow: auto;
+
+  &-root {
+    align-items: center;
+    color: $code-gray;
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: 700;
+    height: $tree-item;
+    padding-left: 15px;
+    vertical-align: middle;
+  }
+
+  &-nodes-container {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    font-size: $tree-font-size;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-item {
+    color: $code-gray;
+    font-size: inherit;
+    height: $tree-item;
+    padding: 2px;
+    padding-left: var(--padding-left);
+    text-align: left;
+    width: 100%;
+
+    &:hover {
+      background: $shuttle-gray;
+    }
+  }
+
+  &-folder {
+    align-items: flex-start;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+
+    &-container {
+      width: 100%;
+    }
+
+    &--hidden {
+      height: 0;
+    }
+  }
+}
