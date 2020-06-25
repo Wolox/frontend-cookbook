@@ -53,11 +53,9 @@
   }
 }
 
-.is-open {
-  &::after {
-    transform: rotate(0deg);
-    transition: transform $transition-duration $transition-function;
-  }
+.is-open::after {
+  transform: rotate(0deg);
+  transition: transform $transition-duration $transition-function;
 }
 
 .option-selected {
@@ -81,8 +79,9 @@
   color: $white;
   position: absolute;
   width: 200px;
-  z-index: 2;
-  top: 65px;
+  z-index: 1;
+  top: 67px;
+  left: 0;
 }
 
 .item-list {

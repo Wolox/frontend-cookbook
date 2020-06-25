@@ -38,9 +38,9 @@ function Sidebar() {
   };
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside, true);
+    document.addEventListener('click', handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside, true);
+      document.removeEventListener('click', handleClickOutside);
     };
   });
 
