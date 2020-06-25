@@ -74,7 +74,7 @@ function Sidebar() {
         </div>
         {isUserLoggedIn ? (
           <div className={`column ${styles.contentLinks} start`}>
-            <div className="column m-bottom-3">
+            <div className={`column m-bottom-3 ${styles.selectContainer}`}>
               <span className={styles.techTitle}>Tech:</span>
               <div
                 className={cn(styles.boxTechSelected, {

@@ -26,6 +26,10 @@
   text-transform: uppercase;
 }
 
+.select-container {
+  position: relative;
+}
+
 .box-tech-selected {
   border: 1px solid $border-white;
   cursor: pointer;
@@ -75,8 +79,10 @@
   cursor: pointer;
   display: block;
   color: $white;
-  position: relative;
+  position: absolute;
   width: 200px;
+  z-index: 2;
+  top: 65px;
 }
 
 .item-list {
