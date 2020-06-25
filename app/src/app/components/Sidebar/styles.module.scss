@@ -26,10 +26,74 @@
   text-transform: uppercase;
 }
 
-.tech-select {
-  background-color: transparent;
-  color: $science-blue;
-  appearance: menulist-button;
+.box-tech-selected {
+  border: 1px solid $border-white;
+  cursor: pointer;
+  height: 35px;
+  position: relative;
+  margin: 8px 0;
+  width: 200px;
+
+  &::after {
+    background: url('../../../assets/arrow.svg') no-repeat;
+    background-size: 100%;
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    text-align: center;
+    margin: 10px;
+    transform: rotate(-180deg);
+    transition: transform $transition-duration $transition-function;
+  }
+}
+
+.is-open {
+  &::after {
+    transform: rotate(0deg);
+    transition: transform $transition-duration $transition-function;
+  }
+}
+
+.option-selected {
+  color: $white;
+  font-size: 16px;
+  text-align: left;
+  margin: 8px;
+}
+
+.menu-select {
+  display: none;
+}
+
+.menu-select-open {
+  background-color: $cello;
+  border: 1px solid $east-bay;
+  border-radius: 4px;
+  box-shadow: 0 0 4px 0 $shadow-menu;
+  cursor: pointer;
+  display: block;
+  color: $white;
+  position: relative;
+  width: 200px;
+}
+
+.item-list {
+  padding: 8px;
+
+  &:hover {
+    background-color: $mariner;
+  }
+}
+
+.icon-check {
+  margin-right: 8px;
+  opacity: 0;
+}
+
+.item-selected {
+  opacity: 1;
 }
 
 .simple-link {

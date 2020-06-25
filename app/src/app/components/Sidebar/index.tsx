@@ -1,10 +1,11 @@
-import React, { useState, useCallback, ChangeEvent } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Link, useLocation } from 'react-router-dom';
 import cn from 'classnames';
 
 import Routes from '~constants/routes';
 import logo from 'assets/logo.svg';
+import checkIcon from 'assets/ic_check.svg';
 import { getCategoriesAndTechs } from '~utils/queries';
 import { useAuthContext } from '~context/AuthProvider';
 import { useGlobalContext } from '~context/GlobalProvider';
@@ -17,12 +18,31 @@ import styles from './styles.module.scss';
 function Sidebar() {
   const categoryType = useLocation().pathname.split('/')[1];
   const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
+  const [toogleOpen, settoogleOpen] = useState(false);
+  const select = useRef<HTMLDivElement>(null);
   const {
     state: { tech: selectedTech },
     dispatch
   } = useGlobalContext();
-  const handleTechChange = (event: ChangeEvent<HTMLSelectElement>) =>
-    dispatch(actionCreators.setTech(event.target.value));
+
+  const handleTechChange = (option: string) => {
+    settoogleOpen(false);
+    dispatch(actionCreators.setTech(option));
+  };
+
+  const handleClickOutside = (event: Event) => {
+    const target = event.target as HTMLElement;
+    if (select.current && !select.current.contains(target)) {
+      settoogleOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  });
 
   const { loading, data } = useQuery<TechsResult>(getCategoriesAndTechs());
 
@@ -35,6 +55,7 @@ function Sidebar() {
   const loginToGithubURL = `http://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URL}`;
 
   const toggleSidebar = useCallback(() => setsidebarIsOpen(!sidebarIsOpen), [sidebarIsOpen]);
+  const toggleSelectMenu = useCallback(() => settoogleOpen(!toogleOpen), [toogleOpen]);
 
   return (
     <div className={cn(styles.sidebarContainer, 'column space-between', { [styles.visible]: sidebarIsOpen })}>
@@ -53,16 +74,31 @@ function Sidebar() {
         </div>
         {isUserLoggedIn ? (
           <div className={`column ${styles.contentLinks} start`}>
-            <div className="row m-bottom-3">
+            <div className="column m-bottom-3">
               <span className={styles.techTitle}>Tech:</span>
-              <select className={styles.techSelect} value={selectedTech} onChange={handleTechChange}>
-                <option value="all">Todas</option>
+              <div
+                className={cn(styles.boxTechSelected, {
+                  [`${styles.isOpen}`]: toogleOpen
+                })}
+                onClick={toggleSelectMenu}
+                ref={select}
+              >
+                <span className={styles.optionSelected}>{selectedTech}</span>
+              </div>
+              <ul className={cn(styles.menuSelect, { [`${styles.menuSelectOpen}`]: toogleOpen })}>
                 {techs.map(tech => (
-                  <option key={tech.name} value={tech.name}>
+                  <li key={tech.name} className={styles.itemList} onClick={() => handleTechChange(tech.name)}>
+                    <img
+                      src={checkIcon}
+                      alt="Icon check"
+                      className={cn(styles.iconCheck, {
+                        [`${styles.itemSelected}`]: tech.name === selectedTech
+                      })}
+                    />
                     {tech.name}
-                  </option>
+                  </li>
                 ))}
-              </select>
+              </ul>
             </div>
             {categories &&
               (selectedTech === ALL_TECHS
