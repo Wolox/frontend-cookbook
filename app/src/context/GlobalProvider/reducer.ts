@@ -4,7 +4,7 @@ import { Action } from '~constants/interfaces/store';
 import { actions } from './actions';
 import { GlobalState, SetTitleAction, SetTechAction } from './interfaces';
 
-export const ALL_TECHS = 'all';
+export const ALL_TECHS = 'View all';
 
 export const globalState: GlobalState = {
   title: 'Wolox Cookbook',

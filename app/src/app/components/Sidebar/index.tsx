@@ -86,6 +86,16 @@ function Sidebar() {
                 <span className={styles.optionSelected}>{selectedTech}</span>
               </div>
               <ul className={cn(styles.menuSelect, { [`${styles.menuSelectOpen}`]: toogleOpen })}>
+                <li key={ALL_TECHS} className={styles.itemList} onClick={() => handleTechChange(ALL_TECHS)}>
+                  <img
+                    src={checkIcon}
+                    alt="Icon check"
+                    className={cn(styles.iconCheck, {
+                      [`${styles.itemSelected}`]: ALL_TECHS === selectedTech
+                    })}
+                  />
+                  {ALL_TECHS}
+                </li>
                 {techs.map(tech => (
                   <li key={tech.name} className={styles.itemList} onClick={() => handleTechChange(tech.name)}>
                     <img
