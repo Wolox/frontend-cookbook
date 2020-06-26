@@ -1,0 +1,136 @@
+{
+  "name": "cookbook-react",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "apisauce": "^1.1.1",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "history": "^4.10.1",
+    "i18next": "^13.1.5",
+    "node-sass": "^4.14.1",
+    "postcss": "^7.0.32",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-paginate": "^6.3.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "react-spinkit": "^3.0.0",
+    "seamless-immutable": "^7.1.4",
+    "typescript": "^3.9.5",
+    "wolox-equalizer": "0.0.3"
+  },
+  "scripts": {
+    "start": "node ./scripts/start.js development",
+    "start-env": "node ./scripts/start.js",
+    "build": "node ./scripts/build.js",
+    "test": "rescripts test --env=jsdom",
+    "eject": "./node_modules/react-scripts/bin/react-scripts.js eject",
+    "lint": "./node_modules/eslint/bin/eslint.js src",
+    "lint-fix": "./node_modules/eslint/bin/eslint.js src --fix && ./node_modules/stylelint/bin/stylelint.js '**/*.scss' --fix",
+    "lint-scss": "./node_modules/stylelint/bin/stylelint.js '**/*.scss'",
+    "lint-diff": "git diff --name-only --cached --relative --diff-filter=ACM | grep \\.js$ | xargs eslint",
+    "coverage-diff": "rescripts test --env=jsdom --coverage --watchAll=false --changedSince=development"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.10.3",
+    "@rescripts/cli": "0.0.13",
+    "@types/enzyme": "^3.10.5",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.12.47",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-paginate": "^6.2.1",
+    "@types/react-router": "^5.1.8",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/react-spinkit": "^3.0.6",
+    "@types/react-test-renderer": "^16.9.2",
+    "@types/seamless-immutable": "^7.1.13",
+    "@types/webpack-env": "^1.15.2",
+    "aws-deploy-script-fe": "^1.0.8",
+    "chalk": "^3.0.0",
+    "env-cmd": "^10.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.5.0",
+    "eslint-config-wolox": "^3.0.2",
+    "eslint-config-wolox-react": "^2.0.1",
+    "eslint-config-wolox-typescript": "^1.0.1",
+    "eslint-import-resolver-babel-module": "^5.1.2",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "husky": "^4.2.5",
+    "minimist": "^1.2.0",
+    "postcss-html": "^0.36.0",
+    "postcss-syntax": "^0.36.2",
+    "prettier": "^1.19.1",
+    "prettier-eslint": "^8.8.2",
+    "prettier-eslint-cli": "^5.0.0",
+    "prettier-stylelint": "^0.4.2",
+    "prop-types": "^15.7.2",
+    "react-hot-loader": "^4.12.21",
+    "react-test-renderer": "^16.13.1",
+    "stylelint": "^9.10.1",
+    "stylelint-config-wolox": "^1.0.7",
+    "stylelint-no-indistinguishable-colors": "^1.2.1",
+    "stylelint-scss": "^3.5.4"
+  },
+  "title": "cookbook-react",
+  "jest": {
+    "moduleNameMapper": {
+      "~screens(.*)": "<rootDir>/src/app/screens/$1",
+      "~components(.*)": "<rootDir>/src/app/components/$1",
+      "~hooks(.*)": "<rootDir>/src/app/hooks/$1",
+      "~contexts(.*)": "<rootDir>/src/app/contexts/$1",
+      "^~(.*)/(.*)$": "<rootDir>/src/$1/$2"
+    },
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    }
+  },
+  "repository": {
+    "type": "git"
+  },
+  "engines": {
+    "node": ">= 10.15.3",
+    "npm": ">= 6.9.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-diff && npm run lint-scss",
+      "pre-push": "npm run coverage-diff"
+    }
+  }
+}
