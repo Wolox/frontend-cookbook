@@ -30,58 +30,58 @@
   position: relative;
 }
 
-.box-tech-selected {
+.box-tech {
   border: 1px solid $border-white;
   cursor: pointer;
   height: 35px;
-  position: relative;
   margin: 8px 0;
+  position: relative;
+  text-align: start;
   width: 200px;
 
   &::after {
-    background: url('../../../assets/arrow.svg') no-repeat;
-    background-size: 100%;
+    background: url('../../../assets/arrow.svg') no-repeat center/100%;
     content: '';
     position: absolute;
-    right: 0;
-    width: 12px;
     height: 12px;
-    text-align: center;
     margin: 10px;
+    right: 0;
+    text-align: center;
     transform: rotate(-180deg);
     transition: transform $transition-duration $transition-function;
+    width: 12px;
   }
-}
 
-.is-open::after {
-  transform: rotate(0deg);
-  transition: transform $transition-duration $transition-function;
+  &--open::after {
+    transform: rotate(0deg);
+    transition: transform $transition-duration $transition-function;
+  }
 }
 
 .option-selected {
   color: $white;
   font-size: 16px;
-  text-align: left;
   margin: 8px;
+  text-align: left;
 }
 
 .menu-select {
   display: none;
-}
 
-.menu-select-open {
-  background-color: $cello;
-  border: 1px solid $east-bay;
-  border-radius: 4px;
-  box-shadow: 0 0 4px 0 $shadow-menu;
-  cursor: pointer;
-  display: block;
-  color: $white;
-  position: absolute;
-  width: 200px;
-  z-index: 1;
-  top: 67px;
-  left: 0;
+  &--open {
+    background-color: $cello;
+    border: 1px solid $east-bay;
+    border-radius: 4px;
+    box-shadow: 0 0 4px 0 $shadow-menu;
+    color: $white;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 67px;
+    width: 200px;
+    z-index: 1;
+  }
 }
 
 .item-list {
