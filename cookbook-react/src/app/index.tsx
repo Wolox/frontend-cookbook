@@ -1,19 +1,31 @@
-import React, { useReducer } from 'react';
+import React, { Suspense, lazy } from 'react';
 
-import '../scss/application.scss';
-
-import { reducer as userReducer, INITIAL_STATE } from '~contexts/UserContext/reducer';
-import { Context } from '~contexts/UserContext';
-
-import Routes from './components/Routes';
+import './styles.scss';
 
 function App() {
-  const [userState, userDispatch] = useReducer(userReducer, INITIAL_STATE);
+  const urlParams = new URLSearchParams(window.location.search),
+    category = urlParams.get('category'),
+    component = urlParams.get('component');
+
+  const CustomComponent = lazy(() => import(`../../recipes/${category}/${component}`));
+
+  if (urlParams.get('compact') === 'true') {
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <CustomComponent />
+      </Suspense>
+    );
+  }
 
   return (
-    <Context.Provider value={{ state: userState, dispatch: userDispatch }}>
-      <Routes />
-    </Context.Provider>
+    <div className="row">
+      <div>
+        <p className="explanation">The component in the container is how it will be seen in the app</p>
+        <Suspense fallback={<div>Loading...</div>}>
+          <CustomComponent />
+        </Suspense>
+      </div>
+    </div>
   );
 }
 

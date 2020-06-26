@@ -7,7 +7,7 @@ module.exports = {
     },
     'import/resolver': {
       'babel-module': {
-        root: ['./src'],
+        root: ['.'],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         alias: {
           '~components': './src/app/components',

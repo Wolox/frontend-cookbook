@@ -20,7 +20,8 @@
     "jsx": "react"
   },
   "include": [
-    "src"
+    "src",
+    "recipes"
   ],
   "extends": "./tsconfig.paths.json"
 }

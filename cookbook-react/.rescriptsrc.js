@@ -19,6 +19,7 @@ const enableBabelRc = config => {
   fileLoaders.forEach(loader => {
     if (babelLoaderMatcher(loader)) {
       loader.options.babelrc = true;
+      loader.include = path.resolve(__dirname, '.')
     }
   });
 };
