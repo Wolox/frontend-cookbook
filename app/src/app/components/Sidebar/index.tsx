@@ -18,7 +18,7 @@ import styles from './styles.module.scss';
 function Sidebar() {
   const categoryType = useLocation().pathname.split('/')[1];
   const [sidebarIsOpen, setsidebarIsOpen] = useState(false);
-  const [toogleOpen, setToogleOpen] = useState(false);
+  const [toggleOpen, setToggleOpen] = useState(false);
   const select = useRef<HTMLButtonElement>(null);
   const {
     state: { tech: selectedTech },
@@ -26,14 +26,14 @@ function Sidebar() {
   } = useGlobalContext();
 
   const handleTechChange = (option: string) => {
-    setToogleOpen(false);
+    setToggleOpen(false);
     dispatch(actionCreators.setTech(option));
   };
 
   const handleClickOutside = (event: Event) => {
     const target = event.target as HTMLElement;
     if (select.current && !select.current.contains(target)) {
-      setToogleOpen(false);
+      setToggleOpen(false);
     }
   };
 
@@ -57,7 +57,7 @@ function Sidebar() {
   const loginToGithubURL = `http://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URL}`;
 
   const toggleSidebar = useCallback(() => setsidebarIsOpen(!sidebarIsOpen), [sidebarIsOpen]);
-  const toggleSelectMenu = useCallback(() => setToogleOpen(!toogleOpen), [toogleOpen]);
+  const toggleSelectMenu = useCallback(() => setToggleOpen(!toggleOpen), [toggleOpen]);
 
   return (
     <div className={cn(styles.sidebarContainer, 'column space-between', { [styles.visible]: sidebarIsOpen })}>
@@ -79,19 +79,19 @@ function Sidebar() {
             <div className={`column m-bottom-3 ${styles.selectContainer}`}>
               <span className={styles.techTitle}>Tech:</span>
               <button
-                className={cn(styles.boxTech, { [styles.boxTechOpen]: toogleOpen })}
+                className={cn(styles.boxTech, { [styles.boxTechOpen]: toggleOpen })}
                 onClick={toggleSelectMenu}
                 type="button"
                 ref={select}
               >
                 <span className={styles.optionSelected}>{selectedTech}</span>
               </button>
-              <ul className={cn(styles.menuSelect, { [`${styles.menuSelectOpen}`]: toogleOpen })}>
+              <ul className={cn(styles.menuSelect, { [`${styles.menuSelectOpen}`]: toggleOpen })}>
                 {options.map(tech => (
                   <li key={tech.name} className={styles.itemList} onClick={() => handleTechChange(tech.name)}>
                     <img
                       src={checkIcon}
-                      alt=" "
+                      alt="selected"
                       className={cn(styles.iconCheck, {
                         [`${styles.itemSelected}`]: tech.name === selectedTech
                       })}
