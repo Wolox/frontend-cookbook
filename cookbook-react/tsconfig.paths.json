@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "~scss/*": ["scss/*"],
-      "~constants/*": ["constants/*"],
-      "~utils/*": ["utils/*"],
-      "~services/*": ["services/*"],
-      "~components/*": ["app/components/*"],
-      "~screens/*": ["app/screens/*"],
-      "~config/*": ["config/*"],
-      "~schema/*": ["schema/*"],
-      "~app/*": ["app/*"],
-      "~hooks/*": ["app/hooks/*"],
-      "~contexts/*": ["app/contexts/*"]
+      "~scss/*": ["src/scss/*"],
+      "~constants/*": ["src/constants/*"],
+      "~utils/*": ["src/utils/*"],
+      "~services/*": ["src/services/*"],
+      "~components/*": ["src/app/components/*"],
+      "~screens/*": ["src/app/screens/*"],
+      "~config/*": ["src/config/*"],
+      "~schema/*": ["src/schema/*"],
+      "~app/*": ["src/app/*"],
+      "~hooks/*": ["src/app/hooks/*"],
+      "~contexts/*": ["src/app/contexts/*"]
     }
   }
 }
