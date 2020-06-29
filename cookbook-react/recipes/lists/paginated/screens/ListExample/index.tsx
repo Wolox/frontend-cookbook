@@ -9,7 +9,6 @@ import { useRequest } from '~app/hooks/useRequest';
 import Paginator from '~components/Paginator';
 
 import styles from './styles.module.scss';
-import ListExampleItem from './components/ListExampleItem';
 
 function ListExample() {
   const [list, loading, error, getPage] = useRequest({ request: getList, payload: { page: 1 } }, []);
@@ -23,13 +22,10 @@ function ListExample() {
       ) : (
         <>
           {list?.page?.map(item => (
-            <ListExampleItem key={item} item={item} />
-          ))}
-          {/* {list?.page?.map(item => (
             <div key={item} className={styles.item}>
               {item}
             </div>
-          ))} */}
+          ))}
           <Paginator
             pageCount={list?.totalPages}
             onPageChange={currentPage => getPage({ page: currentPage.selected + 1 })}
