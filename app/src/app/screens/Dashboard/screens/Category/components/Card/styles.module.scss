@@ -9,6 +9,7 @@ $card-info-content: 70px;
   box-shadow: 1px 1px 3px rgba($black, 0.3);
   height: 255px;
   max-width: 255px;
+  overflow: hidden;
   position: relative;
   transition: box-shadow $transition-duration $transition-function, transform $transition-duration ease; /* stylelint-disable-line */
 
@@ -69,6 +70,7 @@ $card-info-content: 70px;
   position: absolute;
   text-transform: capitalize;
   top: 0;
+  z-index: 1;
 }
 
 .link-detail {
