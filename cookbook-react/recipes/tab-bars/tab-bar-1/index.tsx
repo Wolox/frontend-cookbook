@@ -9,7 +9,7 @@ interface Option {
 }
 
 interface Props {
-  options?: Option[];
+  options: Option[];
 }
 
 function TabBar({ options }: Props) {
@@ -24,10 +24,11 @@ function TabBar({ options }: Props) {
         <div className="tabs">
           {options.map((option, idx) => (
             <button
+              type="button"
               className={cn("option", { "selected": selection == idx })}
               onClick={() => setSelection(idx)}
             >
-              {option ?.label}
+              {option?.label}
             </button>)
           )}
         </div>
