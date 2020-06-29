@@ -1,9 +1,9 @@
 .collapse-container {
-  --background-color: #fff;
+  --background-color: #FFF;
   --border-color: #848486;
   --icon-height: 10px;
   --icon-width: 14px;
-  --title-color: #08080d;
+  --title-color: #08080D;
 }
 
 .collapse-wrapper {
@@ -12,7 +12,7 @@
   border-bottom: 1px solid var(--border-color);
   height: 40px;
   overflow: hidden;
-  transition: height 300ms linear;
+  transition: height 0.3s linear;
   width: 400px;
 
   .title-container {
@@ -33,7 +33,7 @@
       height: var(--icon-height);
       margin: 2px;
       position: relative;
-      transition: transform 300ms linear;
+      transition: transform 0.3s linear;
       width: var(--icon-width);
 
       &::before,
