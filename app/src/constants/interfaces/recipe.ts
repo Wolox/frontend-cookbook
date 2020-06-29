@@ -25,40 +25,48 @@ type Preview = {
 export interface Recipe {
   title: string;
   tech: string;
-  html: RecipeFile;
-  css: RecipeFile;
-  scss: RecipeFile;
   readme?: RecipeFile;
   config: {
     thumbnail: Preview;
     detail: Preview;
   };
+  source: TreeRecipe;
+  // TODO: Remove the next props once it's updated to the new files structure
+  html: RecipeFile;
+  css: RecipeFile;
+  scss: RecipeFile;
 }
 
 export enum FileTypes {
   file = 'file',
-  folder = 'folder'
-}
-
-export interface TreeFileItem {
-  type: FileTypes;
-  name: string;
-  content: any;
-}
-
-export interface TreeFolderItem {
-  type: FileTypes;
-  name: string;
-  content: TreeFileItem[];
-}
-
-export interface TreeRecipeItem {
-  name: string;
-  files: Array<TreeFileItem | TreeFolderItem>;
+  folder = 'folder',
+  blob = 'Blob',
+  tree = 'Tree'
 }
 
 export interface SelectedFile {
-  code: string;
+  src: string;
   name: string;
   lang: string;
+  isBinary: boolean;
+}
+
+export type TreeEntry = TreeEntryFile | TreeEntryFolder;
+
+export interface TreeEntryFile {
+  name: string;
+  type: FileTypes.blob;
+  src: string;
+  isBinary: boolean;
+}
+
+export interface TreeEntryFolder {
+  name: string;
+  type: FileTypes.tree;
+  entries: TreeEntry[];
+}
+
+export interface TreeRecipe {
+  name: string;
+  entries: TreeEntry[];
 }

@@ -29,18 +29,6 @@ const queryBuilder = (
   }
 `;
 
-// const filesQuery = `
-//   ... on Tree {
-//     entries {
-//       name
-//       object {
-//         ... on Blob {
-//           text
-//         }
-//       }
-//     }
-//   }`;
-
 const filesQuery = `    
 ... on Tree {
   entries {
@@ -48,6 +36,7 @@ const filesQuery = `
     object {
       ... on Blob {
         text
+        isBinary
       }
       ... on Tree {
         entries {
@@ -55,6 +44,7 @@ const filesQuery = `
           object {
             ... on Blob {
               text
+              isBinary
             }
             ... on Tree {
               entries {
@@ -62,6 +52,7 @@ const filesQuery = `
                 object {
                   ... on Blob {
                     text
+                    isBinary
                   }
                   ... on Tree {
                     entries {
@@ -77,9 +68,6 @@ const filesQuery = `
     }
   }
 }`;
-//     }
-//   }
-// }
 
 export const getCategoriesAndTechs = () =>
   queryBuilder(

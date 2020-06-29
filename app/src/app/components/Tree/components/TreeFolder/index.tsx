@@ -1,42 +1,49 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 
-import File from '../TreeFile'
-
-import { TreeFolderItem, TreeFileItem, FileTypes, SelectedFile } from '../../../../../constants/interfaces/recipe';
-
+import TreeFile from '../TreeFile';
+import { TreeEntryFolder, SelectedFile, FileTypes } from '../../../../../constants/interfaces/recipe';
 import styles from '../../styles.module.scss';
 
-interface Props extends TreeFolderItem{
+interface Props extends TreeEntryFolder {
   handleSelect(fileData: SelectedFile): void;
-  paddingLeft?: number
+  paddingLeft?: number;
 }
 
-function Folder({ type, name, content, handleSelect, paddingLeft = 15 } : Props) {
-  const [isContentVisible, setContentVisibility] = useState(false)
-  const padding = { '--padding-left': `${paddingLeft}px` } as React.CSSProperties;
-  paddingLeft += 10
+const defaultPaddingLeft = 15;
+const paddingIncrement = 10;
 
+function TreeFolder({ name, entries, handleSelect, paddingLeft = defaultPaddingLeft }: Props) {
+  const [isContentVisible, setContentVisibility] = useState(false);
+  const padding = { '--padding-left': `${paddingLeft}px` } as React.CSSProperties;
+  const newLevelPadding = paddingLeft + paddingIncrement;
   return (
     <div className={styles['tree-folder-container']}>
-      {/* TODO: Replace &gt; by a folder icon */}
       <button
+        type="button"
         className={styles['tree-item']}
-        style={padding}
+        style={padding} // eslint-disable-line react/forbid-dom-props
         onClick={() => setContentVisibility(!isContentVisible)}
       >
+        {/* TODO: Replace &gt; by a folder icon */}
         &gt; {name}
       </button>
       <div className={cn(styles['tree-folder'], { [styles['tree-folder--hidden']]: !isContentVisible })}>
-        {
-          content.map((element : TreeFileItem | TreeFolderItem) => element.type === FileTypes.file
-            ? <File {...element} name={`${name}/${element.name}`} handleSelect={handleSelect} paddingLeft={paddingLeft}/>
-            : <Folder {...element} handleSelect={handleSelect} paddingLeft={paddingLeft}/>
+        {entries?.map(element =>
+          element.type === FileTypes.blob ? (
+            <TreeFile
+              {...element}
+              name={`${name}/${element.name}`}
+              handleSelect={handleSelect}
+              paddingLeft={newLevelPadding}
+            />
+          ) : (
+            <TreeFolder {...element} handleSelect={handleSelect} paddingLeft={newLevelPadding} />
           )
-        }
+        )}
       </div>
     </div>
   );
-};
+}
 
-export default Folder;
+export default TreeFolder;

@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import { withSpinner } from '~components/Spinner';
 
 import RecipePreview from '../Category/components/RecipePreview';
-import { Recipe, SelectedFile } from '../../../../../constants/interfaces/recipe';
-import Tree from '../../../../components/Tree';
+import { Recipe } from '../../../../../constants/interfaces/recipe';
 
 import Settings from './components/Options';
 import Code from './components/Code';
@@ -17,13 +16,9 @@ interface Props {
 }
 
 function DetailContainer({ title, recipe, onDownload }: Props) {
-  const { html, scss } = recipe;
   const [isCodeVisible, setIsCodeVisible] = useState(false);
 
   const handleClick = () => setIsCodeVisible(!isCodeVisible);
-
-  // const [fileData, setFileData] = useState<{ name: string, code: string, lang: string }>({ name: '', code: '', lang: '' });
-  // const handleFileSelect = ( data: SelectedFile ) => { setFileData(data); }
 
   return (
     <>
@@ -45,22 +40,7 @@ function DetailContainer({ title, recipe, onDownload }: Props) {
           <label htmlFor="chkButton" />
         </div>
       </div>
-      {isCodeVisible ? (
-        // <div className={styles.filesStructureContainer}>
-        //   <Tree handleSelect={handleFileSelect}/>
-        <Code
-          // code={fileData.code}
-          // name={fileData.name}
-          // lang={fileData.lang}
-          html={html.content}
-          scss={scss.content}
-          readme="hola"
-          onDownload={onDownload}
-        />
-      ) : (
-        // </div>
-        <Settings />
-      )}
+      {isCodeVisible ? <Code source={recipe.source} onDownload={onDownload} /> : <Settings />}
     </>
   );
 }

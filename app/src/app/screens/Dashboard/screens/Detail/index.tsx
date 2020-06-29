@@ -7,8 +7,18 @@ import { saveAs } from 'file-saver';
 import { getRecipeFiles } from '~utils/queries';
 import { getRecipeCode } from '~utils/recipes';
 import { updateDownloadsCounter } from 'services/FirebaseService';
+import { TreeEntry, FileTypes } from '~constants/interfaces/recipe';
 
 import DetailsContainer from './layout';
+
+const zipEntry = (zip: JSZip, entry: TreeEntry) => {
+  if (entry.type === FileTypes.blob) {
+    zip.file(entry.name, entry.src);
+  } else {
+    const newFolder = zip.folder(entry.name);
+    entry.entries.forEach(newEntry => zipEntry(newFolder, newEntry));
+  }
+};
 
 function Detail() {
   const { tech, category, recipe } = useParams();
@@ -17,11 +27,11 @@ function Detail() {
 
   const downloadZip = useCallback(() => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { title, css, config, ...files } = recipeCode;
-
+    const { title, config, source, ...files } = recipeCode;
     updateDownloadsCounter(tech, recipe);
-
     const zip = new JSZip();
+    // TODO: Remove TreeEntry type once the parseTree has type checking
+    source?.entries.forEach((entry: TreeEntry) => zipEntry(zip, entry));
     Object.values(files).forEach(file => {
       if (file) {
         const { name, content } = file;
