@@ -58,3 +58,19 @@ $card-info-content: 70px;
   font-weight: 600;
   text-transform: capitalize;
 }
+
+.tech-tag {
+  align-self: flex-start;
+  background-color: $white;
+  border-radius: 12px;
+  color: $bastille;
+  margin: 10px;
+  padding: 4px;
+  position: absolute;
+  text-transform: capitalize;
+  top: 0;
+}
+
+.link-detail {
+  color: $mariner;
+}
