@@ -1,3 +1,5 @@
+import { Nullable } from '@interfaces/globalInterfaces';
+
 export interface CurrentUser {
   sessionToken: string;
 }
@@ -8,8 +10,8 @@ export interface AuthData {
 }
 
 export interface AuthState {
-  currentUser: CurrentUser | null;
+  currentUser: Nullable<CurrentUser>;
   currentUserLoading: boolean;
-  currentUserError: string | null;
+  currentUserError: Nullable<string>;
   initialLoading: boolean;
 }

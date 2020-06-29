@@ -8,19 +8,17 @@ import withLoadable from '@components/Loadable';
 
 import Navigator from './navigator';
 
-const initialLoadingSelector = (state: State) => state.auth.initialLoading;
-
 const AppNavigator = () => {
   const [routeName, setRouteName] = useState(null);
+
   useEffect(() => {
     setRouteName(getActiveRoute()?.name);
   }, []);
+
   const onStateChange = (state?: NavigationState) => {
     const previousRouteName = routeName;
     const currentRouteName = getRoute(state)?.name;
-    if (previousRouteName !== currentRouteName) {
-      setRouteName(currentRouteName);
-    }
+    if (previousRouteName !== currentRouteName) setRouteName(currentRouteName);
   };
 
   return (
@@ -31,4 +29,4 @@ const AppNavigator = () => {
   );
 };
 
-export default withLoadable(() => useSelector(initialLoadingSelector))(AppNavigator);
+export default withLoadable(() => useSelector((state: State) => state.auth.initialLoading))(AppNavigator);

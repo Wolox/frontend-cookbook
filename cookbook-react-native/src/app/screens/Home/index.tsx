@@ -13,7 +13,7 @@ function Home() {
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>{/* TODO: Test your recipe */}</View>
-      <CustomOpacityButton onPress={handleLogout} green title="Logout!" style={styles.home} />
+      <CustomOpacityButton black onPress={handleLogout} title="Logout!" style={styles.button} />
     </View>
   );
 }
