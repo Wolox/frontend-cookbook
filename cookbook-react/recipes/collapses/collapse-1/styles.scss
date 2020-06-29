@@ -39,7 +39,7 @@
       &::before,
       &::after {
         border: calc(var(--icon-width) / 2) solid transparent;
-        content: "";
+        content: '';
         display: block;
         position: absolute;
       }
