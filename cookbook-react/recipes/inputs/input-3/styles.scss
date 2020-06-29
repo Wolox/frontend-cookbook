@@ -1,0 +1,86 @@
+$white: #fff;
+
+$input-border: #848486;
+$input-active-color: #0043cd;
+$input-submit: #5a667f;
+$error: #ea4453;
+$disabled: #b5b5b6;
+
+.input-wrapper {
+  height: 40px;
+  margin-bottom: 20px;
+  max-width: 150px;
+  position: relative;
+
+  .input-label {
+    background-color: $white;
+    left: 30px;
+    padding: 4px;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s;
+  }
+
+  .input-base {
+    background-color: transparent;
+    border: 1px solid $input-border;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 100%;
+    line-height: 20px;
+    padding: 0 15px;
+    transition: border 0.2s linear;
+    width: 100%;
+
+    &:not(:placeholder-shown) {
+      border-color: $input-submit;
+
+      + .input-label {
+        color: $input-submit;
+        font-size: 10px;
+        left: 22px;
+        line-height: 15px;
+        top: 6%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &:focus {
+      border-color: $input-active-color;
+
+      + .input-label {
+        color: $input-active-color;
+        font-size: 10px;
+        left: 22px;
+        line-height: 15px;
+        top: 6%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .input-error {
+    &:focus,
+    &:not(:placeholder-shown) {
+      border-color: $error;
+
+      + .input-label {
+        color: $error;
+      }
+    }
+  }
+
+  .input-disabled {
+    border: 1px solid $disabled;
+  }
+
+  .label-disabled {
+    color: $disabled;
+  }
+
+  .error-message {
+    color: $error;
+  }
+}
