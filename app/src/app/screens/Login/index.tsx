@@ -5,8 +5,8 @@ function Login() {
 
   return (
     <div className={`column middle center full-width full-height ${styles.container}`}>
-        <h1 className={`${styles.bigTitle} ${styles.fadeIn}`}>Front End Cookbook</h1>
-        <a href={loginToGithubURL} className={`row middle center ${styles.link} ${styles.fadeIn} delay`}>Let's go</a>
+      <h1 className={`${styles.bigTitle} ${styles.fadeIn}`}>Wolox Cookbook</h1>
+      <a href={loginToGithubURL} className={`row middle center ${styles.link} ${styles.fadeIn} delay`}>Let's go</a>
     </div>
   )
 }

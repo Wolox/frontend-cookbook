@@ -25,7 +25,7 @@ function AppRoutes() {
 
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') {
-      dispatch(setUserLoggedIn(false));
+      dispatch(setUserLoggedIn(true));
     } else if (getCurrentUser()) {
       dispatch(setUserLoggedIn(true));
     } else if (code) {
