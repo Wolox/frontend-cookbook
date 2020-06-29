@@ -20,6 +20,7 @@
     "classnames": "^2.2.6",
     "connected-react-router": "^6.7.0",
     "file-saver": "^2.0.2",
+    "firebase": "^7.15.3",
     "graphql": "^14.6.0",
     "history": "^4.10.1",
     "i18next": "^13.1.5",
