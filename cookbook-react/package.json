@@ -6,8 +6,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/classnames": "^2.2.10",
     "apisauce": "^1.1.1",
     "babel-plugin-module-resolver": "^3.2.0",
+    "classnames": "^2.2.6",
     "history": "^4.10.1",
     "i18next": "^13.1.5",
     "node-sass": "^4.14.1",
@@ -129,8 +131,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint-diff && npm run lint-scss",
-      "pre-push": "npm run coverage-diff"
+      "pre-commit": "npm run lint-diff && npm run lint-scss"
     }
   }
 }
