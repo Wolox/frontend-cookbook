@@ -1,27 +1,10 @@
-FROM node:8.5.0
+FROM node:10.11.0-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /home/node
 
-ENV NODE_ENV development
+COPY package.json .
 
-ENV HOME /usr/src/app
+RUN npm install
+ENV PATH /home/node/node_modules/.bin:$PATH
 
-RUN mkdir -p /install
-
-ENV NODE_PATH=/install/node_modules
-
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json /install/
-
-WORKDIR /install
-
-RUN npm i
-# If you are building your code for production
-# RUN npm install --only=production
-
-WORKDIR /usr/src/app
-
-# Bundle app source
-COPY . .
+WORKDIR /home/node/app
