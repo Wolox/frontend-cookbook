@@ -30,7 +30,7 @@ function Code({ title, source, onDownload }: Props) {
   return (
     <div className={styles.filesStructureContainer}>
       <div className={styles.header}>
-        <div className={styles['download-container']}>
+        <div className={styles.downloadContainer}>
           <button
             className={`${styles.downloadButton} ${styles.codeTypeButton}`}
             type="button"
@@ -39,7 +39,7 @@ function Code({ title, source, onDownload }: Props) {
             Download code
           </button>
         </div>
-        <h3 className={styles['file-name']}>{fileData.name}</h3>
+        <h3 className={styles.fileName}>{fileData.name}</h3>
       </div>
       <div className={styles.codeContainer}>
         <Tree handleSelect={handleFileSelect} source={source} title={title} activeId={fileData.id} />

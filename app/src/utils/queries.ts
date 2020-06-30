@@ -30,6 +30,11 @@ const queryBuilder = (
 `;
 
 const filesQuery = `    
+... on Blob {
+  id
+  isBinary
+  text
+}
 ... on Tree {
   entries {
     name
@@ -60,6 +65,18 @@ const filesQuery = `
                   ... on Tree {
                     entries {
                       name
+                      object {
+                        ... on Blob {
+                          id
+                          isBinary
+                          text
+                        }
+                        ... on Tree {
+                          entries {
+                            name
+                          }
+                        }
+                      }
                     }
                   }
                 }

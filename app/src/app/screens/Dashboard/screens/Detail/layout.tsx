@@ -20,15 +20,6 @@ function DetailContainer({ title, recipe, onDownload }: Props) {
       <div className={styles.upperSection}>
         <div className="row space-between m-bottom-4 middle">
           <h1 className="title">{title}</h1>
-          <a
-            href="https://github.com/Wolox/frontend-cookbook"
-            className={`row midle ${styles.githubLink}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {/* TODO: Add GitHub user of the creator. */}
-            by Tincho_otaku
-          </a>
         </div>
         <div className={styles.detailsRecipe}>
           <RecipePreview recipe={recipe} />
