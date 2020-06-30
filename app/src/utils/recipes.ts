@@ -21,6 +21,7 @@ const parseAndSortTree = (entries: any) => {
       : {
           name: entry.name,
           type: FileTypes.blob,
+          id: entry.object.id,
           src: entry.object.text,
           isBinary: entry.object.isBinary
         }
@@ -53,7 +54,7 @@ export const getRecipeCode = (recipe: GitHubResult) =>
           recipe.object.entries.find(entry => entry.name === 'cookbook.json')?.object.text || '{}'
         ),
         readme: getRecipeByFileName(recipe, 'readme.md'),
-        source: { name: recipe.name, entries: parseFilterAndSort(recipe.object.entries) },
+        source: { entries: parseFilterAndSort(recipe.object.entries) },
         // TODO: Remove this once RecipePreview is updated with the new files structure
         html: getRecipeByFileName(recipe, 'index.html'),
         css: getRecipeByFileName(recipe, 'styles.css'),

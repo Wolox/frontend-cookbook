@@ -45,6 +45,7 @@ export enum FileTypes {
 }
 
 export interface SelectedFile {
+  id: string;
   src: string;
   name: string;
   lang: string;
@@ -54,6 +55,7 @@ export interface SelectedFile {
 export type TreeEntry = TreeEntryFile | TreeEntryFolder;
 
 export interface TreeEntryFile {
+  id: string;
   name: string;
   type: FileTypes.blob;
   src: string;

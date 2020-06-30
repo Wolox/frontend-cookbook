@@ -35,6 +35,7 @@ const filesQuery = `
     name
     object {
       ... on Blob {
+        id
         text
         isBinary
       }
@@ -43,6 +44,7 @@ const filesQuery = `
           name
           object {
             ... on Blob {
+              id
               text
               isBinary
             }
@@ -51,6 +53,7 @@ const filesQuery = `
                 name
                 object {
                   ... on Blob {
+                    id
                     text
                     isBinary
                   }

@@ -5,8 +5,9 @@
   align-items: flex-start;
   background: $limed-spruce;
   display: flex;
-  flex: 1;
+  flex: 1 0;
   flex-direction: column;
+  min-width: 300px;
   padding: 10px 0;
   overflow: auto;
 
@@ -41,6 +42,21 @@
 
     &:hover {
       background: $shuttle-gray;
+    }
+
+    &--active {
+      background-color: $catskill-white;
+      position: relative;
+
+      &::after {
+        background-color: $royal-blue;
+        content: '';
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 5px;
+      }
     }
   }
 

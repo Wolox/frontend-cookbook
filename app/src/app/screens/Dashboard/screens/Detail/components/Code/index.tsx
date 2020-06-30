@@ -8,18 +8,20 @@ import { SelectedFile, TreeRecipe } from '~constants/interfaces/recipe';
 import styles from './styles.module.scss';
 
 interface Props {
-  onDownload: () => void;
+  title: string;
   source: TreeRecipe;
+  onDownload: () => void;
 }
 
 const defaultSelectedFile = {
+  id: '',
   name: '',
   src: '',
   lang: '',
   isBinary: false
 };
 
-function Code({ source, onDownload }: Props) {
+function Code({ title, source, onDownload }: Props) {
   const [fileData, setFileData] = useState<SelectedFile>(defaultSelectedFile);
   const handleFileSelect = (data: SelectedFile = defaultSelectedFile) => {
     setFileData(data);
@@ -40,7 +42,7 @@ function Code({ source, onDownload }: Props) {
         <h3 className={styles['file-name']}>{fileData.name}</h3>
       </div>
       <div className={styles.codeContainer}>
-        <Tree handleSelect={handleFileSelect} source={source} />
+        <Tree handleSelect={handleFileSelect} source={source} title={title} activeId={fileData.id} />
         <div className={styles.codeSnippets}>
           {fileData.lang === 'md' ? (
             <ReactMarkdown className="full-width column" source={fileData.src} />

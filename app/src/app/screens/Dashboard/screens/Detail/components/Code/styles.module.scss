@@ -18,7 +18,8 @@
 }
 
 .download-container {
-  flex: 1;
+  flex: 1 0;
+  min-width: 300px;
 }
 
 .button-active {
@@ -27,8 +28,9 @@
 }
 
 .code-snippets {
-  flex: 2;
-  margin-left: 20px;
+  flex: 4;
+  margin-left: 10px;
+  overflow: hidden;
   position: relative;
 }
 
@@ -50,6 +52,7 @@
   font-weight: 600;
   height: 40px;
   margin-right: 15px;
+  margin-left: 80px;
   padding: 10px;
   text-align: center;
   transition: all $transition-duration $transition-function;
@@ -63,7 +66,7 @@
 .file-name {
   align-items: center;
   display: inline-flex;
-  flex: 2;
+  flex: 4;
   font-size: 20px;
-  padding-left: 20px;
+  padding-left: 10px;
 }

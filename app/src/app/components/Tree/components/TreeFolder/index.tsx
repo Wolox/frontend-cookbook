@@ -8,12 +8,13 @@ import styles from '../../styles.module.scss';
 interface Props extends TreeEntryFolder {
   handleSelect(fileData: SelectedFile): void;
   paddingLeft?: number;
+  activeId?: string;
 }
 
 const defaultPaddingLeft = 15;
 const paddingIncrement = 10;
 
-function TreeFolder({ name, entries, handleSelect, paddingLeft = defaultPaddingLeft }: Props) {
+function TreeFolder({ name, entries, handleSelect, paddingLeft = defaultPaddingLeft, activeId }: Props) {
   const [isContentVisible, setContentVisibility] = useState(false);
   const padding = { '--padding-left': `${paddingLeft}px` } as React.CSSProperties;
   const newLevelPadding = paddingLeft + paddingIncrement;
@@ -36,9 +37,15 @@ function TreeFolder({ name, entries, handleSelect, paddingLeft = defaultPaddingL
               name={`${name}/${element.name}`}
               handleSelect={handleSelect}
               paddingLeft={newLevelPadding}
+              activeId={activeId}
             />
           ) : (
-            <TreeFolder {...element} handleSelect={handleSelect} paddingLeft={newLevelPadding} />
+            <TreeFolder
+              {...element}
+              handleSelect={handleSelect}
+              paddingLeft={newLevelPadding}
+              activeId={activeId}
+            />
           )
         )}
       </div>

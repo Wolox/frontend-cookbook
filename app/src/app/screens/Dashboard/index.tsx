@@ -8,7 +8,6 @@ import Routes from '../../../constants/routes';
 import Category from './screens/Category';
 import Detail from './screens/Detail';
 import { DEFAULT_ROUTE } from './constants';
-import styles from './styles.module.scss';
 
 function Dashboard() {
   const {
@@ -16,7 +15,7 @@ function Dashboard() {
   } = useAuthContext();
 
   return isUserLoggedIn ? (
-    <div className={`full-width ${styles.dashboardContainer}`}>
+    <div className="full-width">
       <Switch>
         <Route exact path={Routes.CATEGORY} component={Category} />
         <Route exact path={Routes.DETAIL} component={Detail} />

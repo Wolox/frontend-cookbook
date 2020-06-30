@@ -20,6 +20,12 @@
   }
 }
 
+.upper-section {
+  margin: 0 auto;
+  max-width: $content-max-width;
+  padding: 80px 80px 0;
+}
+
 .details-recipe {
   align-items: center;
   background-color: $golden-tainoi;
