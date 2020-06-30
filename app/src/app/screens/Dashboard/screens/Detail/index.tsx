@@ -7,39 +7,37 @@ import { saveAs } from 'file-saver';
 import { getRecipeFiles } from '~utils/queries';
 import { getRecipeCode } from '~utils/recipes';
 import { updateDownloadsCounter } from 'services/FirebaseService';
+import { TreeEntry, FileTypes } from '~constants/interfaces/recipe';
 
 import DetailsContainer from './layout';
 
+const zipEntry = (zip: JSZip, entry: TreeEntry) => {
+  if (entry.type === FileTypes.blob) {
+    zip.file(entry.name, entry.src);
+  } else {
+    const newFolder = zip.folder(entry.name);
+    if (newFolder) entry.entries.forEach(newEntry => zipEntry(newFolder, newEntry));
+  }
+};
+
 function Detail() {
-  const { tech, category, recipe } = useParams();
-  const { data, loading } = useQuery(getRecipeFiles(tech, category as string, recipe as string));
+  const { tech, category, recipe: recipeName } = useParams();
+  const { data, loading } = useQuery(getRecipeFiles(tech, category, recipeName));
   const recipeCode = getRecipeCode(data?.repository);
 
   const downloadZip = useCallback(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { title, css, config, ...files } = recipeCode;
-
-    updateDownloadsCounter(tech, recipe);
-
+    const { source } = recipeCode;
+    updateDownloadsCounter(tech, recipeName);
     const zip = new JSZip();
-    Object.values(files).forEach(file => {
-      if (file) {
-        const { name, content } = file;
-        zip.file(name, content as string);
-      }
-    });
-    zip.generateAsync({ type: 'blob' }).then((content) => {
+    // TODO: Remove TreeEntry type once the parseTree has type checking
+    source?.entries.forEach((entry: TreeEntry) => zipEntry(zip, entry));
+    zip.generateAsync({ type: 'blob' }).then(content => {
       saveAs(content, 'code.zip');
     });
-  }, [recipeCode]);
+  }, [recipeCode, recipeName, tech]);
 
   return (
-    <DetailsContainer
-      loading={loading}
-      title={recipe}
-      recipe={recipeCode}
-      onDownload={downloadZip}
-    />
+    <DetailsContainer loading={loading} title={recipeName} recipe={recipeCode} onDownload={downloadZip} />
   );
 }
 

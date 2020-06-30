@@ -1,57 +1,59 @@
 import React, { useState } from 'react';
-import cn from 'classnames';
+import ReactMarkdown from 'react-markdown';
 
 import CodeSnippet from '~components/CodeSnippet';
+import Tree from '~components/Tree';
+import { SelectedFile, TreeRecipe } from '~constants/interfaces/recipe';
 
-import { CODE } from './constants';
 import styles from './styles.module.scss';
 
 interface Props {
-  html: string;
-  scss: string;
+  title: string;
+  source: TreeRecipe;
   onDownload: () => void;
 }
 
-function Code({ html, scss, onDownload }: Props) {
-  const [currentCode, setCurrentCode] = useState<CODE>(CODE.HTML);
-  const isHtml = currentCode === CODE.HTML;
-  const isScss = currentCode === CODE.SCSS;
+const defaultSelectedFile = {
+  id: '',
+  name: '',
+  src: '',
+  lang: '',
+  isBinary: false
+};
 
-  const handleHtmlClick = () => setCurrentCode(CODE.HTML);
-  const handleScssClick = () => setCurrentCode(CODE.SCSS);
+function Code({ title, source, onDownload }: Props) {
+  const [fileData, setFileData] = useState<SelectedFile>(defaultSelectedFile);
+  const handleFileSelect = (data: SelectedFile = defaultSelectedFile) => {
+    setFileData(data);
+  };
 
   return (
-    <div className={styles.codeContainer}>
-      <div className="row space-between m-bottom-4">
-        <div>
+    <div className={styles.filesStructureContainer}>
+      <div className={styles.header}>
+        <div className={styles.downloadContainer}>
           <button
-            className={cn(styles.codeTypeButton, { [styles.buttonActive]: isHtml })}
+            className={`${styles.downloadButton} ${styles.codeTypeButton}`}
             type="button"
-            onClick={handleHtmlClick}
+            onClick={onDownload}
           >
-            HTML
-          </button>
-          <button
-            className={cn(styles.codeTypeButton, { [styles.buttonActive]: isScss })}
-            type="button"
-            onClick={handleScssClick}
-            value="SCSS"
-          >
-            SCSS
+            Download code
           </button>
         </div>
-        <button
-          className={`${styles.downloadButton} ${styles.codeTypeButton}`}
-          type="button"
-          onClick={onDownload}
-        >
-          Download code
-        </button>
+        <h3 className={styles.fileName}>{fileData.name}</h3>
       </div>
-      <div className={styles.codeSnippets}>
-        <CodeSnippet className={cn(styles.code, { [styles.codeVisible]: isHtml })} code={html} lang="html" />
-
-        <CodeSnippet className={cn(styles.code, { [styles.codeVisible]: isScss })} code={scss} lang="scss" />
+      <div className={styles.codeContainer}>
+        <Tree handleSelect={handleFileSelect} source={source} title={title} activeId={fileData.id} />
+        <div className={styles.codeSnippets}>
+          {fileData.lang === 'md' ? (
+            <ReactMarkdown className="full-width column" source={fileData.src} />
+          ) : (
+            <CodeSnippet
+              className={`${styles.code} ${styles.codeVisible}`}
+              code={fileData.isBinary ? 'Archivo no soportado' : fileData.src}
+              lang={fileData.lang}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

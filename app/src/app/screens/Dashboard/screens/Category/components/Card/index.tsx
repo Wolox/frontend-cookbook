@@ -30,7 +30,9 @@ function Card({ recipe, number }: Props) {
       <RecipePreview thumbnail recipe={recipe} className={styles.cardContent} />
       <div className={`full-width column ${styles.cardInfo}`}>
         <h4 className={`m-bottom-2 ${styles.cardTitle}`}>{recipe.title}</h4>
-        <Link to={linkRoute} className={styles.linkDetail}>Ver más</Link>
+        <Link to={linkRoute} className={styles.linkDetail}>
+          Ver más
+        </Link>
       </div>
     </div>
   );
