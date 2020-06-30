@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { withSpinner } from '~components/Spinner';
+import { Recipe } from '~constants/interfaces/recipe';
 
 import RecipePreview from '../Category/components/RecipePreview';
-import { Recipe } from '../../../../../constants/interfaces/recipe';
 
-import Settings from './components/Options';
 import Code from './components/Code';
 import styles from './styles.module.scss';
 
@@ -16,10 +15,6 @@ interface Props {
 }
 
 function DetailContainer({ title, recipe, onDownload }: Props) {
-  const [isCodeVisible, setIsCodeVisible] = useState(false);
-
-  const handleClick = () => setIsCodeVisible(!isCodeVisible);
-
   return (
     <>
       <div className={styles.upperSection}>
@@ -37,13 +32,9 @@ function DetailContainer({ title, recipe, onDownload }: Props) {
         </div>
         <div className={styles.detailsRecipe}>
           <RecipePreview recipe={recipe} />
-          <div className={styles.settingsCheckbox}>
-            <input type="checkbox" id="chkButton" onClick={handleClick} />
-            <label htmlFor="chkButton" />
-          </div>
         </div>
       </div>
-      {isCodeVisible ? <Code title={title} source={recipe.source} onDownload={onDownload} /> : <Settings />}
+      <Code title={title} source={recipe.source} onDownload={onDownload} />
     </>
   );
 }
