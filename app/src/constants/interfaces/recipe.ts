@@ -1,5 +1,6 @@
 export interface GitHubResult {
   name: string;
+  tech: string;
   object: {
     entries: {
       name: string;
@@ -15,15 +16,21 @@ export interface RecipeFile {
   content: string;
 }
 
+type Preview = {
+  url: string;
+  type: 'iframe' | 'img';
+};
+
 // TODO: Recipe should have one of readme, config, or html as required
 export interface Recipe {
   title: string;
+  tech: string;
   html: RecipeFile;
   css: RecipeFile;
   scss: RecipeFile;
   readme?: RecipeFile;
   config: {
-    thumbnailURL: string;
-    detailURL: string;
+    thumbnail: Preview;
+    detail: Preview;
   };
 }

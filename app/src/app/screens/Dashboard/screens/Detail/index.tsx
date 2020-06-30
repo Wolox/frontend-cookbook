@@ -6,23 +6,23 @@ import { saveAs } from 'file-saver';
 
 import { getRecipeFiles } from '~utils/queries';
 import { getRecipeCode } from '~utils/recipes';
-import { useGlobalContext } from '~context/GlobalProvider';
+import { updateDownloadsCounter } from 'services/FirebaseService';
 
 import DetailsContainer from './layout';
 
 function Detail() {
-  const { category, recipe } = useParams();
-  const {
-    state: { tech }
-  } = useGlobalContext();
+  const { tech, category, recipe } = useParams();
   const { data, loading } = useQuery(getRecipeFiles(tech, category as string, recipe as string));
   const recipeCode = getRecipeCode(data?.repository);
 
   const downloadZip = useCallback(() => {
-    const zip = new JSZip();
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { title, css, config, ...files } = recipeCode;
-    Object.values(files).forEach((file) => {
+
+    updateDownloadsCounter(tech, recipe);
+
+    const zip = new JSZip();
+    Object.values(files).forEach(file => {
       if (file) {
         const { name, content } = file;
         zip.file(name, content as string);

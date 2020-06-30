@@ -17,17 +17,20 @@ interface Props {
 
 function Card({ recipe, number }: Props) {
   const { category } = useParams();
-  const linkRoute = Routes.DETAIL.replace(':category', category as string).replace(':recipe', recipe.title);
+  const linkRoute = Routes.DETAIL.replace(':category', category as string)
+    .replace(':recipe', recipe.title)
+    .replace(':tech', recipe.tech);
 
   const cardColor = { '--card-color': COLORS[Math.floor(number % COLORS.length)] } as React.CSSProperties;
 
   return (
     // eslint-disable-next-line react/forbid-dom-props
     <div className={`column middle center full-width ${styles.card}`} style={cardColor}>
+      <span className={styles.techTag}>{recipe.tech}</span>
       <RecipePreview thumbnail recipe={recipe} className={styles.cardContent} />
       <div className={`full-width column ${styles.cardInfo}`}>
         <h4 className={`m-bottom-2 ${styles.cardTitle}`}>{recipe.title}</h4>
-        <Link to={linkRoute}>Watch more...</Link>
+        <Link to={linkRoute} className={styles.linkDetail}>Ver más</Link>
       </div>
     </div>
   );

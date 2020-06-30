@@ -1,13 +1,28 @@
 import { gql } from 'apollo-boost';
 
-const RECIPES_BRANCH = process.env.REACT_APP_RECIPES_BRANCH || 'components';
+const RECIPES_BRANCH = process.env.REACT_APP_RECIPES_BRANCH;
+export const COOKBOOK_PREFIX = 'cookbook-';
+export const RECIPES_DIRECTORY = 'recipes';
 
-// const tech = 'react';
+interface QueryBuilderOptions {
+  tech?: string;
+  target?: string;
+  expression?: string;
+}
 
-const queryBuilder = (name: string, tech: string, target = '', query: string) => gql`
+const queryBuilder = (
+  name: string,
+  query: string,
+  {
+    tech = '',
+    target = '',
+    expression = tech ? `${COOKBOOK_PREFIX}${tech}/${RECIPES_DIRECTORY}` : ''
+  }: QueryBuilderOptions = {}
+) =>
+  gql`
   query ${name} {
     repository(owner: "wolox", name: "frontend-cookbook") {
-      object(expression: "${RECIPES_BRANCH}:cookbook-${tech}/recipes${target}") {
+      object(expression: "${RECIPES_BRANCH}:${expression}${target}") {
         ${query}
       }
     }
@@ -26,17 +41,41 @@ const filesQuery = `
     }
   }`;
 
-export const getCategories = (tech: string) =>
-  queryBuilder('getCategories', tech, '', '... on Tree {entries {name oid} }');
+export const getCategoriesAndTechs = () =>
+  queryBuilder(
+    'getCategories',
+    `
+    ... on Tree {
+      entries {
+        name
+        oid
+        object {
+          ... on Tree {
+            entries {
+              name
+              object {
+                ... on Tree {
+                  entries {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }`
+  );
 
 export const getRecipeFiles = (tech: string, recipeType: string, recipe: string) =>
-  queryBuilder('recipesFiles', tech, `/${recipeType}/${recipe}`, filesQuery);
+  queryBuilder('recipesFiles', filesQuery, {
+    tech,
+    target: `/${recipeType}/${recipe}`
+  });
 
 export const getAllRecipesByCategory = (tech: string, category: string) =>
   queryBuilder(
     'recipesByCategory',
-    tech,
-    `/${category}`,
     `
     ... on Tree {
       entries {
@@ -45,5 +84,6 @@ export const getAllRecipesByCategory = (tech: string, category: string) =>
           ${filesQuery}
         }
       }
-    }`
+    }`,
+    { tech, target: `/${category}` }
   );

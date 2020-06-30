@@ -1,0 +1,68 @@
+$items: 3;
+$item-width: (100/$items) * 1%;
+
+.tab-bar-container {
+  --active-color: #0043CD;
+  --background-color: #FFF;
+}
+
+.tab-bar-wrapper {
+  display: flex;
+  position: absolute;
+  width: max-content;
+
+  .tabs {
+    border-bottom: 1px solid var(--active-color);
+    display: flex;
+
+    .option {
+      font-weight: 800;
+      padding: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .selected {
+      color: var(--active-color);
+    }
+  }
+
+  .selector {
+    align-self: flex-end;
+    height: 15px;
+    position: absolute;
+    transition: left 0.5s linear;
+    width: 46px;
+
+    &::before,
+    &::after {
+      border-style: solid;
+      border-width: 0 23px 15px;
+      content: '';
+      display: block;
+      height: 0;
+      position: absolute;
+      width: 0;
+    }
+
+    &::before {
+      border-color: transparent transparent var(--active-color) transparent;
+      top: 0;
+    }
+
+    &::after {
+      border-color: transparent transparent var(--background-color) transparent;
+      top: 1px; //indicator width
+    }
+  }
+
+  @for $i from 0 through $items {
+    $pos: $item-width * ($i+1);
+    .selected-#{$i} {
+      left: calc(#{$pos} - 80px);
+    }
+  }
+
+  .selected-null {
+    visibility: hidden;
+  }
+}

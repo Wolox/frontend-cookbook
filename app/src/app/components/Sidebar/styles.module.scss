@@ -26,10 +26,79 @@
   text-transform: uppercase;
 }
 
-.tech-select {
-  background-color: transparent;
-  color: $science-blue;
-  appearance: menulist-button;
+.select-container {
+  position: relative;
+}
+
+.box-tech {
+  border: 1px solid $border-white;
+  cursor: pointer;
+  height: 35px;
+  margin: 8px 0;
+  position: relative;
+  text-align: start;
+  width: 200px;
+
+  &::after {
+    background: url('../../../assets/arrow.svg') no-repeat center/100%;
+    content: '';
+    position: absolute;
+    height: 12px;
+    margin: 10px;
+    right: 0;
+    text-align: center;
+    transform: rotate(-180deg);
+    transition: transform $transition-duration $transition-function;
+    width: 12px;
+  }
+
+  &--open::after {
+    transform: rotate(0deg);
+    transition: transform $transition-duration $transition-function;
+  }
+}
+
+.option-selected {
+  color: $white;
+  font-size: 16px;
+  margin: 8px;
+  text-align: left;
+}
+
+.menu-select {
+  display: none;
+
+  &--open {
+    background-color: $cello;
+    border: 1px solid $east-bay;
+    border-radius: 4px;
+    box-shadow: 0 0 4px 0 $shadow-menu;
+    color: $white;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 67px;
+    width: 200px;
+    z-index: 1;
+  }
+}
+
+.item-list {
+  padding: 8px;
+
+  &:hover {
+    background-color: $mariner;
+  }
+}
+
+.icon-check {
+  margin-right: 8px;
+  opacity: 0;
+}
+
+.item-selected {
+  opacity: 1;
 }
 
 .simple-link {

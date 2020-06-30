@@ -5,7 +5,7 @@ import './styles.scss';
 function Button1() {
   return (
     <div className="column center btn-group-1">
-      <button className="btn btn-1 m-bottom-2" disabled={true}>
+      <button type="button" className="btn btn-1 m-bottom-2" disabled>
         <div className="btn__content">cancel</div>
       </button>
       <button type="button" className="btn btn-1">
