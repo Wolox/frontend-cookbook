@@ -74,7 +74,6 @@ function Sidebar() {
         </div>
         <div className={`column ${styles.contentLinks} start`}>
             <div className="row m-bottom-3">
-              <span className={styles.techTitle}>Tech:</span>
               <button
                 className={cn(styles.boxTech, { [styles.boxTechOpen]: toggleOpen })}
                 onClick={toggleSelectMenu}
