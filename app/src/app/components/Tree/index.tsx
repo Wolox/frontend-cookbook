@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { FileTypes, SelectedFile, TreeRecipe } from '../../../constants/interfaces/recipe';
+import { FileTypes, SelectedFile, TreeRecipe } from '~constants/interfaces/recipe';
 
-import File from './components/TreeFile';
-import Folder from './components/TreeFolder';
+import TreeFile from './components/TreeFile';
+import TreeFolder from './components/TreeFolder';
 import styles from './styles.module.scss';
 
 interface Props {
@@ -27,9 +27,9 @@ function Tree({
       <div className={styles[`${namespace}-nodes-container`]}>
         {source.entries.map(entry =>
           entry.type === FileTypes.blob ? (
-            <File {...entry} handleSelect={handleSelect} activeId={activeId} />
+            <TreeFile {...entry} handleSelect={handleSelect} activeId={activeId} />
           ) : (
-            <Folder {...entry} handleSelect={handleSelect} activeId={activeId} />
+            <TreeFolder {...entry} handleSelect={handleSelect} activeId={activeId} />
           )
         )}
       </div>

@@ -4,7 +4,6 @@ import Prism from 'prismjs';
 
 import styles from './styles.module.scss';
 
-// loadLanguages(['ts', 'tsx']);
 interface Props {
   code: string;
   lang: string;

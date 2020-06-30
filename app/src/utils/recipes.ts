@@ -29,11 +29,13 @@ const parseAndSortTree = (entries: any) => {
   return newSource.sort((entryA: TreeEntry, entryB: TreeEntry) => entryA.type < entryB.type);
 };
 
+const COOKBOOK_JSON = 'cookbook.json';
+
 const filterBlobEntries = (entries: any) =>
   entries.filter((entry: TreeEntry) => {
     if (entry.type === FileTypes.tree) {
       filterBlobEntries(entry.entries);
-    } else if (entry.name === 'cookbook.json') {
+    } else if (entry.name === COOKBOOK_JSON) {
       return false;
     }
     return true;
@@ -51,7 +53,7 @@ export const getRecipeCode = (recipe: GitHubResult) =>
         title: recipe.name,
         tech: recipe.tech,
         config: JSON.parse(
-          recipe.object.entries.find(entry => entry.name === 'cookbook.json')?.object.text || '{}'
+          recipe.object.entries.find(entry => entry.name === COOKBOOK_JSON)?.object.text || '{}'
         ),
         readme: getRecipeByFileName(recipe, 'readme.md'),
         source: { entries: parseFilterAndSort(recipe.object.entries) },

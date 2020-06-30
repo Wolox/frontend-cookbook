@@ -38,8 +38,6 @@ export interface Recipe {
 }
 
 export enum FileTypes {
-  file = 'file',
-  folder = 'folder',
   blob = 'Blob',
   tree = 'Tree'
 }

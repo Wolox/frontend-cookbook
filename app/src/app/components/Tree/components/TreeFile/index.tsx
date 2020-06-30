@@ -1,7 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { TreeEntryFile, SelectedFile } from '../../../../../constants/interfaces/recipe';
+import { TreeEntryFile, SelectedFile } from '~constants/interfaces/recipe';
+
 import styles from '../../styles.module.scss';
 
 interface Props extends TreeEntryFile {
@@ -26,7 +27,7 @@ function TreeFile({
   return (
     <button
       type="button"
-      className={cn(styles['tree-item'], { [styles['tree-item--active']]: id === activeId })}
+      className={cn(styles.treeItem, { [styles.treeItemActive]: id === activeId })}
       style={padding} // eslint-disable-line react/forbid-dom-props
       onClick={() => handleSelect({ name, src, lang, isBinary, id })}
     >

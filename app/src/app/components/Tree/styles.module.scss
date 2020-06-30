@@ -44,7 +44,7 @@
       background: $shuttle-gray;
     }
 
-    &--active {
+    &-active {
       background-color: $catskill-white;
       position: relative;
 
@@ -71,7 +71,7 @@
       width: 100%;
     }
 
-    &--hidden {
+    &-hidden {
       height: 0;
     }
   }

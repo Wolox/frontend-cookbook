@@ -2,8 +2,7 @@ import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { useAuthContext } from '~context/AuthProvider';
-
-import Routes from '../../../constants/routes';
+import Routes from '~constants/routes';
 
 import Category from './screens/Category';
 import Detail from './screens/Detail';

@@ -31,6 +31,7 @@ function DetailContainer({ title, recipe, onDownload }: Props) {
             target="_blank"
             rel="noopener noreferrer"
           >
+            {/* TODO: Add GitHub user of the creator. */}
             by Tincho_otaku
           </a>
         </div>
