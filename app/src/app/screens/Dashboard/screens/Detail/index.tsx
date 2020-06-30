@@ -23,17 +23,24 @@ function Detail() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { title, css, config, ...files } = recipeCode;
     Object.values(files).forEach((file) => {
-      if(file){
+      if (file) {
         const { name, content } = file;
         zip.file(name, content as string);
       }
     });
-    zip.generateAsync({ type: 'blob' }).then(content => {
+    zip.generateAsync({ type: 'blob' }).then((content) => {
       saveAs(content, 'code.zip');
     });
   }, [recipeCode]);
 
-  return <DetailsContainer loading={loading} title={recipe} recipe={recipeCode} onDownload={downloadZip} />;
+  return (
+    <DetailsContainer
+      loading={loading}
+      title={recipe}
+      recipe={recipeCode}
+      onDownload={downloadZip}
+    />
+  );
 }
 
 export default Detail;

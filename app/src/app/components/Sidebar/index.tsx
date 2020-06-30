@@ -29,8 +29,6 @@ function Sidebar() {
     state: { isUserLoggedIn }
   } = useAuthContext();
 
-  const loginToGithubURL = `http://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URL}`;
-
   const toggleSidebar = useCallback(() => setsidebarIsOpen(!sidebarIsOpen), [sidebarIsOpen]);
 
   return (
@@ -48,8 +46,7 @@ function Sidebar() {
             <img src={logo} alt="Cookbook Wolox" className="full-width" />
           </Link>
         </div>
-        {isUserLoggedIn ? (
-          <div className={`column ${styles.contentLinks} start`}>
+        <div className={`column ${styles.contentLinks} start`}>
             <div className="row m-bottom-3">
               <span className={styles.techTitle}>Tech:</span>
               <select className={styles.techSelect} value={tech} onChange={handleTechChange}>
@@ -70,11 +67,6 @@ function Sidebar() {
                 </Link>
               ))}
           </div>
-        ) : (
-          <a className={styles.githubLogin} href={loginToGithubURL}>
-            Login with Github
-          </a>
-        )}
       </div>
       <div className={`${styles.sidebarFooter} column center`}>{'</> with ♥ by Front-End Army'}</div>
     </div>

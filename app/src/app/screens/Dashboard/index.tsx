@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import { useAuthContext } from '~context/AuthProvider';
+import Sidebar from '~components/Sidebar';
 
 import Routes from '../../../constants/routes';
 
@@ -11,20 +11,17 @@ import { DEFAULT_ROUTE } from './constants';
 import styles from './styles.module.scss';
 
 function Dashboard() {
-  const {
-    state: { isUserLoggedIn }
-  } = useAuthContext();
-
-  return isUserLoggedIn ? (
-    <div className={`full-width ${styles.dashboardContainer}`}>
-      <Switch>
-        <Route exact path={Routes.CATEGORY} component={Category} />
-        <Route exact path={Routes.DETAIL} component={Detail} />
-        <Redirect to={DEFAULT_ROUTE} />
-      </Switch>
+  return (
+    <div className="row full-width full-height">
+      <Sidebar />
+      <div className={`full-width ${styles.dashboardContainer}`}>
+        <Switch>
+          <Route exact path={Routes.CATEGORY} component={Category} />
+          <Route exact path={Routes.DETAIL} component={Detail} />
+          <Redirect to={DEFAULT_ROUTE} />
+        </Switch>
+      </div>
     </div>
-  ) : (
-    <p>Aun no estas logueado!</p>
   );
 }
 
