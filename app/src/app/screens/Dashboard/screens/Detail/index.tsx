@@ -28,12 +28,19 @@ function Detail() {
         zip.file(name, content as string);
       }
     });
-    zip.generateAsync({ type: 'blob' }).then(content => {
+    zip.generateAsync({ type: 'blob' }).then((content) => {
       saveAs(content, 'code.zip');
     });
   }, [recipeCode]);
 
-  return <DetailsContainer loading={loading} title={recipe} recipe={recipeCode} onDownload={downloadZip} />;
+  return (
+    <DetailsContainer
+      loading={loading}
+      title={recipe}
+      recipe={recipeCode}
+      onDownload={downloadZip}
+    />
+  );
 }
 
 export default Detail;

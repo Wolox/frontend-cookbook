@@ -1,0 +1,78 @@
+@import 'variables/colors';
+@import 'variables/sizes';
+
+.container {
+  background: $blue-ribbon-dark url('../../../assets/bg_login.svg') no-repeat
+    center / cover;
+  height: 100vh;
+}
+
+.big-title {
+  color: $white;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 78px;
+  margin-bottom: 70px;
+  max-width: 100%;
+  text-align: center;
+  width: 350px;
+}
+
+.link {
+  background-color: $blue-ribbon;
+  border: 2px solid $white;
+  border-radius: 4px;
+  color: $white;
+  font-size: 24px;
+  font-weight: 600;
+  height: 60px;
+  letter-spacing: -0.33px;
+  line-height: 29px;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  transition: color $transition-duration $transition-function;
+  width: 205px;
+  z-index: 1;
+
+  &::after {
+    background-color: $white;
+    content: '';
+    height: 0;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) rotate(25deg);
+    transition: height $transition-duration $transition-function;
+    width: 120%;
+    will-change: height;
+    z-index: -1;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $blue-ribbon;
+
+    &::after {
+      height: 250%;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 1s $transition-function $transition-duration both;
+}
