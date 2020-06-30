@@ -1,10 +1,10 @@
 {
   "thumbnail": {
     "type": "iframe",
-    "url": "https://cookbook-react.now.sh/?category=input&component=input-3&compact=true"
+    "url": "https://cookbook-react.now.sh/?category=inputs&component=input-3&compact=true"
   },
   "detail": {
     "type": "iframe",
-    "url": "https://cookbook-react.now.sh/?category=input&component=input-3&compact=true"
+    "url": "https://cookbook-react.now.sh/?category=inputs&component=input-3&compact=true"
   }
 }
