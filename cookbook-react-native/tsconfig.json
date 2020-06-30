@@ -19,6 +19,7 @@
       "@components/*": ["src/app/components/*"],
       "@config/*": ["src/config/*"],
       "@constants/*": ["src/constants/*"],
+      "@hooks/*": ["src/app/hooks/*"],
       "@imagesRecipes/*": ["recipes/images/*"],
       "@inputsRecipes/*": ["recipes/inputs/*"],
       "@interfaces/*": ["src/interfaces/*"],
@@ -32,12 +33,6 @@
     },
     "skipLibCheck": true
   },
-  "exclude": [
-    "node_modules",
-    ".history",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js",
-    "__tests__"
-  ]
+  "include": ["src/**/*"],
+  "exclude": [ "node_modules", "**/node_modules/*", ".history" ]
 }

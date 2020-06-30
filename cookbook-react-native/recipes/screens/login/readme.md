@@ -23,6 +23,8 @@ If you want to add this recipe to a project that wasn't created with our [bootst
 
 * [globalInterfaces.ts](https://github.com/Wolox/wolmo-bootstrap-react-native/blob/master/generators/app/templates/src/interfaces/globalInterfaces.ts)
 
+* [navigation.ts](https://github.com/Wolox/wolmo-bootstrap-react-native/blob/master/generators/app/templates/src/interfaces/navigation.ts)
+
 ### Recipes
 #### alias `@textsRecipes`, `@buttonsRecipes` and `@inputsRecipes` but it would be recommended to put them in `@components`instead
 
