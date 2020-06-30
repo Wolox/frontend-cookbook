@@ -16,6 +16,10 @@
 .content-links {
   color: $white;
   padding: 0 20px 0 30px;
+
+  &:first-child {
+    position: relative;
+  }
 }
 
 .tech-title {

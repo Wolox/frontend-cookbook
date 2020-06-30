@@ -73,46 +73,47 @@ function Sidebar() {
           </Link>
         </div>
         <div className={`column ${styles.contentLinks} start`}>
-            <div className="row m-bottom-3">
-              <button
-                className={cn(styles.boxTech, { [styles.boxTechOpen]: toggleOpen })}
-                onClick={toggleSelectMenu}
-                type="button"
-                ref={select}
-              >
-                <span className={styles.optionSelected}>{selectedTech}</span>
-              </button>
-              <ul className={cn(styles.menuSelect, { [`${styles.menuSelectOpen}`]: toggleOpen })}>
-                {options.map(tech => (
-                  <li key={tech.name} className={styles.itemList} onClick={() => handleTechChange(tech.name)}>
-                    <img
-                      src={checkIcon}
-                      alt="selected"
-                      className={cn(styles.iconCheck, {
-                        [`${styles.itemSelected}`]: tech.name === selectedTech
-                      })}
-                    />
-                    {tech.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            {categories &&
-              (selectedTech === ALL_TECHS
-                ? categories
-                : techs.find(tech => tech.name === selectedTech)?.categories || []
-              ).map((category: string) => (
-                <Link
-                  key={category}
-                  className={cn(styles.simpleLink, {
-                    [styles.selected]: categoryType === category
-                  })}
-                  to={Routes.CATEGORY.replace(':category', category)}
-                >
-                  {category}
-                </Link>
+          <div className="column m-bottom-3">
+            <span className={styles.techTitle}>Tech</span>
+            <button
+              className={cn(styles.boxTech, { [styles.boxTechOpen]: toggleOpen })}
+              onClick={toggleSelectMenu}
+              type="button"
+              ref={select}
+            >
+              <span className={styles.optionSelected}>{selectedTech}</span>
+            </button>
+            <ul className={cn(styles.menuSelect, { [`${styles.menuSelectOpen}`]: toggleOpen })}>
+              {options.map(tech => (
+                <li key={tech.name} className={styles.itemList} onClick={() => handleTechChange(tech.name)}>
+                  <img
+                    src={checkIcon}
+                    alt="selected"
+                    className={cn(styles.iconCheck, {
+                      [`${styles.itemSelected}`]: tech.name === selectedTech
+                    })}
+                  />
+                  {tech.name}
+                </li>
               ))}
+            </ul>
           </div>
+          {categories &&
+            (selectedTech === ALL_TECHS
+              ? categories
+              : techs.find(tech => tech.name === selectedTech)?.categories || []
+            ).map((category: string) => (
+              <Link
+                key={category}
+                className={cn(styles.simpleLink, {
+                  [styles.selected]: categoryType === category
+                })}
+                to={Routes.CATEGORY.replace(':category', category)}
+              >
+                {category}
+              </Link>
+            ))}
+        </div>
       </div>
       <div className={`${styles.sidebarFooter} column center`}>{'</> with ♥ by Front-End Army'}</div>
     </div>
