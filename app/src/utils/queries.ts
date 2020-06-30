@@ -71,11 +71,6 @@ const filesQuery = `
                           isBinary
                           text
                         }
-                        ... on Tree {
-                          entries {
-                            name
-                          }
-                        }
                       }
                     }
                   }
