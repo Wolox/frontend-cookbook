@@ -73,7 +73,7 @@ function Sidebar() {
           </Link>
         </div>
         <div className={`column ${styles.contentLinks} start`}>
-          <div className="column m-bottom-3">
+          <div className="column relative m-bottom-3">
             <span className={styles.techTitle}>Tech</span>
             <button
               className={cn(styles.boxTech, { [styles.boxTechOpen]: toggleOpen })}
