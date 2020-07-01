@@ -1,1 +1,1 @@
-export const DEFAULT_ROUTE = '/buttons';
+export const DEFAULT_CATEGORY = 'buttons';
