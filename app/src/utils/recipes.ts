@@ -1,7 +1,7 @@
 import { GitHubResult, FileTypes, TreeEntry } from '~constants/interfaces/recipe';
 
 const getRecipeByFileName = (recipe: GitHubResult, fileName: string) => {
-  const file = recipe.object.entries.find(entry => entry.name === fileName);
+  const file = recipe.object.entries.find(entry => entry.name.toLowerCase() === fileName);
   return file
     ? {
         name: file.name,

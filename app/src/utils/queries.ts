@@ -29,7 +29,8 @@ const queryBuilder = (
   }
 `;
 
-const filesQuery = `    
+// TODO: Change the length of this query 
+const filesQuery = `
 ... on Blob {
   id
   isBinary
@@ -70,6 +71,66 @@ const filesQuery = `
                           id
                           isBinary
                           text
+                        }
+                        ... on Tree {
+                          entries {
+                            name
+                            object {
+                              ... on Blob {
+                                id
+                                isBinary
+                                text
+                              }
+                              ... on Tree {
+                                entries {
+                                  name
+                                  object {
+                                    ... on Blob {
+                                      id
+                                      isBinary
+                                      text
+                                    }
+                                    ... on Tree {
+                                      entries {
+                                        name
+                                        object {
+                                          ... on Blob {
+                                            id
+                                            isBinary
+                                            text
+                                          }
+                                          ... on Tree {
+                                            entries {
+                                              name
+                                              object {
+                                                ... on Blob {
+                                                  id
+                                                  isBinary
+                                                  text
+                                                }
+                                                ... on Tree {
+                                                  entries {
+                                                    name
+                                                    object {
+                                                      ... on Blob {
+                                                        id
+                                                        isBinary
+                                                        text
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
                         }
                       }
                     }
