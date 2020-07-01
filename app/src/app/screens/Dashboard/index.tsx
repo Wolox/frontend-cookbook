@@ -7,7 +7,7 @@ import Routes from '../../../constants/routes';
 
 import Category from './screens/Category';
 import Detail from './screens/Detail';
-import { DEFAULT_ROUTE } from './constants';
+import { DEFAULT_CATEGORY } from './constants';
 
 function Dashboard() {
   return (
@@ -17,7 +17,7 @@ function Dashboard() {
         <Switch>
           <Route exact path={Routes.CATEGORY} component={Category} />
           <Route exact path={Routes.DETAIL} component={Detail} />
-          <Redirect to={DEFAULT_ROUTE} />
+          <Redirect to={Routes.CATEGORY.replace(':category', DEFAULT_CATEGORY)} />
         </Switch>
       </div>
     </div>
