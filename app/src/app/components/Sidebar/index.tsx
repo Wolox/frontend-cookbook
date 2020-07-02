@@ -7,7 +7,6 @@ import Routes from '~constants/routes';
 import logo from 'assets/logo.svg';
 import checkIcon from 'assets/ic_check.svg';
 import { getCategoriesAndTechs } from '~utils/queries';
-import { useAuthContext } from '~context/AuthProvider';
 import { useGlobalContext } from '~context/GlobalProvider';
 import { actionCreators } from '~context/GlobalProvider/actions';
 import { ALL_TECHS } from '~context/GlobalProvider/reducer';
@@ -49,10 +48,6 @@ function Sidebar() {
   const categories = !loading && data ? parseCategories(data) : [];
   const techs = !loading && data ? parseTechs(data) : [];
   const options = ALL_TECHS ? [{ name: ALL_TECHS }, ...techs] : techs;
-
-  const {
-    state: { isUserLoggedIn }
-  } = useAuthContext();
 
   const toggleSidebar = useCallback(() => setsidebarIsOpen(!sidebarIsOpen), [sidebarIsOpen]);
   const toggleSelectMenu = useCallback(() => setToggleOpen(!toggleOpen), [toggleOpen]);

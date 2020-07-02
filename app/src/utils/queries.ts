@@ -29,7 +29,7 @@ const queryBuilder = (
   }
 `;
 
-// TODO: Change the length of this query 
+// TODO: Change the length of this query
 const filesQuery = `
 ... on Blob {
   id

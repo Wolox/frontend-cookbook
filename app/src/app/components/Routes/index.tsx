@@ -12,7 +12,7 @@ import Routes from '../../../constants/routes';
 
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 
-const Login = lazy(()=> import('~screens/Login'));
+const Login = lazy(() => import('~screens/Login'));
 const Home = lazy(() => import('~screens/Dashboard/'));
 const history = createBrowserHistory();
 
