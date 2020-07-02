@@ -28,6 +28,8 @@ function AppRoutes() {
       dispatch(setUserLoggedIn(true));
     } else if (code) {
       loginToGithub(code).then(() => dispatch(setUserLoggedIn(true)));
+    } else {
+      dispatch(setUserLoggedIn(false));
     }
   }, [dispatch, setUserLoggedIn]);
 
