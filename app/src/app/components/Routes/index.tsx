@@ -12,7 +12,7 @@ import Routes from '../../../constants/routes';
 
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 
-const Login = lazy(()=> import('~screens/Login'));
+const Login = lazy(() => import('~screens/Login'));
 const Home = lazy(() => import('~screens/Dashboard/'));
 const history = createBrowserHistory();
 
@@ -24,9 +24,7 @@ function AppRoutes() {
   const { setUserLoggedIn } = actionCreators;
 
   useEffect(() => {
-    if (process.env.NODE_ENV !== 'production') {
-      dispatch(setUserLoggedIn(true));
-    } else if (getCurrentUser()) {
+    if (process.env.NODE_ENV !== 'production' || getCurrentUser()) {
       dispatch(setUserLoggedIn(true));
     } else if (code) {
       loginToGithub(code).then(() => dispatch(setUserLoggedIn(true)));

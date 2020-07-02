@@ -6,7 +6,7 @@ interface User {
 }
 
 export interface Auth {
-  isUserLoggedIn: boolean;
+  isUserLoggedIn?: boolean;
   currentUser?: User | null;
 }
 

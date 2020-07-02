@@ -4,6 +4,7 @@ import { RouteProps } from 'react-router';
 
 import { useAuthContext } from '~context/AuthProvider';
 import Routes from '~constants/routes';
+import Loading from '~components/Spinner/components/loading';
 
 const DEFAULT_PUBLIC_ROUTE = Routes.LOGIN;
 const DEFAULT_PRIVATE_ROUTE = Routes.DASHBOARD;
@@ -28,6 +29,9 @@ function AuthenticatedRoute({
   const {
     state: { isUserLoggedIn }
   } = useAuthContext();
+  if (isUserLoggedIn === undefined) {
+    return <Loading className="m-auto m-top-10" type="wandering-cubes" color="#002363" />;
+  }
   return (
     <Route
       {...props}
