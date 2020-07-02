@@ -1,4 +1,4 @@
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -13,4 +13,4 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export default firebase.initializeApp(firebaseConfig);
+export default !!process.env.REACT_APP_FIREBASE_API_KEY && firebase.initializeApp(firebaseConfig);
