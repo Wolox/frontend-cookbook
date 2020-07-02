@@ -6,7 +6,7 @@ import { Auth, SetUserAction, SetUserIsLoggedIn } from './interfaces';
 
 export const authState: Auth = {
   currentUser: null,
-  isUserLoggedIn: false
+  isUserLoggedIn: undefined
 };
 
 const reducer = {
