@@ -20,6 +20,7 @@ $card-info-content: 70px;
 
 .card-content {
   height: calc(100% - #{$card-info-content});
+  overflow: hidden;
   position: relative;
 }
 
