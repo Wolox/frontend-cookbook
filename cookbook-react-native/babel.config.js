@@ -18,11 +18,13 @@ module.exports = {
           '@imagesRecipes': './recipes/images',
           '@inputsRecipes': './recipes/inputs',
           '@interfaces': './src/interfaces',
+          '@modalsRecipes': './recipes/modals',
           '@navigationHelper': './src/app/components/AppNavigator/helper',
+          '@pickersRecipes': './recipes/pickers',
+          '@redux': './src/redux',
           '@screens': './src/app/screens',
           '@screensRecipes': './recipes/screens',
           '@services': './src/services',
-          '@redux': './src/redux',
           '@textsRecipes': './recipes/texts',
           '@utils': './src/utils'
         }

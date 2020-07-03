@@ -6,6 +6,8 @@
 * [React Native](/cookbook-react-native)
 * [Web](/cookbook-web)
 * [Java](/cookbook-java)
+* [NodeJS](/cookbook-node)
+* [Rails](/cookbook-rails)
 
 ## Getting started
 
