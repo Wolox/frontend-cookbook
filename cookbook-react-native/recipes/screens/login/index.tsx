@@ -7,6 +7,8 @@ import CustomHighlightButton from '@buttonsRecipes/custom-highlight-button';
 import CustomText from '@textsRecipes/custom-text';
 import { CustomTextInputFormikField } from '@inputsRecipes/custom-text-input';
 import { validationsWrapper, validateRequired, validateEmail } from '@utils/validations/validateUtils';
+import CustomRadioButtonGroup from '@radioButtonsRecipes/custom-radio-button-group';
+import CustomCheckBoxGroup from '@checkboxesRecipes/custom-checkbox-group';
 
 import { AuthState } from './interfaces/authInterfaces';
 import { actionCreators as AuthActions } from './redux/auth/actions';
@@ -15,6 +17,14 @@ import './i18n';
 import styles from './styles';
 
 const WITHOUT_OPACITY = 1;
+
+const optionsRecord = {
+  A: 'option A',
+  B: 'option B',
+  C: 'option C',
+  D: 'option D',
+  E: 'option E',
+};
 
 interface State {
   auth: AuthState;
@@ -61,6 +71,18 @@ function Login() {
               style={styles.formButton}
               title={i18next.t('LOGIN:LOG_IN')}
               disabled={hasLoginError || !isValid}
+            />
+            <CustomRadioButtonGroup
+              title="RadioButtons"
+              options={optionsRecord}
+              disabledOptions={['E']}
+              selectedOption={['A']}
+            />
+            <CustomCheckBoxGroup
+              title="RadioButtons"
+              options={optionsRecord}
+              disabledOptions={['E']}
+              selectedOptions={['A']}
             />
           </>
         )}

@@ -16,6 +16,7 @@
       "@app/*": ["src/app/*"],
       "@buttonsRecipes/*": ["recipes/buttons/*"],
       "@checkboxesRecipes/*": ["recipes/checkboxes/*"],
+      "@radioButtonsRecipes/*": ["recipes/radioButtons/*"],
       "@components/*": ["src/app/components/*"],
       "@config/*": ["src/config/*"],
       "@constants/*": ["src/constants/*"],
