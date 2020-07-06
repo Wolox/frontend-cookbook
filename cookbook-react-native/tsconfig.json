@@ -35,6 +35,6 @@
     },
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
+  "include": ["index.d.ts", "src/**/*"],
   "exclude": [ "node_modules", "**/node_modules/*", ".history" ]
 }
