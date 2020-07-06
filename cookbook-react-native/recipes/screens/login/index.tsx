@@ -18,19 +18,6 @@ import { FIELDS, INITIAL_VALUES, WITHOUT_OPACITY } from './constants';
 import './i18n';
 import styles from './styles';
 
-<<<<<<< HEAD
-const WITHOUT_OPACITY = 1;
-
-const optionsRecord = {
-  A: 'option A',
-  B: 'option B',
-  C: 'option C',
-  D: 'option D',
-  E: 'option E',
-};
-
-=======
->>>>>>> ae1b6ff6200c3ac3f76c8eaffd2e03b9e5a04107
 interface State {
   auth: AuthState;
 }
