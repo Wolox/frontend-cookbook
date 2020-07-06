@@ -60,7 +60,12 @@ function MyPicker() {
   return (
     <>
       <CustomButton onPress={show} title="Select"/>
-      <CustomPicker visible={visible} onClose={hide} options={data} onAccept={setSelected} />
+      <CustomPicker
+        visible={visible}
+        onClose={hide}
+        options={data}
+        onAccept={setSelected}
+      />
     </>
   );
 }

@@ -14,7 +14,7 @@ export default StyleSheet.create({
     marginBottom: 6
   },
   subtitle: {
-    marginBottom: 6
+    marginBottom: 8
   },
   button: {
     marginTop: 10

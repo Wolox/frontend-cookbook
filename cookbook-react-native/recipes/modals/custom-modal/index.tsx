@@ -15,7 +15,6 @@ const CustomModal = ({
   style,
   visible
 }: Props) => {
-
   return (
     <Modal animationType="fade" transparent visible={visible} onRequestClose={onClose}>
       <View style={[styles.container, style]}>

@@ -27,7 +27,6 @@ function CustomPicker<V>({ onAccept, onClose, options, visible }: Props<V>) {
     onClose();
     onAccept(options[select].value);
   };
-
   const optionsString = useMemo(() => options.map(o => o.text), [options]);
   return (
     <CustomModal visible={visible} onClose={onClose} style={styles.modal}>
