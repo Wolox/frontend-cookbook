@@ -1,27 +1,65 @@
-# Components
+This project was bootstrapped with [REACT-BOOTSTRAP-WOLOX](https://github.com/Wolox/react-bootstrap).
 
-This branch contains all the components the Cookbook App will be rendering and displaying.
+## Screens
 
-## How to contribute
+This are the screens you can to choose for your app.
 
-### Instalation
+- [Login](docs/Login.md)
 
-1. Clone or fork the repo
-2. Change your branch to `components` with `git checkout components`
-3. Install the dependencies with `npm i` or `npm install`. We use `npm` and not `yarn` as a standard, so please if you use the latter, delete the `lock` file it creates
+## Components
 
-### Develop your component
+This are the components you can to choose for your app.
 
-Under the `components` folder you'll find all the categories we currently have. If you think your component doesn't belong to any of those, feel free to create a new one. Keep in mind that each category is directly referenced in the navigation of the Cookbook.
+- [SearchBar](docs/SearchBar.md)
+- [TextArea](docs/TextArea.md)
+- [Field](docs/Field.md)
+- [Spinner](docs/Spinner.md)
+- [Checkbox](docs/Checkbox.md)
+- [InputLabel](docs/InputLabel.md)
+- [RadioGroup](docs/RadioGroup.md)
 
-Run the project with `npm run start` and go to `localhost:3000`. As in the Cookbook App, you'll need to pass down the query params `category` and `component` which they need to match with the component you want to see, for example:
+## Base Styles
 
-`localhost:3000?category=buttons&component=button-1`
+[BaseStyles](docs/BaseStyles.md)
 
-This URL will take the component `button-1` under the `buttons` category.
+## Deploy
 
-As in the Cookbook, the styles of the component are scoped under the component itself so you won't be able to use any global style or class.
+`npm run deploy environment`
 
-### Important
+Where _environment_ must match with the current branch and _environment_ must have a .env file and a property in the aws.js configuration.
 
-Before your commit is made, the husky hook will create a `styles.css` file that will be the one used in the app to show your component.
+Valid environments are _development_, _stage_ and _master_
+
+#### Example
+
+If you are in `development` branch:
+
+- `.env.development` exists
+- `aws.js` must have a `development` property with the keys for the corresponding bucket
+
+Then, run `npm run deploy development`
+
+#### Only building
+
+To only build the application in a specific env, run:
+
+`npm run build environment`
+
+#### Starting
+
+To start the server by default (development) run:
+
+`npm run start`
+
+To start a specific environment, run:
+
+`npm run start-env environment`
+
+## Google Analytics
+
+If you chose to add Google Analytics script to your project, then you need to configure the tracking ID. Set it adding `REACT_APP_GA_TRACK_ID` environment variable and the corresponding ID as value.
+
+```
+// .env.development
+REACT_APP_GA_TRACK_ID=AU-9999999-1
+```

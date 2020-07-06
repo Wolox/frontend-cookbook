@@ -9,6 +9,7 @@ interface Props {
 }
 
 function ShadowRecipe({ className = '', recipe }: Props) {
+  // TODO: Update to the new files structure
   const shadowElem = useShadow<HTMLDivElement>({ html: recipe.html.content, css: recipe.css.content });
   return <div ref={shadowElem} className={`full-width row middle center ${className}`} />;
 }

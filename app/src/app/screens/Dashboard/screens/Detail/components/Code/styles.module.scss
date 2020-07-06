@@ -1,29 +1,25 @@
 @import 'variables/colors';
 @import 'variables/sizes';
 
-.code-container {
-  height: 600px;
-  padding-top: 30px;
+.files-structure-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
 }
 
-.code-type-button {
-  background-color: $catskill-white;
-  border-radius: 4px;
-  font-weight: 600;
-  height: 40px;
-  margin-right: 15px;
-  text-align: center;
-  transition: all $transition-duration $transition-function;
-  width: 90px;
+.header {
+  display: flex;
+}
 
-  &:last-child {
-    margin-right: 0;
-  }
+.code-container {
+  display: flex;
+  height: 600px;
+  margin-top: 30px;
+}
 
-  &:hover {
-    background-color: $sidebar-blue;
-    color: $white;
-  }
+.download-container {
+  flex: 1 0;
+  min-width: 300px;
 }
 
 .button-active {
@@ -32,6 +28,9 @@
 }
 
 .code-snippets {
+  flex: 4;
+  margin-left: 10px;
+  overflow: hidden;
   position: relative;
 }
 
@@ -48,5 +47,26 @@
 }
 
 .download-button {
-  width: 120px;
+  background-color: $catskill-white;
+  border-radius: 4px;
+  font-weight: 600;
+  height: 40px;
+  margin-right: 15px;
+  margin-left: 80px;
+  padding: 10px;
+  text-align: center;
+  transition: all $transition-duration $transition-function;
+
+  &:hover {
+    background-color: $sidebar-blue;
+    color: $white;
+  }
+}
+
+.file-name {
+  align-items: center;
+  display: inline-flex;
+  flex: 4;
+  font-size: 20px;
+  padding-left: 10px;
 }

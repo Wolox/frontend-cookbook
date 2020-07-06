@@ -9,6 +9,7 @@ $card-info-content: 70px;
   box-shadow: 1px 1px 3px rgba($black, 0.3);
   height: 255px;
   max-width: 255px;
+  overflow: hidden;
   position: relative;
   transition: box-shadow $transition-duration $transition-function, transform $transition-duration ease; /* stylelint-disable-line */
 
@@ -19,6 +20,7 @@ $card-info-content: 70px;
 
 .card-content {
   height: calc(100% - #{$card-info-content});
+  overflow: hidden;
   position: relative;
 }
 
@@ -57,4 +59,21 @@ $card-info-content: 70px;
   font-size: 18px;
   font-weight: 600;
   text-transform: capitalize;
+}
+
+.tech-tag {
+  align-self: flex-start;
+  background-color: $white;
+  border-radius: 12px;
+  color: $bastille;
+  margin: 10px;
+  padding: 4px;
+  position: absolute;
+  text-transform: capitalize;
+  top: 0;
+  z-index: 1;
+}
+
+.link-detail {
+  color: $mariner;
 }

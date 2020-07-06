@@ -18,7 +18,7 @@ module.exports = {
       }
     ],
     ["prismjs", {
-      "languages": ["markup", "javascript", "scss"],
+      "languages": ["markup", "javascript", "scss", "sass", "ts", "tsx", "pug", "ruby", "java", "kotlin"],
       "plugins": ["line-numbers"],
       "theme": "default",
       "css": true

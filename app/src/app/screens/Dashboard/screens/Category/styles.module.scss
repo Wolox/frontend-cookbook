@@ -1,0 +1,7 @@
+@import 'variables/sizes';
+
+.main-container {
+  margin: 0 auto;
+  max-width: $content-max-width;
+  padding: 80px;
+}

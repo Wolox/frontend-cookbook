@@ -4,7 +4,7 @@ import Reactotron from 'reactotron-react-native';
 import SplashScreen from 'react-native-splash-screen';
 import AppNavigator from '@components/AppNavigator';
 import { apiSetup } from '@config/api';
-import { authSetup } from '@screensRecipes/login/services/AuthService';
+import { actionCreators as AuthActions } from '@screensRecipes/login/redux/auth/actions';
 import './i18n';
 
 const App = () => {
@@ -15,8 +15,8 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    authSetup(dispatch);
     apiSetup(dispatch);
+    dispatch(AuthActions.init());
   }, [dispatch]);
 
   return <AppNavigator />;

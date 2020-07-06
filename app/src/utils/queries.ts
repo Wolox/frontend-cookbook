@@ -29,17 +29,121 @@ const queryBuilder = (
   }
 `;
 
+// TODO: Change the length of this query
 const filesQuery = `
-  ... on Tree {
-    entries {
-      name
-      object {
-        ... on Blob {
-          text
+... on Blob {
+  id
+  isBinary
+  text
+}
+... on Tree {
+  entries {
+    name
+    object {
+      ... on Blob {
+        id
+        text
+        isBinary
+      }
+      ... on Tree {
+        entries {
+          name
+          object {
+            ... on Blob {
+              id
+              text
+              isBinary
+            }
+            ... on Tree {
+              entries {
+                name
+                object {
+                  ... on Blob {
+                    id
+                    text
+                    isBinary
+                  }
+                  ... on Tree {
+                    entries {
+                      name
+                      object {
+                        ... on Blob {
+                          id
+                          isBinary
+                          text
+                        }
+                        ... on Tree {
+                          entries {
+                            name
+                            object {
+                              ... on Blob {
+                                id
+                                isBinary
+                                text
+                              }
+                              ... on Tree {
+                                entries {
+                                  name
+                                  object {
+                                    ... on Blob {
+                                      id
+                                      isBinary
+                                      text
+                                    }
+                                    ... on Tree {
+                                      entries {
+                                        name
+                                        object {
+                                          ... on Blob {
+                                            id
+                                            isBinary
+                                            text
+                                          }
+                                          ... on Tree {
+                                            entries {
+                                              name
+                                              object {
+                                                ... on Blob {
+                                                  id
+                                                  isBinary
+                                                  text
+                                                }
+                                                ... on Tree {
+                                                  entries {
+                                                    name
+                                                    object {
+                                                      ... on Blob {
+                                                        id
+                                                        isBinary
+                                                        text
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
-  }`;
+  }
+}`;
 
 export const getCategoriesAndTechs = () =>
   queryBuilder(

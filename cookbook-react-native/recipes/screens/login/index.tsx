@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import i18next from 'i18next';
 import { Formik } from 'formik';
 import CustomHighlightButton from '@buttonsRecipes/custom-highlight-button';
+import Routes from '@constants/routes';
+import { Navigation } from '@interfaces/navigation';
 import CustomText from '@textsRecipes/custom-text';
 import { CustomTextInputFormikField } from '@inputsRecipes/custom-text-input';
 import { validationsWrapper, validateRequired, validateEmail } from '@utils/validations/validateUtils';
@@ -12,10 +14,11 @@ import CustomCheckBoxGroup from '@checkboxesRecipes/custom-checkbox-group';
 
 import { AuthState } from './interfaces/authInterfaces';
 import { actionCreators as AuthActions } from './redux/auth/actions';
-import { FIELDS, INITIAL_VALUES } from './constants';
+import { FIELDS, INITIAL_VALUES, WITHOUT_OPACITY } from './constants';
 import './i18n';
 import styles from './styles';
 
+<<<<<<< HEAD
 const WITHOUT_OPACITY = 1;
 
 const optionsRecord = {
@@ -26,16 +29,19 @@ const optionsRecord = {
   E: 'option E',
 };
 
+=======
+>>>>>>> ae1b6ff6200c3ac3f76c8eaffd2e03b9e5a04107
 interface State {
   auth: AuthState;
 }
 
-function Login() {
+function Login({ navigation }: Navigation) {
   const dispatch = useDispatch();
   const hasLoginError = useSelector<State, boolean>(store => !!store.auth.currentUserError);
   const handleLogin: (values: any) => void = useCallback(values => dispatch(AuthActions.login(values)), [
     dispatch
   ]);
+  const handleGoToSignUp = () => navigation.navigate(Routes.SignUp);
   return (
     <TouchableOpacity activeOpacity={WITHOUT_OPACITY} onPress={Keyboard.dismiss} style={styles.container}>
       <Formik onSubmit={handleLogin} initialValues={INITIAL_VALUES}>
@@ -72,17 +78,10 @@ function Login() {
               title={i18next.t('LOGIN:LOG_IN')}
               disabled={hasLoginError || !isValid}
             />
-            <CustomRadioButtonGroup
-              title="RadioButtons"
-              options={optionsRecord}
-              disabledOptions={['E']}
-              selectedOption={['A']}
-            />
-            <CustomCheckBoxGroup
-              title="RadioButtons"
-              options={optionsRecord}
-              disabledOptions={['E']}
-              selectedOptions={['A']}
+            <CustomHighlightButton
+              onPress={handleGoToSignUp}
+              style={styles.formButton}
+              title={i18next.t('LOGIN:SIGN_UP')}
             />
           </>
         )}

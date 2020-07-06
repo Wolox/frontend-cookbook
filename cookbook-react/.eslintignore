@@ -1,5 +1,3 @@
-/build/**
-/script/**
-/gulp/**
-test.js
-!.eslintrc.js
+/src/serviceWorker.js
+/scripts
+/src/config/api.js

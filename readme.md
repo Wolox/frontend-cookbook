@@ -5,6 +5,7 @@
 * [React](/cookbook-react)
 * [React Native](/cookbook-react-native)
 * [Web](/cookbook-web)
+* [Java](/cookbook-java)
 
 ## Getting started
 

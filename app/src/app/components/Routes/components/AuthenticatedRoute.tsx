@@ -4,8 +4,9 @@ import { RouteProps } from 'react-router';
 
 import { useAuthContext } from '~context/AuthProvider';
 import Routes from '~constants/routes';
+import Loading from '~components/Spinner/components/loading';
 
-const DEFAULT_PUBLIC_ROUTE = Routes.DASHBOARD;
+const DEFAULT_PUBLIC_ROUTE = Routes.LOGIN;
 const DEFAULT_PRIVATE_ROUTE = Routes.DASHBOARD;
 
 interface Props extends RouteProps {
@@ -26,8 +27,11 @@ function AuthenticatedRoute({
   ...props
 }: Props) {
   const {
-    state: { currentUser }
+    state: { isUserLoggedIn }
   } = useAuthContext();
+  if (isUserLoggedIn === undefined) {
+    return <Loading className="m-auto m-top-10" type="wandering-cubes" color="#002363" />;
+  }
   return (
     <Route
       {...props}
@@ -39,11 +43,11 @@ function AuthenticatedRoute({
          *   return <AppDownloader />;
          * }
          */
-        if (currentUser) {
+        if (isUserLoggedIn) {
           if (isPublicRoute) {
             /*
              * TODO Add this if you need it
-             * if (currentUser && isPublicRoute) {
+             * if (isUserLoggedIn && isPublicRoute) {
              * do not allow logged users to access public routes. redirect to app
              */
             return (
@@ -72,13 +76,5 @@ function AuthenticatedRoute({
     />
   );
 }
-
-AuthenticatedRoute.defaultProps = {
-  /*
-   * TODO Add this if you need it
-   * isPublicRoute: true,
-   */
-  currentUser: true
-};
 
 export default AuthenticatedRoute;

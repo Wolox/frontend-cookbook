@@ -15,6 +15,7 @@ module.exports = {
           '@components': './src/app/components',
           '@config': './src/config',
           '@constants': './src/constants',
+          '@hooks': './src/app/hooks',
           '@imagesRecipes': './recipes/images',
           '@inputsRecipes': './recipes/inputs',
           '@interfaces': './src/interfaces',
@@ -23,7 +24,6 @@ module.exports = {
           '@screensRecipes': './recipes/screens',
           '@services': './src/services',
           '@redux': './src/redux',
-          '@utils': './src/utils',
           '@textsRecipes': './recipes/texts',
           '@utils': './src/utils'
         }

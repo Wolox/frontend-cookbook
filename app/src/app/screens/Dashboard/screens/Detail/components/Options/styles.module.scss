@@ -1,9 +1,12 @@
 @import 'variables/colors';
+@import 'variables/sizes';
 
 .settings-container {
   background-color: $white;
   height: 600px;
-  padding-top: 30px;
+  margin: 0 auto;
+  max-width: $content-max-width;
+  padding: 80px 80px 0;
   position: relative;
 }
 

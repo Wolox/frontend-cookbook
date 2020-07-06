@@ -1,8 +1,8 @@
 const Routes = {
   DASHBOARD: '/',
   PRESENTATION: '/present',
-  CATEGORY: '/:category',
-  DETAIL: '/:tech/:category/:recipe',
+  CATEGORY: '/recipes/:category',
+  DETAIL: '/recipes/:tech/:category/:recipe',
   LOGIN: '/login',
   RECOVER_PASSWORD: '/forgot_password'
 };

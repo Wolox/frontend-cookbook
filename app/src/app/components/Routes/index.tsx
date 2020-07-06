@@ -1,5 +1,5 @@
 import React, { lazy, useEffect } from 'react';
-import { Router } from 'react-router';
+import { Router, Redirect } from 'react-router';
 import { Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
@@ -11,10 +11,9 @@ import Suspense from '../Suspense';
 import Routes from '../../../constants/routes';
 
 import AuthenticatedRoute from './components/AuthenticatedRoute';
-import styles from './styles.module.scss';
 
+const Login = lazy(() => import('~screens/Login'));
 const Home = lazy(() => import('~screens/Dashboard/'));
-const Sidebar = lazy(() => import('../Sidebar'));
 const history = createBrowserHistory();
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -25,25 +24,24 @@ function AppRoutes() {
   const { setUserLoggedIn } = actionCreators;
 
   useEffect(() => {
-    if (process.env.NODE_ENV !== 'production') {
-      dispatch(setUserLoggedIn(true));
-    } else if (getCurrentUser()) {
+    if (process.env.NODE_ENV !== 'production' || getCurrentUser()) {
       dispatch(setUserLoggedIn(true));
     } else if (code) {
       loginToGithub(code).then(() => dispatch(setUserLoggedIn(true)));
+    } else {
+      dispatch(setUserLoggedIn(false));
     }
   }, [dispatch, setUserLoggedIn]);
 
   return (
     <Router history={history}>
-      <div className={`row full-width ${styles.container}`}>
-        <Suspense>
-          <Sidebar />
-          <Switch>
-            <AuthenticatedRoute isPublicRoute path={Routes.DASHBOARD} component={Home} />
-          </Switch>
-        </Suspense>
-      </div>
+      <Suspense>
+        <Switch>
+          <AuthenticatedRoute isPublicRoute path={Routes.LOGIN} component={Login} />
+          <AuthenticatedRoute isPrivateRoute path={Routes.DASHBOARD} component={Home} />
+          <Redirect to={Routes.LOGIN} />
+        </Switch>
+      </Suspense>
     </Router>
   );
 }
