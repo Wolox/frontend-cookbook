@@ -4,7 +4,8 @@ import { Link, useLocation } from 'react-router-dom';
 import cn from 'classnames';
 
 import Routes from '~constants/routes';
-import logo from 'assets/logo.svg';
+import logo from 'assets/logo-new.svg';
+import logoWolox from 'assets/logo-wolox.png';
 import checkIcon from 'assets/ic_check.svg';
 import { getCategoriesAndTechs } from '~utils/queries';
 import { useGlobalContext } from '~context/GlobalProvider';
@@ -63,12 +64,13 @@ function Sidebar() {
       </button>
       <div className={styles.sidebarUpperSection}>
         <div className={`column ${styles.sidebarHeader}`}>
-          <Link to={Routes.DASHBOARD}>
-            <img src={logo} alt="Cookbook Wolox" className="full-width" />
+          <img src={logoWolox} alt="Wolox" className={styles.logoWolox} />
+          <Link to={Routes.DASHBOARD} className={styles.logoCook}>
+            <img src={logo} alt="Cookbook" className="full-width" />
           </Link>
         </div>
         <div className={`column ${styles.contentLinks} start`}>
-          <div className="column relative m-bottom-3">
+          <div className={`column relative m-bottom-3 ${styles.selectContainer}`}>
             <span className={styles.techTitle}>Tech</span>
             <button
               className={cn(styles.boxTech, { [styles.boxTechOpen]: toggleOpen })}
