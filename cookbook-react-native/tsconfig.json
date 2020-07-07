@@ -23,7 +23,9 @@
       "@imagesRecipes/*": ["recipes/images/*"],
       "@inputsRecipes/*": ["recipes/inputs/*"],
       "@interfaces/*": ["src/interfaces/*"],
+      "@modalsRecipes/*": ["recipes/modals/*"],
       "@navigationHelper": ["src/app/components/AppNavigator/helper.ts"],
+      "@pickersRecipes/*": ["recipes/pickers/*"],
       "@redux/*": ["src/redux/*"],
       "@screens/*": ["src/app/screens/*"],
       "@screensRecipes/*": ["recipes/screens/*"],
@@ -33,6 +35,6 @@
     },
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
+  "include": ["index.d.ts", "src/**/*"],
   "exclude": [ "node_modules", "**/node_modules/*", ".history" ]
 }
