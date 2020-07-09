@@ -4,8 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import cn from 'classnames';
 
 import Routes from '~constants/routes';
-import logo from 'assets/logo-new.svg';
-import logoWolox from 'assets/logo-wolox.png';
+import logo from 'assets/logo.svg';
 import checkIcon from 'assets/ic_check.svg';
 import { getCategoriesAndTechs } from '~utils/queries';
 import { useGlobalContext } from '~context/GlobalProvider';
@@ -64,37 +63,36 @@ function Sidebar() {
       </button>
       <div className={styles.sidebarUpperSection}>
         <div className={`column ${styles.sidebarHeader}`}>
-          <img src={logoWolox} alt="Wolox" className={styles.logoWolox} />
-          <Link to={Routes.DASHBOARD} className={styles.logoCook}>
-            <img src={logo} alt="Cookbook" className="full-width" />
+          <Link to={Routes.DASHBOARD} className={styles.logoWolox}>
+            <img src={logo} alt="Wolox Cookbook" className="full-width" />
           </Link>
         </div>
+        <div className={`column relative m-bottom-3 ${styles.selectContainer}`}>
+          <span className={styles.techTitle}>Tech</span>
+          <button
+            className={cn(styles.boxTech, { [styles.boxTechOpen]: toggleOpen })}
+            onClick={toggleSelectMenu}
+            type="button"
+            ref={select}
+          >
+            <span className={styles.optionSelected}>{selectedTech}</span>
+          </button>
+          <ul className={cn(styles.menuSelect, { [`${styles.menuSelectOpen}`]: toggleOpen })}>
+            {options.map(tech => (
+              <li key={tech.name} className={styles.itemList} onClick={() => handleTechChange(tech.name)}>
+                <img
+                  src={checkIcon}
+                  alt="selected"
+                  className={cn(styles.iconCheck, {
+                    [`${styles.itemSelected}`]: tech.name === selectedTech
+                  })}
+                />
+                {tech.name}
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className={`column ${styles.contentLinks} start`}>
-          <div className={`column relative m-bottom-3 ${styles.selectContainer}`}>
-            <span className={styles.techTitle}>Tech</span>
-            <button
-              className={cn(styles.boxTech, { [styles.boxTechOpen]: toggleOpen })}
-              onClick={toggleSelectMenu}
-              type="button"
-              ref={select}
-            >
-              <span className={styles.optionSelected}>{selectedTech}</span>
-            </button>
-            <ul className={cn(styles.menuSelect, { [`${styles.menuSelectOpen}`]: toggleOpen })}>
-              {options.map(tech => (
-                <li key={tech.name} className={styles.itemList} onClick={() => handleTechChange(tech.name)}>
-                  <img
-                    src={checkIcon}
-                    alt="selected"
-                    className={cn(styles.iconCheck, {
-                      [`${styles.itemSelected}`]: tech.name === selectedTech
-                    })}
-                  />
-                  {tech.name}
-                </li>
-              ))}
-            </ul>
-          </div>
           {categories &&
             (selectedTech === ALL_TECHS
               ? categories

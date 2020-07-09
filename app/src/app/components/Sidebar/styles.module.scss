@@ -13,19 +13,16 @@
   margin: 83px 0 32px;
 }
 
-.logo-cook {
+.logo-wolox {
   width: 200px;
   height: 74px;
   margin: 32px 64px 0 36px;
 }
 
-.logo-wolox {
-  width: fit-content;
-  margin: 0 83px 0 63px;
-}
-
 .content-links {
   color: $white;
+  height: calc(100vh - 400px);
+  overflow-y: scroll;
 }
 
 .tech-title {
