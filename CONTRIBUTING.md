@@ -4,13 +4,19 @@
 
 ## How Can I Contribute?
 
+### Getting started
+
+1. Fork the repo
+2. Create your branch, naming with a prefix according to the type of contribution. Can be `feature/<my-feature>`, `fix/<my-fix>`, `recipe/<my-recipe>`.
+3. Create a PR with your contribution!
+
 ### New Cookbook
 
 To add a new cookbook create a `cookbook-xxx` folder where `xxx` would be the TECH name, then add a `recipes` folder inside.
 
 You can create a base project inside to help our collaborators to develop future recipes, as long as it has a `recipes` folder.
 
-And don't forget to link the new tech to this [readme](./readme.md)!
+And don't forget to link the new tech to this [README](./README.md)!
 
 ### New recipe
 
@@ -35,7 +41,7 @@ Now that you have your own recipe, you can add a `cookbook.json` file with the f
 
 That url and type would be used to render an iframe with a web component or an illustrative image (jpg, png or gif).
 
-If there isn't a `cookbook.json` with that content in your recipe, it would show a fragment of your recipe `readme.md`. Be sure to always add one!
+If there isn't a `cookbook.json` with that content in your recipe, it would show a fragment of your recipe `README.md`. Be sure to always add one!
 
 So, if we add a `button-1` recipe to `cookbook-react`, the project tree hierarchy should look like this:
 
@@ -46,5 +52,5 @@ wolox-cookbook/
     |_ buttons/
       |_ button-1/
         |_ cookbook.json
-        |_ readme.md
+        |_ README.md
 ```
