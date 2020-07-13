@@ -45,7 +45,11 @@ function Code({ title, source, onDownload }: Props) {
         <Tree handleSelect={handleFileSelect} source={source} title={title} activeId={fileData.id} />
         <div className={styles.codeSnippets}>
           {fileData.lang === 'md' ? (
-            <ReactMarkdown className="full-width column markdown-container" source={fileData.src} />
+            <ReactMarkdown
+              className="full-width column markdown-container"
+              source={fileData.src}
+              escapeHtml={false}
+            />
           ) : (
             <CodeSnippet
               className={`${styles.code} ${styles.codeVisible}`}
