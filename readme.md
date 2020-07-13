@@ -32,4 +32,4 @@ Is important to remember that you would run `REACT_APP_RECIPES_BRANCH` remote br
 
 ## Contributing
 
-Check our [contributors](./contributors.md) file and thanks for your time! 💙💚
+Check our [contributing](./CONTRIBUTING.md) file and thanks for your time! 💙💚
