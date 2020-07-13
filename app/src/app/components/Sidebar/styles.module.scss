@@ -137,7 +137,7 @@
   &:active,
   &:focus {
     color: $royal-blue;
-    background-color: rgba(52, 113, 224, 0.1);
+    background-color: $royal-blue-transparent;
 
     &::after {
       opacity: 1;
