@@ -32,7 +32,7 @@ function RecipePreview({ className, recipe, thumbnail }: Props) {
   if (recipe.readme) {
     return (
       <ReactMarkdown
-        className={`full-width column ${className} ${styles.cardReadme}`}
+        className={`full-width column markdown-container ${className} ${styles.cardReadme}`}
         source={recipe.readme.content}
       />
     );
