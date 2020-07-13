@@ -10,12 +10,19 @@
 }
 
 .sidebar-header {
-  padding: 90px 20px 50px 10px;
+  margin: 83px 0 32px;
+}
+
+.logo-wolox {
+  width: 200px;
+  height: 74px;
+  margin: 32px 64px 0 36px;
 }
 
 .content-links {
   color: $white;
-  padding: 0 20px 0 30px;
+  height: calc(100vh - 400px);
+  overflow-y: scroll;
 }
 
 .tech-title {
@@ -27,7 +34,7 @@
 }
 
 .select-container {
-  position: relative;
+  padding: 0 40px 0 60px;
 }
 
 .box-tech {
@@ -76,7 +83,7 @@
     color: $white;
     cursor: pointer;
     display: block;
-    left: 0;
+    left: 60px;
     position: absolute;
     top: 67px;
     width: 200px;
@@ -102,35 +109,37 @@
 }
 
 .simple-link {
-  color: $science-blue;
+  color: $white;
   font-size: 16px;
   line-height: 19px;
+  padding: 12px 40px 12px 60px;
   position: relative;
-  text-transform: uppercase;
+  text-transform: capitalize;
   transition: all $transition-duration $transition-function;
+  width: 100%;
 
-  &:not(:last-child) {
-    margin-bottom: 20px;
-  }
-
-  &::before {
-    background-color: $white;
+  &::after {
+    background-color: $royal-blue;
     content: '';
     height: 100%;
-    left: -14px;
     opacity: 0;
     position: absolute;
+    right: 0;
+    top: 0;
     transition: opacity $transition-duration $transition-function;
-    width: 2px;
+    width: 4px;
   }
 
-  &:hover,
+  &:hover {
+    color: $royal-blue;
+  }
+
   &:active,
   &:focus {
-    color: $white;
-    font-weight: 600;
+    color: $royal-blue;
+    background-color: $royal-blue-transparent;
 
-    &::before {
+    &::after {
       opacity: 1;
     }
   }
@@ -178,8 +187,10 @@
 }
 
 .sidebar-footer {
+  border-top: 1px solid $botticelli;
   color: $white;
   font-size: 14px;
+  padding: 24px 0;
 }
 
 .sidebar-set-style {
