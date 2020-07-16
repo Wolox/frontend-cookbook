@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import cn from 'classnames';
 
 import { Recipe } from '~constants/interfaces/recipe';
 
@@ -21,7 +22,12 @@ function RecipePreview({ className, recipe, thumbnail }: Props) {
       const Elem = preview.type;
       return (
         <div className={`full-width row middle center ${className}`}>
-          <Elem src={preview.url} className={`full-width row middle center ${styles.cardIframe}`} />
+          <Elem
+            src={preview.url}
+            className={cn('full-width', 'row', 'middle', 'center', styles[`card-${preview.type}`], {
+              [styles.cardThumbnailIframe]: preview.type === 'iframe' && thumbnail
+            })}
+          />
         </div>
       );
     }

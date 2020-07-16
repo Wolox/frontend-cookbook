@@ -3,7 +3,14 @@
   padding: 10px;
 }
 
+.card-img {
+  object-fit: scale-down;
+}
+
 .card-iframe {
   border-style: none;
-  object-fit: scale-down;
+}
+
+.card-thumbnail-iframe {
+  transform: scale(0.8);
 }
