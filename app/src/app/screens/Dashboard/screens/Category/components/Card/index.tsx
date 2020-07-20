@@ -6,7 +6,7 @@ import { Recipe } from '~constants/interfaces/recipe';
 
 import RecipePreview from '../RecipePreview/index';
 
-import { COLORS } from './constants';
+import { COLORS, DEFAULT_COLOR } from './constants';
 import styles from './styles.module.scss';
 
 interface Props {
@@ -21,7 +21,9 @@ function Card({ recipe, number }: Props) {
     .replace(':recipe', recipe.title)
     .replace(':tech', recipe.tech);
 
-  const cardColor = { '--card-color': COLORS[Math.floor(number % COLORS.length)] } as React.CSSProperties;
+  const cardColor = {
+    '--card-color': recipe.config.thumbnail ? DEFAULT_COLOR : COLORS[Math.floor(number % COLORS.length)]
+  } as React.CSSProperties;
 
   return (
     // eslint-disable-next-line react/forbid-dom-props
