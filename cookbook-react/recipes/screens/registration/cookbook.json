@@ -1,0 +1,10 @@
+{
+  "thumbnail": {
+    "type": "iframe",
+    "url": "https://cookbook-react.now.sh/?category=screens&component=registration&compact=true"
+  },
+  "detail": {
+    "type": "iframe",
+    "url": "https://cookbook-react.now.sh/?category=screens&component=registration&compact=true"
+  }
+}
