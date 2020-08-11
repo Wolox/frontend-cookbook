@@ -96,7 +96,8 @@
     "stylelint": "^9.10.1",
     "stylelint-config-wolox": "^1.0.7",
     "stylelint-no-indistinguishable-colors": "^1.2.1",
-    "stylelint-scss": "^3.5.4"
+    "stylelint-scss": "^3.5.4",
+    "@testing-library/react": "^10.4.8"
   },
   "title": "cookbook-react",
   "jest": {

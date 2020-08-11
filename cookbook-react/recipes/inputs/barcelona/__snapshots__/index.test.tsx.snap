@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Barcelona Input when input is confirmable and there is an error shows an invalid input content 1`] = `
+<div
+  id="barcelona"
+>
+  <div
+    className="column inputWrapper"
+  >
+    <label
+      className="inputLabel m-bottom-1"
+      htmlFor="barcelona-input"
+    >
+      My Label
+    </label>
+    <div
+      className="inputContent"
+    >
+      <input
+        className="inputBase m-bottom-1 inputError"
+        data-testid="email-input"
+        id="barcelona-input"
+        name="email"
+        placeholder="Some Placeholder"
+      />
+      <svg
+        className="inputIcon"
+        data-testid="email-valid-icon"
+      >
+        ic_invalid.svg
+      </svg>
+    </div>
+    <span
+      className="errorMessage show"
+      data-testid="email-error"
+    >
+      Some error
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Barcelona Input when input is confirmable and there is no error shows a valid input content 1`] = `
+<div
+  id="barcelona"
+>
+  <div
+    className="column inputWrapper"
+  >
+    <label
+      className="inputLabel m-bottom-1"
+      htmlFor="barcelona-input"
+    >
+      My Label
+    </label>
+    <div
+      className="inputContent"
+    >
+      <input
+        className="inputBase m-bottom-1 confirmed"
+        data-testid="email-input"
+        id="barcelona-input"
+        name="email"
+        placeholder="Some Placeholder"
+      />
+      <svg
+        className="inputIcon"
+        data-testid="email-valid-icon"
+      >
+        ic_valid.svg
+      </svg>
+    </div>
+    <span
+      className="errorMessage"
+      data-testid="email-error"
+    />
+  </div>
+</div>
+`;
+
+exports[`Barcelona Input when input is not confirmable and there is an error shows an invalid input content 1`] = `
+<div
+  id="barcelona"
+>
+  <div
+    className="column inputWrapper"
+  >
+    <label
+      className="inputLabel m-bottom-1"
+      htmlFor="barcelona-input"
+    >
+      My Label
+    </label>
+    <div
+      className="inputContent"
+    >
+      <input
+        className="inputBase m-bottom-1 inputError"
+        data-testid="email-input"
+        id="barcelona-input"
+        name="email"
+        placeholder="Some Placeholder"
+      />
+      <svg
+        className="inputIcon"
+        data-testid="email-valid-icon"
+      >
+        ic_invalid.svg
+      </svg>
+    </div>
+    <span
+      className="errorMessage show"
+      data-testid="email-error"
+    >
+      Some error
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Barcelona Input when input is not confirmable and there is no error shows an invalid input content 1`] = `
+<div
+  id="barcelona"
+>
+  <div
+    className="column inputWrapper"
+  >
+    <label
+      className="inputLabel m-bottom-1"
+      htmlFor="barcelona-input"
+    >
+      My Label
+    </label>
+    <div
+      className="inputContent"
+    >
+      <input
+        className="inputBase m-bottom-1"
+        data-testid="email-input"
+        id="barcelona-input"
+        name="email"
+        placeholder="Some Placeholder"
+      />
+    </div>
+    <span
+      className="errorMessage"
+      data-testid="email-error"
+    />
+  </div>
+</div>
+`;
