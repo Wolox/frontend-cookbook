@@ -35,7 +35,8 @@
     "lint-fix": "./node_modules/eslint/bin/eslint.js src --fix && ./node_modules/stylelint/bin/stylelint.js '**/*.scss' --fix",
     "lint-scss": "./node_modules/stylelint/bin/stylelint.js '**/*.scss'",
     "lint-diff": "git diff --name-only --cached --relative --diff-filter=ACM | grep \\.js$ | xargs eslint",
-    "coverage-diff": "rescripts test --env=jsdom --coverage --watchAll=false --changedSince=development"
+    "coverage-diff": "rescripts test --env=jsdom --coverage --watchAll=false --changedSince=development",
+    "sass": "node ./scripts/compile-sass.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -94,7 +95,7 @@
     "react-hot-loader": "^4.12.21",
     "react-test-renderer": "^16.13.1",
     "stylelint": "^9.10.1",
-    "stylelint-config-wolox": "^1.0.7",
+    "stylelint-config-wolox": "^1.0.10",
     "stylelint-no-indistinguishable-colors": "^1.2.1",
     "stylelint-scss": "^3.5.4"
   },
@@ -131,7 +132,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint-diff && npm run lint-scss"
+      "pre-commit": "npm run sass && npm run lint-diff && npm run lint-scss"
     }
   }
 }
