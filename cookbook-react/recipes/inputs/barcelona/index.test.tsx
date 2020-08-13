@@ -6,8 +6,12 @@ import Input from '.';
 
 const getById = queryByAttribute.bind(null, 'data-testid');
 
+jest.mock('i18next', () => ({
+  t: (key: string) => key
+}));
+
 describe('Barcelona Input', () => {
-  const staticProps = { label: 'My Label', placeholder: 'Some Placeholder', name: "email"  }
+  const staticProps = { label: 'My Label', placeholder: 'Some Placeholder', name: 'email'  }
 
   describe('when input is confirmable and there is no error', () => {
     const component = <Input {...staticProps} />;
@@ -17,19 +21,23 @@ describe('Barcelona Input', () => {
       expect(instance.toJSON()!).toMatchSnapshot();
     })
 
-    it('does not show the error message', () => {
-      const { container } = render(component);
-      expect(getById(container, 'email-error')?.classList).not.toContain('show');
+    it('does not show the error message', async () => {
+      const { getByRole } = render(component);
+      const errorElement = await getByRole('alert');
+      expect(errorElement?.classList).not.toContain('show');
     })
 
-    it('shows the valid icon', () => {
-      const { container } = render(component);
-      expect(getById(container, 'email-valid-icon')).not.toBeNull;
+    it('shows the valid icon', async () => {
+      const { getByRole } = render(component);
+      const validStatusElement = await getByRole('status', { name: 'Input:valid' });
+      expect(validStatusElement).not.toBeNull();
     })
 
-    it('shows the input as valid', () => {
-      const { container } = render(component);
-      expect(getById(container, 'email-input')?.classList).toContain('confirmed');
+    it('shows the input as valid', async () => {
+      const { getByRole } = render(component);
+      const inputElement = await getByRole('textbox');
+      expect(inputElement?.classList).toContain('confirmed');
+      expect(inputElement?.classList).not.toContain('inputError');
     })
   });
 
@@ -41,14 +49,23 @@ describe('Barcelona Input', () => {
       expect(instance.toJSON()!).toMatchSnapshot();
     })
 
-    it('shows the error message', () => {
-      const { container } = render(component);
-      expect(getById(container, 'email-error')?.classList).toContain('show');
+    it('shows the error message', async () => {
+      const { getByRole } = render(component);
+      const errorElement = await getByRole('alert');
+      expect(errorElement?.classList).toContain('show');
     })
 
-    it('shows the valid icon', () => {
-      const { container } = render(component);
-      expect(getById(container, 'email-invalid-icon')).not.toBeNull;
+    it('shows the invalid icon', async () => {
+      const { getByRole } = render(component);
+      const validStatusElement = await getByRole('status', { name: 'Input:invalid' });
+      expect(validStatusElement).not.toBeNull();
+    })
+
+    it('shows the input as invalid', async () => {
+      const { getByRole } = render(component);
+      const errorElement = await getByRole('textbox');
+      expect(errorElement?.classList).not.toContain('confirmed');
+      expect(errorElement?.classList).toContain('inputError');
     })
   });
 
@@ -60,9 +77,10 @@ describe('Barcelona Input', () => {
       expect(instance.toJSON()!).toMatchSnapshot();
     })
 
-    it('does not show the error message', () => {
-      const { container } = render(component);
-      expect(getById(container, 'email-error')?.classList).not.toContain('show');
+    it('does not show the error message', async () => {
+      const { getByRole } = render(component);
+      const errorElement = await getByRole('alert');
+      expect(errorElement?.classList).not.toContain('show');
     })
   });
 
@@ -74,23 +92,26 @@ describe('Barcelona Input', () => {
       expect(instance.toJSON()).toMatchSnapshot();
     })
     
-    it('shows the error message', () => {
-      const { container } = render(component);
-      expect(getById(container, 'email-error')?.classList).toContain('show');
+    it('shows the error message', async () => {
+      const { getByRole } = render(component);
+      const errorElement = await getByRole('alert');
+      expect(errorElement?.classList).toContain('show');
     })
 
-    it('shows the valid icon', () => {
-      const { container } = render(component);
-      expect(getById(container, 'email-invalid-icon')).not.toBeNull;
+    it('shows the invalid icon', async () => {
+      const { getByRole } = render(component);
+      const validStatusElement = await getByRole('status', { name: 'Input:invalid' });
+      expect(validStatusElement).not.toBeNull();
     })
   });
 
   describe('when the input is disabled', () => {
     const component = <Input {...staticProps} disabled={true} />;
-    const { container } = render(component);
 
-    it('shows the input as disabled', () => {
-      expect(getById(container, 'email-input')?.getAttribute('disabled')).toBeTruthy;
+    it('shows the input as disabled', async () => {
+      const { getByRole } = render(component);
+      const inputElement = await getByRole('textbox');
+      expect(inputElement?.getAttribute('disabled')).toBeTruthy;
     })
   })
 })

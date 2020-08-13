@@ -2,150 +2,153 @@
 
 exports[`Barcelona Input when input is confirmable and there is an error shows an invalid input content 1`] = `
 <div
-  id="barcelona"
+  className="column inputWrapper"
 >
-  <div
-    className="column inputWrapper"
+  <label
+    className="inputLabel m-bottom-1"
+    htmlFor="email"
   >
-    <label
-      className="inputLabel m-bottom-1"
-      htmlFor="barcelona-input"
+    My Label
+  </label>
+  <div
+    className="inputContent"
+  >
+    <input
+      aria-errormessage="email-error"
+      aria-invalid={true}
+      className="inputBase m-bottom-1 inputError"
+      data-testid="email-input"
+      id="email"
+      name="email"
+      placeholder="Some Placeholder"
+      role="textbox"
+    />
+    <svg
+      aria-label="Input:invalid"
+      className="inputIcon"
+      role="status"
     >
-      My Label
-    </label>
-    <div
-      className="inputContent"
-    >
-      <input
-        className="inputBase m-bottom-1 inputError"
-        data-testid="email-input"
-        id="barcelona-input"
-        name="email"
-        placeholder="Some Placeholder"
-      />
-      <svg
-        className="inputIcon"
-        data-testid="email-valid-icon"
-      >
-        ic_invalid.svg
-      </svg>
-    </div>
-    <span
-      className="errorMessage show"
-      data-testid="email-error"
-    >
-      Some error
-    </span>
+      ic_invalid.svg
+    </svg>
   </div>
+  <span
+    className="errorMessage show"
+    id="email-error"
+    role="alert"
+  >
+    Some error
+  </span>
 </div>
 `;
 
 exports[`Barcelona Input when input is confirmable and there is no error shows a valid input content 1`] = `
 <div
-  id="barcelona"
+  className="column inputWrapper"
 >
-  <div
-    className="column inputWrapper"
+  <label
+    className="inputLabel m-bottom-1"
+    htmlFor="email"
   >
-    <label
-      className="inputLabel m-bottom-1"
-      htmlFor="barcelona-input"
-    >
-      My Label
-    </label>
-    <div
-      className="inputContent"
-    >
-      <input
-        className="inputBase m-bottom-1 confirmed"
-        data-testid="email-input"
-        id="barcelona-input"
-        name="email"
-        placeholder="Some Placeholder"
-      />
-      <svg
-        className="inputIcon"
-        data-testid="email-valid-icon"
-      >
-        ic_valid.svg
-      </svg>
-    </div>
-    <span
-      className="errorMessage"
-      data-testid="email-error"
+    My Label
+  </label>
+  <div
+    className="inputContent"
+  >
+    <input
+      aria-errormessage="email-error"
+      aria-invalid={false}
+      className="inputBase m-bottom-1 confirmed"
+      data-testid="email-input"
+      id="email"
+      name="email"
+      placeholder="Some Placeholder"
+      role="textbox"
     />
+    <svg
+      aria-label="Input:valid"
+      className="inputIcon"
+      role="status"
+    >
+      ic_valid.svg
+    </svg>
   </div>
+  <span
+    className="errorMessage"
+    id="email-error"
+    role="alert"
+  />
 </div>
 `;
 
 exports[`Barcelona Input when input is not confirmable and there is an error shows an invalid input content 1`] = `
 <div
-  id="barcelona"
+  className="column inputWrapper"
 >
-  <div
-    className="column inputWrapper"
+  <label
+    className="inputLabel m-bottom-1"
+    htmlFor="email"
   >
-    <label
-      className="inputLabel m-bottom-1"
-      htmlFor="barcelona-input"
+    My Label
+  </label>
+  <div
+    className="inputContent"
+  >
+    <input
+      aria-errormessage="email-error"
+      aria-invalid={true}
+      className="inputBase m-bottom-1 inputError"
+      data-testid="email-input"
+      id="email"
+      name="email"
+      placeholder="Some Placeholder"
+      role="textbox"
+    />
+    <svg
+      aria-label="Input:invalid"
+      className="inputIcon"
+      role="status"
     >
-      My Label
-    </label>
-    <div
-      className="inputContent"
-    >
-      <input
-        className="inputBase m-bottom-1 inputError"
-        data-testid="email-input"
-        id="barcelona-input"
-        name="email"
-        placeholder="Some Placeholder"
-      />
-      <svg
-        className="inputIcon"
-        data-testid="email-valid-icon"
-      >
-        ic_invalid.svg
-      </svg>
-    </div>
-    <span
-      className="errorMessage show"
-      data-testid="email-error"
-    >
-      Some error
-    </span>
+      ic_invalid.svg
+    </svg>
   </div>
+  <span
+    className="errorMessage show"
+    id="email-error"
+    role="alert"
+  >
+    Some error
+  </span>
 </div>
 `;
 
 exports[`Barcelona Input when input is not confirmable and there is no error shows an invalid input content 1`] = `
 <div
-  id="barcelona"
+  className="column inputWrapper"
 >
-  <div
-    className="column inputWrapper"
+  <label
+    className="inputLabel m-bottom-1"
+    htmlFor="email"
   >
-    <label
-      className="inputLabel m-bottom-1"
-      htmlFor="barcelona-input"
-    >
-      My Label
-    </label>
-    <div
-      className="inputContent"
-    >
-      <input
-        className="inputBase m-bottom-1"
-        data-testid="email-input"
-        id="barcelona-input"
-        name="email"
-        placeholder="Some Placeholder"
-      />
-    </div>
-    <span
-      className="errorMessage"
-      data-testid="email-error"
+    My Label
+  </label>
+  <div
+    className="inputContent"
+  >
+    <input
+      aria-errormessage="email-error"
+      aria-invalid={false}
+      className="inputBase m-bottom-1"
+      data-testid="email-input"
+      id="email"
+      name="email"
+      placeholder="Some Placeholder"
+      role="textbox"
     />
   </div>
+  <span
+    className="errorMessage"
+    id="email-error"
+    role="alert"
+  />
 </div>
 `;
