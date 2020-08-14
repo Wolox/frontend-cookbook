@@ -4,8 +4,6 @@ import { render, queryByAttribute }  from '@testing-library/react';
 
 import Input from '.';
 
-const getById = queryByAttribute.bind(null, 'data-testid');
-
 jest.mock('i18next', () => ({
   t: (key: string) => key
 }));
