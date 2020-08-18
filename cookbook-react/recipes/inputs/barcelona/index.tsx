@@ -14,9 +14,10 @@ interface Props {
   confirmable?: boolean;
   name: string;
   onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
+  type?: string;
 }
 
-function Input({ name, label, disabled, error, onChange, confirmable = true, placeholder }: Props) {
+function Input({ name, label, disabled, error, onChange, confirmable = true, placeholder, type = "text" }: Props) {
   return (
     <div className={`column ${styles.inputWrapper}`}>
       <label htmlFor={name} className={`${styles.inputLabel} m-bottom-1`}>{label}</label>
@@ -31,7 +32,7 @@ function Input({ name, label, disabled, error, onChange, confirmable = true, pla
           disabled={disabled}
           aria-errormessage={`${name}-error`} 
           aria-invalid={!!error}
-          role="textbox"
+          type={type}
         />
         {confirmable && !error && <ValidIcon className={styles.inputIcon} role="status" aria-label={i18next.t('Input:valid') as string} />}
         {error && <InvalidIcon className={styles.inputIcon} role="status" aria-label={i18next.t('Input:invalid') as string} />}

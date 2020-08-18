@@ -22,7 +22,7 @@ describe('Barcelona Input', () => {
     it('does not show the error message', async () => {
       const { getByRole } = render(component);
       const errorElement = await getByRole('alert');
-      expect(errorElement?.classList).not.toContain('show');
+      expect(errorElement).not.toHaveClass('show');
     })
 
     it('shows the valid icon', async () => {
@@ -34,8 +34,8 @@ describe('Barcelona Input', () => {
     it('shows the input as valid', async () => {
       const { getByRole } = render(component);
       const inputElement = await getByRole('textbox');
-      expect(inputElement?.classList).toContain('confirmed');
-      expect(inputElement?.classList).not.toContain('inputError');
+      expect(inputElement).toHaveClass('confirmed');
+      expect(inputElement).not.toHaveClass('inputError');
     })
   });
 
@@ -50,7 +50,7 @@ describe('Barcelona Input', () => {
     it('shows the error message', async () => {
       const { getByRole } = render(component);
       const errorElement = await getByRole('alert');
-      expect(errorElement?.classList).toContain('show');
+      expect(errorElement).toHaveClass('show');
     })
 
     it('shows the invalid icon', async () => {
@@ -62,8 +62,8 @@ describe('Barcelona Input', () => {
     it('shows the input as invalid', async () => {
       const { getByRole } = render(component);
       const errorElement = await getByRole('textbox');
-      expect(errorElement?.classList).not.toContain('confirmed');
-      expect(errorElement?.classList).toContain('inputError');
+      expect(errorElement).not.toHaveClass('confirmed');
+      expect(errorElement).toHaveClass('inputError');
     })
   });
 
@@ -78,7 +78,7 @@ describe('Barcelona Input', () => {
     it('does not show the error message', async () => {
       const { getByRole } = render(component);
       const errorElement = await getByRole('alert');
-      expect(errorElement?.classList).not.toContain('show');
+      expect(errorElement).not.toHaveClass('show');
     })
   });
 
@@ -93,7 +93,7 @@ describe('Barcelona Input', () => {
     it('shows the error message', async () => {
       const { getByRole } = render(component);
       const errorElement = await getByRole('alert');
-      expect(errorElement?.classList).toContain('show');
+      expect(errorElement).toHaveClass('show');
     })
 
     it('shows the invalid icon', async () => {

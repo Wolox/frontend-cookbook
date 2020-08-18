@@ -21,7 +21,7 @@ exports[`Barcelona Input when input is confirmable and there is an error shows a
       id="email"
       name="email"
       placeholder="Some Placeholder"
-      role="textbox"
+      type="text"
     />
     <svg
       aria-label="Input:invalid"
@@ -62,7 +62,7 @@ exports[`Barcelona Input when input is confirmable and there is no error shows a
       id="email"
       name="email"
       placeholder="Some Placeholder"
-      role="textbox"
+      type="text"
     />
     <svg
       aria-label="Input:valid"
@@ -101,7 +101,7 @@ exports[`Barcelona Input when input is not confirmable and there is an error sho
       id="email"
       name="email"
       placeholder="Some Placeholder"
-      role="textbox"
+      type="text"
     />
     <svg
       aria-label="Input:invalid"
@@ -142,7 +142,7 @@ exports[`Barcelona Input when input is not confirmable and there is no error sho
       id="email"
       name="email"
       placeholder="Some Placeholder"
-      role="textbox"
+      type="text"
     />
   </div>
   <span
