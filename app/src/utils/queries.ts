@@ -10,14 +10,19 @@ interface QueryBuilderOptions {
   expression?: string;
 }
 
+const getExpression = (tech: string) => {
+  if (!tech) {
+    return '';
+  }
+  const techRoot = `${COOKBOOK_PREFIX}${tech}`;
+
+  return tech === 'react' ? `${techRoot}/src/${RECIPES_DIRECTORY}` : `${techRoot}/${RECIPES_DIRECTORY}`;
+};
+
 const queryBuilder = (
   name: string,
   query: string,
-  {
-    tech = '',
-    target = '',
-    expression = tech ? `${COOKBOOK_PREFIX}${tech}/${RECIPES_DIRECTORY}` : ''
-  }: QueryBuilderOptions = {}
+  { tech = '', target = '', expression = getExpression(tech) }: QueryBuilderOptions = {}
 ) =>
   gql`
   query ${name} {

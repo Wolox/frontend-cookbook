@@ -6,3 +6,5 @@
 
 now.json
 .vercel
+
+node_modules
