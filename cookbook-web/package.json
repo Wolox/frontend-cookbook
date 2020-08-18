@@ -1,0 +1,19 @@
+{
+  "name": "cookbook-web",
+  "version": "1.0.0",
+  "scripts": {
+    "sass": "node ./scripts/compile-sass.js"
+  },
+  "devDependencies": {
+    "husky": "^4.2.5"
+  },
+  "author": "Damián Finkelstein <dfinkelstein@wolox.com.ar>",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run sass"
+    }
+  },
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  }
+}
