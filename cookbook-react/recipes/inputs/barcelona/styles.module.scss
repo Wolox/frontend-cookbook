@@ -1,0 +1,105 @@
+$input-border-default-color: #B5B5B6;
+$input-border-focus-color: #0043CD;
+$input-border-error-color: #EA4453;
+$input-border-valid-color: #34DC85;
+
+$disabled-text-color: #525256;
+$disabled-background-color: #E1E1E1;
+$disabled-border-color: #E8E8E8;
+
+$placeholder-color: #9C9C9C;
+
+$background-color: #FFF;
+$text-color: #08080D;
+$label-color: #525256;
+
+
+.input-wrapper {
+  max-width: 150px;
+  position: relative;
+}
+
+.input-label {
+  color: $label-color;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+
+.input-content {
+  position: relative;
+}
+
+.input-icon {
+  height: 17px;
+  position: absolute;
+  right: 8px;
+  top: 0;
+  transform: translateY(50%);
+  width: 17px;
+}
+
+.input-base {
+  background-color: $background-color;
+  border: 1px solid $input-border-default-color;
+  border-radius: 2px;
+  color: $text-color;
+  font-size: 12px;
+  height: 32px;
+  line-height: 14px;
+  padding: 0 10px;
+  position: relative;
+  transition: border 0.2s linear;
+  width: 100%;
+
+  &::placeholder {
+    color: $placeholder-color;
+  }
+
+  &::after {
+    background: url('./assets/ic_valid.svg') center/cover no-repeat;
+    content: '';
+    height: 17px;
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 17px;
+  }
+
+  &:focus {
+    border-color: $input-border-focus-color;
+    caret-color: $input-border-focus-color;
+  }
+
+  &:disabled {
+    background-color: $disabled-background-color;
+    border-color: $disabled-border-color;
+    color: $disabled-text-color;
+  }
+
+  &:not(:placeholder-shown):not(:focus) {
+    border-color: $input-border-valid-color;
+
+    &.input-error {
+      border-color: $input-border-error-color;
+    }
+
+    &.confirmed {
+      border-color: $input-border-valid-color;
+    }
+  }
+}
+
+.error-message {
+  color: $input-border-error-color;
+  font-size: 10px;
+  height: 15px;
+  line-height: 12px;
+  visibility: hidden;
+
+  &.show {
+    visibility: visible;
+  }
+}

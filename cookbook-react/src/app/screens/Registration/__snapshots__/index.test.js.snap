@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Registration When the component is mounted matches last snapshot 1`] = `
+<RootComponent>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Switch>
+        <RegistrationContainer
+          computedMatch={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+        >
+          <form
+            className="column center full-width formContainer"
+            onSubmit={[Function]}
+          >
+            <div
+              className="column center m-bottom-3"
+            >
+              <h1
+                className="m-bottom-1"
+              />
+              <h2 />
+            </div>
+            <div
+              className="row space-between sectionContainer"
+            >
+              <FormInput
+                className="inputContainer"
+                inputClassName="input"
+                inputType="text"
+                label=""
+                name=":name"
+                onChange={[Function]}
+                placeholder=""
+              >
+                <div
+                  className="column start inputContainer"
+                >
+                  <input
+                    className="input input "
+                    disabled={false}
+                    id=":name"
+                    name=":name"
+                    onChange={[Function]}
+                    placeholder=""
+                    readOnly={false}
+                    type="text"
+                  />
+                  <span
+                    className=" errorText "
+                  />
+                </div>
+              </FormInput>
+              <FormInput
+                className="full-width m-left-1"
+                inputClassName="input"
+                inputType="text"
+                label=""
+                name=":surname"
+                onChange={[Function]}
+                placeholder=""
+              >
+                <div
+                  className="column start full-width m-left-1"
+                >
+                  <input
+                    className="input input "
+                    disabled={false}
+                    id=":surname"
+                    name=":surname"
+                    onChange={[Function]}
+                    placeholder=""
+                    readOnly={false}
+                    type="text"
+                  />
+                  <span
+                    className=" errorText "
+                  />
+                </div>
+              </FormInput>
+            </div>
+            <div
+              className="row sectionContainer"
+            >
+              <FormInput
+                className="inputContainer"
+                inputClassName="input"
+                inputType="text"
+                label=""
+                name=":email"
+                onChange={[Function]}
+                placeholder=""
+              >
+                <div
+                  className="column start inputContainer"
+                >
+                  <input
+                    className="input input "
+                    disabled={false}
+                    id=":email"
+                    name=":email"
+                    onChange={[Function]}
+                    placeholder=""
+                    readOnly={false}
+                    type="text"
+                  />
+                  <span
+                    className=" errorText "
+                  />
+                </div>
+              </FormInput>
+            </div>
+            <div
+              className="row space-between sectionContainer"
+            >
+              <FormInput
+                className="inputContainer"
+                inputClassName="input"
+                inputType="password"
+                label=""
+                name=":password"
+                onChange={[Function]}
+                placeholder=""
+              >
+                <div
+                  className="column start inputContainer"
+                >
+                  <input
+                    className="input input "
+                    disabled={false}
+                    id=":password"
+                    name=":password"
+                    onChange={[Function]}
+                    placeholder=""
+                    readOnly={false}
+                    type="password"
+                  />
+                  <span
+                    className=" errorText "
+                  />
+                </div>
+              </FormInput>
+              <FormInput
+                className="full-width m-left-1"
+                inputClassName="input"
+                inputType="password"
+                label=""
+                name=":confirmPassword"
+                onChange={[Function]}
+                placeholder=""
+              >
+                <div
+                  className="column start full-width m-left-1"
+                >
+                  <input
+                    className="input input "
+                    disabled={false}
+                    id=":confirmPassword"
+                    name=":confirmPassword"
+                    onChange={[Function]}
+                    placeholder=""
+                    readOnly={false}
+                    type="password"
+                  />
+                  <span
+                    className=" errorText "
+                  />
+                </div>
+              </FormInput>
+            </div>
+            <div
+              className="column center sectionContainer"
+            >
+              <button
+                className="full-width m-bottom-1 button"
+                type="submit"
+              />
+              <a
+                href="/login"
+              />
+            </div>
+          </form>
+        </RegistrationContainer>
+      </Switch>
+    </Router>
+  </BrowserRouter>
+</RootComponent>
+`;

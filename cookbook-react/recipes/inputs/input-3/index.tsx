@@ -11,7 +11,7 @@ interface Props {
 
 function Input({ label, disabled, error }: Props) {
   return (
-    <div id="input-3" className="input-container">
+    <div id="input-3">
       <div className="input-wrapper">
         <input
           id="input-tag-3"

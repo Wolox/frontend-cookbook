@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Barcelona Input when input is confirmable and there is an error shows an invalid input content 1`] = `
+<div
+  className="column inputWrapper"
+>
+  <label
+    className="inputLabel m-bottom-1"
+    htmlFor="email"
+  >
+    My Label
+  </label>
+  <div
+    className="inputContent"
+  >
+    <input
+      aria-errormessage="email-error"
+      aria-invalid={true}
+      className="inputBase m-bottom-1 inputError"
+      data-testid="email-input"
+      id="email"
+      name="email"
+      placeholder="Some Placeholder"
+      type="text"
+    />
+    <svg
+      aria-label="Input:invalid"
+      className="inputIcon"
+      role="status"
+    >
+      ic_invalid.svg
+    </svg>
+  </div>
+  <span
+    className="errorMessage show"
+    id="email-error"
+    role="alert"
+  >
+    Some error
+  </span>
+</div>
+`;
+
+exports[`Barcelona Input when input is confirmable and there is no error shows a valid input content 1`] = `
+<div
+  className="column inputWrapper"
+>
+  <label
+    className="inputLabel m-bottom-1"
+    htmlFor="email"
+  >
+    My Label
+  </label>
+  <div
+    className="inputContent"
+  >
+    <input
+      aria-errormessage="email-error"
+      aria-invalid={false}
+      className="inputBase m-bottom-1 confirmed"
+      data-testid="email-input"
+      id="email"
+      name="email"
+      placeholder="Some Placeholder"
+      type="text"
+    />
+    <svg
+      aria-label="Input:valid"
+      className="inputIcon"
+      role="status"
+    >
+      ic_valid.svg
+    </svg>
+  </div>
+  <span
+    className="errorMessage"
+    id="email-error"
+    role="alert"
+  />
+</div>
+`;
+
+exports[`Barcelona Input when input is not confirmable and there is an error shows an invalid input content 1`] = `
+<div
+  className="column inputWrapper"
+>
+  <label
+    className="inputLabel m-bottom-1"
+    htmlFor="email"
+  >
+    My Label
+  </label>
+  <div
+    className="inputContent"
+  >
+    <input
+      aria-errormessage="email-error"
+      aria-invalid={true}
+      className="inputBase m-bottom-1 inputError"
+      data-testid="email-input"
+      id="email"
+      name="email"
+      placeholder="Some Placeholder"
+      type="text"
+    />
+    <svg
+      aria-label="Input:invalid"
+      className="inputIcon"
+      role="status"
+    >
+      ic_invalid.svg
+    </svg>
+  </div>
+  <span
+    className="errorMessage show"
+    id="email-error"
+    role="alert"
+  >
+    Some error
+  </span>
+</div>
+`;
+
+exports[`Barcelona Input when input is not confirmable and there is no error shows an invalid input content 1`] = `
+<div
+  className="column inputWrapper"
+>
+  <label
+    className="inputLabel m-bottom-1"
+    htmlFor="email"
+  >
+    My Label
+  </label>
+  <div
+    className="inputContent"
+  >
+    <input
+      aria-errormessage="email-error"
+      aria-invalid={false}
+      className="inputBase m-bottom-1"
+      data-testid="email-input"
+      id="email"
+      name="email"
+      placeholder="Some Placeholder"
+      type="text"
+    />
+  </div>
+  <span
+    className="errorMessage"
+    id="email-error"
+    role="alert"
+  />
+</div>
+`;

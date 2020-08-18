@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#RecoverPassword When the component is mounted matches last snapshot 1`] = `
+<RootComponent>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Switch>
+        <RecoverPasswordContainer
+          computedMatch={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            }
+          }
+        >
+          <div
+            className="column center full-width container"
+            onSubmit={[Function]}
+          >
+            <div
+              className="column center m-bottom-3"
+            >
+              <h1
+                className="m-bottom-1"
+              />
+              <h2 />
+            </div>
+            <form
+              className="full-width formContainer"
+            >
+              <FormInput
+                className="m-bottom-2 sectionContainer"
+                inputClassName="m-bottom-2 full-width input"
+                inputType="text"
+                label=""
+                name="email"
+                onChange={[Function]}
+                placeholder=""
+              >
+                <div
+                  className="column start m-bottom-2 sectionContainer"
+                >
+                  <input
+                    className="m-bottom-2 full-width input input "
+                    disabled={false}
+                    id="email"
+                    name="email"
+                    onChange={[Function]}
+                    placeholder=""
+                    readOnly={false}
+                    type="text"
+                  />
+                  <span
+                    className=" errorText "
+                  />
+                </div>
+              </FormInput>
+              <div
+                className="column center sectionContainer"
+              >
+                <button
+                  className="full-width m-bottom-1 button"
+                  type="submit"
+                />
+                <a
+                  href="/login"
+                />
+              </div>
+            </form>
+          </div>
+        </RecoverPasswordContainer>
+      </Switch>
+    </Router>
+  </BrowserRouter>
+</RootComponent>
+`;
