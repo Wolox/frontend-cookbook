@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@hookform/resolvers": "^0.1.0",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/classnames": "^2.2.10",
@@ -24,7 +25,8 @@
     "react-spinkit": "^3.0.0",
     "seamless-immutable": "^7.1.4",
     "typescript": "^3.9.5",
-    "wolox-equalizer": "0.0.3"
+    "wolox-equalizer": "0.0.3",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "start": "node ./scripts/start.js development",
@@ -70,6 +72,7 @@
     "@types/react-test-renderer": "^16.9.2",
     "@types/seamless-immutable": "^7.1.13",
     "@types/webpack-env": "^1.15.2",
+    "@types/yup": "^0.29.5",
     "aws-deploy-script-fe": "^1.0.8",
     "chalk": "^3.0.0",
     "env-cmd": "^10.1.0",
