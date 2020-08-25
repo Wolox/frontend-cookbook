@@ -16,6 +16,8 @@ const getExpression = (tech: string) => {
   }
   const techRoot = `${COOKBOOK_PREFIX}${tech}`;
 
+  // TODO: Check if there's a way we could avoid this. At the moment we need it because the test
+  // script in CRA needs all tests to be inside the src dir
   return tech === 'react' ? `${techRoot}/src/${RECIPES_DIRECTORY}` : `${techRoot}/${RECIPES_DIRECTORY}`;
 };
 

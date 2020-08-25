@@ -74,6 +74,7 @@ exports[`#Login when mounting shows valid content 1`] = `
     >
       <button
         className="full-width m-bottom-1 button"
+        disabled={false}
         type="submit"
       >
         Login:enter

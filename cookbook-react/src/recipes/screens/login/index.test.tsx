@@ -40,12 +40,12 @@ global.MutationObserver = window.MutationObserver;
 describe('#Login', () => {
   const component = <Login />;
 
-  // describe('when mounting', () => {
-  //   it('shows valid content', () => {
-  //     const instance = TestRenderer.create(component)
-  //     expect(instance.toJSON()!).toMatchSnapshot();
-  //   })
-  // });
+  describe('when mounting', () => {
+    it('shows valid content', () => {
+      const instance = TestRenderer.create(component)
+      expect(instance.toJSON()!).toMatchSnapshot();
+    })
+  });
 
   describe('when filling invalid fields without submitting', () => {
     it('does not show the field errors', async () => {

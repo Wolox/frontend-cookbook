@@ -26,6 +26,8 @@ const render = () => {
 // Render once
 render();
 
+register();
+
 // Webpack Hot Module Replacement API
 if (module.hot) {
   module.hot.accept('./app', () => {

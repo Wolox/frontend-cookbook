@@ -1,5 +1,5 @@
 $items: 3;
-$item-width: (100/$items) * 1%;
+$item-width: (100 / $items) * 1%;
 
 .tab-bar-container {
   --active-color: #0043CD;
@@ -51,12 +51,13 @@ $item-width: (100/$items) * 1%;
 
     &::after {
       border-color: transparent transparent var(--background-color) transparent;
-      top: 1px; //indicator width
+      top: 1px; // indicator width
     }
   }
 
   @for $i from 0 through $items {
-    $pos: $item-width * ($i+1);
+    $pos: $item-width * ($i + 1);
+
     .selected-#{$i} {
       left: calc(#{$pos} - 80px);
     }
