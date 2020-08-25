@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import { render, queryByAttribute }  from '@testing-library/react';
+import { render }  from '@testing-library/react';
 
 import Input from '.';
 

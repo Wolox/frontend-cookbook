@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { yupResolver } from '@hookform/resolvers';
-import * as yup from 'yup';
 
 import { useDispatch } from '~contexts/UserContext';
 import { actionCreators, Credentials, User } from '~contexts/UserContext/reducer';
@@ -23,13 +21,19 @@ import styles from './styles.module.scss';
 
 const FIELDS = stringArrayToObject(['email', 'password']);
 
-const schema = yup.object().shape({
-  email: yup.string().email(),
-  password: yup.string().required(),
-});
+const VALIDATIONS = {
+  email: { 
+    pattern: { 
+      value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      message: i18next.t('Login:emailFormatError') as string
+    },
+    required: i18next.t('Login:requiredError') as string
+  },
+  password: { required: i18next.t('Login:requiredError') as string }
+}
 
 function LoginContainer() {
-  const history = useHistory();
+  // const history = useHistory();
   const dispatch = useDispatch();
 
   const [, loading, loginError, loginRequest] = useLazyRequest({
@@ -42,11 +46,10 @@ function LoginContainer() {
       // history.push('/');
     }
   });
-  const { register, handleSubmit } = useForm({ resolver: yupResolver(schema) });
+  const { register, handleSubmit, errors } = useForm();
   const errorMessage = loginError?.errorData?.message;
 
   const handleLogin = (values: Credentials) => {
-    debugger
     dispatch(actionCreators.login(values));
     loginRequest(values);
   };
@@ -57,15 +60,16 @@ function LoginContainer() {
         <h1 className="m-bottom-1">{i18next.t('Login:login')}</h1>
         <h2>{i18next.t('Login:loginExplanation')}</h2>
       </div>
-      <form className={`column m-bottom-2 ${styles.formContainer}`} onSubmit={handleSubmit(handleLogin)}>
+      <form className={`column m-bottom-2 ${styles.formContainer}`} aria-label="login-form" onSubmit={handleSubmit(handleLogin)}>
         <FormInput
           label={i18next.t('Login:email')}
           name={FIELDS.email}
-          inputType="text"
+          inputType="email"
           inputClassName={`m-bottom-2 full-width ${styles.input}`}
           placeholder={i18next.t('Login:emailPlaceholder') as string}
           disabled={loading}
-          inputRef={register}
+          inputRef={register(VALIDATIONS.email)}
+          error={errors?.email?.message}
         />
         <FormInput
           label={i18next.t('Login:password')}
@@ -74,7 +78,8 @@ function LoginContainer() {
           inputClassName={`m-bottom-2 full-width ${styles.input}`}
           placeholder={i18next.t('Login:passwordPlaceholder') as string}
           disabled={loading}
-          inputRef={register}
+          inputRef={register(VALIDATIONS.password)}
+          error={errors?.password?.message}
         />
         <div className="column center">
           <button disabled={loading} type="submit" className={`full-width m-bottom-1 ${styles.button}`}>
@@ -90,5 +95,7 @@ function LoginContainer() {
     </div>
   );
 }
+
+LoginContainer.displayName = 'LoginContainer';
 
 export default LoginContainer;

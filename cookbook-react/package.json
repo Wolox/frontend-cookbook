@@ -15,13 +15,13 @@
     "i18next": "^13.1.5",
     "node-sass": "^4.14.1",
     "postcss": "^7.0.32",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-hook-form": "^6.4.1",
     "react-paginate": "^6.3.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "3.4.3",
     "react-spinkit": "^3.0.0",
     "seamless-immutable": "^7.1.4",
     "typescript": "^3.9.5",
@@ -32,13 +32,13 @@
     "start": "node ./scripts/start.js development",
     "start-env": "node ./scripts/start.js",
     "build": "node ./scripts/build.js",
-    "test": "rescripts test --env=jsdom",
+    "test": "rescripts test --coverage",
     "eject": "./node_modules/react-scripts/bin/react-scripts.js eject",
     "lint": "./node_modules/eslint/bin/eslint.js src",
     "lint-fix": "./node_modules/eslint/bin/eslint.js src --fix && ./node_modules/stylelint/bin/stylelint.js '**/*.scss' --fix",
     "lint-scss": "./node_modules/stylelint/bin/stylelint.js '**/*.scss'",
     "lint-diff": "git diff --name-only --cached --relative --diff-filter=ACM | grep \\.js$ | xargs eslint",
-    "coverage-diff": "rescripts test --env=jsdom --coverage --watchAll=false --changedSince=development"
+    "coverage-diff": "rescripts test --env=jsdom --coverage --watchAll=false"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -58,7 +58,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.10.3",
     "@rescripts/cli": "0.0.13",
-    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.4.8",
     "@types/enzyme": "^3.10.5",
     "@types/jest": "^24.9.1",
@@ -90,6 +90,7 @@
     "eslint-plugin-react": "^7.14.3",
     "husky": "^4.2.5",
     "minimist": "^1.2.0",
+    "mutationobserver-shim": "^0.3.7",
     "postcss-html": "^0.36.0",
     "postcss-syntax": "^0.36.2",
     "prettier": "^1.19.1",
@@ -117,7 +118,7 @@
       "enzyme-to-json/serializer"
     ],
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
+      "**/*.{js,jsx,ts,tsx}"
     ],
     "coverageThreshold": {
       "global": {
