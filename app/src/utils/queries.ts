@@ -10,14 +10,21 @@ interface QueryBuilderOptions {
   expression?: string;
 }
 
+const getExpression = (tech: string) => {
+  if (!tech) {
+    return '';
+  }
+  const techRoot = `${COOKBOOK_PREFIX}${tech}`;
+
+  // TODO: Check if there's a way we could avoid this. At the moment we need it because the test
+  // script in CRA needs all tests to be inside the src dir
+  return tech === 'react' ? `${techRoot}/src/${RECIPES_DIRECTORY}` : `${techRoot}/${RECIPES_DIRECTORY}`;
+};
+
 const queryBuilder = (
   name: string,
   query: string,
-  {
-    tech = '',
-    target = '',
-    expression = tech ? `${COOKBOOK_PREFIX}${tech}/${RECIPES_DIRECTORY}` : ''
-  }: QueryBuilderOptions = {}
+  { tech = '', target = '', expression = getExpression(tech) }: QueryBuilderOptions = {}
 ) =>
   gql`
   query ${name} {

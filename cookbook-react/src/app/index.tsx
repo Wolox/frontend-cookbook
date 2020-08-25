@@ -7,7 +7,7 @@ function App() {
     category = urlParams.get('category'),
     component = urlParams.get('component');
 
-  const CustomComponent = lazy(() => import(`../../recipes/${category}/${component}`));
+  const CustomComponent = lazy(() => import(`../recipes/${category}/${component}`));
 
   if (urlParams.get('compact') === 'true') {
     return (
