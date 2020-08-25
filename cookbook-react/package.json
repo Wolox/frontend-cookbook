@@ -96,7 +96,7 @@
     "react-hot-loader": "^4.12.21",
     "react-test-renderer": "^16.13.1",
     "stylelint": "^9.10.1",
-    "stylelint-config-wolox": "^1.0.7",
+    "stylelint-config-wolox": "^1.0.10",
     "stylelint-no-indistinguishable-colors": "^1.2.1",
     "stylelint-scss": "^3.5.4"
   },

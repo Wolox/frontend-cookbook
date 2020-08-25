@@ -1,3 +1,1 @@
 .spinner-2::after,.spinner-2::before{animation:spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;border:6px solid;border-color:#fff transparent transparent transparent;border-radius:50%;content:'';height:50px;left:0;margin:0 auto;position:absolute;right:0;top:40%;width:50px}.spinner-2::after{animation-delay:-0.3s}.spinner-2::before{animation-delay:-0.15s}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-
-/*# sourceMappingURL=styles.css */

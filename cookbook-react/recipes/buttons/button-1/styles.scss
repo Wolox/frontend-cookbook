@@ -1,12 +1,26 @@
-button.btn,
-button.btn:active,
-button.btn:focus {
+$white: #FFF;
+
+.btn,
+.btn:active,
+.btn:focus {
   outline: none;
 }
 
 .btn-1 {
+  align-items: center;
+  background: none;
+  border: 0;
+  border-radius: var(--btn-border-radius);
+  cursor: pointer;
   display: flex;
   flex-wrap: wrap;
+  font-size: var(--btn-font-size);
+  justify-content: center;
+  overflow: hidden;
+  padding: var(--btn-border);
+  position: relative;
+  transition-duration: var(--btn-trn-duration);
+  transition-property: transform;
   width: 100%;
   --btn-radius: 130px;
   --btn-border-radius: 0;
@@ -17,24 +31,8 @@ button.btn:focus {
   --btn-font-size: 10pt;
   --btn-trn-duration: 150ms;
   --btn-color-1: #00F1D1;
-  --btn-color-2: #0077FF;
+  --btn-color-2: #07F;
   --btn-text-color: hsl(0, 0%, 15%);
-}
-
-.btn-1 {
-  align-items: center;
-  background: none;
-  border: 0;
-  border-radius: var(--btn-border-radius);
-  cursor: pointer;
-  display: flex;
-  font-size: var(--btn-font-size);
-  justify-content: center;
-  overflow: hidden;
-  padding: var(--btn-border);
-  position: relative;
-  transition-duration: var(--btn-trn-duration);
-  transition-property: transform;
 }
 
 .btn-1:disabled {
@@ -57,9 +55,9 @@ button.btn:focus {
   transform: scale(0.95);
 }
 
-.btn-1 .btn__content {
+.btn-1 .btn-content {
   align-items: center;
-  background: white;
+  background: $white;
   border-radius: var(--btn-border-radius);
   color: var(--btn-text-color);
   font-weight: 800;
@@ -71,7 +69,7 @@ button.btn:focus {
   position: relative;
 }
 
-.btn-1 .btn__content::before {
+.btn-1 .btn-content::before {
   animation: rotate 1s infinite linear;
   animation-play-state: paused;
   background-image: linear-gradient(var(--btn-color-1), var(--btn-color-2));
@@ -81,13 +79,13 @@ button.btn:focus {
   position: absolute;
   transform: scale(1);
   transform-origin: center;
-  transition: transform 500ms;
+  transition: transform 0.5s;
   width: var(--btn-radius);
   z-index: -1;
 }
 
-.btn-1:hover .btn__content::before,
-.btn-1:focus .btn__content::before {
+.btn-1:hover .btn-content::before,
+.btn-1:focus .btn-content::before {
   animation-play-state: running;
 }
 
@@ -95,6 +93,7 @@ button.btn:focus {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(359deg);
   }
