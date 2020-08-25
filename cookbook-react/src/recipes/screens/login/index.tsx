@@ -33,7 +33,7 @@ const VALIDATIONS = {
 }
 
 function LoginContainer() {
-  // const history = useHistory();
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const [, loading, loginError, loginRequest] = useLazyRequest({
@@ -42,8 +42,8 @@ function LoginContainer() {
       const userResponse = response as User;
       dispatch(actionCreators.setUser(userResponse));
       setCurrentUser(userResponse);
-      // TODO: Push next screen:
-      // history.push('/');
+
+      history?.push('/');
     }
   });
   const { register, handleSubmit, errors } = useForm();
@@ -60,7 +60,7 @@ function LoginContainer() {
         <h1 className="m-bottom-1">{i18next.t('Login:login')}</h1>
         <h2>{i18next.t('Login:loginExplanation')}</h2>
       </div>
-      <form className={`column m-bottom-2 ${styles.formContainer}`} aria-label="login-form" onSubmit={handleSubmit(handleLogin)}>
+      <form className={`column m-bottom-2 ${styles.formContainer}`} aria-label="login-form" onSubmit={handleSubmit(handleLogin)} noValidate>
         <FormInput
           label={i18next.t('Login:email')}
           name={FIELDS.email}
@@ -95,7 +95,5 @@ function LoginContainer() {
     </div>
   );
 }
-
-LoginContainer.displayName = 'LoginContainer';
 
 export default LoginContainer;

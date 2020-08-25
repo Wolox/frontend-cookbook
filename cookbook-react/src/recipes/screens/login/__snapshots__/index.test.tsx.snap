@@ -19,6 +19,7 @@ exports[`#Login when mounting shows valid content 1`] = `
   <form
     aria-label="login-form"
     className="column m-bottom-2 formContainer"
+    noValidate={true}
     onSubmit={[Function]}
   >
     <div
