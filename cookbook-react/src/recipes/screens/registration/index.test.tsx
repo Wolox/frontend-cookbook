@@ -36,10 +36,10 @@ describe('#Registration', () => {
   const validValues = { firstName: 'John', lastName: 'Doe', email: 'someEmail@wolox.com', password: 'aPassword' }
 
   describe('when mounting', () => {
-    // it('shows valid content', () => {
-    //   const instance = TestRenderer.create(component)
-    //   expect(instance.toJSON()!).toMatchSnapshot();
-    // })
+    it('shows valid content', () => {
+      const instance = TestRenderer.create(component)
+      expect(instance.toJSON()!).toMatchSnapshot();
+    })
   });
 
   describe('when values are empty and form is submitted', () => {

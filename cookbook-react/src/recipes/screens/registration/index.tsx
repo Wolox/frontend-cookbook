@@ -55,14 +55,14 @@ function RegistrationContainer() {
   const validateConfirmPassword = (value: string) => value === watch('password') || i18next.t('Registration:confirmPasswordError') as string
 
   return (
-    <form className={`column center full-width ${styles.formContainer}`} aria-label="registration-form" onSubmit={handleSubmit(handleRegister)}>
+    <form className={`column center full-width ${styles.formContainer}`} aria-label="registration-form" onSubmit={handleSubmit(handleRegister)} noValidate>
       <div className="column center m-bottom-3">
         <h1 className="m-bottom-1">{i18next.t('Registration:registration')}</h1>
         <h2>{i18next.t('Registration:registrationExplanation')}</h2>
       </div>
       <div className={`row space-between ${styles.sectionContainer}`}>
         <FormInput
-          className={styles.inputContainer}
+          className={`${styles.inputContainer} item-1 m-right-2`}
           label={i18next.t('Registration:firstName')}
           name={FIELDS.firstName}
           inputType="text"
@@ -72,7 +72,7 @@ function RegistrationContainer() {
           error={errors?.firstName?.message}
         />
         <FormInput
-          className="full-width m-left-1"
+          className={`${styles.inputContainer} item-1`}
           label={i18next.t('Registration:lastName')}
           name={FIELDS.lastName}
           inputType="text"
@@ -84,10 +84,10 @@ function RegistrationContainer() {
       </div>
       <div className={`row ${styles.sectionContainer}`}>
         <FormInput
-          className={styles.inputContainer}
+          className={`${styles.inputContainer} item-1`}
           label={i18next.t('Registration:email')}
           name={FIELDS.email}
-          inputType="text"
+          inputType="email"
           inputClassName={styles.input}
           placeholder={i18next.t('Registration:emailPlaceholder') as string}
           inputRef={register(VALIDATIONS.email)}
@@ -96,7 +96,7 @@ function RegistrationContainer() {
       </div>
       <div className={`row space-between ${styles.sectionContainer}`}>
         <FormInput
-          className={styles.inputContainer}
+          className={`${styles.inputContainer} item-1 m-right-2`}
           label={i18next.t('Registration:password')}
           name={FIELDS.password}
           inputType="password"
@@ -106,7 +106,7 @@ function RegistrationContainer() {
           error={errors?.password?.message}
         />
         <FormInput
-          className="full-width m-left-1"
+          className={`${styles.inputContainer} item-1`}
           label={i18next.t('Registration:confirmPassword')}
           name={FIELDS.confirmPassword}
           inputType="password"
