@@ -4,9 +4,15 @@ import i18next from 'i18next';
 import FormInput from '~components/FormInput';
 import PATHS from '~components/Routes/paths';
 import { stringArrayToObject } from '~utils/array';
+import { useDispatch } from '~contexts/UserContext';
 
 import styles from './styles.module.scss';
 import { useForm } from 'react-hook-form';
+import { useLazyRequest } from '~hooks/useRequest';
+import { signup, setCurrentUser, RegistrationUser } from '~services/AuthServices';
+import { actionCreators } from '~contexts/UserContext/reducer';
+import { User } from '~app/contexts/UserContext/reducer';
+import { useHistory } from 'react-router';
 
 const FIELDS = stringArrayToObject(['firstName', 'lastName', 'email', 'password', 'confirmPassword']);
 
@@ -22,17 +28,29 @@ const VALIDATIONS = {
     },
     ...mandatoryValidation
   },
-  password: { ...mandatoryValidation, minLength: { value: 8, message: i18next.t('Registration:passwordLengthError') } },
+  password: { ...mandatoryValidation, minLength: { value: 8, message: i18next.t('Registration:passwordLengthError') as string } },
   confirmPassword: mandatoryValidation
 }
 
 function RegistrationContainer() {
   const { register, handleSubmit, errors, watch } = useForm();
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-  /* eslint-disable @typescript-eslint/no-unused-vars */
-  const handleRegister = useCallback((event: React.FormEvent<Element>) => {
-    // TODO: Implement
-  }, []);
+  const [, loading, loginError, signupRequest] = useLazyRequest({
+    request: signup,
+    withPostSuccess: response => {
+      const userResponse = response as User;
+      dispatch(actionCreators.setUser(userResponse));
+      setCurrentUser(userResponse);
+
+      history?.push('/');
+    }
+  });
+
+  const handleRegister = useCallback((values: RegistrationUser) => {
+    signupRequest(values);
+  }, [signupRequest]);
 
   const validateConfirmPassword = (value: string) => value === watch('password') || i18next.t('Registration:confirmPasswordError') as string
 

@@ -12,6 +12,25 @@ jest.mock('i18next', () => ({
   t: (key: string) => key
 }));
 
+const mockSetStateUser = jest.fn();
+const mockSetPersistantUser = jest.fn();
+
+jest.mock('~contexts/UserContext/reducer', () => ({
+  actionCreators: {
+    setUser: (values: any) => mockSetStateUser(values)
+  }
+}));
+
+jest.mock('~services/AuthServices', () => ({
+  signup: () => new Promise(resolve => resolve({ 
+    ok: true,
+    data: { sessionToken: 'token', id: 1234 },
+    problem: null,
+    originalError: null
+  })),
+  setCurrentUser: (values: any) => mockSetPersistantUser(values)
+}))
+
 describe('#Registration', () => {
   const component = <Registration />;
   const validValues = { firstName: 'John', lastName: 'Doe', email: 'someEmail@wolox.com', password: 'aPassword' }
@@ -135,13 +154,14 @@ describe('#Registration', () => {
         await fireEvent.change(lastName, { target: { value: validValues.lastName } });
         await fireEvent.change(email, { target: { value: validValues.email } });
         await fireEvent.change(password, { target: { value: validValues.password } });
-        await fireEvent.change(passwordConfirmation, { target: { value: `${validValues.password}a` } });
+        await fireEvent.change(passwordConfirmation, { target: { value: validValues.password } });
         await fireEvent.submit(form);
       });
-      const errors = await getAllByRole('alert');
       
-      expect(passwordConfirmation.parentElement?.innerHTML).toMatch('Registration:confirmPasswordError');
-      expect(errors.length).toBe(1);
+      expect(mockSetStateUser).toHaveBeenCalled();
+      expect(mockSetStateUser).toHaveBeenCalledWith({ sessionToken: 'token', id: 1234 });
+      expect(mockSetPersistantUser).toHaveBeenCalled();
+      expect(mockSetPersistantUser).toHaveBeenCalledWith({ sessionToken: 'token', id: 1234 });
     })
   });
 });

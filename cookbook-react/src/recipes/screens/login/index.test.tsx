@@ -14,14 +14,12 @@ jest.mock('i18next', () => ({
   t: (key: string) => key
 }));
 
-const mockLogin = jest.fn();
 const mockSetStateUser = jest.fn();
 const mockSetPersistantUser = jest.fn();
 
 jest.mock('~contexts/UserContext/reducer', () => ({
   actionCreators: {
-    login: () => mockLogin(),
-    setUser: () => mockSetStateUser()
+    setUser: (values: any) => mockSetStateUser(values)
   }
 }));
 
@@ -32,7 +30,7 @@ jest.mock('~services/AuthServices', () => ({
     problem: null,
     originalError: null
   })),
-  setCurrentUser: () => mockSetPersistantUser()
+  setCurrentUser: (values: any) => mockSetPersistantUser(values)
 }))
 
 global.MutationObserver = window.MutationObserver;
@@ -104,9 +102,10 @@ describe('#Login', () => {
         await fireEvent.submit(form);
       });
 
-      expect(mockLogin).toHaveBeenCalled();
       expect(mockSetStateUser).toHaveBeenCalled();
+      expect(mockSetStateUser).toHaveBeenCalledWith({ sessionToken: 'token', id: 1234 });
       expect(mockSetPersistantUser).toHaveBeenCalled();
+      expect(mockSetPersistantUser).toHaveBeenCalledWith({ sessionToken: 'token', id: 1234 });
     })
   });
 });
