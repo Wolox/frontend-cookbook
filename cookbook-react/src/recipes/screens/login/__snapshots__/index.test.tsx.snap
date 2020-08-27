@@ -41,7 +41,10 @@ exports[`#Login when mounting shows valid content 1`] = `
         type="email"
       />
       <span
+        aria-hidden={true}
         className=" errorText "
+        id="email-error"
+        role="alert"
       >
         
       </span>
@@ -65,7 +68,10 @@ exports[`#Login when mounting shows valid content 1`] = `
         type="password"
       />
       <span
+        aria-hidden={true}
         className=" errorText "
+        id="password-error"
+        role="alert"
       >
         
       </span>

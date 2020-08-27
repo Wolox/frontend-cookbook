@@ -6,21 +6,38 @@ import PATHS from '~components/Routes/paths';
 import { stringArrayToObject } from '~utils/array';
 
 import styles from './styles.module.scss';
+import { useForm } from 'react-hook-form';
 
-const FIELDS = stringArrayToObject(['name', 'surname', 'email', 'password', 'confirmPassword']);
+const FIELDS = stringArrayToObject(['firstName', 'lastName', 'email', 'password', 'confirmPassword']);
+
+const mandatoryValidation = { required: i18next.t('Registration:requiredError') as string };
+
+const VALIDATIONS = {
+  firstName: mandatoryValidation,
+  lastName: mandatoryValidation,
+  email: { 
+    pattern: { 
+      value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      message: i18next.t('Registration:emailFormatError') as string
+    },
+    ...mandatoryValidation
+  },
+  password: { ...mandatoryValidation, minLength: { value: 8, message: i18next.t('Registration:passwordLengthError') } },
+  confirmPassword: mandatoryValidation
+}
 
 function RegistrationContainer() {
+  const { register, handleSubmit, errors, watch } = useForm();
+
   /* eslint-disable @typescript-eslint/no-unused-vars */
-  const handleSubmit = useCallback((event: React.FormEvent<Element>) => {
+  const handleRegister = useCallback((event: React.FormEvent<Element>) => {
     // TODO: Implement
   }, []);
 
-  const handleInputChange = useCallback((event: React.FormEvent<Element>) => {
-    // TODO: Implement method
-  }, []);
+  const validateConfirmPassword = (value: string) => value === watch('password') || i18next.t('Registration:confirmPasswordError') as string
 
   return (
-    <form className={`column center full-width ${styles.formContainer}`} onSubmit={handleSubmit}>
+    <form className={`column center full-width ${styles.formContainer}`} aria-label="registration-form" onSubmit={handleSubmit(handleRegister)}>
       <div className="column center m-bottom-3">
         <h1 className="m-bottom-1">{i18next.t('Registration:registration')}</h1>
         <h2>{i18next.t('Registration:registrationExplanation')}</h2>
@@ -28,21 +45,23 @@ function RegistrationContainer() {
       <div className={`row space-between ${styles.sectionContainer}`}>
         <FormInput
           className={styles.inputContainer}
-          label={i18next.t('Registration:name')}
-          name={FIELDS.name}
+          label={i18next.t('Registration:firstName')}
+          name={FIELDS.firstName}
           inputType="text"
           inputClassName={styles.input}
-          placeholder={i18next.t('Registration:namePlaceholder') as string}
-          onChange={handleInputChange}
+          placeholder={i18next.t('Registration:firstNamePlaceholder') as string}
+          inputRef={register(VALIDATIONS.firstName)}
+          error={errors?.firstName?.message}
         />
         <FormInput
           className="full-width m-left-1"
-          label={i18next.t('Registration:surname')}
-          name={FIELDS.surname}
+          label={i18next.t('Registration:lastName')}
+          name={FIELDS.lastName}
           inputType="text"
           inputClassName={styles.input}
-          placeholder={i18next.t('Registration:surnamePlaceholder') as string}
-          onChange={handleInputChange}
+          placeholder={i18next.t('Registration:lastNamePlaceholder') as string}
+          inputRef={register(VALIDATIONS.lastName)}
+          error={errors?.lastName?.message}
         />
       </div>
       <div className={`row ${styles.sectionContainer}`}>
@@ -53,7 +72,8 @@ function RegistrationContainer() {
           inputType="text"
           inputClassName={styles.input}
           placeholder={i18next.t('Registration:emailPlaceholder') as string}
-          onChange={handleInputChange}
+          inputRef={register(VALIDATIONS.email)}
+          error={errors?.email?.message}
         />
       </div>
       <div className={`row space-between ${styles.sectionContainer}`}>
@@ -64,7 +84,8 @@ function RegistrationContainer() {
           inputType="password"
           inputClassName={styles.input}
           placeholder={i18next.t('Registration:passwordPlaceholder') as string}
-          onChange={handleInputChange}
+          inputRef={register(VALIDATIONS.password)}
+          error={errors?.password?.message}
         />
         <FormInput
           className="full-width m-left-1"
@@ -73,7 +94,8 @@ function RegistrationContainer() {
           inputType="password"
           inputClassName={styles.input}
           placeholder={i18next.t('Registration:confirmPasswordPlaceholder') as string}
-          onChange={handleInputChange}
+          inputRef={register({ ...VALIDATIONS.confirmPassword, validate: validateConfirmPassword })}
+          error={errors?.confirmPassword?.message}
         />
       </div>
       <div className={`column center ${styles.sectionContainer}`}>
