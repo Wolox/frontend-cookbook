@@ -4,6 +4,7 @@ exports[`#Registration when mounting shows valid content 1`] = `
 <form
   aria-label="registration-form"
   className="column center full-width formContainer"
+  noValidate={true}
   onSubmit={[Function]}
 >
   <div
