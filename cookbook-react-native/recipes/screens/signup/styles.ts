@@ -2,16 +2,16 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    width: '100%',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    width: '100%'
   },
   stretchAndFlex: {
     alignSelf: 'stretch'
   },
   form: {
-    paddingHorizontal: 60,
-    paddingBottom: 20
+    paddingBottom: 20,
+    paddingHorizontal: 60
   },
   formButton: {
     padding: 10,

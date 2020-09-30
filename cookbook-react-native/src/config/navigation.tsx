@@ -47,7 +47,7 @@ export const appScreensNavOptions = {
 
 export const statusBarStyles = {
   // TODO: Change these styles to customize the status bar
-  [Routes.Login]: statusBarConfig.blueStatusBar,
+  [Routes.Login]: statusBarConfig.whiteStatusBar,
   [Routes.SignUp]: statusBarConfig.blueStatusBar,
   [Routes.Home]: statusBarConfig.blueStatusBar,
   default: statusBarConfig.transparentStatusBar

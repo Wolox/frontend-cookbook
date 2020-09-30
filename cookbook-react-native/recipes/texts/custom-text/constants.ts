@@ -53,5 +53,5 @@ export interface CustomTextVariants {
 export interface CustomTextProps extends CustomTextVariants {
   children: ReactNode;
   textProps?: TextProps;
-  style?: TextStyle;
+  style?: TextStyle | Array<TextStyle | undefined> | any[];
 }
