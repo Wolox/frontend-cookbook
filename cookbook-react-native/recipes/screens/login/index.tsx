@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Keyboard, TouchableOpacity, View } from 'react-native';
+import { Keyboard, TouchableWithoutFeedback, View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import i18next from 'i18next';
 import { Formik } from 'formik';
@@ -12,7 +12,7 @@ import { validationsWrapper, validateRequired, validateEmail } from '@utils/vali
 
 import { AuthState } from './interfaces/authInterfaces';
 import { actionCreators as AuthActions } from './redux/auth/actions';
-import { FIELDS, INITIAL_VALUES, WITHOUT_OPACITY } from './constants';
+import { FIELDS, INITIAL_VALUES } from './constants';
 import './i18n';
 import styles from './styles';
 
@@ -28,10 +28,10 @@ function Login({ navigation }: Navigation) {
   ]);
   const handleGoToSignUp = () => navigation.navigate(Routes.SignUp);
   return (
-    <TouchableOpacity activeOpacity={WITHOUT_OPACITY} onPress={Keyboard.dismiss} style={styles.container}>
-      <Formik onSubmit={handleLogin} initialValues={INITIAL_VALUES}>
-        {({ handleSubmit, isValid }) => (
-          <>
+    <Formik onSubmit={handleLogin} initialValues={INITIAL_VALUES}>
+      {({ handleSubmit, isValid }) => (
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.container}>
             <View style={styles.form}>
               <CustomTextInputFormikField
                 animated
@@ -68,10 +68,10 @@ function Login({ navigation }: Navigation) {
               style={styles.formButton}
               title={i18next.t('LOGIN:SIGN_UP')}
             />
-          </>
-        )}
-      </Formik>
-    </TouchableOpacity>
+          </View>
+        </TouchableWithoutFeedback>
+      )}
+    </Formik>
   );
 }
 

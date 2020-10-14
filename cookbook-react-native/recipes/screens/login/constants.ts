@@ -1,5 +1,3 @@
-export const WITHOUT_OPACITY = 1;
-
 export const FIELDS = {
   email: 'email',
   password: 'password'
