@@ -48,8 +48,8 @@ describe('#Login', () => {
   describe('when filling invalid fields without submitting', () => {
     it('does not show the field errors', async () => {
       const { container, getByRole, getByLabelText, rerender } = render(component);
-      const email = await getByLabelText('Login:email');
-      const form = await getByRole('form', { name: 'login-form' });
+      const email = getByLabelText('Login:email');
+      const form = getByRole('form', { name: 'login-form' });
 
       await act(async () => {
         await fireEvent.change(email, { target: { value: 'invalid email' } });
@@ -62,8 +62,8 @@ describe('#Login', () => {
   describe('when filling invalid email and no password and submitting', () => {
     it('shows the field errors', async () => {
       const { container, getByRole, getByLabelText, rerender } = render(component);
-      const email = await getByLabelText('Login:email');
-      const form = await getByRole('form', { name: 'login-form' });
+      const email = getByLabelText('Login:email');
+      const form = getByRole('form', { name: 'login-form' });
 
       await act(async () => {
         await fireEvent.change(email, { target: { value: 'invalid email' } });
@@ -78,8 +78,8 @@ describe('#Login', () => {
   describe('when empty email and no password and submitting', () => {
     it('shows the field errors', async () => {
       const { container, getByRole, getByLabelText, rerender } = render(component);
-      const email = await getByLabelText('Login:email');
-      const form = await getByRole('form', { name: 'login-form' });
+      const email = getByLabelText('Login:email');
+      const form = getByRole('form', { name: 'login-form' });
 
       await act(async () => {
         await fireEvent.submit(form);
@@ -92,9 +92,9 @@ describe('#Login', () => {
   describe('when valid email and password', () => {
     it('executes the request and saves user', async () => {
       const { container, getByRole, getByLabelText } = render(component);
-      const email = await getByLabelText('Login:email');
-      const password = await getByLabelText('Login:password');
-      const form = await getByRole('form', { name: 'login-form' });
+      const email = getByLabelText('Login:email');
+      const password = getByLabelText('Login:password');
+      const form = getByRole('form', { name: 'login-form' });
 
       await act(async () => {
         await fireEvent.change(email, { target: { value: 'someone@wolox.com' } });
@@ -102,9 +102,7 @@ describe('#Login', () => {
         await fireEvent.submit(form);
       });
 
-      expect(mockSetStateUser).toHaveBeenCalled();
       expect(mockSetStateUser).toHaveBeenCalledWith({ sessionToken: 'token', id: 1234 });
-      expect(mockSetPersistantUser).toHaveBeenCalled();
       expect(mockSetPersistantUser).toHaveBeenCalledWith({ sessionToken: 'token', id: 1234 });
     })
   });
