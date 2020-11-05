@@ -1,0 +1,41 @@
+$denim: #0B43D1;
+$smalt: #052E91;
+$white: #FFF;
+$black: #000;
+$mercury: #E1E1E1;
+
+.button {
+  border-radius: 5px;
+  color: $white;
+  font-size: 16px;
+  min-width: 200px; // Just for presentational purposes, remove in real project
+  padding: 9px 25px;
+
+  &.primary {
+    background-color: $denim;
+
+    &:active {
+      background-color: $smalt;
+    }
+
+    &:disabled {
+      background-color: $mercury;
+    }
+  }
+
+  &.secondary {
+    background-color: none;
+    border: 1px solid $denim;
+    color: $denim;
+
+    &:disabled {
+      border: 1px solid $mercury;
+      color: $mercury;
+    }
+  }
+
+  &:hover:not(:disabled) {
+    // stylelint-disable-next-line length-zero-no-unit
+    box-shadow: 0px 0px 4px 1px rgba($black, 0.2);
+  }
+}
