@@ -35,7 +35,6 @@ $mercury: #E1E1E1;
   }
 
   &:hover:not(:disabled) {
-    // stylelint-disable-next-line length-zero-no-unit
-    box-shadow: 0px 0px 4px 1px rgba($black, 0.2);
+    box-shadow: 0 0 4px 1px rgba($black, 0.2);
   }
 }
