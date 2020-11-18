@@ -1,8 +1,8 @@
-$denim: #0B43D1;
-$smalt: #052E91;
+$primary-color: #0B43D1;
+$primary-active-color: #052E91;
 $white: #FFF;
-$black: #000;
-$mercury: #E1E1E1;
+$shadow-color: #000;
+$disabled-color: #E1E1E1;
 
 .button {
   border-radius: 5px;
@@ -12,29 +12,29 @@ $mercury: #E1E1E1;
   padding: 9px 25px;
 
   &.primary {
-    background-color: $denim;
+    background-color: $primary-color;
 
     &:active {
-      background-color: $smalt;
+      background-color: $primary-active-color;
     }
 
     &:disabled {
-      background-color: $mercury;
+      background-color: $disabled-color;
     }
   }
 
   &.secondary {
     background-color: none;
-    border: 1px solid $denim;
-    color: $denim;
+    border: 1px solid $primary-color;
+    color: $primary-color;
 
     &:disabled {
-      border: 1px solid $mercury;
-      color: $mercury;
+      border: 1px solid $disabled-color;
+      color: $disabled-color;
     }
   }
 
   &:hover:not(:disabled) {
-    box-shadow: 0 0 4px 1px rgba($black, 0.2);
+    box-shadow: 0 0 4px 1px rgba($shadow-color, 0.2);
   }
 }
