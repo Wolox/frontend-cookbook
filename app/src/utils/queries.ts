@@ -3,6 +3,7 @@ import { gql } from 'apollo-boost';
 const RECIPES_BRANCH = process.env.REACT_APP_RECIPES_BRANCH;
 export const COOKBOOK_PREFIX = 'cookbook-';
 export const RECIPES_DIRECTORY = 'recipes';
+export const SRC_DIRECTORY = 'src';
 
 interface QueryBuilderOptions {
   tech?: string;
@@ -168,6 +169,13 @@ export const getCategoriesAndTechs = () =>
                 ... on Tree {
                   entries {
                     name
+                    object {
+                      ... on Tree {
+                        entries {
+                          name
+                        }
+                      }
+                    }
                   }
                 }
               }
