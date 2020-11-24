@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Login when mounting shows valid content 1`] = `
+<div
+  className="column center full-width container"
+>
+  <div
+    className="column center m-bottom-3"
+  >
+    <h1
+      className="m-bottom-1"
+    >
+      Login:login
+    </h1>
+    <h2>
+      Login:loginExplanation
+    </h2>
+  </div>
+  <form
+    aria-label="login-form"
+    className="column m-bottom-2 formContainer"
+    noValidate={true}
+    onSubmit={[Function]}
+  >
+    <div
+      className="column start "
+    >
+      <label
+        className=" m-bottom-1"
+        htmlFor="email"
+      >
+        Login:email
+      </label>
+      <input
+        className="m-bottom-2 full-width input input "
+        disabled={false}
+        id="email"
+        name="email"
+        placeholder="Login:emailPlaceholder"
+        readOnly={false}
+        type="email"
+      />
+      <span
+        className=" errorText "
+      >
+        
+      </span>
+    </div>
+    <div
+      className="column start "
+    >
+      <label
+        className=" m-bottom-1"
+        htmlFor="password"
+      >
+        Login:password
+      </label>
+      <input
+        className="m-bottom-2 full-width input input "
+        disabled={false}
+        id="password"
+        name="password"
+        placeholder="Login:passwordPlaceholder"
+        readOnly={false}
+        type="password"
+      />
+      <span
+        className=" errorText "
+      >
+        
+      </span>
+    </div>
+    <div
+      className="column center"
+    >
+      <button
+        className="full-width m-bottom-1 button"
+        disabled={false}
+        type="submit"
+      >
+        Login:enter
+      </button>
+      <span
+        className="row center middle full-width m-top-1 m-bottom-1 hidden"
+      >
+        Login:error
+      </span>
+      <a
+        href="/recover_password"
+      >
+        Login:forgotPassword
+      </a>
+      <a
+        href="/registration"
+      >
+        Login:createAccount
+      </a>
+    </div>
+  </form>
+</div>
+`;
