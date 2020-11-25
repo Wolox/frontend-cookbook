@@ -2,50 +2,50 @@ import React from 'react';
 
 import styles from './styles.module.scss';
 
-interface Props {
-  className?: string;
-  disabled?: boolean;
+interface CommonProps {
   error?: string;
+  className?: string;
   errorClassName?: string;
   inputClassName?: string;
-  isTextarea?: boolean;
-  inputType: string;
   label?: string | object;
   labelClassName?: string;
-  name: string;
-  onBlur?: (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  onChange?: (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  onFocus?: (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  placeholder?: string;
-  readOnly?: boolean;
   touched?: boolean;
   submitCount?: number;
-  inputRef?: any;
 }
 
-function FormInput({
-  className = '',
-  disabled = false,
-  error = '',
-  errorClassName = '',
-  inputClassName = '',
-  isTextarea = false,
-  inputType,
-  label = '',
-  labelClassName = '',
-  name,
-  onBlur,
-  onChange,
-  onFocus,
-  placeholder = '',
-  readOnly = false,
-  touched,
-  submitCount,
-  inputRef
-}: Props) {
-  const InputComponent = isTextarea ? 'textarea' : 'input';
+type TextAreaProps = {
+  isTextarea?: true;
+  inputRef?: React.ComponentProps<'textarea'>['ref'];
+} & React.ComponentProps<'textarea'> &
+  CommonProps;
+
+type InputProps = {
+  isTextarea?: false;
+  inputRef?: React.ComponentProps<'input'>['ref'];
+} & React.ComponentProps<'input'> &
+  CommonProps;
+
+type Props = TextAreaProps | InputProps;
+
+function FormInput(props: Props) {
+  const {
+    isTextarea = false,
+    className = '',
+    error = '',
+    errorClassName = '',
+    inputClassName = '',
+    submitCount,
+    label = '',
+    labelClassName = '',
+    name,
+    touched,
+    inputRef,
+    ...restProps
+  } = props;
+
   const showError =
     (touched === undefined || touched) && error && (submitCount === undefined || submitCount > 0);
+
   return (
     <div className={`column start ${className}`}>
       {label && (
@@ -53,19 +53,23 @@ function FormInput({
           {label}
         </label>
       )}
-      <InputComponent
-        className={`${inputClassName} ${styles.input} ${showError ? styles.error : ''}`}
-        name={name}
-        id={name}
-        type={inputType}
-        placeholder={placeholder}
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        disabled={disabled}
-        readOnly={readOnly}
-        ref={inputRef}
-      />
+      {isTextarea ? (
+        <textarea
+          className={`${inputClassName} ${styles.input} ${showError ? styles.error : ''}`}
+          name={name}
+          ref={inputRef as TextAreaProps['inputRef']}
+          {...(restProps as TextAreaProps)}
+          id={name}
+        />
+      ) : (
+        <input
+          className={`${inputClassName} ${styles.input} ${showError ? styles.error : ''}`}
+          name={name}
+          ref={inputRef as InputProps['inputRef']}
+          {...(restProps as InputProps)}
+          id={name}
+        />
+      )}
       <span className={`${errorClassName} ${styles.errorText} ${showError ? styles.visible : ''}`}>
         {error}
       </span>
