@@ -64,7 +64,7 @@ function LoginContainer() {
         <FormInput
           label={i18next.t('Login:email')}
           name={FIELDS.email}
-          inputType="email"
+          type="email"
           inputClassName={`m-bottom-2 full-width ${styles.input}`}
           placeholder={i18next.t('Login:emailPlaceholder') as string}
           disabled={loading}
@@ -74,7 +74,7 @@ function LoginContainer() {
         <FormInput
           label={i18next.t('Login:password')}
           name={FIELDS.password}
-          inputType="password"
+          type="password"
           inputClassName={`m-bottom-2 full-width ${styles.input}`}
           placeholder={i18next.t('Login:passwordPlaceholder') as string}
           disabled={loading}

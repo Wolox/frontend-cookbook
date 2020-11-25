@@ -62,23 +62,21 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
               <FormInput
                 className="inputContainer"
                 inputClassName="input"
-                inputType="text"
                 label=""
                 name="name"
                 onChange={[Function]}
                 placeholder=""
+                type="text"
               >
                 <div
                   className="column start inputContainer"
                 >
                   <input
                     className="input input "
-                    disabled={false}
                     id="name"
                     name="name"
                     onChange={[Function]}
                     placeholder=""
-                    readOnly={false}
                     type="text"
                   />
                   <span
@@ -89,23 +87,21 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
               <FormInput
                 className="full-width m-left-1"
                 inputClassName="input"
-                inputType="text"
                 label=""
                 name="surname"
                 onChange={[Function]}
                 placeholder=""
+                type="text"
               >
                 <div
                   className="column start full-width m-left-1"
                 >
                   <input
                     className="input input "
-                    disabled={false}
                     id="surname"
                     name="surname"
                     onChange={[Function]}
                     placeholder=""
-                    readOnly={false}
                     type="text"
                   />
                   <span
@@ -120,23 +116,21 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
               <FormInput
                 className="inputContainer"
                 inputClassName="input"
-                inputType="text"
                 label=""
                 name="email"
                 onChange={[Function]}
                 placeholder=""
+                type="text"
               >
                 <div
                   className="column start inputContainer"
                 >
                   <input
                     className="input input "
-                    disabled={false}
                     id="email"
                     name="email"
                     onChange={[Function]}
                     placeholder=""
-                    readOnly={false}
                     type="text"
                   />
                   <span
@@ -151,23 +145,21 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
               <FormInput
                 className="inputContainer"
                 inputClassName="input"
-                inputType="password"
                 label=""
                 name="password"
                 onChange={[Function]}
                 placeholder=""
+                type="password"
               >
                 <div
                   className="column start inputContainer"
                 >
                   <input
                     className="input input "
-                    disabled={false}
                     id="password"
                     name="password"
                     onChange={[Function]}
                     placeholder=""
-                    readOnly={false}
                     type="password"
                   />
                   <span
@@ -178,23 +170,21 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
               <FormInput
                 className="full-width m-left-1"
                 inputClassName="input"
-                inputType="password"
                 label=""
                 name="confirmPassword"
                 onChange={[Function]}
                 placeholder=""
+                type="password"
               >
                 <div
                   className="column start full-width m-left-1"
                 >
                   <input
                     className="input input "
-                    disabled={false}
                     id="confirmPassword"
                     name="confirmPassword"
                     onChange={[Function]}
                     placeholder=""
-                    readOnly={false}
                     type="password"
                   />
                   <span

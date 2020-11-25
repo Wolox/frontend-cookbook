@@ -37,7 +37,6 @@ exports[`#Login when mounting shows valid content 1`] = `
         id="email"
         name="email"
         placeholder="Login:emailPlaceholder"
-        readOnly={false}
         type="email"
       />
       <span
@@ -61,7 +60,6 @@ exports[`#Login when mounting shows valid content 1`] = `
         id="password"
         name="password"
         placeholder="Login:passwordPlaceholder"
-        readOnly={false}
         type="password"
       />
       <span

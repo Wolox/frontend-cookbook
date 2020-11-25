@@ -10,7 +10,7 @@
 | errorClassName | String | | `''` | Custom styles to apply to the messagge error |
 | inputClassName | String | | `''`| Custom styles to apply to the input |
 | isTextarea | Boolean | | `false` | Indicates if it is an input or textarea |
-| inputType | String | ✓ | | Specifies the type |
+| type | String | ✓ | | Specifies the type |
 | label | String `||` Object | | `''` | Specifies Input associated label |
 | labelClassName | String | | `''` | Custom styles to apply to the FormInput label |
 | name | String | ✓ | | Specifies the name |
@@ -29,7 +29,7 @@
 <FormInput
   label={i18next.t('Login:email')}
   name={FIELDS.email}
-  inputType="text"
+  type="text"
   inputClassName={styles.inputClassName}
   placeholder={i18next.t('Login:emailPlaceholder')}
   onChange={onEmailChange}

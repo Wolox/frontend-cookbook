@@ -26,7 +26,7 @@ function RecoverPasswordContainer() {
         <FormInput
           label={i18next.t('RecoverPassword:email')}
           name="email"
-          inputType="text"
+          type="text"
           inputClassName={`m-bottom-2 full-width ${styles.input}`}
           placeholder={i18next.t('RecoverPassword:emailPlaceholder') as string}
           onChange={handleEmailChange}

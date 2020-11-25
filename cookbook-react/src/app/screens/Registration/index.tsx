@@ -30,7 +30,7 @@ function RegistrationContainer() {
           className={styles.inputContainer}
           label={i18next.t('Registration:name')}
           name={FIELDS.name}
-          inputType="text"
+          type="text"
           inputClassName={styles.input}
           placeholder={i18next.t('Registration:namePlaceholder') as string}
           onChange={handleInputChange}
@@ -39,7 +39,7 @@ function RegistrationContainer() {
           className="full-width m-left-1"
           label={i18next.t('Registration:surname')}
           name={FIELDS.surname}
-          inputType="text"
+          type="text"
           inputClassName={styles.input}
           placeholder={i18next.t('Registration:surnamePlaceholder') as string}
           onChange={handleInputChange}
@@ -50,7 +50,7 @@ function RegistrationContainer() {
           className={styles.inputContainer}
           label={i18next.t('Registration:email')}
           name={FIELDS.email}
-          inputType="text"
+          type="text"
           inputClassName={styles.input}
           placeholder={i18next.t('Registration:emailPlaceholder') as string}
           onChange={handleInputChange}
@@ -61,7 +61,7 @@ function RegistrationContainer() {
           className={styles.inputContainer}
           label={i18next.t('Registration:password')}
           name={FIELDS.password}
-          inputType="password"
+          type="password"
           inputClassName={styles.input}
           placeholder={i18next.t('Registration:passwordPlaceholder') as string}
           onChange={handleInputChange}
@@ -70,7 +70,7 @@ function RegistrationContainer() {
           className="full-width m-left-1"
           label={i18next.t('Registration:confirmPassword')}
           name={FIELDS.confirmPassword}
-          inputType="password"
+          type="password"
           inputClassName={styles.input}
           placeholder={i18next.t('Registration:confirmPasswordPlaceholder') as string}
           onChange={handleInputChange}

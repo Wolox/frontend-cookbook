@@ -62,23 +62,21 @@ exports[`#RecoverPassword When the component is mounted matches last snapshot 1`
               <FormInput
                 className="m-bottom-2 sectionContainer"
                 inputClassName="m-bottom-2 full-width input"
-                inputType="text"
                 label=""
                 name="email"
                 onChange={[Function]}
                 placeholder=""
+                type="text"
               >
                 <div
                   className="column start m-bottom-2 sectionContainer"
                 >
                   <input
                     className="m-bottom-2 full-width input input "
-                    disabled={false}
                     id="email"
                     name="email"
                     onChange={[Function]}
                     placeholder=""
-                    readOnly={false}
                     type="text"
                   />
                   <span
