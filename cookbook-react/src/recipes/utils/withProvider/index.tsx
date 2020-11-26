@@ -4,18 +4,18 @@ interface ActionType {
   type: string;
 }
 
-interface Props<U extends {}, V> {
-  Context: React.Context<{ state: U, dispatch: React.Dispatch<V> }>;
-  reducer: React.Reducer<U, V>;
-  initialState: U;
+interface Props<S extends {}, A> {
+  Context: React.Context<{ state: S; dispatch: React.Dispatch<V> }>;
+  reducer: React.Reducer<S, A>;
+  initialState: S;
 }
 
-const withProvider = <T extends {}, U, V extends ActionType>({
+const withProvider = <P extends {}, S, A extends ActionType>({
   Context,
   reducer,
   initialState
-}: Props<U, V>) => (WrappedComponent: React.ComponentType<T>) => {
-  function ProviderWrapper(props: T) {
+}: Props<S, A>) => (WrappedComponent: React.ComponentType<P>) => {
+  function ProviderWrapper(props: P) {
     const [state, dispatch] = useReducer(reducer, initialState);
     return (
       <Context.Provider value={{ state, dispatch }}>

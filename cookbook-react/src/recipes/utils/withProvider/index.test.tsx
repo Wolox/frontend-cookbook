@@ -1,6 +1,7 @@
 import React, { createContext, useContext, Dispatch } from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import withProvider from '.';
+
+import withProvider from './';
 
 interface State {
   foo: number;
@@ -41,24 +42,26 @@ function InnerComponent() {
   return (
     <div>
       <span>{state.foo}</span>
-      <button type="button" onClick={() => dispatch({ type: 'SET_FOO', payload: state.foo + 1 })}>Update</button>
+      <button type="button" onClick={() => dispatch({ type: 'SET_FOO', payload: state.foo + 1 })}>
+        Update
+      </button>
     </div>
-  )
+  );
 }
 
 const WrappedComponent = withProvider({ Context, reducer, initialState })(InnerComponent);
 
-describe("#ProviderWrapper", ()=> {
-  test("by default it shows the initial value", () => {
-    const { queryByText }  = render(<WrappedComponent />);
+describe('#ProviderWrapper', () => {
+  test('by default it shows the initial value', () => {
+    const { queryByText } = render(<WrappedComponent />);
     expect(queryByText('0')).not.toBeNull();
   });
 
-  test("it shows the correct value when it changes", () => {
-    const { queryByText }  = render(<WrappedComponent />);
+  test('it shows the correct value when it changes', () => {
+    const { queryByText } = render(<WrappedComponent />);
 
-    fireEvent.click(queryByText('Update')!)
+    fireEvent.click(queryByText('Update')!);
 
     expect(queryByText('1')).not.toBeNull();
-  })
+  });
 });

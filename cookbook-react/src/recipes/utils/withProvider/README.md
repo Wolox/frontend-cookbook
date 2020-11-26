@@ -17,9 +17,9 @@ For those cases where this is not necessary, you can manually create a context u
 
 ## Generic values
 
-- T: The contained component's Prop type.
-- U: The `state`'s type.
-- V: The Action type. Extends ActionType, which means it must contain a `type`
+- P: The contained component's Prop type.
+- S: The `state`'s type.
+- A: The Action type. Extends ActionType, which means it must contain a `type`
 
 Note: Usually this values are inferred from the parameters, so most of the times you don't 
 
