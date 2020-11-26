@@ -8,7 +8,7 @@ import Immutable from 'seamless-immutable';
  * @param {string} namespace prefix for the resulting values
  * @returns {object} (['A', 'B', 'C'], 'name') -> { A: '@name/A', B: '@name/B', C: '@name/C' }
  */
-export function stringArrayToObject(actionsArray: string[], namespace = ''): { [key: string]: string } {
+export function stringArrayToObject(actionsArray: string[], namespace?: string): { [key: string]: string } {
   if (actionsArray.some((actionName: string) => !actionName || typeof actionName !== 'string')) {
     throw new Error('Action names must be strings and must not be empty');
   }
@@ -16,7 +16,7 @@ export function stringArrayToObject(actionsArray: string[], namespace = ''): { [
   // eslint-disable-next-line new-cap
   return Immutable<string[]>(actionsArray).asObject((actionName: string) => [
     actionName,
-    `${namespace}:${actionName}`
+    `${namespace ? `${namespace}:` : ''}${actionName}`
   ]);
 }
 

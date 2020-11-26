@@ -82,7 +82,10 @@ exports[`#RecoverPassword When the component is mounted matches last snapshot 1`
                     type="text"
                   />
                   <span
+                    aria-hidden={true}
                     className=" errorText "
+                    id="email-error"
+                    role="alert"
                   />
                 </div>
               </FormInput>

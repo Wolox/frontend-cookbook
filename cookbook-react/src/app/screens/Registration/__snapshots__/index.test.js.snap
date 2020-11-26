@@ -64,7 +64,7 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
                 inputClassName="input"
                 inputType="text"
                 label=""
-                name=":name"
+                name="name"
                 onChange={[Function]}
                 placeholder=""
               >
@@ -74,15 +74,18 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
                   <input
                     className="input input "
                     disabled={false}
-                    id=":name"
-                    name=":name"
+                    id="name"
+                    name="name"
                     onChange={[Function]}
                     placeholder=""
                     readOnly={false}
                     type="text"
                   />
                   <span
+                    aria-hidden={true}
                     className=" errorText "
+                    id="name-error"
+                    role="alert"
                   />
                 </div>
               </FormInput>
@@ -91,7 +94,7 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
                 inputClassName="input"
                 inputType="text"
                 label=""
-                name=":surname"
+                name="surname"
                 onChange={[Function]}
                 placeholder=""
               >
@@ -101,15 +104,18 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
                   <input
                     className="input input "
                     disabled={false}
-                    id=":surname"
-                    name=":surname"
+                    id="surname"
+                    name="surname"
                     onChange={[Function]}
                     placeholder=""
                     readOnly={false}
                     type="text"
                   />
                   <span
+                    aria-hidden={true}
                     className=" errorText "
+                    id="surname-error"
+                    role="alert"
                   />
                 </div>
               </FormInput>
@@ -122,7 +128,7 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
                 inputClassName="input"
                 inputType="text"
                 label=""
-                name=":email"
+                name="email"
                 onChange={[Function]}
                 placeholder=""
               >
@@ -132,15 +138,18 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
                   <input
                     className="input input "
                     disabled={false}
-                    id=":email"
-                    name=":email"
+                    id="email"
+                    name="email"
                     onChange={[Function]}
                     placeholder=""
                     readOnly={false}
                     type="text"
                   />
                   <span
+                    aria-hidden={true}
                     className=" errorText "
+                    id="email-error"
+                    role="alert"
                   />
                 </div>
               </FormInput>
@@ -153,7 +162,7 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
                 inputClassName="input"
                 inputType="password"
                 label=""
-                name=":password"
+                name="password"
                 onChange={[Function]}
                 placeholder=""
               >
@@ -163,15 +172,18 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
                   <input
                     className="input input "
                     disabled={false}
-                    id=":password"
-                    name=":password"
+                    id="password"
+                    name="password"
                     onChange={[Function]}
                     placeholder=""
                     readOnly={false}
                     type="password"
                   />
                   <span
+                    aria-hidden={true}
                     className=" errorText "
+                    id="password-error"
+                    role="alert"
                   />
                 </div>
               </FormInput>
@@ -180,7 +192,7 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
                 inputClassName="input"
                 inputType="password"
                 label=""
-                name=":confirmPassword"
+                name="confirmPassword"
                 onChange={[Function]}
                 placeholder=""
               >
@@ -190,15 +202,18 @@ exports[`#Registration When the component is mounted matches last snapshot 1`] =
                   <input
                     className="input input "
                     disabled={false}
-                    id=":confirmPassword"
-                    name=":confirmPassword"
+                    id="confirmPassword"
+                    name="confirmPassword"
                     onChange={[Function]}
                     placeholder=""
                     readOnly={false}
                     type="password"
                   />
                   <span
+                    aria-hidden={true}
                     className=" errorText "
+                    id="confirmPassword-error"
+                    role="alert"
                   />
                 </div>
               </FormInput>

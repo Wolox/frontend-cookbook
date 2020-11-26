@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@hookform/resolvers": "^0.1.0",
     "@types/classnames": "^2.2.10",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "apisauce": "^1.1.1",
@@ -14,28 +13,30 @@
     "i18next": "^13.1.5",
     "node-sass": "^4.14.1",
     "postcss": "^7.0.32",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-hook-form": "^6.4.1",
     "react-paginate": "^6.3.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "3.4.3",
     "react-spinkit": "^3.0.0",
     "seamless-immutable": "^7.1.4",
     "typescript": "^3.9.5",
-    "wolox-equalizer": "0.0.3"
+    "wolox-equalizer": "0.0.3",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "start": "node ./scripts/start.js development",
     "start-env": "node ./scripts/start.js",
     "build": "node ./scripts/build.js",
-    "test": "rescripts test --env=jsdom",
+    "test": "rescripts test",
     "eject": "./node_modules/react-scripts/bin/react-scripts.js eject",
-    "lint": "./node_modules/eslint/bin/eslint.js src",
+    "lint": "./node_modules/eslint/bin/eslint.js src --ext .js,.ts,.tsx",
     "lint-fix": "./node_modules/eslint/bin/eslint.js src --fix && ./node_modules/stylelint/bin/stylelint.js '**/*.scss' --fix",
     "lint-scss": "./node_modules/stylelint/bin/stylelint.js '**/*.scss'",
     "lint-diff": "git diff --name-only --cached --relative --diff-filter=ACM | grep \\.js$ | xargs eslint",
-    "coverage-diff": "rescripts test --env=jsdom --coverage --watchAll=false --changedSince=development"
+    "coverage-diff": "rescripts test --env=jsdom --coverage --watchAll=false --changedSince=master"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -55,9 +56,10 @@
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.10.3",
     "@rescripts/cli": "0.0.13",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^10.4.8",
     "@testing-library/react-hooks": "^3.4.2",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.2.2",
     "@types/enzyme": "^3.10.5",
     "@types/jest": "^24.9.1",
     "@types/node": "^12.12.47",
@@ -70,6 +72,7 @@
     "@types/react-test-renderer": "^16.9.2",
     "@types/seamless-immutable": "^7.1.13",
     "@types/webpack-env": "^1.15.2",
+    "@types/yup": "^0.29.5",
     "aws-deploy-script-fe": "^1.0.8",
     "chalk": "^3.0.0",
     "env-cmd": "^10.1.0",
@@ -87,6 +90,7 @@
     "eslint-plugin-react": "^7.14.3",
     "husky": "^4.2.5",
     "minimist": "^1.2.0",
+    "mutationobserver-shim": "^0.3.7",
     "postcss-html": "^0.36.0",
     "postcss-syntax": "^0.36.2",
     "prettier": "^1.19.1",
@@ -114,7 +118,7 @@
       "enzyme-to-json/serializer"
     ],
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
+      "**/*.{js,jsx,ts,tsx}"
     ],
     "coverageThreshold": {
       "global": {

@@ -7,7 +7,6 @@ import { User } from '~contexts/UserContext/reducer';
 import PATHS from './paths';
 
 const Home = lazy(() => import('../../screens/Dashboard'));
-const Login = lazy(() => import('../../screens/Login'));
 const RecoverPassword = lazy(() => import('../../screens/RecoverPassword'));
 const Registration = lazy(() => import('../../screens/Registration'));
 
@@ -30,14 +29,6 @@ export const ROUTES = [
     component: RecoverPassword,
     title: i18next.t('Routes:recoverPasswordTitle'),
     description: i18next.t('Routes:recoverPasswordDescription')
-  },
-  {
-    exact: false,
-    path: PATHS.login,
-    component: Login,
-    title: i18next.t('Routes:loginTitle'),
-    description: i18next.t('Routes:loginDescription'),
-    redirectTo: (user: Nullable<User>) => (user ? MAIN_PRIVATE_PATH : undefined)
   },
   {
     exact: false,
