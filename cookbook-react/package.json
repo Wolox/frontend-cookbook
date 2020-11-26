@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "^0.1.0",
-    "@testing-library/user-event": "^12.2.2",
     "@types/classnames": "^2.2.10",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "apisauce": "^1.1.1",
@@ -57,8 +56,10 @@
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.10.3",
     "@rescripts/cli": "0.0.13",
+    "@testing-library/react-hooks": "^3.4.2",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.2.2",
     "@types/enzyme": "^3.10.5",
     "@types/jest": "^24.9.1",
     "@types/node": "^12.12.47",
