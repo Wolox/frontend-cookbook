@@ -14,6 +14,8 @@ import { actionCreators } from '~contexts/UserContext/reducer';
 import { User } from '~app/contexts/UserContext/reducer';
 import { useHistory } from 'react-router';
 
+const PASSWORD_LENGTH = 8;
+
 const FIELDS = stringArrayToObject(['firstName', 'lastName', 'email', 'password', 'confirmPassword']);
 
 const mandatoryValidation = { required: i18next.t('Registration:requiredError') as string };
@@ -28,7 +30,7 @@ const VALIDATIONS = {
     },
     ...mandatoryValidation
   },
-  password: { ...mandatoryValidation, minLength: { value: 8, message: i18next.t('Registration:passwordLengthError') as string } },
+  password: { ...mandatoryValidation, minLength: { value: 8, message: i18next.t('Registration:passwordLengthError', { amount: PASSWORD_LENGTH }) as string } },
   confirmPassword: mandatoryValidation
 }
 

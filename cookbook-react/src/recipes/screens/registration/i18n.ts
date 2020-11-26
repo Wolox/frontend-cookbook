@@ -18,5 +18,5 @@ i18next.addResources('es', 'Registration', {
   emailFormatError: 'El formato es inválido',
   requiredError: 'El campo es requerido',
   confirmPasswordError: 'Las contraseñas no coinciden',
-  passwordLengthError: 'Debe tener al menos 8 caracteres'
+  passwordLengthError: 'Debe tener al menos {{amount}} caracteres'
 });

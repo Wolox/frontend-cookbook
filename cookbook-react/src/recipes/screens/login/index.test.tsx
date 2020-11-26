@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { act } from 'react-dom/test-utils';
-import { render, fireEvent }  from '@testing-library/react';
+import { render, fireEvent, waitFor }  from '@testing-library/react';
 import 'mutationobserver-shim';
 import { actionCreators } from '~contexts/UserContext/reducer';
 import { login, setCurrentUser } from '~services/AuthServices';
@@ -51,9 +51,7 @@ describe('#Login', () => {
       const email = getByLabelText('Login:email');
       const form = getByRole('form', { name: 'login-form' });
 
-      await act(async () => {
-        await fireEvent.change(email, { target: { value: 'invalid email' } });
-      });
+      await fireEvent.change(email, { target: { value: 'invalid email' } });
 
       expect(container.innerHTML).not.toMatch('Login:emailFormatError');
     })
@@ -65,10 +63,8 @@ describe('#Login', () => {
       const email = getByLabelText('Login:email');
       const form = getByRole('form', { name: 'login-form' });
 
-      await act(async () => {
-        await fireEvent.change(email, { target: { value: 'invalid email' } });
-        await fireEvent.submit(form);
-      });
+      await fireEvent.change(email, { target: { value: 'invalid email' } });
+      await waitFor(() => fireEvent.submit(form));
 
       expect(container.innerHTML).toMatch('Login:emailFormatError');
       expect(container.innerHTML).toMatch('Login:required');
@@ -81,9 +77,7 @@ describe('#Login', () => {
       const email = getByLabelText('Login:email');
       const form = getByRole('form', { name: 'login-form' });
 
-      await act(async () => {
-        await fireEvent.submit(form);
-      });
+      await waitFor(() => fireEvent.submit(form));
 
       expect(container.innerHTML).toMatch('Login:required');
     })
@@ -95,12 +89,9 @@ describe('#Login', () => {
       const email = getByLabelText('Login:email');
       const password = getByLabelText('Login:password');
       const form = getByRole('form', { name: 'login-form' });
-
-      await act(async () => {
-        await fireEvent.change(email, { target: { value: 'someone@wolox.com' } });
-        await fireEvent.change(password, { target: { value: 'myPassword' } });
-        await fireEvent.submit(form);
-      });
+      await fireEvent.change(email, { target: { value: 'someone@wolox.com' } });
+      await fireEvent.change(password, { target: { value: 'myPassword' } });
+      await waitFor(() => fireEvent.submit(form));
 
       expect(mockSetStateUser).toHaveBeenCalledWith({ sessionToken: 'token', id: 1234 });
       expect(mockSetPersistantUser).toHaveBeenCalledWith({ sessionToken: 'token', id: 1234 });
