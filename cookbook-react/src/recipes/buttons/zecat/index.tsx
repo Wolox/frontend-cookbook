@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 import styles from './styles.module.scss';
 
@@ -10,12 +10,20 @@ function ButtonExample() {
   // In a project you'll have a single button
   return (
     <div className="column center">
-      <button type="button" className={`${styles.button} ${styles.primary} m-bottom-2`}>Primary</button>
-      <button type="button" className={`${styles.button} ${styles.primary} m-bottom-2`} disabled>Primary Disabled</button>
-      <button type="button" className={`${styles.button} ${styles.secondary} m-bottom-2`}>Secondary</button>
-      <button type="button" className={`${styles.button} ${styles.secondary}`} disabled>Secondary Disabled</button>
-    </div>    
-  )
+      <button type="button" className={`${styles.button} ${styles.primary} m-bottom-2`}>
+        Primary
+      </button>
+      <button type="button" className={`${styles.button} ${styles.primary} m-bottom-2`} disabled>
+        Primary Disabled
+      </button>
+      <button type="button" className={`${styles.button} ${styles.secondary} m-bottom-2`}>
+        Secondary
+      </button>
+      <button type="button" className={`${styles.button} ${styles.secondary}`} disabled>
+        Secondary Disabled
+      </button>
+    </div>
+  );
 }
 
 export default ButtonExample;
