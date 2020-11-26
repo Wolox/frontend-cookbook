@@ -1,38 +1,43 @@
 import React, { useCallback } from 'react';
 import i18next from 'i18next';
+import { useHistory } from 'react-router';
+import { useForm } from 'react-hook-form';
 
 import FormInput from '~components/FormInput';
 import PATHS from '~components/Routes/paths';
 import { stringArrayToObject } from '~utils/array';
 import { useDispatch } from '~contexts/UserContext';
-
-import styles from './styles.module.scss';
-import { useForm } from 'react-hook-form';
 import { useLazyRequest } from '~hooks/useRequest';
 import { signup, setCurrentUser, RegistrationUser } from '~services/AuthServices';
-import { actionCreators } from '~contexts/UserContext/reducer';
-import { User } from '~app/contexts/UserContext/reducer';
-import { useHistory } from 'react-router';
+import { actionCreators, User } from '~contexts/UserContext/reducer';
+
+import styles from './styles.module.scss';
 
 const PASSWORD_LENGTH = 8;
 
 const FIELDS = stringArrayToObject(['firstName', 'lastName', 'email', 'password', 'confirmPassword']);
 
-const mandatoryValidation = { required: i18next.t('Registration:requiredError') as string };
+const requiredValidation = { required: i18next.t('Registration:requiredError') as string };
 
 const VALIDATIONS = {
-  firstName: mandatoryValidation,
-  lastName: mandatoryValidation,
-  email: { 
-    pattern: { 
+  firstName: requiredValidation,
+  lastName: requiredValidation,
+  email: {
+    pattern: {
       value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
       message: i18next.t('Registration:emailFormatError') as string
     },
-    ...mandatoryValidation
+    ...requiredValidation
   },
-  password: { ...mandatoryValidation, minLength: { value: 8, message: i18next.t('Registration:passwordLengthError', { amount: PASSWORD_LENGTH }) as string } },
-  confirmPassword: mandatoryValidation
-}
+  password: {
+    ...requiredValidation,
+    minLength: {
+      value: 8,
+      message: i18next.t('Registration:passwordLengthError', { amount: PASSWORD_LENGTH }) as string
+    }
+  },
+  confirmPassword: requiredValidation
+};
 
 function RegistrationContainer() {
   const { register, handleSubmit, errors, watch } = useForm();
@@ -50,14 +55,23 @@ function RegistrationContainer() {
     }
   });
 
-  const handleRegister = useCallback((values: RegistrationUser) => {
-    signupRequest(values);
-  }, [signupRequest]);
+  const handleRegister = useCallback(
+    (values: RegistrationUser) => {
+      signupRequest(values);
+    },
+    [signupRequest]
+  );
 
-  const validateConfirmPassword = (value: string) => value === watch('password') || i18next.t('Registration:confirmPasswordError') as string
+  const validateConfirmPassword = (value: string) =>
+    value === watch('password') || (i18next.t('Registration:confirmPasswordError') as string);
 
   return (
-    <form className={`column center full-width ${styles.formContainer}`} aria-label="registration-form" onSubmit={handleSubmit(handleRegister)} noValidate>
+    <form
+      className={`column center full-width ${styles.formContainer}`}
+      aria-label="registration-form"
+      onSubmit={handleSubmit(handleRegister)}
+      noValidate
+    >
       <div className="column center m-bottom-3">
         <h1 className="m-bottom-1">{i18next.t('Registration:registration')}</h1>
         <h2>{i18next.t('Registration:registrationExplanation')}</h2>
