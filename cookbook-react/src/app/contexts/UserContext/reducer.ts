@@ -47,9 +47,7 @@ export type Action = SetUser | ResetUser | Login | Logout;
 
 export const actionCreators = {
   setUser: (user: User): SetUser => ({ type: ActionTypes.SET_USER, payload: user }),
-  resetUser: (): ResetUser => ({ type: ActionTypes.RESET_USER }),
-  login: (credentials: Credentials): Login => ({ type: ActionTypes.LOGIN, payload: credentials }),
-  logout: (): Logout => ({ type: ActionTypes.LOGOUT })
+  resetUser: (): ResetUser => ({ type: ActionTypes.RESET_USER })
 };
 
 export const reducer = (state: UserState, action: Action): UserState => {

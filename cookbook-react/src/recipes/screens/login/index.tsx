@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { useDispatch } from '~contexts/UserContext';
@@ -49,10 +49,9 @@ function LoginContainer() {
   const { register, handleSubmit, errors } = useForm();
   const errorMessage = loginError?.errorData?.message;
 
-  const handleLogin = (values: Credentials) => {
-    dispatch(actionCreators.login(values));
+  const handleLogin = useCallback((values: Credentials) => {
     loginRequest(values);
-  };
+  }, [loginRequest]);
 
   return (
     <div className={`column center full-width ${styles.container}`}>

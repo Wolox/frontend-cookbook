@@ -32,7 +32,6 @@ function Home() {
   }, [dispatch]);
 
   const handleLogout = () => {
-    userDispatch(authActions.logout());
     logoutRequest(null);
   };
 

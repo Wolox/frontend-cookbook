@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { act } from 'react-dom/test-utils';
-import { render, fireEvent }  from '@testing-library/react';
+import { render, fireEvent, waitFor }  from '@testing-library/react';
 import 'mutationobserver-shim';
 import { actionCreators } from '~contexts/UserContext/reducer';
 import { login, setCurrentUser } from '~services/AuthServices';
@@ -14,14 +14,12 @@ jest.mock('i18next', () => ({
   t: (key: string) => key
 }));
 
-const mockLogin = jest.fn();
 const mockSetStateUser = jest.fn();
 const mockSetPersistantUser = jest.fn();
 
 jest.mock('~contexts/UserContext/reducer', () => ({
   actionCreators: {
-    login: () => mockLogin(),
-    setUser: () => mockSetStateUser()
+    setUser: (values: any) => mockSetStateUser(values)
   }
 }));
 
@@ -32,7 +30,7 @@ jest.mock('~services/AuthServices', () => ({
     problem: null,
     originalError: null
   })),
-  setCurrentUser: () => mockSetPersistantUser()
+  setCurrentUser: (values: any) => mockSetPersistantUser(values)
 }))
 
 global.MutationObserver = window.MutationObserver;
@@ -50,12 +48,10 @@ describe('#Login', () => {
   describe('when filling invalid fields without submitting', () => {
     it('does not show the field errors', async () => {
       const { container, getByRole, getByLabelText, rerender } = render(component);
-      const email = await getByLabelText('Login:email');
-      const form = await getByRole('form', { name: 'login-form' });
+      const email = getByLabelText('Login:email');
+      const form = getByRole('form', { name: 'login-form' });
 
-      await act(async () => {
-        await fireEvent.change(email, { target: { value: 'invalid email' } });
-      });
+      await fireEvent.change(email, { target: { value: 'invalid email' } });
 
       expect(container.innerHTML).not.toMatch('Login:emailFormatError');
     })
@@ -64,13 +60,11 @@ describe('#Login', () => {
   describe('when filling invalid email and no password and submitting', () => {
     it('shows the field errors', async () => {
       const { container, getByRole, getByLabelText, rerender } = render(component);
-      const email = await getByLabelText('Login:email');
-      const form = await getByRole('form', { name: 'login-form' });
+      const email = getByLabelText('Login:email');
+      const form = getByRole('form', { name: 'login-form' });
 
-      await act(async () => {
-        await fireEvent.change(email, { target: { value: 'invalid email' } });
-        await fireEvent.submit(form);
-      });
+      await fireEvent.change(email, { target: { value: 'invalid email' } });
+      await waitFor(() => fireEvent.submit(form));
 
       expect(container.innerHTML).toMatch('Login:emailFormatError');
       expect(container.innerHTML).toMatch('Login:required');
@@ -80,12 +74,10 @@ describe('#Login', () => {
   describe('when empty email and no password and submitting', () => {
     it('shows the field errors', async () => {
       const { container, getByRole, getByLabelText, rerender } = render(component);
-      const email = await getByLabelText('Login:email');
-      const form = await getByRole('form', { name: 'login-form' });
+      const email = getByLabelText('Login:email');
+      const form = getByRole('form', { name: 'login-form' });
 
-      await act(async () => {
-        await fireEvent.submit(form);
-      });
+      await waitFor(() => fireEvent.submit(form));
 
       expect(container.innerHTML).toMatch('Login:required');
     })
@@ -94,19 +86,15 @@ describe('#Login', () => {
   describe('when valid email and password', () => {
     it('executes the request and saves user', async () => {
       const { container, getByRole, getByLabelText } = render(component);
-      const email = await getByLabelText('Login:email');
-      const password = await getByLabelText('Login:password');
-      const form = await getByRole('form', { name: 'login-form' });
+      const email = getByLabelText('Login:email');
+      const password = getByLabelText('Login:password');
+      const form = getByRole('form', { name: 'login-form' });
+      await fireEvent.change(email, { target: { value: 'someone@wolox.com' } });
+      await fireEvent.change(password, { target: { value: 'myPassword' } });
+      await waitFor(() => fireEvent.submit(form));
 
-      await act(async () => {
-        await fireEvent.change(email, { target: { value: 'someone@wolox.com' } });
-        await fireEvent.change(password, { target: { value: 'myPassword' } });
-        await fireEvent.submit(form);
-      });
-
-      expect(mockLogin).toHaveBeenCalled();
-      expect(mockSetStateUser).toHaveBeenCalled();
-      expect(mockSetPersistantUser).toHaveBeenCalled();
+      expect(mockSetStateUser).toHaveBeenCalledWith({ sessionToken: 'token', id: 1234 });
+      expect(mockSetPersistantUser).toHaveBeenCalledWith({ sessionToken: 'token', id: 1234 });
     })
   });
 });
