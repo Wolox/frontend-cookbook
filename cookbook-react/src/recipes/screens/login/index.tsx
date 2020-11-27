@@ -1,20 +1,14 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
+import i18next from 'i18next';
+import { useForm } from 'react-hook-form';
 
 import { useDispatch } from '~contexts/UserContext';
 import { actionCreators, Credentials, User } from '~contexts/UserContext/reducer';
 import { useLazyRequest } from '~app/hooks/useRequest';
 import { login, setCurrentUser } from '~services/AuthServices';
-
-import i18next from 'i18next';
-import { useForm } from 'react-hook-form';
-
 import FormInput from '~components/FormInput';
 import PATHS from '~components/Routes/paths';
-import { withSpinner } from '~components/Spinner';
-import { LoginError } from '~services/AuthServices';
-import { Nullable } from '~utils/types';
-import { Error } from '~app/hooks/useRequest';
 import { stringArrayToObject } from '~utils/array';
 
 import styles from './styles.module.scss';
@@ -22,15 +16,15 @@ import styles from './styles.module.scss';
 const FIELDS = stringArrayToObject(['email', 'password']);
 
 const VALIDATIONS = {
-  email: { 
-    pattern: { 
-      value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+  email: {
+    pattern: {
+      value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
       message: i18next.t('Login:emailFormatError') as string
     },
     required: i18next.t('Login:requiredError') as string
   },
   password: { required: i18next.t('Login:requiredError') as string }
-}
+};
 
 function LoginContainer() {
   const history = useHistory();
@@ -49,9 +43,12 @@ function LoginContainer() {
   const { register, handleSubmit, errors } = useForm();
   const errorMessage = loginError?.errorData?.message;
 
-  const handleLogin = useCallback((values: Credentials) => {
-    loginRequest(values);
-  }, [loginRequest]);
+  const handleLogin = useCallback(
+    (values: Credentials) => {
+      loginRequest(values);
+    },
+    [loginRequest]
+  );
 
   return (
     <div className={`column center full-width ${styles.container}`}>
@@ -59,7 +56,12 @@ function LoginContainer() {
         <h1 className="m-bottom-1">{i18next.t('Login:login')}</h1>
         <h2>{i18next.t('Login:loginExplanation')}</h2>
       </div>
-      <form className={`column m-bottom-2 ${styles.formContainer}`} aria-label="login-form" onSubmit={handleSubmit(handleLogin)} noValidate>
+      <form
+        className={`column m-bottom-2 ${styles.formContainer}`}
+        aria-label="login-form"
+        onSubmit={handleSubmit(handleLogin)}
+        noValidate
+      >
         <FormInput
           label={i18next.t('Login:email')}
           name={FIELDS.email}

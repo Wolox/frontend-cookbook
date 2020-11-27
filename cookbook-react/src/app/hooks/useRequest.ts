@@ -50,13 +50,13 @@ const executeAsyncRequest = async <P, D, E>({
 };
 
 // Returns a request to execute manually at some point, and the variables that will be updated when it does
-export const useLazyRequest = <P, D, E, T>({
+export const useLazyRequest = <P, D, E, T = D>({
   request,
   withPostSuccess,
   withPostFailure,
   initialState = null,
   withPostFetch,
-  transformResponse = response => response as unknown as T
+  transformResponse = response => (response as unknown) as T
 }: AsyncRequestHookParams<P, D, E, T>): [Nullable<T>, boolean, Nullable<Error<E>>, (params: P) => void] => {
   const [state, setState] = useState<Nullable<T>>(initialState);
   const [loading, setLoading] = useState(false);
@@ -99,7 +99,7 @@ export const useLazyRequest = <P, D, E, T>({
 
 // Executes a request each time a dependency changes and returns the values and the refetch function
 // in case you want to execute it again
-export const useRequest = <P, D, E, T>(
+export const useRequest = <P, D, E, T = D>(
   {
     request,
     payload,
@@ -107,7 +107,7 @@ export const useRequest = <P, D, E, T>(
     withPostFailure,
     initialState = null,
     withPostFetch,
-    transformResponse = response => response as unknown as T
+    transformResponse = response => (response as unknown) as T
   }: AsyncRequestHookParamsWithPayload<P, D, E, T>,
   dependencies: any[]
 ): [Nullable<T>, boolean, Nullable<Error<E>>, (params: P) => void] => {

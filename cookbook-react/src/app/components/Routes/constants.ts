@@ -11,7 +11,7 @@ const RecoverPassword = lazy(() => import('../../screens/RecoverPassword'));
 const Registration = lazy(() => import('../../screens/Registration'));
 
 const MAIN_PUBLIC_PATH = PATHS.login;
-const MAIN_PRIVATE_PATH = PATHS.home;
+// const MAIN_PRIVATE_PATH = PATHS.home;
 
 /* When adding routes, add them ABOVE the Home route
  * or it will redirect you to incorrect screens */

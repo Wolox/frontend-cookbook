@@ -5,7 +5,7 @@ import './styles.scss';
 
 interface Option {
   label: string;
-  id: number
+  id: number;
 }
 
 interface Props {
@@ -15,8 +15,6 @@ interface Props {
 function TabBar({ options }: Props) {
   const [selection, setSelection] = useState<null | number>(null);
 
-  const style = { "--number-of-items": options ?.length } as React.CSSProperties
-
   return (
     <div id="tab-bar-1" className="tab-bar-container">
       <div className="tab-bar-wrapper">
@@ -24,21 +22,26 @@ function TabBar({ options }: Props) {
         <div className="tabs">
           {options.map((option, idx) => (
             <button
+              key={option.id}
               type="button"
-              className={cn("option", { "selected": selection == idx })}
+              className={cn('option', { selected: selection === idx })}
               onClick={() => setSelection(idx)}
             >
               {option?.label}
-            </button>)
-          )}
+            </button>
+          ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 TabBar.defaultProps = {
-  options: [{ id: 1, label: 'Sección 1' }, { id: 2, label: 'Sección 2' }, { id: 3, label: 'Sección 3' }]
-}
+  options: [
+    { id: 1, label: 'Sección 1' },
+    { id: 2, label: 'Sección 2' },
+    { id: 3, label: 'Sección 3' }
+  ]
+};
 
 export default TabBar;

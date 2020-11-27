@@ -1,24 +1,9 @@
 /* eslint-disable max-nested-callbacks, @typescript-eslint/no-empty-function */
-import React, { useEffect } from 'react';
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react-hooks';
 import { PROBLEM_CODE } from 'apisauce';
-
-import { useRequest, useLazyRequest, Error } from '~hooks/useRequest';
-import { Nullable } from '~utils/types';
 import { act } from '@testing-library/react';
 
-interface FooError {
-  errorData: string;
-}
-
-type HookReturnValue = [
-  {
-    foo: string;
-  } | null,
-  boolean,
-  Nullable<Error<FooError>>,
-  (params?: any) => void
-];
+import { useRequest, useLazyRequest } from '~hooks/useRequest';
 
 const failureResponse = {
   ok: false as const,
@@ -46,24 +31,16 @@ const MockService = {
   fetchFoo: () => Promise.resolve(successResponse)
 };
 
-const LoadingMockService = {
-  fetchFoo: () => new Promise<typeof successResponse>(() => {})
-};
-
 const FailureMockService = {
   fetchFoo: () => Promise.resolve(failureResponse)
 };
 
-let hookValues: Nullable<HookReturnValue> = null;
-
 describe('#useRequest', () => {
-  beforeEach(() => {
-    hookValues = null;
-  });
-
   describe('when request has failed', () => {
     it('has correct error', async () => {
-      const { result, waitForNextUpdate } = renderHook(() => useRequest({ request: FailureMockService.fetchFoo, payload: 1 }, []));
+      const { result, waitForNextUpdate } = renderHook(() =>
+        useRequest({ request: FailureMockService.fetchFoo, payload: 1 }, [])
+      );
       await waitForNextUpdate();
       const [state, loading, error] = result.current;
       expect(state).toBe(null);
@@ -74,7 +51,9 @@ describe('#useRequest', () => {
 
   describe('when request returns an ok response', () => {
     it('has correct state', async () => {
-      const { result, waitForNextUpdate } = renderHook(() => useRequest({ request: MockService.fetchFoo, payload: 1 }, []))
+      const { result, waitForNextUpdate } = renderHook(() =>
+        useRequest({ request: MockService.fetchFoo, payload: 1 }, [])
+      );
       await waitForNextUpdate();
       const [state, loading, error] = result.current;
       expect(state).toBe(successResponse.data);
@@ -85,7 +64,9 @@ describe('#useRequest', () => {
 
   describe('when request has failed', () => {
     it('has correct error', async () => {
-      const { result, waitForNextUpdate } = renderHook(() => useRequest({ request: FailureMockService.fetchFoo, payload: 1 }, []));
+      const { result, waitForNextUpdate } = renderHook(() =>
+        useRequest({ request: FailureMockService.fetchFoo, payload: 1 }, [])
+      );
       await waitForNextUpdate();
       const [state, loading, error] = result.current;
       expect(state).toBe(null);
@@ -117,13 +98,13 @@ describe('#useLazyRequest', () => {
   });
 
   describe('when request is called and it is loading', () => {
-    it('it starts loading', async () => {
+    it('it starts loading', () => {
       const { result } = renderHook(() => useLazyRequest({ request: MockService.fetchFoo }));
       const [, , , request] = result.current;
       act(async () => {
         await request(1);
       });
-      
+
       const [state, loading, error] = result.current;
       expect(state).toBe(null);
       expect(loading).toBe(true);
@@ -133,7 +114,7 @@ describe('#useLazyRequest', () => {
 
   describe('when request is called and it succeeds', () => {
     it('is has the correct state', async () => {
-      const { result, waitForNextUpdate } = renderHook(() => useLazyRequest({ request: MockService.fetchFoo }));
+      const { result } = renderHook(() => useLazyRequest({ request: MockService.fetchFoo }));
       const [, , , request] = result.current;
       await act(async () => {
         await request(1);
@@ -148,7 +129,7 @@ describe('#useLazyRequest', () => {
 
   describe('when request is called and it fails', () => {
     it('it sets the error', async () => {
-      const { result, waitForNextUpdate } = renderHook(() => useLazyRequest({ request: FailureMockService.fetchFoo }));
+      const { result } = renderHook(() => useLazyRequest({ request: FailureMockService.fetchFoo }));
       const [, , , request] = result.current;
       await act(async () => {
         await request(1);

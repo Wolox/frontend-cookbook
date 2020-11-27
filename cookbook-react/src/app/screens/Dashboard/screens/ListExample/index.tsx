@@ -18,7 +18,8 @@ function ListExample() {
         i18next.t('ListExample:error')
       ) : (
         <>
-          {list?.page?.map(item => (
+          {/* eslint-disable-next-line react/no-multi-comp */}
+          {list?.page?.map((item: number) => (
             <div key={item} className={styles.item}>
               {item}
             </div>

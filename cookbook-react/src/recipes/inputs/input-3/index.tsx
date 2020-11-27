@@ -15,11 +15,13 @@ function Input({ label, disabled, error }: Props) {
       <div className="input-wrapper">
         <input
           id="input-tag-3"
-          className={cn("input-base", { "input-error": !!error, "input-disabled": disabled })}
+          className={cn('input-base', { 'input-error': !!error, 'input-disabled': disabled })}
           placeholder=" "
           disabled={disabled}
         />
-        <label htmlFor="input-tag-3" className={cn("input-label", { "label-disabled": disabled })}>{label}</label>
+        <label htmlFor="input-tag-3" className={cn('input-label', { 'label-disabled': disabled })}>
+          {label}
+        </label>
         {!!error && <span className="error-message">{error}</span>}
       </div>
     </div>
@@ -28,6 +30,6 @@ function Input({ label, disabled, error }: Props) {
 
 Input.defaultProps = {
   label: 'Label'
-}
+};
 
 export default Input;
