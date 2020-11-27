@@ -1,0 +1,40 @@
+$primary-color: #0B43D1;
+$primary-active-color: #052E91;
+$white: #FFF;
+$shadow-color: #000;
+$disabled-color: #E1E1E1;
+
+.button {
+  border-radius: 5px;
+  color: $white;
+  font-size: 16px;
+  min-width: 200px; // Just for presentational purposes, remove in real project
+  padding: 9px 25px;
+
+  &.primary {
+    background-color: $primary-color;
+
+    &:active {
+      background-color: $primary-active-color;
+    }
+
+    &:disabled {
+      background-color: $disabled-color;
+    }
+  }
+
+  &.secondary {
+    background-color: none;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+
+    &:disabled {
+      border: 1px solid $disabled-color;
+      color: $disabled-color;
+    }
+  }
+
+  &:hover:not(:disabled) {
+    box-shadow: 0 0 4px 1px rgba($shadow-color, 0.2);
+  }
+}
