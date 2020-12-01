@@ -49,7 +49,7 @@ function RecipePreview({ className, recipe, thumbnail }: Props) {
     return <ShadowRecipe recipe={recipe} className={`full-width row middle center ${className}`} />;
   }
 
-  // The recipe is still usable but we wan't to warn the user
+  // The recipe is still usable but we want to warn the user
   // eslint-disable-next-line no-console
   console.warn(`Cookbook.json or README.md file is missing for recipe ${recipe.title}`);
   return <div className={`full-width column markdown-container ${className} ${styles.cardReadme}`} />;
