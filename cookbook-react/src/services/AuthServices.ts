@@ -18,7 +18,7 @@ export interface RegistrationUser {
   email: string;
   password: string;
   passwordConfirmation: string;
-};
+}
 
 export const setCurrentUser = (currentUser: User) => {
   api.setHeader('Authorization', currentUser.sessionToken);

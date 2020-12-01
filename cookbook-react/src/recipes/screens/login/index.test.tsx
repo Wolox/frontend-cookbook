@@ -1,12 +1,8 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import { act } from 'react-dom/test-utils';
-import { render, fireEvent, waitFor }  from '@testing-library/react';
-import 'mutationobserver-shim';
-import { actionCreators } from '~contexts/UserContext/reducer';
-import { login, setCurrentUser } from '~services/AuthServices';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 
-import { RootComponent } from '~utils/tests';
+import 'mutationobserver-shim';
 
 import Login from './index';
 
@@ -24,14 +20,17 @@ jest.mock('~contexts/UserContext/reducer', () => ({
 }));
 
 jest.mock('~services/AuthServices', () => ({
-  login: () => new Promise(resolve => resolve({ 
-    ok: true,
-    data: { sessionToken: 'token', id: 1234 },
-    problem: null,
-    originalError: null
-  })),
+  login: () =>
+    new Promise(resolve =>
+      resolve({
+        ok: true,
+        data: { sessionToken: 'token', id: 1234 },
+        problem: null,
+        originalError: null
+      })
+    ),
   setCurrentUser: (values: any) => mockSetPersistantUser(values)
-}))
+}));
 
 global.MutationObserver = window.MutationObserver;
 
@@ -40,61 +39,64 @@ describe('#Login', () => {
 
   describe('when mounting', () => {
     it('shows valid content', () => {
-      const instance = TestRenderer.create(component)
+      const instance = TestRenderer.create(component);
       expect(instance.toJSON()!).toMatchSnapshot();
-    })
+    });
   });
 
   describe('when filling invalid fields without submitting', () => {
     it('does not show the field errors', async () => {
-      const { container, getByRole, getByLabelText, rerender } = render(component);
+      const { container, getByLabelText } = render(component);
       const email = getByLabelText('Login:email');
-      const form = getByRole('form', { name: 'login-form' });
 
       await fireEvent.change(email, { target: { value: 'invalid email' } });
 
       expect(container.innerHTML).not.toMatch('Login:emailFormatError');
-    })
+    });
   });
 
   describe('when filling invalid email and no password and submitting', () => {
     it('shows the field errors', async () => {
-      const { container, getByRole, getByLabelText, rerender } = render(component);
+      const { container, getByRole, getByLabelText } = render(component);
       const email = getByLabelText('Login:email');
       const form = getByRole('form', { name: 'login-form' });
 
       await fireEvent.change(email, { target: { value: 'invalid email' } });
+
+      // eslint-disable-next-line max-nested-callbacks
       await waitFor(() => fireEvent.submit(form));
 
       expect(container.innerHTML).toMatch('Login:emailFormatError');
       expect(container.innerHTML).toMatch('Login:required');
-    })
+    });
   });
 
   describe('when empty email and no password and submitting', () => {
     it('shows the field errors', async () => {
-      const { container, getByRole, getByLabelText, rerender } = render(component);
-      const email = getByLabelText('Login:email');
+      const { container, getByRole } = render(component);
       const form = getByRole('form', { name: 'login-form' });
 
+      // eslint-disable-next-line max-nested-callbacks
       await waitFor(() => fireEvent.submit(form));
 
       expect(container.innerHTML).toMatch('Login:required');
-    })
+    });
   });
 
   describe('when valid email and password', () => {
     it('executes the request and saves user', async () => {
-      const { container, getByRole, getByLabelText } = render(component);
+      const { getByRole, getByLabelText } = render(component);
       const email = getByLabelText('Login:email');
       const password = getByLabelText('Login:password');
       const form = getByRole('form', { name: 'login-form' });
       await fireEvent.change(email, { target: { value: 'someone@wolox.com' } });
       await fireEvent.change(password, { target: { value: 'myPassword' } });
+
+      // eslint-disable-next-line max-nested-callbacks
       await waitFor(() => fireEvent.submit(form));
 
       expect(mockSetStateUser).toHaveBeenCalledWith({ sessionToken: 'token', id: 1234 });
       expect(mockSetPersistantUser).toHaveBeenCalledWith({ sessionToken: 'token', id: 1234 });
-    })
+    });
   });
 });

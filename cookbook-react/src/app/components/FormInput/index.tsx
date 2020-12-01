@@ -66,7 +66,12 @@ function FormInput({
         readOnly={readOnly}
         ref={inputRef}
       />
-      <span id={`${name}-error`} role="alert" aria-hidden={!showError} className={`${errorClassName} ${styles.errorText} ${showError ? styles.visible : ''}`}>
+      <span
+        id={`${name}-error`}
+        role="alert"
+        aria-hidden={!showError}
+        className={`${errorClassName} ${styles.errorText} ${showError ? styles.visible : ''}`}
+      >
         {error}
       </span>
     </div>

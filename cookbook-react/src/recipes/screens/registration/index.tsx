@@ -24,7 +24,7 @@ const VALIDATIONS = {
   lastName: requiredValidation,
   email: {
     pattern: {
-      value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
       message: i18next.t('Registration:emailFormatError') as string
     },
     ...requiredValidation
@@ -44,7 +44,7 @@ function RegistrationContainer() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [, loading, loginError, signupRequest] = useLazyRequest({
+  const [, , , signupRequest] = useLazyRequest({
     request: signup,
     withPostSuccess: response => {
       const userResponse = response as User;

@@ -17,27 +17,57 @@ interface Props {
   type?: string;
 }
 
-function Input({ name, label, disabled, error, onChange, confirmable = true, placeholder, type = "text" }: Props) {
+function Input({
+  name,
+  label,
+  disabled,
+  error,
+  onChange,
+  confirmable = true,
+  placeholder,
+  type = 'text'
+}: Props) {
   return (
     <div className={`column ${styles.inputWrapper}`}>
-      <label htmlFor={name} className={`${styles.inputLabel} m-bottom-1`}>{label}</label>
+      <label htmlFor={name} className={`${styles.inputLabel} m-bottom-1`}>
+        {label}
+      </label>
       <div className={styles.inputContent}>
         <input
           id={name}
           data-testid={`${name}-input`}
           name={name}
-          className={cn(styles.inputBase, "m-bottom-1", { [styles.inputError]: !!error }, { [styles.confirmed]: confirmable && !error })}
+          className={cn(
+            styles.inputBase,
+            'm-bottom-1',
+            { [styles.inputError]: !!error },
+            { [styles.confirmed]: confirmable && !error }
+          )}
           placeholder={placeholder}
           onChange={onChange}
           disabled={disabled}
-          aria-errormessage={`${name}-error`} 
+          aria-errormessage={`${name}-error`}
           aria-invalid={!!error}
           type={type}
         />
-        {confirmable && !error && <ValidIcon className={styles.inputIcon} role="status" aria-label={i18next.t('Input:valid') as string} />}
-        {error && <InvalidIcon className={styles.inputIcon} role="status" aria-label={i18next.t('Input:invalid') as string} />}
+        {confirmable && !error && (
+          <ValidIcon
+            className={styles.inputIcon}
+            role="status"
+            aria-label={i18next.t('Input:valid') as string}
+          />
+        )}
+        {error && (
+          <InvalidIcon
+            className={styles.inputIcon}
+            role="status"
+            aria-label={i18next.t('Input:invalid') as string}
+          />
+        )}
       </div>
-      <span id={`${name}-error`} role="alert" className={cn(styles.errorMessage, { [styles.show]: !!error })}>{error}</span>
+      <span id={`${name}-error`} role="alert" className={cn(styles.errorMessage, { [styles.show]: !!error })}>
+        {error}
+      </span>
     </div>
   );
 }
@@ -46,6 +76,6 @@ function Input({ name, label, disabled, error, onChange, confirmable = true, pla
 Input.defaultProps = {
   label: 'Label',
   placeholder: 'example@'
-}
+};
 
 export default Input;
