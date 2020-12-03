@@ -5,7 +5,7 @@ interface ActionType {
 }
 
 interface Props<S extends {}, A> {
-  Context: React.Context<{ state: S; dispatch: React.Dispatch<V> }>;
+  Context: React.Context<{ state: S; dispatch: React.Dispatch<A> }>;
   reducer: React.Reducer<S, A>;
   initialState: S;
 }
