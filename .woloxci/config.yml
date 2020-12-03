@@ -5,9 +5,12 @@ config:
 steps:
   lint:
     - ln -sfn /home/node/node_modules node_modules
-    - cd cookbook-react && npm run lint && npm run lint-scss
+    - cd app && npm run lint
+    - cd .. && cd cookbook-react && npm run lint && npm run lint-scss
 
 environment:
   GIT_COMMITTER_NAME: a
   GIT_COMMITTER_EMAIL: b
   LANG: C.UTF-8
+
+  
