@@ -1,10 +1,10 @@
 {
   "thumbnail": {
     "type": "iframe",
-    "url": "https://cookbook-react.now.sh/?category=buttons&component=zecat&compact=true"
+    "url": "http://localhost:3001/?category=buttons&component=zecat&compact=true"
   },
   "detail": {
     "type": "iframe",
-    "url": "https://cookbook-react.now.sh/?category=buttons&component=zecat&compact=true"
+    "url": "http://localhost:3001/?category=buttons&component=zecat&compact=true"
   }
 }
