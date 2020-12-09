@@ -2,8 +2,6 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 
-import 'mutationobserver-shim';
-
 import Login from './index';
 
 jest.mock('i18next', () => ({
