@@ -37,13 +37,12 @@ export default class Install extends Command {
     })
     .then(r => r.json())
 
-    data.data.repository.object.entries.forEach((entry: { name: string; object: string; isBinary: boolean  }) => {
-      if (entry.isBinary) {
+    data.data.repository.object.entries.forEach((entry: { name: string; object: { text: string; isBinary: boolean}  }) => {
+      if (entry.object.isBinary) {
         this.log(`Binary file ${entry.name} not installed.`)
         return
       }
-
-      fs.writeFile(`${entry.name}`, entry.object, err => {
+      fs.writeFile(`${entry.name}`, entry.object.text, err => {
         if (err) {
           this.log(err.message)
           return
