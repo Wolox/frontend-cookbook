@@ -11,6 +11,7 @@
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
     "@oclif/plugin-help": "^3.2.1",
+    "node-fetch": "^2.6.1",
     "tslib": "^1.14.1"
   },
   "devDependencies": {
@@ -19,6 +20,7 @@
     "@types/chai": "^4.2.14",
     "@types/mocha": "^5.2.7",
     "@types/node": "^10.17.51",
+    "@types/node-fetch": "^2.5.8",
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
     "eslint-config-oclif": "^3.1.0",
