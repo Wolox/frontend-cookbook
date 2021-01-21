@@ -1,5 +1,7 @@
 import {Command, flags} from '@oclif/command'
+import * as fs from 'fs'
 import fetch from 'node-fetch'
+import {query} from '../query'
 
 export default class Install extends Command {
   static description = 'install a recipe from the cookbook'
@@ -10,6 +12,7 @@ export default class Install extends Command {
 
   static flags = {
     help: flags.help({char: 'h'}),
+    token: flags.string({char: 't'}),
   }
 
   static args = [
@@ -19,12 +22,37 @@ export default class Install extends Command {
   ]
 
   async run() {
-    const {args} = this.parse(Install)
+    const {args, flags} = this.parse(Install)
 
     this.log(`Installing ${args.tech} ${args.category}/${args.recipe}...`)
     this.log()
-    this.log('-index.tsx-\n')
-    const file = await fetch(`https://raw.githubusercontent.com/Wolox/frontend-cookbook/master/cookbook-${args.tech}/${args.tech === 'react' ? 'src/' : ''}recipes/${args.category}/${args.recipe}/index.tsx`)
-    this.log(await file.text())
+    const data = await fetch('https://api.github.com/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        authorization: `Bearer ${flags.token}`,
+      },
+      body: JSON.stringify({query: query(args.tech, args.category, args.recipe)}),
+    })
+    .then(r => r.json())
+
+    // this.log('data returned:', JSON.stringify(data, null, 2))
+
+    data.data.repository.object.entries.forEach((entry: { name: string; object: string; isBinary: boolean  }) => {
+      this.log(`${entry.name} ${entry.isBinary ? '(Binary)' : ''}`)
+      // if (entry.isBinary) {
+      //   this.log(`Binary file ${entry.name} not installed.`)
+      //   return
+      // }
+
+      // fs.writeFile(`/${entry.name}`, entry.object, err => {
+      //   if (err) {
+      //     this.log(err.message)
+      //     return
+      //   }
+      //   console.log('The file was saved!')
+      // })
+    })
   }
 }
