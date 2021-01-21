@@ -24,7 +24,7 @@ export default class Install extends Command {
   async run() {
     const {args, flags} = this.parse(Install)
 
-    this.log(`Installing ${args.tech} ${args.category}/${args.recipe}...`)
+    this.log(`Installing recipe ${args.tech} ${args.category}/${args.recipe}...`)
     this.log()
     const data = await fetch('https://api.github.com/graphql', {
       method: 'POST',
@@ -37,22 +37,24 @@ export default class Install extends Command {
     })
     .then(r => r.json())
 
-    // this.log('data returned:', JSON.stringify(data, null, 2))
-
     data.data.repository.object.entries.forEach((entry: { name: string; object: string; isBinary: boolean  }) => {
-      this.log(`${entry.name} ${entry.isBinary ? '(Binary)' : ''}`)
-      // if (entry.isBinary) {
-      //   this.log(`Binary file ${entry.name} not installed.`)
-      //   return
-      // }
+      if (entry.isBinary) {
+        this.log(`Binary file ${entry.name} not installed.`)
+        return
+      }
 
-      // fs.writeFile(`/${entry.name}`, entry.object, err => {
-      //   if (err) {
-      //     this.log(err.message)
-      //     return
-      //   }
-      //   console.log('The file was saved!')
-      // })
+      fs.writeFile(`${entry.name}`, entry.object, err => {
+        if (err) {
+          this.log(err.message)
+          return
+        }
+
+        this.log(`File ${entry.name} installed.`)
+      })
     })
+
+    // TODO: this isn't waiting for the files to be installed
+    this.log()
+    this.log(`Recipe ${args.tech} ${args.category}/${args.recipe} installed successfully!`)
   }
 }
