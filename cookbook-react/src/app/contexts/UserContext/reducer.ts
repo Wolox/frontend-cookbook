@@ -1,4 +1,4 @@
-import { Nullable } from '~utils/types';
+import { Nullable } from 'utils/types';
 
 export interface User {
   id: number;
@@ -36,7 +36,7 @@ interface ResetUser {
 
 interface Login {
   type: ActionTypes.LOGIN;
-  payload: Credentials;
+  payload: User;
 }
 
 interface Logout {
@@ -47,7 +47,9 @@ export type Action = SetUser | ResetUser | Login | Logout;
 
 export const actionCreators = {
   setUser: (user: User): SetUser => ({ type: ActionTypes.SET_USER, payload: user }),
-  resetUser: (): ResetUser => ({ type: ActionTypes.RESET_USER })
+  resetUser: (): ResetUser => ({ type: ActionTypes.RESET_USER }),
+  login: (user: User): Login => ({ type: ActionTypes.LOGIN, payload: user }),
+  logout: (): Logout => ({ type: ActionTypes.LOGOUT })
 };
 
 export const reducer = (state: UserState, action: Action): UserState => {
@@ -56,6 +58,12 @@ export const reducer = (state: UserState, action: Action): UserState => {
       return { ...state, user: action.payload };
     }
     case 'RESET_USER': {
+      return { ...state, user: null };
+    }
+    case 'LOGIN': {
+      return { ...state, user: action.payload };
+    }
+    case 'LOGOUT': {
       return { ...state, user: null };
     }
     default: {

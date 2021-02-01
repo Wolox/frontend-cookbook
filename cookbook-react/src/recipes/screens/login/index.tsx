@@ -3,13 +3,13 @@ import { useHistory } from 'react-router-dom';
 import i18next from 'i18next';
 import { useForm } from 'react-hook-form';
 
-import { useDispatch } from '~contexts/UserContext';
-import { actionCreators, Credentials, User } from '~contexts/UserContext/reducer';
-import { useLazyRequest } from '~app/hooks/useRequest';
-import { login, setCurrentUser } from '~services/AuthServices';
-import FormInput from '~components/FormInput';
-import PATHS from '~components/Routes/paths';
-import { stringArrayToObject } from '~utils/array';
+import { useDispatch } from 'app/contexts/UserContext';
+import { actionCreators, Credentials, User } from 'app/contexts/UserContext/reducer';
+import { useLazyRequest } from 'app/hooks/useRequest';
+import { login, setCurrentUser } from 'services/AuthServices';
+import FormInput from 'app/components/FormInput';
+import { stringArrayToObject } from 'utils/array';
+import PATHS from 'constants/paths';
 
 import styles from './styles.module.scss';
 

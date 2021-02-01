@@ -7,6 +7,7 @@ function App() {
     category = urlParams.get('category'),
     component = urlParams.get('component');
 
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   const CustomComponent = lazy(() => import(`../recipes/${category}/${component}`));
 
   if (urlParams.get('compact') === 'true') {

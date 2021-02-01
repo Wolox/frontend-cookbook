@@ -1,7 +1,7 @@
 import React, { createContext, useContext, Dispatch } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import withProvider from './';
+import withProvider from '.';
 
 interface State {
   foo: number;
@@ -49,6 +49,7 @@ function InnerComponent() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const WrappedComponent = withProvider({ Context, reducer, initialState })(InnerComponent);
 
 describe('#ProviderWrapper', () => {

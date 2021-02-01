@@ -1,12 +1,10 @@
-/* eslint-disable react/no-multi-comp */
-// TODO: remove disable rule?
-
 import React from 'react';
 import i18next from 'i18next';
 
-import { getList } from '~services/ListExampleService';
-import { useRequest } from '~app/hooks/useRequest';
-import Paginator from '~components/Paginator';
+import { getList } from 'services/ListExampleService';
+import { useRequest } from 'app/hooks/useRequest';
+
+import Paginator from '../../components/Paginator';
 
 import styles from './styles.module.scss';
 

@@ -3,7 +3,7 @@ import TestRenderer from 'react-test-renderer';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import 'mutationobserver-shim';
 
-import Registration from './';
+import Registration from '.';
 
 jest.mock('i18next', () => ({
   t: (key: string) => key
@@ -12,13 +12,13 @@ jest.mock('i18next', () => ({
 const mockSetStateUser = jest.fn();
 const mockSetPersistantUser = jest.fn();
 
-jest.mock('~contexts/UserContext/reducer', () => ({
+jest.mock('app/contexts/UserContext/reducer', () => ({
   actionCreators: {
     setUser: (values: any) => mockSetStateUser(values)
   }
 }));
 
-jest.mock('~services/AuthServices', () => ({
+jest.mock('services/AuthServices', () => ({
   signup: () =>
     new Promise(resolve =>
       resolve({

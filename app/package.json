@@ -101,7 +101,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-react-native": "^3.5.0",
-    "husky": "^2.7.0",
+    "husky": "^4.3.8",
     "minimist": "^1.2.0",
     "postcss-html": "^0.36.0",
     "postcss-syntax": "^0.36.2",

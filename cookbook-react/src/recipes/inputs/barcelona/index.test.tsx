@@ -1,8 +1,8 @@
 import React from 'react';
-import TestRenderer from 'react-test-renderer';
+import * as TestRenderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
 
-import Input from './';
+import Input from '.';
 
 jest.mock('i18next', () => ({
   t: (key: string) => key
@@ -109,7 +109,7 @@ describe('Barcelona Input', () => {
     it('shows the input as disabled', async () => {
       const { getByRole } = render(component);
       const inputElement = await getByRole('textbox');
-      expect(inputElement?.getAttribute('disabled')).toBeTruthy();
+      expect(inputElement?.getAttribute('disabled')).not.toBeNull();
     });
   });
 });
