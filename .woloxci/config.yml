@@ -6,7 +6,7 @@ steps:
   lint:
     - ln -sfn /home/node/node_modules node_modules
     - cd app && npm run lint
-    - cd .. && cd cookbook-react && npm run lint && npm run lint-scss
+    - cd cookbook-react && npm run lint && npm run lint-scss
 
 environment:
   GIT_COMMITTER_NAME: a
