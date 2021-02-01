@@ -107,9 +107,13 @@ describe('Barcelona Input', () => {
     const component = <Input {...staticProps} disabled />;
 
     it('shows the input as disabled', async () => {
-      const { getByRole } = render(component);
-      const inputElement = await getByRole('textbox');
-      expect(inputElement?.getAttribute('disabled')).toBeTruthy();
+      const { findByRole } = render(component);
+
+      const inputElement = await findByRole('textbox');
+      const disabledAttribute = inputElement?.getAttribute('disabled');
+
+      expect(disabledAttribute).not.toBe(null);
+      expect(disabledAttribute).not.toBe(false);
     });
   });
 });
