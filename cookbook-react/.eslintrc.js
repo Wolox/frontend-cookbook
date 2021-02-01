@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['wolox-react', 'wolox-typescript'],
+  extends: ['wolox-react', '@wolox/eslint-config-typescript'],
   parser: '@typescript-eslint/parser',
   settings: {
     'react': {

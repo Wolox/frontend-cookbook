@@ -1,8 +1,8 @@
-FROM node:10.11.0-alpine
+FROM node:10.15.3-alpine
 
 WORKDIR /home/node
 
-COPY package.json .
+COPY ./app/package.json .
 
 RUN npm install
 ENV PATH /home/node/node_modules/.bin:$PATH
