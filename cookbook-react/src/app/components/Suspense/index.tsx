@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 
-import Loading from '../Spinner/components/loading';
+import Loading from '../../../recipes/HOCs/Spinner/components/loading';
 
 interface Props {
   fallback?: React.ElementType;

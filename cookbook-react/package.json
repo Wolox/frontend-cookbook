@@ -39,7 +39,7 @@
     "lint-scss": "./node_modules/stylelint/bin/stylelint.js '**/*.scss'",
     "lint-diff": "git diff --name-only --cached --relative --diff-filter=ACM | grep -e \\.js$ -e \\.tsx$ -e \\.ts$ | xargs eslint",
     "coverage": "npm run test -- --coverage --watchAll=false",
-    "coverage-diff": "npm run test coverage -- --changedSince=development"
+    "coverage-diff": "npm run coverage -- --changedSince=master"
   },
   "browserslist": {
     "production": [
@@ -97,10 +97,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 70,
-        "functions": 70,
-        "lines": 70,
-        "statements": 70
+        "branches": 55,
+        "functions": 55,
+        "lines": 55,
+        "statements": 55
       }
     }
   },
