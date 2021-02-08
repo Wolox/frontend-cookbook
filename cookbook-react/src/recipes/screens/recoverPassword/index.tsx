@@ -7,10 +7,12 @@ import FormInput from 'app/components/FormInput';
 import styles from './styles.module.scss';
 
 function RecoverPasswordContainer() {
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   const handleSubmit = useCallback((event: React.FormEvent<Element>) => {
     // TODO: Implement method
   }, []);
 
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   const handleEmailChange = useCallback((event: React.FormEvent<Element>) => {
     // TODO: Implement method
   }, []);
