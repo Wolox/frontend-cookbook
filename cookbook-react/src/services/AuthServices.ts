@@ -2,7 +2,7 @@ import { ApiResponse } from 'apisauce';
 
 import { User, Credentials } from 'app/contexts/UserContext/reducer';
 
-import api from '../config/api';
+import api from '../recipes/utils/apisauce';
 
 import LocalStorageService from './LocalStorageService';
 
