@@ -3,7 +3,7 @@ import { renderHook } from '@testing-library/react-hooks';
 import { PROBLEM_CODE } from 'apisauce';
 import { act } from '@testing-library/react';
 
-import { useRequest, useLazyRequest } from '~hooks/useRequest';
+import { useRequest, useLazyRequest } from 'app/hooks/useRequest';
 
 const failureResponse = {
   ok: false as const,
@@ -98,7 +98,7 @@ describe('#useLazyRequest', () => {
   });
 
   describe('when request is called and it is loading', () => {
-    it('it starts loading', () => {
+    it('starts loading', () => {
       const { result } = renderHook(() => useLazyRequest({ request: MockService.fetchFoo }));
       const [, , , request] = result.current;
       act(async () => {
@@ -113,7 +113,7 @@ describe('#useLazyRequest', () => {
   });
 
   describe('when request is called and it succeeds', () => {
-    it('is has the correct state', async () => {
+    it('has the correct state', async () => {
       const { result } = renderHook(() => useLazyRequest({ request: MockService.fetchFoo }));
       const [, , , request] = result.current;
       await act(async () => {
@@ -128,7 +128,7 @@ describe('#useLazyRequest', () => {
   });
 
   describe('when request is called and it fails', () => {
-    it('it sets the error', async () => {
+    it('sets the error', async () => {
       const { result } = renderHook(() => useLazyRequest({ request: FailureMockService.fetchFoo }));
       const [, , , request] = result.current;
       await act(async () => {

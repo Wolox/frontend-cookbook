@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-named-as-default
 import Immutable from 'seamless-immutable';
 
 /**
@@ -21,7 +22,8 @@ export function stringArrayToObject(actionsArray: string[], namespace?: string):
 }
 
 /**
- * Receives a length, and returns a new Array with indices on each position.
+ * Receives a length, and returns a new Array wi
+ * th indices on each position.
  * E. G:
  * arrayOfIndices(3) // [0, 1, 2]
  * This is for a reason: avoiding the use of for loops.

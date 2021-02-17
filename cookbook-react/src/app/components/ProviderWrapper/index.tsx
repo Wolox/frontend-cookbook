@@ -4,14 +4,18 @@ interface ActionType {
   type: string;
 }
 
+// {} is valid as props
+// eslint-disable-next-line @typescript-eslint/ban-types
 interface Props<U extends {}, V> {
-  Context: React.Context<any>;
+  context: React.Context<{ state: U; dispatch: React.Dispatch<V> }>;
   reducer: React.Reducer<U, V>;
   initialState: U;
 }
 
+// {} is valid as props
+// eslint-disable-next-line @typescript-eslint/ban-types
 const withProvider = <T extends {}, U, V extends ActionType>({
-  Context,
+  context: Context,
   reducer,
   initialState
 }: Props<U, V>) => (WrappedComponent: React.ComponentType<T>) => {
