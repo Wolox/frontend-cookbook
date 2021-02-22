@@ -6,7 +6,7 @@ import FormInput from 'app/components/FormInput';
 
 import styles from './styles.module.scss';
 
-function RecoverPasswordContainer() {
+function RecoverPassword() {
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   const handleSubmit = useCallback((event: React.FormEvent<Element>) => {
     // TODO: Implement method
@@ -44,4 +44,4 @@ function RecoverPasswordContainer() {
   );
 }
 
-export default RecoverPasswordContainer;
+export default RecoverPassword;
