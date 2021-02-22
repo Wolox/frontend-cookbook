@@ -3,7 +3,7 @@ import { SpinnerProps } from 'react-spinkit';
 
 import { getDisplayName } from '../../utils/HOCs';
 
-import Loading from './components/loading';
+import Loading from './components/Loading';
 
 interface WithSpinnerProps {
   loading: boolean;
