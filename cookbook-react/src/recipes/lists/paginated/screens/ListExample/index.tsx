@@ -19,14 +19,14 @@ function ListExample() {
         i18next.t('ListExample:error')
       ) : (
         <>
-          {list?.page?.map(item => (
+          {list?.page?.map((item) => (
             <div key={item} className={styles.item}>
               {item}
             </div>
           ))}
           <Paginator
             pageCount={list?.totalPages}
-            onPageChange={currentPage => getPage({ page: currentPage.selected + 1 })}
+            onPageChange={(currentPage) => getPage({ page: currentPage.selected + 1 })}
           />
         </>
       )}

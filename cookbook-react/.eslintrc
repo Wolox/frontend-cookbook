@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "@wolox/eslint-config",
+    "@wolox/eslint-config-react",
+    "@wolox/eslint-config-typescript"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

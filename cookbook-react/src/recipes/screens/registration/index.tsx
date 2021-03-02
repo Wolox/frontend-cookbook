@@ -46,7 +46,7 @@ function RegistrationContainer() {
 
   const [, , , signupRequest] = useLazyRequest({
     request: signup,
-    withPostSuccess: response => {
+    withPostSuccess: (response) => {
       const userResponse = response as User;
       dispatch(actionCreators.setUser(userResponse));
       setCurrentUser(userResponse);
