@@ -1,22 +1,14 @@
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
-import api, { apiSetup } from '.';
+import api, { setupRequestMonitor } from '.';
 
 const onResponseMock = jest.fn();
 
-interface Body {
-  camelCaseField: string;
-}
-interface Response {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  snake_case_field: string;
-}
-
 const server = setupServer(
-  rest.post<Body>('/endpoint', (req, res, ctx) =>
+  rest.post('/endpoint', (req, res, ctx) =>
     res(
-      ctx.json<Response>({
+      ctx.json({
         // eslint-disable-next-line @typescript-eslint/naming-convention
         snake_case_field: 'snake_case_field'
       })
@@ -25,7 +17,7 @@ const server = setupServer(
 );
 
 beforeAll(() => {
-  apiSetup(onResponseMock);
+  setupRequestMonitor(onResponseMock);
 
   server.listen();
 });
@@ -58,7 +50,7 @@ test('maps the request to snakecase when it exists', async () => {
     rest.post('/endpoint', (req, res, ctx) => {
       requestBody = req.body;
       return res.once(
-        ctx.json<Response>({
+        ctx.json({
           // eslint-disable-next-line @typescript-eslint/naming-convention
           snake_case_field: 'snake_case_field'
         })

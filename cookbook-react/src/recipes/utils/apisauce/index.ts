@@ -14,23 +14,22 @@ const api = create({
   timeout: 15000
 });
 
-// If you need to add more monitors consider calling api.addMonitor from your component
+api.addResponseTransform(response => {
+  if (response.data) {
+    response.data = deserializer.serialize(response.data);
+  }
+});
+
+api.addRequestTransform(request => {
+  if (request.data) {
+    request.data = serializer.serialize(request.data);
+  }
+});
+
 // eslint-disable-next-line no-unused-vars, prettier/prettier, @typescript-eslint/no-unused-vars
-export const apiSetup = (onResponse?: (res: ApiResponse<any>) => void) => {
+export const setupRequestMonitor = (onResponse: (res: ApiResponse<any>) => void) => {
   api.addMonitor(response => {
-    onResponse?.(response);
-  });
-
-  api.addResponseTransform(response => {
-    if (response.data) {
-      response.data = deserializer.serialize(response.data);
-    }
-  });
-
-  api.addRequestTransform(request => {
-    if (request.data) {
-      request.data = serializer.serialize(request.data);
-    }
+    onResponse(response);
   });
 };
 
