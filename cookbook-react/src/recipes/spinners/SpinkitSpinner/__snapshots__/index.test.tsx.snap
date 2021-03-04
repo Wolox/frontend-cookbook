@@ -2,12 +2,16 @@
 
 exports[`renders correctly 1`] = `
 <div
-  class="sk-fade-in-half-second sk-spinner sk-three-bounce"
-  color="#000"
-  style="color: rgb(0, 0, 0);"
+  class=" spinnerContainer"
 >
-  <div />
-  <div />
-  <div />
+  <div
+    class="sk-fade-in-half-second sk-spinner sk-three-bounce"
+    color="#000"
+    style="color: rgb(0, 0, 0);"
+  >
+    <div />
+    <div />
+    <div />
+  </div>
 </div>
 `;

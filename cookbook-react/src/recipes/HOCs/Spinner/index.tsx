@@ -18,9 +18,11 @@ const withSpinner = (spinnerConfig: SpinnerConfig = {}) => <P extends Record<str
   function WithSpinner({ loading, ...passThroughProps }: WithSpinnerProps) {
     const { classNameContainer = '', ...rest } = spinnerConfig;
     return loading ? (
-      <div className={classNameContainer} data-testid={`${getDisplayName(WrappedComponent)}Loading`}>
-        <Loading {...rest} />
-      </div>
+      <Loading
+        containerClassName={classNameContainer}
+        data-testid={`${getDisplayName(WrappedComponent)}Loading`}
+        {...rest}
+      />
     ) : (
       <WrappedComponent {...(passThroughProps as P)} />
     );
