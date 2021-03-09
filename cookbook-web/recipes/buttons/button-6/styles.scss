@@ -23,33 +23,33 @@
 }
 
 .effect01 {
-  color: #FFF;
+  background-color: #000;
   border: 4px solid #000;
   box-shadow: 0 0 0 1px #000 inset;
-  background-color: #000;
+  color: #FFF;
   overflow: hidden;
   position: relative;
   transition: all 0.3s ease-in-out;
 
-  span {
+  .btn-text {
     transition: all 0.2s ease-out;
     z-index: 2;
   }
 
   &:hover {
-    border: 4px solid #666;
     background-color: #FFF;
+    border: 4px solid #666;
     box-shadow: 0 0 0 4px #EEE inset;
 
-    span {
+    .btn-text {
       color: #333;
     }
 
     &:after {
       background: #FFF;
       border: 20px solid #000;
-      opacity: 0;
       left: 120%;
+      opacity: 0;
       transform: rotate(40deg);
     }
   }
@@ -64,8 +64,8 @@
     position: absolute;
     top: -50px;
     transform: rotate(35deg);
-    width: 50px;
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 50px;
     z-index: 1;
   }
 }
