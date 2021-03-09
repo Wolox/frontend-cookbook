@@ -9,5 +9,6 @@ module.exports = {
       ignoreInsideAtRules: ['if', 'mixin', 'media']
     }],
     'scss/at-import-no-partial-leading-underscore': null,
+    'plugin/stylelint-no-indistinguishable-colors': [true, { allowEquivalentNotation: true } ]
   }
 };

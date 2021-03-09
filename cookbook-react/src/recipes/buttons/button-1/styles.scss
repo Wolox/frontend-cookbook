@@ -1,3 +1,4 @@
+/* stylelint-disable-next-line plugin/stylelint-no-indistinguishable-colors */
 $white: #FFF;
 
 .btn,
@@ -27,7 +28,7 @@ $white: #FFF;
   --btn-border: 2px;
   --btn-color-1: #DF0000;
   --btn-color-2: #AD0000;
-  --btn-text-color: #FFF;
+  --btn-text-color: $white;
   --btn-font-size: 10pt;
   --btn-trn-duration: 150ms;
   --btn-color-1: #00F1D1;
@@ -36,7 +37,7 @@ $white: #FFF;
 }
 
 .btn-1:disabled {
-  --btn-color-1: #FEFEFE;
+  --btn-color-1: #F0F0F0;
   --btn-color-2: #878787;
   --btn-text-color: var(--btn-color-2);
   pointer-events: none;
