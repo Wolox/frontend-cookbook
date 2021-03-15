@@ -1,0 +1,38 @@
+$color-gray: #E1E1E1;
+$color-white: #FFF;
+$color-blue: #003DD5;
+$btn-height: 45px;
+$options: 3;
+$btn-width: (100 / $options) * 1%;
+
+.options-container {
+  .btn {
+    border: 3px solid $color-gray;
+    height: $btn-height;
+    transition: border-color 0.5s ease, color 0.8s ease;
+    width: $btn-width;
+
+    &:first-child {
+      border-radius: 5px 0 0 5px;
+    }
+
+    &:last-child {
+      border-radius: 0 5px 5px 0;
+    }
+
+    &.one-item {
+      border-radius: 5px;
+    }
+
+    &.selected {
+      border-color: $color-blue;
+      color: $color-blue;
+      font-weight: 600;
+    }
+
+    &:disabled {
+      color: $color-gray;
+      font-weight: 600;
+    }
+  }
+}
