@@ -1,8 +1,10 @@
-export function query(tech: string, category: string, recipe: string) {
+import {Recipe} from './recipe'
+
+export function query({tech, category, name}: Recipe) {
   return `
   query recipesFiles {
     repository(owner: "wolox", name: "frontend-cookbook") {
-      object(expression: "master:cookbook-${tech}/${tech === 'react' ? 'src/' : ''}recipes/${category}/${recipe}") {
+      object(expression: "master:cookbook-${tech}/${tech === 'react' ? 'src/' : ''}recipes/${category}/${name}") {
         
 ... on Blob {
   id
