@@ -24,7 +24,7 @@ const importDirectory = async (file: RecipeFile) => {
 }
 
 export async function fetchRecipe(recipe: Recipe) {
-  const res = await fetch(url)
+  const res = await fetch(`https://api.github.com/repos/Wolox/frontend-cookbook/contents/cookbook-react/src/recipes/${recipe.category}/${recipe.name}`)
 
   if (res.status === 404) {
     throw new Error(`A recipe with name '${recipe.name}' and category '${recipe.category}' could not be found in cookbook-${recipe.tech}`)
