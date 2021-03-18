@@ -1,0 +1,10 @@
+{
+  "thumbnail": {
+    "type": "iframe",
+    "url": "https://cookbook-react.now.sh/?category=lists&component=list-cmpc&compact=true"
+  },
+  "detail": {
+    "type": "iframe",
+    "url": "https://cookbook-react.now.sh/?category=lists&component=list-cmpc&compact=true"
+  }
+}
