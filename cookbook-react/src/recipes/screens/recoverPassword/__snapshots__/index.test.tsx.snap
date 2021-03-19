@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders the component when mounted 1`] = `
+<div
+  class="column center full-width container"
+>
+  <div
+    class="column center m-bottom-3"
+  >
+    <h1
+      class="m-bottom-1"
+    >
+      RecoverPassword:recoverPassword
+    </h1>
+    <h2>
+      RecoverPassword:recoverPasswordDescription
+    </h2>
+  </div>
+  <form
+    class="full-width formContainer"
+  >
+    <div
+      class="column start m-bottom-2 sectionContainer"
+    >
+      <label
+        class=" m-bottom-1"
+        for="email"
+      >
+        RecoverPassword:email
+      </label>
+      <input
+        class="m-bottom-2 full-width input input "
+        id="email"
+        name="email"
+        placeholder="RecoverPassword:emailPlaceholder"
+        type="text"
+      />
+      <span
+        aria-hidden="true"
+        class=" errorText "
+        id="email-error"
+        role="alert"
+      />
+    </div>
+    <div
+      class="column center sectionContainer"
+    >
+      <button
+        class="full-width m-bottom-1 button"
+        type="submit"
+      >
+        RecoverPassword:enter
+      </button>
+      <a
+        href="/login"
+      >
+        RecoverPassword:returnToLogin
+      </a>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`renders the component when mounted 1`] = `
+<div
+  class="column center full-width container"
+>
+  <div
+    class="column center m-bottom-3"
+  >
+    <h1
+      class="m-bottom-1"
+    >
+      RecoverPassword:recoverPassword
+    </h1>
+    <h2>
+      RecoverPassword:recoverPasswordDescription
+    </h2>
+  </div>
+  <form
+    class="full-width formContainer"
+  >
+    <div
+      class="column start m-bottom-2 sectionContainer"
+    >
+      <label
+        class=" m-bottom-1"
+        for="email"
+      >
+        RecoverPassword:email
+      </label>
+      <input
+        class="m-bottom-2 full-width input input "
+        id="email"
+        name="email"
+        placeholder="RecoverPassword:emailPlaceholder"
+        type="text"
+      />
+      <span
+        aria-hidden="true"
+        class=" errorText "
+        id="email-error"
+        role="alert"
+      />
+    </div>
+    <div
+      class="column center sectionContainer"
+    >
+      <button
+        class="full-width m-bottom-1 button"
+        type="submit"
+      >
+        RecoverPassword:enter
+      </button>
+      <a
+        href="/login"
+      >
+        RecoverPassword:returnToLogin
+      </a>
+    </div>
+  </form>
+</div>
+`;
