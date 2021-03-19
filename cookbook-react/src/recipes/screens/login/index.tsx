@@ -32,7 +32,7 @@ function LoginContainer() {
 
   const [, loading, loginError, loginRequest] = useLazyRequest({
     request: (credentials: Credentials) => login(credentials),
-    withPostSuccess: response => {
+    withPostSuccess: (response) => {
       const userResponse = response as User;
       dispatch(actionCreators.setUser(userResponse));
       setCurrentUser(userResponse);
