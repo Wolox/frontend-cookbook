@@ -1,20 +1,33 @@
-@import 'variables/colors';
+$background-color: #FFF;
+$border-color: #848486;
+$title-color: #08080D;
+$button-color: #00B876;
+$button-color-hover: #04A36A;
 
 .collapsible-container {
-  background-color: $white;
+  background-color: $background-color;
   border-radius: 20px;
   padding: 42px;
-  --background-color: #FFF;
-  --border-color: #848486;
+  --background-color: $background-color;
+  --border-color: $border-color;
   --icon-height: 10px;
   --icon-width: 14px;
-  --title-color: #08080D;
-  --button-color: #00B876;
-  --button-color-hover: #04A36A;
+}
+
+.content {
+  height: auto;
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+.collapsed-content {
+  transform: scaleY(0);
 }
 
 .title {
-  color: var(--title-color);
+  color: $title-color;
   font-size: 32px;
   font-weight: 700;
   line-height: 37px;
@@ -38,12 +51,10 @@
 
   &::before {
     border-top-color: var(--border-color);
-    top: 0;
   }
 
   &::after {
     border-top-color: var(--background-color);
-    top: -3px;
   }
 }
 
@@ -52,9 +63,9 @@
 }
 
 .button {
-  background-color: var(--button-color);
+  background-color: $button-color;
   border-radius: 6px;
-  color: $white;
+  color: $background-color;
   font-size: 20px;
   height: 50px;
   min-width: 150px;
@@ -62,8 +73,8 @@
   text-align: center;
 
   &:hover:not(:disabled) {
-    background: var(--button-color-hover);
-    box-shadow: 0 0 10px var(--button-color-hover);
+    background: $button-color-hover;
+    box-shadow: 0 0 10px $button-color-hover;
   }
 }
 

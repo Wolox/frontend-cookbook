@@ -19,7 +19,7 @@ function Collapsible({ title, className, isCollapsed, children, actions }: Colla
   };
 
   return (
-    <div className={`${className ? className : ''} ${styles.collapsibleContainer} column`}>
+    <div className={cn(className, styles.collapsibleContainer, 'column')}>
       <div className="row space-between" onClick={handleCollapse}>
         {title && <span className={styles.title}>{title}</span>}
         <div className="row middle">
@@ -27,11 +27,14 @@ function Collapsible({ title, className, isCollapsed, children, actions }: Colla
           <button type="button" className={cn(styles.icon, { [styles.iconClicked]: collapsed })} />
         </div>
       </div>
-      {!collapsed && <div className="m-top-10">{children}</div>}
+      <div className={cn(styles.content, { [styles.collapsedContent]: collapsed })}>
+        {!collapsed && <div className="m-top-10">{children}</div>}
+      </div>
     </div>
   );
 }
 
+// This should be removed when using it in a real project
 Collapsible.defaultProps = {
   actions: (
     <button type="button" className={`m-right-10 ${styles.button}`}>
