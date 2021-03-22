@@ -5,6 +5,6 @@
   },
   "detail": {
     "type": "iframe",
-    "url": "https://cookbook-react.now.sh/?category=lists&componentcmpc-list&compact=true"
+    "url": "https://cookbook-react.now.sh/?category=lists&component=cmpc-list&compact=true"
   }
 }
