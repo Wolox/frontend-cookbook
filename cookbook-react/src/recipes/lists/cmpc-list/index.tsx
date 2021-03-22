@@ -22,8 +22,8 @@ function List({ title, items, handleDelete }: ListProps) {
   }
 
   const onDelete = (id: number) => {
-    const itemsfiltered: Item[] = itemsList.filter((item: Item) => item.id !== id);
-    setItems(itemsfiltered);
+    const filteredItems: Item[] = itemsList.filter((item: Item) => item.id !== id);
+    setItems(filteredItems);
     if (handleDelete) {
       handleDelete(id);
     }
@@ -46,6 +46,7 @@ function List({ title, items, handleDelete }: ListProps) {
   );
 }
 
+// This is only for example purposes. Remove it in a real project.
 List.defaultProps = {
   handleDelete: (index: string) => index,
   items: data,
