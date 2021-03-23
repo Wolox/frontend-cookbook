@@ -40,8 +40,8 @@ function StatusStep({ status, className }: StatusStepProps) {
                 })}
               />
             )}
-            <div className={styles.statusBullet} />
-            <div className={`m-top-4 ${styles.statusText}`}>{statusName}</div>
+            <div className={`m-bottom-4 ${styles.statusBullet}`} />
+            <div className={styles.statusText}>{statusName}</div>
           </div>
         );
       })}
@@ -49,6 +49,7 @@ function StatusStep({ status, className }: StatusStepProps) {
   );
 }
 
+// This is only for test, remove in a real project
 StatusStep.defaultProps = {
   status: StatusType.IN_PRODUCTION
 };
