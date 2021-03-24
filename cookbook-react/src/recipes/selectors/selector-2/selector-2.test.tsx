@@ -11,16 +11,16 @@ describe('Selector', () => {
     { id: 3, text: 'Opción 3', disabled: false }
   ];
   const active = null;
-  const setActive = jest.fn();
+  const handleChange = jest.fn();
   beforeEach(() => {
-    render(<Selector options={options} active={active} setActive={setActive} />);
+    render(<Selector options={options} active={active} handleChange={handleChange} />);
   });
-  test('call setActive function with the option id', () => {
+  test('call handleChange function with the option id', () => {
     userEvent.click(screen.getByText('Opción 1'));
-    expect(setActive).toHaveBeenCalledWith(1);
+    expect(handleChange).toHaveBeenCalledWith(1);
   });
   test('can not select a disabled option', () => {
     userEvent.click(screen.getByText('Opción 2'));
-    expect(setActive).not.toHaveBeenCalled();
+    expect(handleChange).not.toHaveBeenCalled();
   });
 });

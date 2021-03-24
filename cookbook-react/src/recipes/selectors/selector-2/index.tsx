@@ -12,12 +12,12 @@ interface Option {
 interface Props {
   options: Option[];
   active: null | number;
-  setActive: (id: number) => void;
+  handleChange: (id: number) => void;
 }
 
 function Selector({
   active,
-  setActive,
+  handleChange,
   // TODO: Remove this options in a real app
   options = [
     { id: 1, text: 'Opción 1', disabled: false },
@@ -44,7 +44,7 @@ function Selector({
             className={styles.option}
             disabled={option.disabled}
             value={option.id}
-            onChange={() => setActive(option.id)}
+            onChange={() => handleChange(option.id)}
           />
           {option.text}
         </label>
