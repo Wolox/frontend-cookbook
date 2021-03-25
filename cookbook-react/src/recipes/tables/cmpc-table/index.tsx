@@ -81,6 +81,7 @@ function Table<T extends { id: ReactText }>({
   );
 }
 
+// This is only for testing proposes, remove in a real project
 Table.defaultProps = {
   columns: getColumns(),
   data: dataSample,
