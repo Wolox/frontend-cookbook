@@ -18,9 +18,10 @@ type RecipeNode = RecipeFile | RecipeDir
 
 const COOKBOOK_BASE_URL = 'https://api.github.com/repos/Wolox/frontend-cookbook/contents'
 
-const getCookbookUrl = (tech: string) => ({
+const COOKBOOK_FOLDERS_EXCEPTIONS: Record<string, string> = {
   react: 'cookbook-react/src/recipes',
-}[tech] || `cookbook-${tech}/recipes`)
+}
+const getCookbookUrl = (tech: string) => (COOKBOOK_FOLDERS_EXCEPTIONS[tech] || `cookbook-${tech}/recipes`)
 
 const importFile = async (file: RecipeFile, currentDir = '') => {
   // TODO: What happens when the file isn't a text 🤔

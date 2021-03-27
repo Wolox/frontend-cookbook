@@ -23,35 +23,7 @@ export default class Install extends Command {
     const {args: {tech, category, recipe}} = this.parse(Install)
 
     cli.action.start(`Installing recipe ${tech} ${category}/${recipe}`)
-
     await fetchRecipe({tech, category, name: recipe})
-    // const data = await fetch('https://api.github.com/graphql', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Accept: 'application/json',
-    //     authorization: `Bearer ${flags.token}`,
-    //   },
-    //   body: JSON.stringify({query: query(args.tech, args.category, args.recipe)}),
-    // })
-    // .then(r => r.json())
-
-    // data.data.repository.object.entries.forEach((entry: { name: string; object: { text: string; isBinary: boolean}  }) => {
-    //   if (entry.object.isBinary) {
-    //     this.log(`Binary file ${entry.name} not installed.`)
-    //     return
-    //   }
-    //   fs.writeFile(`${entry.name}`, entry.object.text, err => {
-    //     if (err) {
-    //       this.log(err.message)
-    //       return
-    //     }
-
-    //     this.log(`File ${entry.name} installed.`)
-    //   })
-    // })
-
-    // TODO: this isn't waiting for the files to be installed
     cli.action.stop()
   }
 }
