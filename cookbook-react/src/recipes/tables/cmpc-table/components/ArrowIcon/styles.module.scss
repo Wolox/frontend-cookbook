@@ -1,0 +1,13 @@
+@import 'variables/colors';
+
+.arrow-icon-container {
+  background: #FFF;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba($black, 0.03);
+  height: 32px;
+  width: 32px;
+
+  &.disabled {
+    pointer-events: none;
+  }
+}

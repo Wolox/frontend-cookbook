@@ -1,0 +1,41 @@
+$silver: #C4C4C4;
+$black: #000;
+$french-gray: #C6C5CB;
+
+.table-container {
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba($black, 0.03);
+  overflow: hidden;
+}
+
+.table-row-header {
+  background-color: rgba($silver, 0.3);
+  min-height: 64px;
+}
+
+.table-row-body {
+  min-height: 71px;
+
+  &:nth-child(odd) {
+    background: rgba($french-gray, 0.1);
+  }
+}
+
+.table-header {
+  font-size: 19px;
+  font-weight: 500;
+  flex: 1;
+  line-height: 22.27px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.table-cell {
+  flex: 1;
+  line-height: 23.44px;
+  padding: 0 10px;
+}
+
+.table-pagination-total {
+  color: $silver;
+}

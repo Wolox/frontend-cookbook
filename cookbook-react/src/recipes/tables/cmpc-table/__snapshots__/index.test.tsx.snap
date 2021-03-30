@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table component renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="tableContainer"
+  >
+    <div
+      class="row space-between tableRowHeader"
+    >
+      <div
+        class="row center middle tableHeader orderColumn"
+      >
+        Column1
+      </div>
+      <div
+        class="row center middle tableHeader dateColumn"
+      >
+        Column2
+      </div>
+      <div
+        class="row center middle tableHeader quantityColumn"
+      >
+        Column3
+      </div>
+      <div
+        class="row center middle tableHeader measureColumn"
+      >
+        Column4
+      </div>
+      <div
+        class="row center middle tableHeader measureColumn"
+      >
+        Column5
+      </div>
+    </div>
+    <div
+      class="row space-between tableRowBody"
+    >
+      <div
+        class="row center middle text-big tableCell orderColumn"
+      >
+        <span
+          class="text-big"
+        >
+           1
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell dateColumn"
+      >
+        <span
+          class="text-big"
+        >
+           Sample1
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell quantityColumn"
+      >
+        <span
+          class="text-big underline"
+        >
+           Sample1
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell measureColumn"
+      >
+        <span
+          class="text-big underline"
+        >
+          Sample1
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell measureColumn"
+      >
+        <span
+          class="text-big underline"
+        >
+          Sample1
+        </span>
+      </div>
+    </div>
+    <div
+      class="row space-between tableRowBody"
+    >
+      <div
+        class="row center middle text-big tableCell orderColumn"
+      >
+        <span
+          class="text-big"
+        >
+           2
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell dateColumn"
+      >
+        <span
+          class="text-big"
+        >
+           Sample2
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell quantityColumn"
+      >
+        <span
+          class="text-big underline"
+        >
+           Sample2
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell measureColumn"
+      >
+        <span
+          class="text-big underline"
+        >
+          Sample2
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell measureColumn"
+      >
+        <span
+          class="text-big underline"
+        >
+          Sample2
+        </span>
+      </div>
+    </div>
+    <div
+      class="row space-between tableRowBody"
+    >
+      <div
+        class="row center middle text-big tableCell orderColumn"
+      >
+        <span
+          class="text-big"
+        >
+           3
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell dateColumn"
+      >
+        <span
+          class="text-big"
+        >
+           Sample3
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell quantityColumn"
+      >
+        <span
+          class="text-big underline"
+        >
+           Sample3
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell measureColumn"
+      >
+        <span
+          class="text-big underline"
+        >
+          Sample3
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell measureColumn"
+      >
+        <span
+          class="text-big underline"
+        >
+          Sample3
+        </span>
+      </div>
+    </div>
+    <div
+      class="row space-between tableRowBody"
+    >
+      <div
+        class="row center middle text-big tableCell orderColumn"
+      >
+        <span
+          class="text-big"
+        >
+           4
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell dateColumn"
+      >
+        <span
+          class="text-big"
+        >
+           Sample4
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell quantityColumn"
+      >
+        <span
+          class="text-big underline"
+        >
+           Sample4
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell measureColumn"
+      >
+        <span
+          class="text-big underline"
+        >
+          Sample4
+        </span>
+      </div>
+      <div
+        class="row center middle text-big tableCell measureColumn"
+      >
+        <span
+          class="text-big underline"
+        >
+          Sample4
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="row end middle m-top-5"
+  >
+    <div
+      class="row middle center arrowIconContainer disabled"
+    >
+      <button
+        disabled=""
+        type="button"
+      >
+        &lt;
+      </button>
+    </div>
+    <p
+      class="text-big m-left-3 bold"
+    >
+      1 
+    </p>
+    <p
+      class="tablePaginationTotal text-big m-right-3"
+    >
+      - 10
+    </p>
+    <div
+      class="row middle center arrowIconContainer pointer"
+    >
+      <button
+        type="button"
+      >
+        &gt;
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
