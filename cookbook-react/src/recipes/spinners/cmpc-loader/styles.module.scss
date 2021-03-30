@@ -1,0 +1,70 @@
+$silver: #C4C4C4;
+$white: #FFF;
+$quick-transition-duration: 200ms;
+$z-index-loader: 5;
+$transparent: rgba(0, 0, 0, 0);
+$jade: #00B876;
+$opacity-loader: 0.6;
+
+.loader-container {
+  background-color: $white;
+  height: 100vh;
+  left: 0;
+  opacity: $opacity-loader;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: $z-index-loader;
+
+  &.simple {
+    background-color: $transparent;
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+}
+
+.lds-ring {
+  display: inline-block;
+  height: 80px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+
+  .section {
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border: 8px solid $jade;
+    border-color: $jade transparent transparent;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: block;
+    height: 64px;
+    margin: 8px;
+    position: absolute;
+    width: 64px;
+
+    &.section-1 {
+      animation-delay: -0.45s;
+    }
+
+    &.section-2 {
+      animation-delay: -0.3s;
+    }
+
+    &.section-3 {
+      animation-delay: -0.15s;
+    }
+  }
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

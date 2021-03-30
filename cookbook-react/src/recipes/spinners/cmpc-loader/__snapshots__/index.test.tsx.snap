@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader component renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="loaderContainer simple"
+    data-testid="loader"
+  >
+    <div
+      class="ldsRing"
+    >
+      <div
+        class="section section1"
+      />
+      <div
+        class="section section2"
+      />
+      <div
+        class="section section3"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
