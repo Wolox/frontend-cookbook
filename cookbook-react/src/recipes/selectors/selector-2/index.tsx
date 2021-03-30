@@ -10,24 +10,15 @@ interface Option {
 }
 
 interface Props {
-  options: Option[];
+  options?: Option[];
   active: null | number;
   handleChange: (id: number) => void;
 }
 
-function Selector({
-  active,
-  handleChange,
-  // TODO: Remove this options in a real app
-  options = [
-    { id: 1, text: 'Opción 1', disabled: false },
-    { id: 2, text: 'Opción 2', disabled: false },
-    { id: 3, text: 'Opción 3', disabled: false }
-  ]
-}: Props) {
+function Selector({ active, handleChange, options }: Props) {
   return (
     <div className={styles.optionsContainer}>
-      {options.map((option) => (
+      {options?.map((option) => (
         <label
           htmlFor={`option-${option.id}`}
           key={option.id}
@@ -54,3 +45,11 @@ function Selector({
 }
 
 export default Selector;
+
+Selector.defaultProps = {
+  options: [
+    { id: 1, text: 'Opción 1', disabled: false },
+    { id: 2, text: 'Opción 2', disabled: false },
+    { id: 3, text: 'Opción 3', disabled: false }
+  ]
+};
