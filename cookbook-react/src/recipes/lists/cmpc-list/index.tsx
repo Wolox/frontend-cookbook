@@ -38,7 +38,11 @@ function List({ title, items, handleDelete }: ListProps) {
         {itemsList?.map(item => (
           <li key={item.id} className={`${styles.listItem} row middle space-between`}>
             <span className={styles.textNormal}>{item.name}</span>
-            <div className={`relative pointer ${styles.closeIcon}`} onClick={() => onDelete(item.id)} />
+            <div
+              className={`relative pointer ${styles.closeIcon}`}
+              data-testid="delete-button"
+              onClick={() => onDelete(item.id)}
+            />
           </li>
         ))}
       </ul>
