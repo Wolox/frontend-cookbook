@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collapsible component renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="collapsible-class collapsibleContainer column"
+  >
+    <div
+      class="row space-between"
+    >
+      <span
+        class="title"
+      >
+        Collapsible Title
+      </span>
+      <div
+        class="row middle"
+      >
+        <button
+          class="m-right-10 button"
+          type="button"
+        >
+          Action
+        </button>
+        <button
+          class="icon iconClicked"
+          type="button"
+        />
+      </div>
+    </div>
+    <div
+      class="content collapsedContent"
+    />
+  </div>
+</DocumentFragment>
+`;
