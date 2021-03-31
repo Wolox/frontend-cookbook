@@ -1,0 +1,58 @@
+$color-blue: #003DD5;
+$color-white: #FFF;
+
+.collapse-wrapper {
+  height: 50px;
+  overflow: hidden;
+  transition: height 0.3s linear;
+  width: 400px;
+}
+
+.title-container {
+  align-items: center;
+  background-color: $color-blue;
+  border-radius: 5px;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  padding: 0 15px;
+  transition: border-radius 0.3s linear;
+
+  .title {
+    color: $color-white;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 18px;
+  }
+
+  .arrow {
+    border: solid $color-white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+    transition: transform 0.3s linear;
+
+    &.up {
+      transform: rotate(-135deg);
+    }
+
+    &.down {
+      transform: rotate(45deg);
+    }
+  }
+
+  &.open {
+    border-radius: 5px 5px 0 0;
+  }
+}
+
+.text-container {
+  border: 2px solid $color-blue;
+  border-radius: 0 0 5px 5px;
+  height: auto;
+  padding: 15px;
+}
+
+.collapse-open {
+  height: 100%;
+}
