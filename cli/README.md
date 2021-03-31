@@ -28,28 +28,8 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`cookbook hello [FILE]`](#cookbook-hello-file)
 * [`cookbook help [COMMAND]`](#cookbook-help-command)
-
-## `cookbook hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ cookbook hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ cookbook hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/Wolox/frontend-cookbook/blob/v0.0.0/src/commands/hello.ts)_
+* [`cookbook install TECH CATEGORY RECIPE`](#cookbook-install-tech-category-recipe)
 
 ## `cookbook help [COMMAND]`
 
@@ -67,4 +47,21 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.1/src/commands/help.ts)_
+
+## `cookbook install TECH CATEGORY RECIPE`
+
+install a recipe from the cookbook
+
+```
+USAGE
+  $ cookbook install TECH CATEGORY RECIPE
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  $ cookbook install react buttons button-1
+```
+
+_See code: [src/commands/install.ts](https://github.com/Wolox/frontend-cookbook/blob/v0.0.0/src/commands/install.ts)_
 <!-- commandsstop -->
