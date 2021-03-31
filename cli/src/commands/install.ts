@@ -3,7 +3,7 @@ import {fetchRecipe} from '../fetch-recipe'
 import cli from 'cli-ux'
 
 export default class Install extends Command {
-  static description = 'install a recipe from the cookbook'
+  static description = 'Installs a recipe from the cookbook'
 
   static examples = [
     '$ cookbook install react buttons button-1',

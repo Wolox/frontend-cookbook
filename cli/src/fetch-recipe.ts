@@ -24,7 +24,7 @@ const COOKBOOK_FOLDERS_EXCEPTIONS: Record<string, string> = {
 const getCookbookUrl = (tech: string) => (COOKBOOK_FOLDERS_EXCEPTIONS[tech] || `cookbook-${tech}/recipes`)
 
 const importFile = async (file: RecipeFile, currentDir = '') => {
-  // TODO: What happens when the file isn't a text 🤔
+  // TODO: Support non text files
   const response = await fetch(file.download_url, {
     headers: {'Content-Type': 'application/text'},
   })
