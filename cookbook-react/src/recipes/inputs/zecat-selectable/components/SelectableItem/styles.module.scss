@@ -1,0 +1,91 @@
+$jumbo: #848486;
+$alto: #DDDDDD;
+
+$selectable-size: 20px;
+
+$radio-inner-size: 14px;
+$radio-inner-translation: calc(50% - (#{$selectable-size} - #{$radio-inner-size}));
+
+$checkbox-inner-size: 18px;
+
+.selectable-item-container {
+  align-items: center;
+  border: 1px solid $jumbo;
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  padding: 10px;
+  position: relative;
+  width: 250px;
+
+  &:hover .input ~ .custom-checkmark {
+    background-color: #ccc;
+  }
+
+  &:hover .input[value="true"] ~ .custom-radio {
+    background-color: #2196F3;
+  }
+
+  .input[value="true"] ~ .custom-checkmark:after {
+    opacity: 1;
+  }
+}
+
+.text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.input {
+  cursor: pointer;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+}
+
+.custom-checkmark {
+  border: 2px solid $alto;
+  height: $selectable-size;
+  margin-right: 10px;
+  position: relative;
+  width: $selectable-size;
+
+  &:after {
+    content: '';
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+}
+
+.custom-radio {
+  border-radius: 50%;
+
+  &:after {
+    background-color: #2196F3;
+    border-radius: 50%;
+    height: $radio-inner-size;
+    position: absolute;
+    transform: translate($radio-inner-translation, $radio-inner-translation);
+    width: $radio-inner-size;
+  }
+}
+
+.custom-checkbox {
+  &:after {
+    background: url('./assets/ic-check.svg') center no-repeat;
+    height: $checkbox-inner-size;
+    transform: translate(-1px, -1px);
+    position: absolute;
+    width: $checkbox-inner-size;
+  }
+}
+
+.title {
+  font-weight: 700;
+}
