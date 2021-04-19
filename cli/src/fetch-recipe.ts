@@ -30,18 +30,15 @@ const getCookbookUrl = (tech: string) =>
 
 const handleResponseError = (
   response: Response,
-  {
-    notFoundError,
-    clientError
-  }: { notFoundError?: string; clientError?: string }
+  errorMessages: () => { notFoundError?: string; clientError?: string }
 ) => {
   if (response.status === StatusCodes.NOT_FOUND) {
-    throw new Error(notFoundError);
+    throw new Error(errorMessages().notFoundError);
   } else if (
     response.status < StatusCodes.OK ||
     response.status > StatusCodes.MAX_CLIENT_ERROR
   ) {
-    throw new Error(clientError);
+    throw new Error(errorMessages().clientError);
   }
 };
 
@@ -51,12 +48,12 @@ const importFile = async (file: RecipeFile, currentDir = '') => {
     headers: { 'Content-Type': 'application/text' }
   });
 
-  handleResponseError(response, {
+  handleResponseError(response, () => ({
     notFoundError: `The file with name '${file.name}' could not be found`,
     clientError: `The following error has occurred requesting the file ${
       file.name
     }: \n ${response.json()}`
-  });
+  }));
 
   await fs.writeFile(`./${currentDir}/${file.name}`, await response.text());
 };
@@ -75,12 +72,12 @@ export async function fetchRecipe(
     }${currentDir || ''}`
   );
 
-  handleResponseError(response, {
+  handleResponseError(response, () => ({
     notFoundError: `A recipe with name '${recipe.name}' and category '${recipe.category}' could not be found in cookbook-${recipe.tech}`,
     clientError: `The following error has occured requesting ${
       recipe.name
     }: \n ${response.json()}`
-  });
+  }));
 
   const recipeResponse = await (response.json() as Promise<RecipeNode[]>);
 
