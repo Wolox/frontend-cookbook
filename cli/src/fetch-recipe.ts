@@ -32,7 +32,7 @@ const importFile = async (file: RecipeFile, currentDir = '') => {
   if (response.status === 404) {
     throw new Error(`The file with name '${file.name}' could not be found`)
   } else if (response.status < 200 || response.status > 299) {
-    throw new Error(`The following error has occured requesting the file ${file.name}: \n ${response.json()}`)
+    throw new Error(`The following error has occurred requesting the file ${file.name}: \n ${response.json()}`)
   }
 
   await fs.writeFile(`./${currentDir}/${file.name}`, await response.text())
@@ -59,6 +59,6 @@ export async function fetchRecipe(recipe: Recipe, currentDir?: string): Promise<
     case 'dir':
       return fetchRecipe(recipe, `${currentDir || ''}/${file.name}`)
     }
-    throw new Error(`Unknow file type ${(file as any).type}`)
+    throw new Error(`Unknown file type ${(file as any).type}`)
   }))
 }
