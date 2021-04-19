@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import fetch from 'node-fetch';
+import fetch, { Response } from 'node-fetch';
 import { promises as fs } from 'fs';
 
 import { Recipe } from './recipe';
-import STATUS_CODES from './status-codes';
+import StatusCodes from './status-codes';
 
 type RecipeFile = {
   type: 'file';
@@ -28,24 +28,35 @@ const COOKBOOK_FOLDERS_EXCEPTIONS: Record<string, string> = {
 const getCookbookUrl = (tech: string) =>
   COOKBOOK_FOLDERS_EXCEPTIONS[tech] || `cookbook-${tech}/recipes`;
 
+const handleResponseError = (
+  response: Response,
+  {
+    notFoundError,
+    clientError
+  }: { notFoundError?: string; clientError?: string }
+) => {
+  if (response.status === StatusCodes.NOT_FOUND) {
+    throw new Error(notFoundError);
+  } else if (
+    response.status < StatusCodes.OK ||
+    response.status > StatusCodes.MAX_CLIENT_ERROR
+  ) {
+    throw new Error(clientError);
+  }
+};
+
 const importFile = async (file: RecipeFile, currentDir = '') => {
   // TODO: Support non text files
   const response = await fetch(file.download_url, {
     headers: { 'Content-Type': 'application/text' }
   });
 
-  if (response.status === STATUS_CODES.NOT_FOUND) {
-    throw new Error(`The file with name '${file.name}' could not be found`);
-  } else if (
-    response.status < STATUS_CODES.OK ||
-    response.status > STATUS_CODES.MAX_CLIENT_ERROR
-  ) {
-    throw new Error(
-      `The following error has occurred requesting the file ${
-        file.name
-      }: \n ${response.json()}`
-    );
-  }
+  handleResponseError(response, {
+    notFoundError: `The file with name '${file.name}' could not be found`,
+    clientError: `The following error has occurred requesting the file ${
+      file.name
+    }: \n ${response.json()}`
+  });
 
   await fs.writeFile(`./${currentDir}/${file.name}`, await response.text());
 };
@@ -64,20 +75,13 @@ export async function fetchRecipe(
     }${currentDir || ''}`
   );
 
-  if (response.status === STATUS_CODES.NOT_FOUND) {
-    throw new Error(
-      `A recipe with name '${recipe.name}' and category '${recipe.category}' could not be found in cookbook-${recipe.tech}`
-    );
-  } else if (
-    response.status < STATUS_CODES.OK ||
-    response.status > STATUS_CODES.MAX_CLIENT_ERROR
-  ) {
-    throw new Error(
-      `The following error has occured requesting ${
-        recipe.name
-      }: \n ${response.json()}`
-    );
-  }
+  handleResponseError(response, {
+    notFoundError: `A recipe with name '${recipe.name}' and category '${recipe.category}' could not be found in cookbook-${recipe.tech}`,
+    clientError: `The following error has occured requesting ${
+      recipe.name
+    }: \n ${response.json()}`
+  });
+
   const recipeResponse = await (response.json() as Promise<RecipeNode[]>);
 
   await Promise.all(
