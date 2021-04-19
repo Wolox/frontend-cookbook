@@ -19,7 +19,7 @@ interface Props {
 
 function SelectableItem({ item, onChange, type, selected }: Props) {
   return (
-    <label htmlFor={item.id} className={styles.selectableItemContainer}>
+    <label htmlFor={item.id} className={cn(styles.selectableItemContainer, { [styles.selected]: selected })}>
       <input
         id={item.id}
         className={styles.input}

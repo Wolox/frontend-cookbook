@@ -1,7 +1,7 @@
 $jumbo: #848486;
 $alto: #DDD;
-$cornflower-blue: #CCC;
-$dodger-blue: #2196F3;
+$silver: #CCC;
+$international-klein-blue: #002EC9;
 
 $selectable-size: 20px;
 
@@ -28,7 +28,7 @@ $checkbox-inner-size: 18px;
   border-radius: 50%;
 
   &::after {
-    background-color: $dodger-blue;
+    background-color: $international-klein-blue;
     border-radius: 50%;
     height: $radio-inner-size;
     position: absolute;
@@ -49,12 +49,18 @@ $checkbox-inner-size: 18px;
   position: relative;
   width: 250px;
 
+  &.selected {
+    border: 2px solid $international-klein-blue;
+    padding: 9px;
+    transition: border-color 150ms ease-in-out;
+  }
+
   &:hover .input ~ .custom-checkmark {
-    background-color: $cornflower-blue;
+    background-color: $silver;
   }
 
   &:hover .input[value='true'] ~ .custom-radio {
-    background-color: $dodger-blue;
+    background-color: $international-klein-blue;
   }
 
   .input[value='true'] ~ .custom-checkmark::after {
