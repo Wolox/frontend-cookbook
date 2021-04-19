@@ -1,5 +1,7 @@
 $jumbo: #848486;
-$alto: #DDDDDD;
+$alto: #DDD;
+$cornflower-blue: #CCC;
+$dodger-blue: #2196F3;
 
 $selectable-size: 20px;
 
@@ -7,6 +9,33 @@ $radio-inner-size: 14px;
 $radio-inner-translation: calc(50% - (#{$selectable-size} - #{$radio-inner-size}));
 
 $checkbox-inner-size: 18px;
+
+.custom-checkmark {
+  border: 2px solid $alto;
+  height: $selectable-size;
+  margin-right: 10px;
+  position: relative;
+  width: $selectable-size;
+
+  &::after {
+    content: '';
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+}
+
+.custom-radio {
+  border-radius: 50%;
+
+  &::after {
+    background-color: $dodger-blue;
+    border-radius: 50%;
+    height: $radio-inner-size;
+    position: absolute;
+    transform: translate($radio-inner-translation, $radio-inner-translation);
+    width: $radio-inner-size;
+  }
+}
 
 .selectable-item-container {
   align-items: center;
@@ -21,14 +50,14 @@ $checkbox-inner-size: 18px;
   width: 250px;
 
   &:hover .input ~ .custom-checkmark {
-    background-color: #ccc;
+    background-color: $cornflower-blue;
   }
 
-  &:hover .input[value="true"] ~ .custom-radio {
-    background-color: #2196F3;
+  &:hover .input[value='true'] ~ .custom-radio {
+    background-color: $dodger-blue;
   }
 
-  .input[value="true"] ~ .custom-checkmark:after {
+  .input[value='true'] ~ .custom-checkmark::after {
     opacity: 1;
   }
 }
@@ -49,35 +78,8 @@ $checkbox-inner-size: 18px;
   width: 0;
 }
 
-.custom-checkmark {
-  border: 2px solid $alto;
-  height: $selectable-size;
-  margin-right: 10px;
-  position: relative;
-  width: $selectable-size;
-
-  &:after {
-    content: '';
-    opacity: 0;
-    transition: opacity 150ms ease-in-out;
-  }
-}
-
-.custom-radio {
-  border-radius: 50%;
-
-  &:after {
-    background-color: #2196F3;
-    border-radius: 50%;
-    height: $radio-inner-size;
-    position: absolute;
-    transform: translate($radio-inner-translation, $radio-inner-translation);
-    width: $radio-inner-size;
-  }
-}
-
 .custom-checkbox {
-  &:after {
+  &::after {
     background: url('./assets/ic-check.svg') center no-repeat;
     height: $checkbox-inner-size;
     transform: translate(-1px, -1px);

@@ -26,13 +26,13 @@ interface SelectableListProps<ItemType extends ItemWithId> {
 interface MultipleSelectableListProps<ItemType extends ItemWithId> extends SelectableListProps<ItemType> {
   multiple: true;
   initialValues?: string[];
-  initialValue?: undefined;
+  initialValue?: never;
 }
 
 interface UniqueSelectableListProps<ItemType extends ItemWithId> extends SelectableListProps<ItemType> {
   multiple?: false;
   initialValue?: string;
-  initialValues?: undefined;
+  initialValues?: never;
 }
 
 interface SelectedIdState {
@@ -82,7 +82,7 @@ function SelectableList<ItemType extends ItemWithId>({
 
   return (
     <ul className={cn(styles.selectableListContainer, className)}>
-      {items.map(item => (
+      {items.map((item) => (
         <li key={item.id} className={cn(styles.item, itemClassName)}>
           {children({
             item,
