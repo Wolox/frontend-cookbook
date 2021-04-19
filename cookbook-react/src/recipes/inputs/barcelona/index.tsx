@@ -19,12 +19,14 @@ interface Props {
 
 function Input({
   name,
-  label,
+  // TODO: Remove this default value in a real app
+  label = 'Label',
   disabled,
   error,
   onChange,
   confirmable = true,
-  placeholder,
+  // TODO: Remove this default value in a real app
+  placeholder = 'example@',
   type = 'text'
 }: Props) {
   return (
@@ -71,11 +73,5 @@ function Input({
     </div>
   );
 }
-
-// For example purposes, in a real app remove this.
-Input.defaultProps = {
-  label: 'Label',
-  placeholder: 'example@'
-};
 
 export default Input;

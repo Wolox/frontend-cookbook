@@ -19,7 +19,7 @@ jest.mock('app/contexts/UserContext/reducer', () => ({
 
 jest.mock('services/AuthServices', () => ({
   login: () =>
-    new Promise(resolve =>
+    new Promise((resolve) =>
       resolve({
         ok: true,
         data: { sessionToken: 'token', id: 1234 },

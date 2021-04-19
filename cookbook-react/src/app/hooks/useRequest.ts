@@ -15,7 +15,7 @@ interface AsyncRequestHookParams<P, D, E, T> {
   request: Request<P, D, E>;
   withPostSuccess?: Success<T>;
   withPostFailure?: Failure<E>;
-  initialState?: T | null;
+  initialState?: Nullable<T>;
   withPostFetch?: PostFetch<T, E>;
   transformResponse?: (response: D | E) => T;
 }
@@ -55,7 +55,7 @@ export const useLazyRequest = <P, D, E, T = D>({
   withPostFailure,
   initialState = null,
   withPostFetch,
-  transformResponse = response => (response as unknown) as T
+  transformResponse = (response) => (response as unknown) as T
 }: AsyncRequestHookParams<P, D, E, T>): [Nullable<T>, boolean, Nullable<Error<E>>, (params: P) => void] => {
   const [state, setState] = useState<Nullable<T>>(initialState);
   const [loading, setLoading] = useState(false);
@@ -71,7 +71,7 @@ export const useLazyRequest = <P, D, E, T = D>({
           setState(initialState);
           setError(null);
         },
-        onSuccess: data => {
+        onSuccess: (data) => {
           if (isMounted.current) {
             const successData = data as D;
             const transformedResponse = successData ? transformResponse(successData) : undefined;
@@ -79,13 +79,13 @@ export const useLazyRequest = <P, D, E, T = D>({
             withPostSuccess?.(transformedResponse);
           }
         },
-        onError: errorInfo => {
+        onError: (errorInfo) => {
           if (isMounted.current) {
             setError(() => errorInfo);
             withPostFailure?.(errorInfo);
           }
         },
-        onPostFetch: response => {
+        onPostFetch: (response) => {
           if (isMounted.current) {
             setLoading(false);
             if (response.data) {
@@ -110,7 +110,7 @@ export const useRequest = <P, D, E, T = D>(
     withPostFailure,
     initialState = null,
     withPostFetch,
-    transformResponse = response => (response as unknown) as T
+    transformResponse = (response) => (response as unknown) as T
   }: AsyncRequestHookParamsWithPayload<P, D, E, T>,
   dependencies: any[]
 ): [Nullable<T>, boolean, Nullable<Error<E>>, (params: P) => void] => {

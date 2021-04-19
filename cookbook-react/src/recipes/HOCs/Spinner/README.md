@@ -21,7 +21,7 @@ export default withSpinner({
   type: 'double-bounce',
   classNameContainer: styles.spinnerContainer,
   classNameLoading: styles.spinner
-});
+})(SearchBar);
 ```
 
 Check every spinner variant here http://kyleamathews.github.io/react-spinkit/

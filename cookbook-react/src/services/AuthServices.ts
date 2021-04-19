@@ -2,7 +2,7 @@ import { ApiResponse } from 'apisauce';
 
 import { User, Credentials } from 'app/contexts/UserContext/reducer';
 
-import api from '../config/api';
+import api from '../recipes/utils/apisauce';
 
 import LocalStorageService from './LocalStorageService';
 
@@ -32,7 +32,7 @@ export const removeCurrentUser = () => LocalStorageService.removeValue(TOKEN_FIE
 export const login = (credentials: Credentials): Promise<ApiResponse<User, LoginError>> =>
   // TODO: Implement call to authentication API here
   // api.post('/login', credentials);
-  new Promise(resolve => {
+  new Promise((resolve) => {
     setTimeout(() => {
       resolve({
         ok: true,
@@ -46,7 +46,7 @@ export const login = (credentials: Credentials): Promise<ApiResponse<User, Login
 export const signup = (user: RegistrationUser): Promise<ApiResponse<User, LoginError>> =>
   // TODO: Implement call to authentication API here
   // api.post('/sign_up', credentials);
-  new Promise(resolve => {
+  new Promise((resolve) => {
     setTimeout(() => {
       resolve({
         ok: true,
@@ -58,7 +58,7 @@ export const signup = (user: RegistrationUser): Promise<ApiResponse<User, LoginE
   });
 
 export const logout = (): Promise<ApiResponse<User, LoginError>> =>
-  new Promise(resolve => {
+  new Promise((resolve) => {
     setTimeout(() => {
       resolve({
         ok: true,
