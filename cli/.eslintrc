@@ -1,6 +1,9 @@
 {
   "extends": [
-    "oclif",
-    "oclif-typescript"
-  ]
+    "@wolox/eslint-config",
+    "@wolox/eslint-config-typescript"
+  ],
+  "rules": {
+    "prettier/prettier": ["error", {"singleQuote": true, "trailingComma": "none"}]
+  }
 }
