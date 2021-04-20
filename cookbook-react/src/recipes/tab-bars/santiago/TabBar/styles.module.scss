@@ -6,47 +6,63 @@ $btn-height: 45px;
 $options: 3;
 $btn-width: (100 / $options) * 1%;
 
+$transition-time: 0.25s;
+
 .options-container {
   display: flex;
+}
 
-  .radio-label {
-    align-items: center;
-    border: 3px solid $color-gray;
-    color: $color-black;
-    cursor: pointer;
-    display: flex;
-    font-weight: 500;
-    height: $btn-height;
-    justify-content: center;
-    min-width: 100px;
-    transition: border-color 0.5s ease, color 0.8s ease, font-weight 0.5s ease;
-    width: $btn-width;
+.separator {
+  background-color: $color-gray;
+  min-height: 100%;
+  min-width: 3px;
+  transition: background-color $transition-time ease;
 
-    .option {
-      display: none;
-    }
+  &.active {
+    background-color: $color-blue;
+  }
+}
 
-    &:first-child {
-      border-radius: 5px 0 0 5px;
-    }
+.option {
+  align-items: center;
+  border-top: 3px solid $color-gray;
+  border-bottom: 3px solid $color-gray;
+  color: $color-black;
+  cursor: pointer;
+  display: flex;
+  font-weight: 500;
+  height: $btn-height;
+  justify-content: center;
+  min-width: 100px;
+  transition: border-color $transition-time ease, color $transition-time ease;
+  width: $btn-width;
 
-    &:last-child {
-      border-radius: 0 5px 5px 0;
-    }
+  &:first-child {
+    border-left: 3px solid $color-gray;
+    border-radius: 5px 0 0 5px;
+  }
 
-    &:only-child {
-      border-radius: 5px;
-    }
+  &:last-child {
+    border-right: 3px solid $color-gray;
+    border-radius: 0 5px 5px 0;
+  }
 
-    &.disabled {
-      color: $color-gray;
-      font-weight: 600;
-    }
+  &:only-child {
+    border-radius: 5px;
+  }
 
-    &.active {
-      border-color: $color-blue;
-      color: $color-blue;
-      font-weight: 600;
-    }
+  &.disabled {
+    color: $color-gray;
+    font-weight: 600;
+  }
+
+  &.active {
+    border-color: $color-blue;
+    color: $color-blue;
+    font-weight: 600;
+  }
+
+  &.active + .separator {
+    background-color: $color-blue;
   }
 }

@@ -1,4 +1,4 @@
-.exampleContainer {
+.example-container {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -15,6 +15,7 @@
   margin-bottom: 5px;
 }
 
-.first-content, .button {
+.first-content,
+.button {
   margin-bottom: 20px;
 }

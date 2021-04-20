@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { Fragment, useMemo, useState } from 'react';
 import cn from 'classnames';
 
 import styles from './styles.module.scss';
@@ -12,13 +12,21 @@ interface Option<Id extends OptionId> {
 }
 
 interface Props<Id extends OptionId> {
-  options?: Option<Id>[];
+  options: Option<Id>[];
+  onChange: (id: Id) => void;
+  className?: string;
+}
+
+interface InternallyControlledProps<Id extends OptionId> extends Props<Id> {
+  active?: never;
+  initialValue?: Id;
+}
+
+interface ExternallyControlledProps<Id extends OptionId> extends Props<Id> {
   // Optional value to allow external change of tab. If empty, the component sets the clicked
   // tab as the active one.
-  active?: Id;
-  onChange: (id: Id) => void;
-  initialValue?: Id;
-  className?: string;
+  active: Id;
+  initialValue?: never;
 }
 
 function Selector<Id extends OptionId>({
@@ -27,7 +35,7 @@ function Selector<Id extends OptionId>({
   onChange,
   options,
   initialValue
-}: Props<Id>) {
+}: InternallyControlledProps<Id> | ExternallyControlledProps<Id>) {
   const [internalActiveTab, setInternalActiveTab] = useState<Id | undefined>(active || initialValue);
 
   const activeValue = useMemo(() => active || internalActiveTab, [active, internalActiveTab]);
@@ -39,29 +47,32 @@ function Selector<Id extends OptionId>({
     onChange(id);
   };
 
+  const nextValueIsSelected = (index: number) =>
+    options.length > index + 1 && options[index + 1].id === activeValue;
+
   return (
     <div className={cn(styles.optionsContainer, className)}>
-      {options?.map((option) => (
-        <label
-          htmlFor={`option-${option.id}`}
-          key={`${option.id}`}
-          className={cn(styles.radioLabel, {
-            [styles.disabled]: option.disabled,
-            [styles.active]: option.id === activeValue
-          })}
-        >
-          <input
-            type="radio"
-            id={`option-${option.id}`}
-            name="option"
-            checked={activeValue === option.id}
-            className={styles.option}
+      {options?.map((option, index) => (
+        <Fragment key={`${option.id}`}>
+          <button
+            type="button"
+            onClick={() => handleChange(option.id)}
+            className={cn(styles.option, {
+              [styles.disabled]: option.disabled,
+              [styles.active]: option.id === activeValue
+            })}
             disabled={option.disabled}
-            value={option.id}
-            onChange={() => handleChange(option.id)}
-          />
-          {option.title}
-        </label>
+          >
+            {option.title}
+          </button>
+          {index < options.length - 1 && (
+            <div
+              className={cn(styles.separator, {
+                [styles.active]: nextValueIsSelected(index)
+              })}
+            />
+          )}
+        </Fragment>
       ))}
     </div>
   );
