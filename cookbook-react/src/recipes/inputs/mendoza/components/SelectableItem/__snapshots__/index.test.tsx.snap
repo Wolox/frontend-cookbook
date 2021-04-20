@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`when the selectable item is a checkbox Should match snapshot 1`] = `
+<div>
+  <label
+    class="selectableItemContainer"
+    for="first_item"
+  >
+    <input
+      class="input"
+      id="first_item"
+      name="first_item"
+      type="checkbox"
+      value="false"
+    />
+    <div
+      class="customCheckmark customCheckbox"
+    />
+    <div
+      class="text"
+    >
+      <label
+        class="title"
+        for="first_item"
+      >
+        First item
+      </label>
+      <h6
+        class="subtitle"
+      >
+        Small
+      </h6>
+    </div>
+    <span
+      class="price"
+    >
+      $100
+    </span>
+  </label>
+</div>
+`;
+
+exports[`when the selectable item is a radio Should match snapshot 1`] = `
+<div>
+  <label
+    class="selectableItemContainer"
+    for="first_item"
+  >
+    <input
+      class="input"
+      id="first_item"
+      name="first_item"
+      type="radio"
+      value="false"
+    />
+    <div
+      class="customCheckmark customRadio"
+    />
+    <div
+      class="text"
+    >
+      <label
+        class="title"
+        for="first_item"
+      >
+        First item
+      </label>
+      <h6
+        class="subtitle"
+      >
+        Small
+      </h6>
+    </div>
+    <span
+      class="price"
+    >
+      $100
+    </span>
+  </label>
+</div>
+`;

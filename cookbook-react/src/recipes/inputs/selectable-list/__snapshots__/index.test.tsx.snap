@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match snapshot 1`] = `
+<div>
+  <div
+    class="exampleContainer"
+  >
+    <span
+      class="listTitle"
+    >
+      With input as children
+    </span>
+    <ul
+      class="selectableListContainer"
+    >
+      <li
+        class="item"
+      >
+        <div
+          class="item"
+        >
+          <input
+            class="input"
+            id="list-1-1"
+            name="list-1-first_item"
+            type="radio"
+          />
+          <label
+            for="list-1-1"
+          >
+            First item
+          </label>
+        </div>
+      </li>
+      <li
+        class="item"
+      >
+        <div
+          class="item"
+        >
+          <input
+            class="input"
+            id="list-1-2"
+            name="list-1-second_item"
+            type="radio"
+          />
+          <label
+            for="list-1-2"
+          >
+            Second item
+          </label>
+        </div>
+      </li>
+      <li
+        class="item"
+      >
+        <div
+          class="item"
+        >
+          <input
+            class="input"
+            id="list-1-3"
+            name="list-1-third_item"
+            type="radio"
+          />
+          <label
+            for="list-1-3"
+          >
+            Third item
+          </label>
+        </div>
+      </li>
+    </ul>
+    <span
+      class="listTitle"
+    >
+      With a custom component as children and multiple selection
+    </span>
+    <ul
+      class="selectableListContainer"
+    >
+      <li
+        class="item item"
+      >
+        <input
+          class="input"
+          id="list2-1"
+          name="list-2-first_item"
+          type="checkbox"
+        />
+        <label
+          for="list2-1"
+        >
+          First item
+        </label>
+      </li>
+      <li
+        class="item item"
+      >
+        <input
+          class="input"
+          id="list2-2"
+          name="list-2-second_item"
+          type="checkbox"
+        />
+        <label
+          for="list2-2"
+        >
+          Second item
+        </label>
+      </li>
+      <li
+        class="item item"
+      >
+        <input
+          class="input"
+          id="list2-3"
+          name="list-2-third_item"
+          type="checkbox"
+        />
+        <label
+          for="list2-3"
+        >
+          Third item
+        </label>
+      </li>
+    </ul>
+    <span
+      class="listTitle"
+    >
+      With multiple selection and initialValues
+    </span>
+    <ul
+      class="selectableListContainer"
+    >
+      <li
+        class="item item"
+      >
+        <div
+          class="item"
+        >
+          <input
+            checked=""
+            class="input"
+            id="list-3-1"
+            name="list-3-first_item"
+            type="checkbox"
+          />
+          <label
+            for="list-3-1"
+          >
+            First item
+          </label>
+        </div>
+      </li>
+      <li
+        class="item item"
+      >
+        <div
+          class="item"
+        >
+          <input
+            checked=""
+            class="input"
+            id="list-3-2"
+            name="list-3-second_item"
+            type="checkbox"
+          />
+          <label
+            for="list-3-2"
+          >
+            Second item
+          </label>
+        </div>
+      </li>
+      <li
+        class="item item"
+      >
+        <div
+          class="item"
+        >
+          <input
+            class="input"
+            id="list-3-3"
+            name="list-3-third_item"
+            type="checkbox"
+          />
+          <label
+            for="list-3-3"
+          >
+            Third item
+          </label>
+        </div>
+      </li>
+    </ul>
+    <span
+      class="listTitle"
+    >
+      With no multiple selection and initialValue
+    </span>
+    <ul
+      class="selectableListContainer"
+    >
+      <li
+        class="item item"
+      >
+        <div
+          class="item"
+        >
+          <input
+            class="input"
+            id="list-4-1"
+            name="list-4-first_item"
+            type="radio"
+          />
+          <label
+            for="list-4-1"
+          >
+            First item
+          </label>
+        </div>
+      </li>
+      <li
+        class="item item"
+      >
+        <div
+          class="item"
+        >
+          <input
+            checked=""
+            class="input"
+            id="list-4-2"
+            name="list-4-second_item"
+            type="radio"
+          />
+          <label
+            for="list-4-2"
+          >
+            Second item
+          </label>
+        </div>
+      </li>
+      <li
+        class="item item"
+      >
+        <div
+          class="item"
+        >
+          <input
+            class="input"
+            id="list-4-3"
+            name="list-4-third_item"
+            type="radio"
+          />
+          <label
+            for="list-4-3"
+          >
+            Third item
+          </label>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

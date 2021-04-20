@@ -67,6 +67,7 @@
     "@typescript-eslint/parser": "4.14.2",
     "@wolox/eslint-config-typescript": "^2.0.0",
     "aws-deploy-script-fe": "^1.0.8",
+    "clsx": "^1.1.1",
     "env-cmd": "^10.1.0",
     "@wolox/eslint-config": "^1.0.0",
     "@wolox/eslint-config-react": "^1.0.0",

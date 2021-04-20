@@ -1,0 +1,28 @@
+.example-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.list-container {
+  display: flex;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.item {
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
