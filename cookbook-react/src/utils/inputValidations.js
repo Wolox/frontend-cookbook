@@ -6,20 +6,21 @@ const numericalTenDigitsRegex = /^[0-9]{10}$/;
 
 const numericalDigitsRegex = /^([0-9]*)$/;
 
-export const required = errorMessage => val => (val ? undefined : errorMessage);
+export const required = (errorMessage) => (val) => (val ? undefined : errorMessage);
 
-export const minLength = (length, errorMessage) => val =>
+export const minLength = (length, errorMessage) => (val) =>
   val && val.length >= length ? undefined : errorMessage;
 
-export const maxLength = (length, errorMessage) => val =>
+export const maxLength = (length, errorMessage) => (val) =>
   val && val.length <= length ? undefined : errorMessage;
 
-export const pattern = (patternVal, errorMessage) => val => (patternVal.test(val) ? undefined : errorMessage);
+export const pattern = (patternVal, errorMessage) => (val) =>
+  patternVal.test(val) ? undefined : errorMessage;
 
-export const email = errorMessage => pattern(emailRegex, errorMessage);
+export const email = (errorMessage) => pattern(emailRegex, errorMessage);
 
-export const numericalFourDigits = errorMessage => pattern(numericalFourDigitsRegex, errorMessage);
+export const numericalFourDigits = (errorMessage) => pattern(numericalFourDigitsRegex, errorMessage);
 
-export const numericalTenDigits = errorMessage => pattern(numericalTenDigitsRegex, errorMessage);
+export const numericalTenDigits = (errorMessage) => pattern(numericalTenDigitsRegex, errorMessage);
 
-export const numericalDigits = errorMessage => pattern(numericalDigitsRegex, errorMessage);
+export const numericalDigits = (errorMessage) => pattern(numericalDigitsRegex, errorMessage);

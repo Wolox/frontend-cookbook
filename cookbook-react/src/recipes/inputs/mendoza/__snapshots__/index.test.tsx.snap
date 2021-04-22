@@ -1,0 +1,262 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match snapshot 1`] = `
+<div>
+  <div
+    class="exampleContainer"
+  >
+    <h2
+      class="title"
+    >
+      Radio Button style
+    </h2>
+    <ul
+      class="selectableListContainer listContainer"
+    >
+      <li
+        class="item item"
+      >
+        <label
+          class="selectableItemContainer"
+          for="first_item"
+        >
+          <input
+            class="input"
+            id="first_item"
+            name="first_item"
+            type="radio"
+            value="false"
+          />
+          <div
+            class="customCheckmark customRadio"
+          />
+          <div
+            class="text"
+          >
+            <label
+              class="title"
+              for="first_item"
+            >
+              First item
+            </label>
+            <h6
+              class="subtitle"
+            >
+              Small
+            </h6>
+          </div>
+          <span
+            class="price"
+          >
+            $100
+          </span>
+        </label>
+      </li>
+      <li
+        class="item item"
+      >
+        <label
+          class="selectableItemContainer"
+          for="second_item"
+        >
+          <input
+            class="input"
+            id="second_item"
+            name="second_item"
+            type="radio"
+            value="false"
+          />
+          <div
+            class="customCheckmark customRadio"
+          />
+          <div
+            class="text"
+          >
+            <label
+              class="title"
+              for="second_item"
+            >
+              Second item
+            </label>
+            <h6
+              class="subtitle"
+            >
+              Large
+            </h6>
+          </div>
+          <span
+            class="price"
+          >
+            $300
+          </span>
+        </label>
+      </li>
+      <li
+        class="item item"
+      >
+        <label
+          class="selectableItemContainer"
+          for="third_item"
+        >
+          <input
+            class="input"
+            id="third_item"
+            name="third_item"
+            type="radio"
+            value="false"
+          />
+          <div
+            class="customCheckmark customRadio"
+          />
+          <div
+            class="text"
+          >
+            <label
+              class="title"
+              for="third_item"
+            >
+              Third item
+            </label>
+            <h6
+              class="subtitle"
+            >
+              Medium
+            </h6>
+          </div>
+          <span
+            class="price"
+          >
+            $200
+          </span>
+        </label>
+      </li>
+    </ul>
+    <h2
+      class="title"
+    >
+      Checkbox style
+    </h2>
+    <ul
+      class="selectableListContainer listContainer"
+    >
+      <li
+        class="item item"
+      >
+        <label
+          class="selectableItemContainer"
+          for="fourth_item"
+        >
+          <input
+            class="input"
+            id="fourth_item"
+            name="fourth_item"
+            type="checkbox"
+            value="false"
+          />
+          <div
+            class="customCheckmark customCheckbox"
+          />
+          <div
+            class="text"
+          >
+            <label
+              class="title"
+              for="fourth_item"
+            >
+              Fourth item
+            </label>
+            <h6
+              class="subtitle"
+            >
+              Small
+            </h6>
+          </div>
+          <span
+            class="price"
+          >
+            $100
+          </span>
+        </label>
+      </li>
+      <li
+        class="item item"
+      >
+        <label
+          class="selectableItemContainer"
+          for="fifth_item"
+        >
+          <input
+            class="input"
+            id="fifth_item"
+            name="fifth_item"
+            type="checkbox"
+            value="false"
+          />
+          <div
+            class="customCheckmark customCheckbox"
+          />
+          <div
+            class="text"
+          >
+            <label
+              class="title"
+              for="fifth_item"
+            >
+              Fifth item
+            </label>
+            <h6
+              class="subtitle"
+            >
+              Large
+            </h6>
+          </div>
+          <span
+            class="price"
+          >
+            $300
+          </span>
+        </label>
+      </li>
+      <li
+        class="item item"
+      >
+        <label
+          class="selectableItemContainer"
+          for="sixth_item"
+        >
+          <input
+            class="input"
+            id="sixth_item"
+            name="sixth_item"
+            type="checkbox"
+            value="false"
+          />
+          <div
+            class="customCheckmark customCheckbox"
+          />
+          <div
+            class="text"
+          >
+            <label
+              class="title"
+              for="sixth_item"
+            >
+              Sixth item
+            </label>
+            <h6
+              class="subtitle"
+            >
+              Medium
+            </h6>
+          </div>
+          <span
+            class="price"
+          >
+            $200
+          </span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

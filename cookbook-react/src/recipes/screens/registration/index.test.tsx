@@ -19,7 +19,7 @@ jest.mock('app/contexts/UserContext/reducer', () => ({
 
 jest.mock('services/AuthServices', () => ({
   signup: () =>
-    new Promise(resolve =>
+    new Promise((resolve) =>
       resolve({
         ok: true,
         data: { sessionToken: 'token', id: 1234 },
@@ -49,12 +49,12 @@ describe('#Registration', () => {
   describe('when values are empty and form is submitted', () => {
     it('shows the required message for each required field', async () => {
       const { getByRole, getByLabelText } = render(component);
-      const firstName = await getByLabelText('Registration:firstName');
-      const lastName = await getByLabelText('Registration:lastName');
-      const email = await getByLabelText('Registration:email');
-      const password = await getByLabelText('Registration:password');
-      const passwordConfirmation = await getByLabelText('Registration:confirmPassword');
-      const form = await getByRole('form', { name: 'registration-form' });
+      const firstName = getByLabelText('Registration:firstName');
+      const lastName = getByLabelText('Registration:lastName');
+      const email = getByLabelText('Registration:email');
+      const password = getByLabelText('Registration:password');
+      const passwordConfirmation = getByLabelText('Registration:confirmPassword');
+      const form = getByRole('form', { name: 'registration-form' });
 
       // eslint-disable-next-line max-nested-callbacks
       await waitFor(() => fireEvent.submit(form));
@@ -70,12 +70,12 @@ describe('#Registration', () => {
   describe('when email format is invalid and form is submitted', () => {
     it('shows the email error', async () => {
       const { getByRole, getByLabelText, getAllByRole } = render(component);
-      const firstName = await getByLabelText('Registration:firstName');
-      const lastName = await getByLabelText('Registration:lastName');
-      const email = await getByLabelText('Registration:email');
-      const password = await getByLabelText('Registration:password');
-      const passwordConfirmation = await getByLabelText('Registration:confirmPassword');
-      const form = await getByRole('form', { name: 'registration-form' });
+      const firstName = getByLabelText('Registration:firstName');
+      const lastName = getByLabelText('Registration:lastName');
+      const email = getByLabelText('Registration:email');
+      const password = getByLabelText('Registration:password');
+      const passwordConfirmation = getByLabelText('Registration:confirmPassword');
+      const form = getByRole('form', { name: 'registration-form' });
 
       await fireEvent.change(firstName, { target: { value: validValues.firstName } });
       await fireEvent.change(lastName, { target: { value: validValues.lastName } });
@@ -85,7 +85,7 @@ describe('#Registration', () => {
 
       // eslint-disable-next-line max-nested-callbacks
       await waitFor(() => fireEvent.submit(form));
-      const errors = await getAllByRole('alert');
+      const errors = getAllByRole('alert');
 
       expect(email.parentElement?.innerHTML).toMatch('Registration:emailFormatError');
       expect(errors.length).toBe(1);
@@ -95,12 +95,12 @@ describe('#Registration', () => {
   describe('when password length is too short and form is submitted', () => {
     it('shows the password error', async () => {
       const { getByRole, getByLabelText, getAllByRole } = render(component);
-      const firstName = await getByLabelText('Registration:firstName');
-      const lastName = await getByLabelText('Registration:lastName');
-      const email = await getByLabelText('Registration:email');
-      const password = await getByLabelText('Registration:password');
-      const passwordConfirmation = await getByLabelText('Registration:confirmPassword');
-      const form = await getByRole('form', { name: 'registration-form' });
+      const firstName = getByLabelText('Registration:firstName');
+      const lastName = getByLabelText('Registration:lastName');
+      const email = getByLabelText('Registration:email');
+      const password = getByLabelText('Registration:password');
+      const passwordConfirmation = getByLabelText('Registration:confirmPassword');
+      const form = getByRole('form', { name: 'registration-form' });
 
       await fireEvent.change(firstName, { target: { value: validValues.firstName } });
       await fireEvent.change(lastName, { target: { value: validValues.lastName } });
@@ -110,7 +110,7 @@ describe('#Registration', () => {
 
       // eslint-disable-next-line max-nested-callbacks
       await waitFor(() => fireEvent.submit(form));
-      const errors = await getAllByRole('alert');
+      const errors = getAllByRole('alert');
 
       expect(password.parentElement?.innerHTML).toMatch('Registration:passwordLengthError');
       expect(errors.length).toBe(1);
@@ -120,12 +120,12 @@ describe('#Registration', () => {
   describe('when password confirmation does not match password and form is submitted', () => {
     it('shows the password confirmation error', async () => {
       const { getByRole, getByLabelText, getAllByRole } = render(component);
-      const firstName = await getByLabelText('Registration:firstName');
-      const lastName = await getByLabelText('Registration:lastName');
-      const email = await getByLabelText('Registration:email');
-      const password = await getByLabelText('Registration:password');
-      const passwordConfirmation = await getByLabelText('Registration:confirmPassword');
-      const form = await getByRole('form', { name: 'registration-form' });
+      const firstName = getByLabelText('Registration:firstName');
+      const lastName = getByLabelText('Registration:lastName');
+      const email = getByLabelText('Registration:email');
+      const password = getByLabelText('Registration:password');
+      const passwordConfirmation = getByLabelText('Registration:confirmPassword');
+      const form = getByRole('form', { name: 'registration-form' });
 
       await fireEvent.change(firstName, { target: { value: validValues.firstName } });
       await fireEvent.change(lastName, { target: { value: validValues.lastName } });
@@ -136,7 +136,7 @@ describe('#Registration', () => {
       // eslint-disable-next-line max-nested-callbacks
       await waitFor(() => fireEvent.submit(form));
 
-      const errors = await getAllByRole('alert');
+      const errors = getAllByRole('alert');
 
       expect(passwordConfirmation.parentElement?.innerHTML).toMatch('Registration:confirmPasswordError');
       expect(errors.length).toBe(1);
@@ -146,12 +146,12 @@ describe('#Registration', () => {
   describe('when values are valid and form is submitted', () => {
     it('created the user', async () => {
       const { getByRole, getByLabelText } = render(component);
-      const firstName = await getByLabelText('Registration:firstName');
-      const lastName = await getByLabelText('Registration:lastName');
-      const email = await getByLabelText('Registration:email');
-      const password = await getByLabelText('Registration:password');
-      const passwordConfirmation = await getByLabelText('Registration:confirmPassword');
-      const form = await getByRole('form', { name: 'registration-form' });
+      const firstName = getByLabelText('Registration:firstName');
+      const lastName = getByLabelText('Registration:lastName');
+      const email = getByLabelText('Registration:email');
+      const password = getByLabelText('Registration:password');
+      const passwordConfirmation = getByLabelText('Registration:confirmPassword');
+      const form = getByRole('form', { name: 'registration-form' });
 
       await fireEvent.change(firstName, { target: { value: validValues.firstName } });
       await fireEvent.change(lastName, { target: { value: validValues.lastName } });
