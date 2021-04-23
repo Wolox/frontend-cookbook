@@ -1,0 +1,57 @@
+$background-color: #FFF;
+$border-color: #848486;
+$title-color: #08080D;
+$button-color: #00B876;
+$button-color-hover: #04A36A;
+
+$icon-height: 12px;
+$icon-width: 18px;
+
+.collapsible-container {
+  background-color: $background-color;
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.content {
+  overflow: hidden;
+  transition: height 0.3s ease-out;
+  transform-origin: top;
+}
+
+.title {
+  color: $title-color;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 37px;
+}
+
+.icon {
+  align-self: center;
+  height: $icon-height;
+  position: relative;
+  transition: transform 0.3s linear;
+  width: $icon-width;
+
+  &::before,
+  &::after {
+    border: calc(#{$icon-width} / 2) solid transparent;
+    content: '';
+    display: block;
+    position: absolute;
+  }
+
+  &::before {
+    border-top-color: $border-color;
+  }
+
+  &::after {
+    border-top-color: $background-color;
+    top: 4px;
+  }
+}
+
+.icon-clicked {
+  transform: rotate(180deg);
+}
