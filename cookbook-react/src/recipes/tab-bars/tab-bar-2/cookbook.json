@@ -1,0 +1,10 @@
+{
+    "thumbnail": {
+      "type": "iframe",
+      "url": "https://cookbook-react.now.sh/?category=tab-bars&component=tab-bar-2&compact=true"
+    },
+    "detail": {
+      "type": "iframe",
+      "url": "https://cookbook-react.now.sh/?category=tab-bars&component=tab-bar-2&compact=true"
+    }
+  }

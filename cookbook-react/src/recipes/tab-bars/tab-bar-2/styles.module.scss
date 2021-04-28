@@ -1,0 +1,38 @@
+$color-blue: #003DD5;
+$color-black: #000;
+$color-white: #FFF;
+$text-color: #525256;
+$tabs: 2;
+$height: 40px;
+$width: ( 80 / $tabs ) * 1%;
+
+.tabs-container {
+  display: flex;
+  justify-content: space-evenly;
+
+  .radio-label {
+    align-items: center;
+    border-radius: 40px;
+    color: $text-color;
+    cursor: pointer;
+    display: flex;
+    font-weight: 600;
+    flex: 0 0 $width;
+    height: $height;
+    justify-content: space-evenly;
+    transition: background-color 0.5s ease;
+
+    .icon {
+      font-size: 14px;
+    }
+
+    .tab-input {
+      display: none;
+    }
+
+    &.active {
+      background-color: $color-blue;
+      color: $color-white;
+    }
+  }
+}
