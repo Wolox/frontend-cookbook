@@ -5,8 +5,8 @@ import userEvent from '@testing-library/user-event';
 import TabBar from './index';
 
 const tabs = [
-  { id: 1, label: 'Primera tab', icon: '*' },
-  { id: 2, label: 'Segunda tab', icon: ':D' }
+  { id: 1, label: 'Primera tab', icon: '' },
+  { id: 2, label: 'Segunda tab', icon: '' }
 ];
 const active = null;
 const handleChange = jest.fn();
