@@ -1,0 +1,21 @@
+.example-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.tab {
+  margin-bottom: 5px;
+}
+
+.first-content,
+.button {
+  margin-bottom: 20px;
+}

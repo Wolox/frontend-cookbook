@@ -1,0 +1,11 @@
+{
+    "thumbnail": {
+      "type": "iframe",
+      "url": "https://cookbook-react.now.sh/?category=tab-bars&component=santiago&compact=true"
+    },
+    "detail": {
+      "type": "iframe",
+      "url": "https://cookbook-react.now.sh/?category=tab-bars&component=santiago&compact=true"
+    }
+  }
+  
