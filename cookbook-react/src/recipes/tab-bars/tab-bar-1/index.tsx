@@ -12,7 +12,14 @@ interface Props {
   options: Option[];
 }
 
-function TabBar({ options }: Props) {
+function TabBar({
+  // TODO: Remove this default options in a real app
+  options = [
+    { id: 1, label: 'Sección 1' },
+    { id: 2, label: 'Sección 2' },
+    { id: 3, label: 'Sección 3' }
+  ]
+}: Props) {
   const [selection, setSelection] = useState<null | number>(null);
 
   return (
@@ -35,13 +42,5 @@ function TabBar({ options }: Props) {
     </div>
   );
 }
-
-TabBar.defaultProps = {
-  options: [
-    { id: 1, label: 'Sección 1' },
-    { id: 2, label: 'Sección 2' },
-    { id: 3, label: 'Sección 3' }
-  ]
-};
 
 export default TabBar;

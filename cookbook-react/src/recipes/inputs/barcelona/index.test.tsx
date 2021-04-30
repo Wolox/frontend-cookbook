@@ -19,21 +19,21 @@ describe('Barcelona Input', () => {
       expect(instance.toJSON()!).toMatchSnapshot();
     });
 
-    it('does not show the error message', async () => {
+    it('does not show the error message', () => {
       const { getByRole } = render(component);
-      const errorElement = await getByRole('alert');
+      const errorElement = getByRole('alert');
       expect(errorElement).not.toHaveClass('show');
     });
 
-    it('shows the valid icon', async () => {
+    it('shows the valid icon', () => {
       const { getByRole } = render(component);
-      const validStatusElement = await getByRole('status', { name: 'Input:valid' });
+      const validStatusElement = getByRole('status', { name: 'Input:valid' });
       expect(validStatusElement).not.toBeNull();
     });
 
-    it('shows the input as valid', async () => {
+    it('shows the input as valid', () => {
       const { getByRole } = render(component);
-      const inputElement = await getByRole('textbox');
+      const inputElement = getByRole('textbox');
       expect(inputElement).toHaveClass('confirmed');
       expect(inputElement).not.toHaveClass('inputError');
     });
@@ -47,21 +47,21 @@ describe('Barcelona Input', () => {
       expect(instance.toJSON()!).toMatchSnapshot();
     });
 
-    it('shows the error message', async () => {
+    it('shows the error message', () => {
       const { getByRole } = render(component);
-      const errorElement = await getByRole('alert');
+      const errorElement = getByRole('alert');
       expect(errorElement).toHaveClass('show');
     });
 
-    it('shows the invalid icon', async () => {
+    it('shows the invalid icon', () => {
       const { getByRole } = render(component);
-      const validStatusElement = await getByRole('status', { name: 'Input:invalid' });
+      const validStatusElement = getByRole('status', { name: 'Input:invalid' });
       expect(validStatusElement).not.toBeNull();
     });
 
-    it('shows the input as invalid', async () => {
+    it('shows the input as invalid', () => {
       const { getByRole } = render(component);
-      const errorElement = await getByRole('textbox');
+      const errorElement = getByRole('textbox');
       expect(errorElement).not.toHaveClass('confirmed');
       expect(errorElement).toHaveClass('inputError');
     });
@@ -75,9 +75,9 @@ describe('Barcelona Input', () => {
       expect(instance.toJSON()!).toMatchSnapshot();
     });
 
-    it('does not show the error message', async () => {
+    it('does not show the error message', () => {
       const { getByRole } = render(component);
-      const errorElement = await getByRole('alert');
+      const errorElement = getByRole('alert');
       expect(errorElement).not.toHaveClass('show');
     });
   });
@@ -90,15 +90,15 @@ describe('Barcelona Input', () => {
       expect(instance.toJSON()).toMatchSnapshot();
     });
 
-    it('shows the error message', async () => {
+    it('shows the error message', () => {
       const { getByRole } = render(component);
-      const errorElement = await getByRole('alert');
+      const errorElement = getByRole('alert');
       expect(errorElement).toHaveClass('show');
     });
 
-    it('shows the invalid icon', async () => {
+    it('shows the invalid icon', () => {
       const { getByRole } = render(component);
-      const validStatusElement = await getByRole('status', { name: 'Input:invalid' });
+      const validStatusElement = getByRole('status', { name: 'Input:invalid' });
       expect(validStatusElement).not.toBeNull();
     });
   });
