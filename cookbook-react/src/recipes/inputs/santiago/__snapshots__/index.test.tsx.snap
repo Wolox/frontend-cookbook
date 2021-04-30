@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the example correctly 1`] = `
+<div>
+  <div
+    class="exampleContainer"
+  >
+    <h2
+      class="title"
+    >
+      Active state controlled by the Selector component
+    </h2>
+    <div
+      class="optionsContainer tab"
+    >
+      <label
+        class="optionLabel"
+        for="option-1"
+      >
+        <input
+          class="option"
+          id="option-1"
+          name="option"
+          type="radio"
+          value="1"
+        />
+        Opción 1
+      </label>
+      <div
+        class="separator active"
+      />
+      <label
+        class="optionLabel active"
+        for="option-2"
+      >
+        <input
+          checked=""
+          class="option"
+          id="option-2"
+          name="option"
+          type="radio"
+          value="2"
+        />
+        Opción 2
+      </label>
+      <div
+        class="separator"
+      />
+      <label
+        class="optionLabel"
+        for="option-3"
+      >
+        <input
+          class="option"
+          id="option-3"
+          name="option"
+          type="radio"
+          value="3"
+        />
+        Opción 3
+      </label>
+    </div>
+    <h3
+      class="firstContent"
+    >
+      Selected tab with id: 1
+    </h3>
+    <h2
+      class="title"
+    >
+      Active state controlled by the Selector's parent component
+    </h2>
+    <div
+      class="optionsContainer tab"
+    >
+      <label
+        class="optionLabel"
+        for="option-10"
+      >
+        <input
+          class="option"
+          id="option-10"
+          name="option"
+          type="radio"
+          value="10"
+        />
+        Opción 1
+      </label>
+      <div
+        class="separator active"
+      />
+      <label
+        class="optionLabel active"
+        for="option-20"
+      >
+        <input
+          checked=""
+          class="option"
+          id="option-20"
+          name="option"
+          type="radio"
+          value="20"
+        />
+        Opción 2
+      </label>
+      <div
+        class="separator"
+      />
+      <label
+        class="optionLabel"
+        for="option-30"
+      >
+        <input
+          class="option"
+          id="option-30"
+          name="option"
+          type="radio"
+          value="30"
+        />
+        Opción 3
+      </label>
+    </div>
+    <h3>
+      Selected tab with id: 20
+    </h3>
+    <button
+      class="button"
+      type="button"
+    >
+      Go to next tab
+    </button>
+    <h2
+      class="title"
+    >
+      Selector with disabled tab
+    </h2>
+    <div
+      class="optionsContainer tab"
+    >
+      <label
+        class="optionLabel"
+        for="option-id1"
+      >
+        <input
+          class="option"
+          id="option-id1"
+          name="option"
+          type="radio"
+          value="id1"
+        />
+        Opción 1
+      </label>
+      <div
+        class="separator"
+      />
+      <label
+        class="optionLabel"
+        for="option-id2"
+      >
+        <input
+          class="option"
+          id="option-id2"
+          name="option"
+          type="radio"
+          value="id2"
+        />
+        Opción 2
+      </label>
+      <div
+        class="separator"
+      />
+      <label
+        class="optionLabel disabled"
+        for="option-id3"
+      >
+        <input
+          class="option"
+          disabled=""
+          id="option-id3"
+          name="option"
+          type="radio"
+          value="id3"
+        />
+        Opción 3
+      </label>
+    </div>
+    <h3
+      class="firstContent"
+    >
+      Selected tab with id: id1
+    </h3>
+  </div>
+</div>
+`;

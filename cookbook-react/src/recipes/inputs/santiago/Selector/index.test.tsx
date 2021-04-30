@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import TabBar from './index';
+import Selector from './index';
 
 const options = [
   { id: 1, title: 'Opción 1', disabled: false },
@@ -14,7 +14,7 @@ describe('When tab is internally controlled', () => {
   const handleChange = jest.fn();
 
   beforeEach(() => {
-    render(<TabBar options={options} onChange={handleChange} />);
+    render(<Selector options={options} onChange={handleChange} />);
   });
 
   test('it selects a tab when user clicks it and the rest is not selected', () => {
@@ -35,7 +35,7 @@ describe('When tab is externally controlled', () => {
   const handleChange = jest.fn();
 
   beforeEach(() => {
-    render(<TabBar options={options} onChange={handleChange} active={1} />);
+    render(<Selector options={options} onChange={handleChange} active={1} />);
   });
 
   test('clicking does not select an element', () => {
@@ -54,7 +54,7 @@ describe('When tab is externally controlled', () => {
 
 describe('When the tab has initial value and it is internally controlled', () => {
   test('starts with the initial value selected', () => {
-    render(<TabBar options={options} onChange={jest.fn()} initialValue={3} />);
+    render(<Selector options={options} onChange={jest.fn()} initialValue={3} />);
     const tab = screen.getByText('Opción 3');
     expect(tab).toHaveClass('active');
   });

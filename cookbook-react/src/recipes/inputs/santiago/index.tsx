@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
-import TabBar, { OptionId } from './TabBar';
+import { OptionId } from '../../hooks/useUniqueSelection';
+
+import Selector from './Selector';
 import styles from './styles.module.scss';
 
 const options1 = [
@@ -48,17 +50,17 @@ function Example() {
 
   return (
     <div className={styles.exampleContainer}>
-      <h2 className={styles.title}>Active state controlled by the TabBar component</h2>
-      <TabBar className={styles.tab} options={options1} onChange={handleChange1} initialValue={2} />
+      <h2 className={styles.title}>Active state controlled by the Selector component</h2>
+      <Selector className={styles.tab} options={options1} onChange={handleChange1} initialValue={2} />
       <h3 className={styles.firstContent}>{content1}</h3>
-      <h2 className={styles.title}>Active state controlled by the TabBar&apos;s parent component</h2>
-      <TabBar className={styles.tab} options={options2} onChange={handleChange2} active={active} />
+      <h2 className={styles.title}>Active state controlled by the Selector&apos;s parent component</h2>
+      <Selector className={styles.tab} options={options2} onChange={handleChange2} active={active} />
       <h3>{content2}</h3>
       <button className={styles.button} type="button" onClick={handleClick}>
         Go to next tab
       </button>
-      <h2 className={styles.title}>TabBar with disabled tab</h2>
-      <TabBar className={styles.tab} options={options3} onChange={handleChange3} initialValue="2" />
+      <h2 className={styles.title}>Selector with disabled tab</h2>
+      <Selector className={styles.tab} options={options3} onChange={handleChange3} initialValue="2" />
       <h3 className={styles.firstContent}>{content3}</h3>
     </div>
   );

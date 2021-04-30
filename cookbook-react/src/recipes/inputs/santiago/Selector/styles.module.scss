@@ -23,7 +23,7 @@ $transition-time: 0.25s;
   }
 }
 
-.option {
+.option-label {
   align-items: center;
   border-top: 3px solid $color-gray;
   border-bottom: 3px solid $color-gray;
@@ -65,4 +65,8 @@ $transition-time: 0.25s;
   &.active + .separator {
     background-color: $color-blue;
   }
+}
+
+.option {
+  display: none;
 }

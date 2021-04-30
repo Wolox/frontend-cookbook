@@ -1,9 +1,9 @@
-import React, { Fragment, useMemo, useState } from 'react';
+import React, { Fragment } from 'react';
 import cn from 'classnames';
 
-import styles from './styles.module.scss';
+import useUniqueSelection, { OptionId } from '../../../hooks/useUniqueSelection';
 
-export type OptionId = string | number;
+import styles from './styles.module.scss';
 
 interface Option<Id extends OptionId> {
   title: string;
@@ -36,16 +36,7 @@ function Selector<Id extends OptionId>({
   options,
   initialValue
 }: InternallyControlledProps<Id> | ExternallyControlledProps<Id>) {
-  const [internalActiveTab, setInternalActiveTab] = useState<Id | undefined>(active || initialValue);
-
-  const activeValue = useMemo(() => active || internalActiveTab, [active, internalActiveTab]);
-
-  const handleChange = (id: Id) => {
-    if (!active) {
-      setInternalActiveTab(id);
-    }
-    onChange(id);
-  };
+  const { activeValue, handleChange } = useUniqueSelection({ onChange, active, initialValue });
 
   const nextValueIsSelected = (index: number) =>
     options.length > index + 1 && options[index + 1].id === activeValue;
@@ -54,17 +45,26 @@ function Selector<Id extends OptionId>({
     <div className={cn(styles.optionsContainer, className)}>
       {options?.map((option, index) => (
         <Fragment key={`${option.id}`}>
-          <button
-            type="button"
-            onClick={() => handleChange(option.id)}
-            className={cn(styles.option, {
+          <label
+            htmlFor={`option-${option.id}`}
+            key={option.id}
+            className={cn(styles.optionLabel, {
               [styles.disabled]: option.disabled,
               [styles.active]: option.id === activeValue
             })}
-            disabled={option.disabled}
           >
+            <input
+              type="radio"
+              id={`option-${option.id}`}
+              name="option"
+              checked={activeValue === option.id}
+              className={styles.option}
+              disabled={option.disabled}
+              value={option.id}
+              onChange={() => handleChange(option.id)}
+            />
             {option.title}
-          </button>
+          </label>
           {index < options.length - 1 && (
             <div
               className={cn(styles.separator, {
