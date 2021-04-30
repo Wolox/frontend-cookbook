@@ -1,0 +1,10 @@
+{
+  "thumbnail": {
+    "type": "iframe",
+    "url": "https://cookbook-react.now.sh/?category=inputs&component=selectable-list&compact=true"
+  },
+  "detail": {
+    "type": "iframe",
+    "url": "https://cookbook-react.now.sh/?category=inputs&component=selectable-list&compact=true"
+  }
+}
