@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input-3 match snapshot 1`] = `
+<div>
+  <div
+    id="input-3"
+  >
+    <div
+      class="input-wrapper"
+    >
+      <input
+        class="input-base"
+        id="input-tag-3"
+        placeholder=" "
+      />
+      <label
+        class="input-label"
+        for="input-tag-3"
+      >
+        Label
+      </label>
+    </div>
+  </div>
+</div>
+`;

@@ -22,7 +22,11 @@ function Input({ label, disabled, error }: Props) {
         <label htmlFor="input-tag-3" className={cn('input-label', { 'label-disabled': disabled })}>
           {label}
         </label>
-        {!!error && <span className="error-message">{error}</span>}
+        {!!error && (
+          <span className="error-message" role="alert">
+            {error}
+          </span>
+        )}
       </div>
     </div>
   );

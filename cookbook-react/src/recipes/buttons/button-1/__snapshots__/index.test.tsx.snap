@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render component 1`] = `
+<div>
+  <div
+    class="column center btn-group-1"
+  >
+    <button
+      class="btn btn-1 m-bottom-2"
+      disabled=""
+      type="button"
+    >
+      <div
+        class="btn-content"
+      >
+        cancel
+      </div>
+    </button>
+    <button
+      class="btn btn-1"
+      type="button"
+    >
+      <div
+        class="btn-content"
+      >
+        submit
+      </div>
+    </button>
+  </div>
+</div>
+`;
