@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match snapshot 1`] = `
+<div>
+  <div
+    class="collapsibleContainer column"
+  >
+    <div
+      class="row space-between m-bottom-2"
+    >
+      <h3
+        class="title"
+      >
+        Título
+      </h3>
+      <button
+        aria-controls="collapsable-example"
+        aria-expanded="true"
+        class="icon"
+        type="button"
+      />
+    </div>
+    <div
+      class="content"
+      id="collapsable-example"
+      role="region"
+      style="height: 0px;"
+    >
+      <p
+        class="m-bottom-3 text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <button
+        class="button"
+        type="button"
+      >
+        Action
+      </button>
+    </div>
+  </div>
+</div>
+`;
