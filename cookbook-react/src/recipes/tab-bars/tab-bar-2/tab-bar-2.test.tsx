@@ -5,8 +5,8 @@ import userEvent from '@testing-library/user-event';
 import TabBar from './index';
 
 const tabs = [
-  { id: 1, label: 'Primera tab', icon: '' },
-  { id: 2, label: 'Segunda tab', icon: '' }
+  { id: 1, label: 'Primera tab', icon: ':D' },
+  { id: 2, label: 'Segunda tab', icon: ':C' }
 ];
 const active = null;
 const handleChange = jest.fn();
@@ -21,6 +21,12 @@ describe('test tab-bar component', () => {
     render(<TabBar tabs={tabs} active={active} handleChange={handleChange} />);
     userEvent.click(screen.getByLabelText('Primera tab'));
     expect(handleChange).toHaveBeenCalledWith(1);
+  });
+
+  test('show first tab icon', () => {
+    render(<TabBar tabs={tabs} active={active} handleChange={handleChange} />);
+    const icon = screen.getByRole('icon-1');
+    expect(icon).toBeInTheDocument();
   });
 
   test('select second tab', () => {

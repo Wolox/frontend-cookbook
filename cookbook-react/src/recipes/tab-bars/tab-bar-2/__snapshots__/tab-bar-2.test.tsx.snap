@@ -9,7 +9,10 @@ exports[`test tab-bar component match to the snapshot 1`] = `
       class="radioLabel"
       for="tab-1"
     >
-      
+      <i
+        class="icon :D"
+        role="icon-1"
+      />
       <input
         class="tabInput"
         id="tab-1"
@@ -23,7 +26,10 @@ exports[`test tab-bar component match to the snapshot 1`] = `
       class="radioLabel"
       for="tab-2"
     >
-      
+      <i
+        class="icon :C"
+        role="icon-2"
+      />
       <input
         class="tabInput"
         id="tab-2"

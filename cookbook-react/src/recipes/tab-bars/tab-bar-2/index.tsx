@@ -26,7 +26,7 @@ function TabBar({ tabs, active, handleChange }: Props) {
             [styles.active]: tab.id === active
           })}
         >
-          {tab.icon && <i className={cn(styles.icon, tab.icon)}>{tab.icon}</i>}
+          {tab.icon && <i role={`icon-${tab.id}`} className={cn(styles.icon, tab.icon)} />}
           <input
             type="radio"
             id={`tab-${tab.id}`}
