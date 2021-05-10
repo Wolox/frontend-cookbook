@@ -42,7 +42,11 @@ const handleResponseError = (
   }
 };
 
-const importFile = async (file: RecipeFile, currentDir = '') => {
+const importFile = async (
+  file: RecipeFile,
+  rootDir: string,
+  currentDir = ''
+) => {
   // TODO: Support non text files
   const response = await fetch(file.download_url, {
     headers: { 'Content-Type': 'application/text' }
@@ -55,15 +59,19 @@ const importFile = async (file: RecipeFile, currentDir = '') => {
     }: \n ${response.json()}`
   }));
 
-  await fs.writeFile(`./${currentDir}/${file.name}`, await response.text());
+  await fs.writeFile(
+    `./${rootDir}/${currentDir}/${file.name}`,
+    await response.text()
+  );
 };
 
 export async function fetchRecipe(
   recipe: Recipe,
+  rootDir: string,
   currentDir?: string
 ): Promise<void> {
   if (currentDir) {
-    await fs.mkdir(`.${currentDir}`, { recursive: true });
+    await fs.mkdir(`./${rootDir}${currentDir}`, { recursive: true });
   }
 
   const response = await fetch(
@@ -85,9 +93,13 @@ export async function fetchRecipe(
     recipeResponse.map((file) => {
       switch (file.type) {
         case 'file':
-          return importFile(file, currentDir);
+          return importFile(file, rootDir, currentDir);
         case 'dir':
-          return fetchRecipe(recipe, `${currentDir || ''}/${file.name}`);
+          return fetchRecipe(
+            recipe,
+            rootDir,
+            `${currentDir || ''}/${file.name}`
+          );
         // no default
       }
       throw new Error(`Unknown file type ${(file as any).type}`);
