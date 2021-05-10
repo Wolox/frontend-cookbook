@@ -1,4 +1,4 @@
-$alabaster-tertiary: #FCFCFC;
+$mercury: #E5E5E5;
 $alabaster: #F7F7F7;
 $oslo-gray: #92978B;
 $black: #000;
@@ -6,15 +6,15 @@ $black: #000;
 .list-item {
   border-radius: 6px;
   height: 50px;
-  padding: 20px 20px 20px 25px;
+  padding: 0 20px;
   position: relative;
 
   &:nth-child(2n) {
-    background-color: $alabaster-tertiary;
+    background-color: $alabaster;
   }
 
   &:nth-child(2n - 1) {
-    background-color: $alabaster;
+    background-color: $mercury;
   }
 
   &:not(:last-child) {
@@ -22,36 +22,26 @@ $black: #000;
   }
 }
 
-.text-normal {
-  color: $black;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
 .close-icon {
   cursor: pointer;
   height: 20px;
+  position: relative;
   width: 20px;
-  right: 32px;
-  top: 32px;
 
   &::after,
   &::before {
     background-color: $oslo-gray;
-    bottom: 50%;
     content: '';
     height: 2px;
     position: absolute;
-    right: 5px;
     width: 15px;
   }
 
   &::after {
-    transform: rotate(45deg);
+    transform: translate(calc(-50%), calc(-50%)) rotate(45deg);
   }
 
   &::before {
-    transform: rotate(-45deg);
+    transform: translate(calc(-50%), calc(-50%)) rotate(-45deg);
   }
 }

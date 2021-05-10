@@ -14,12 +14,6 @@ $icon-width: 18px;
   padding: 20px;
 }
 
-.content {
-  overflow: hidden;
-  transition: height 0.3s ease-out;
-  transform-origin: top;
-}
-
 .title {
   color: $title-color;
   font-size: 32px;

@@ -1,5 +1,7 @@
-import React, { ReactNode, useState, useRef, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 import cn from 'classnames';
+
+import useCollapse from '../../../../hooks/useCollapse';
 
 import styles from './styles.module.scss';
 
@@ -12,37 +14,6 @@ interface CollapsibleProps {
   collapsibleId: string;
 }
 
-const useCollapse = (defaultIsOpen: boolean, onCollapse?: (isOpen: boolean) => void) => {
-  const [collapsed, setCollapsed] = useState(!defaultIsOpen);
-  const collapsibleRef = useRef<HTMLDivElement>(null);
-
-  const setCollapsedValue = (height: number, isCollapsed: boolean) => {
-    const heightString = isCollapsed ? '0px' : `${height}px`;
-    collapsibleRef.current!.style.height = heightString;
-  };
-
-  useEffect(() => {
-    const calculateHeight = () => {
-      const maxHeight = collapsibleRef.current?.scrollHeight ?? 0;
-      setCollapsedValue(maxHeight, collapsed);
-    };
-
-    calculateHeight();
-    window.addEventListener('resize', calculateHeight);
-    return () => {
-      window.removeEventListener('resize', calculateHeight);
-    };
-  }, [collapsed]);
-
-  const handleCollapse = () => {
-    setCollapsed(!collapsed);
-    setCollapsedValue(collapsibleRef.current?.scrollHeight!, !collapsed);
-    onCollapse?.(collapsed);
-  };
-
-  return { handleCollapse, collapsibleRef, collapsed };
-};
-
 function Collapsible({
   collapsibleId,
   title,
@@ -51,7 +22,10 @@ function Collapsible({
   children,
   onChange
 }: CollapsibleProps) {
-  const { handleCollapse, collapsibleRef, collapsed } = useCollapse(!defaultIsClosed, onChange);
+  const { handleCollapse, collapsibleRef, collapsed } = useCollapse<HTMLDivElement>({
+    defaultIsOpen: !defaultIsClosed,
+    onChange
+  });
 
   return (
     <div className={cn(className, styles.collapsibleContainer, 'column')}>
@@ -65,7 +39,7 @@ function Collapsible({
           onClick={handleCollapse}
         />
       </div>
-      <div id={collapsibleId} ref={collapsibleRef} className={cn(styles.content)} role="region">
+      <div id={collapsibleId} ref={collapsibleRef} role="region">
         {children}
       </div>
     </div>
