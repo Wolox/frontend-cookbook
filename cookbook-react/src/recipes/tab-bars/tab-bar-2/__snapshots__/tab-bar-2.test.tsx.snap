@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test tab-bar component match to the snapshot 1`] = `
+<div>
+  <div
+    class="tabsContainer"
+  >
+    <label
+      class="radioLabel"
+      for="tab-1"
+    >
+      
+      <input
+        class="tabInput"
+        id="tab-1"
+        name="tab"
+        type="radio"
+        value="1"
+      />
+      Primera tab
+    </label>
+    <label
+      class="radioLabel"
+      for="tab-2"
+    >
+      
+      <input
+        class="tabInput"
+        id="tab-2"
+        name="tab"
+        type="radio"
+        value="2"
+      />
+      Segunda tab
+    </label>
+  </div>
+</div>
+`;
