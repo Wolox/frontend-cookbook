@@ -10,19 +10,15 @@ describe('Input-3', () => {
   });
 
   test('Input is disabled', async () => {
-    const props = { label: 'Label', disabled: true, error: '' };
-    const { findByRole } = render(<Input {...props} />);
+    const { findByRole } = render(<Input label="Label" error="" disabled />);
 
     const inputElement = await findByRole('textbox');
-    const disabledAttribute = inputElement?.getAttribute('disabled');
 
-    expect(disabledAttribute).not.toBe(null);
-    expect(disabledAttribute).not.toBe(false);
+    expect(inputElement).toHaveAttribute('disabled');
   });
 
   test('shows the error message', () => {
-    const props = { label: 'Label', disabled: true, error: 'Some error' };
-    const { getByRole } = render(<Input {...props} />);
+    const { getByRole } = render(<Input label="Label" error="Some error" disabled />);
 
     const errorElement = getByRole('alert');
 
