@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tab-bar-1 match snapshot  1`] = `
+<div>
+  <div
+    class="tab-bar-container"
+    id="tab-bar-1"
+  >
+    <div
+      class="tab-bar-wrapper"
+    >
+      <span
+        class="selector selected-null"
+      />
+      <div
+        class="tabs"
+      >
+        <button
+          class="option"
+          type="button"
+        >
+          Sección 1
+        </button>
+        <button
+          class="option"
+          type="button"
+        >
+          Sección 2
+        </button>
+        <button
+          class="option"
+          type="button"
+        >
+          Sección 3
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
