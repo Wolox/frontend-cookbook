@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match snapshot 1`] = `
+<div>
+  <div
+    class="exampleContainer"
+  >
+    <div
+      class="itemContainer m-bottom-3"
+    >
+      <label
+        class="m-bottom-2 title"
+      >
+        Listado de spans
+      </label>
+      <ul
+        class="column"
+      >
+        <span
+          class="m-bottom-1"
+        >
+          Item 1
+        </span>
+        <span
+          class="m-bottom-1"
+        >
+          Item 2
+        </span>
+        <span
+          class="m-bottom-1"
+        >
+          Item 3
+        </span>
+        <span
+          class="m-bottom-1"
+        >
+          Item 4
+        </span>
+        <span
+          class="m-bottom-1"
+        >
+          Item 5
+        </span>
+        <span
+          class="m-bottom-1"
+        >
+          Item 6
+        </span>
+      </ul>
+    </div>
+    <div
+      class="itemContainer m-bottom-3"
+    >
+      <label
+        class="m-bottom-2 title"
+      >
+        Listado de custom items
+      </label>
+      <ul
+        class="column"
+      >
+        <li
+          class="listItem row middle space-between"
+          style="transition: height 300ms ease-out, padding 300ms ease-out, margin 300ms ease-out; overflow: hidden; height: 0px;"
+        >
+          <div
+            class="item-1"
+          >
+            Item 1
+          </div>
+          <button
+            class="closeIcon"
+            type="button"
+          />
+        </li>
+        <li
+          class="listItem row middle space-between"
+          style="transition: height 300ms ease-out, padding 300ms ease-out, margin 300ms ease-out; overflow: hidden; height: 0px;"
+        >
+          <div
+            class="item-1"
+          >
+            Item 2
+          </div>
+          <button
+            class="closeIcon"
+            type="button"
+          />
+        </li>
+        <li
+          class="listItem row middle space-between"
+          style="transition: height 300ms ease-out, padding 300ms ease-out, margin 300ms ease-out; overflow: hidden; height: 0px;"
+        >
+          <div
+            class="item-1"
+          >
+            Item 3
+          </div>
+          <button
+            class="closeIcon"
+            type="button"
+          />
+        </li>
+        <li
+          class="listItem row middle space-between"
+          style="transition: height 300ms ease-out, padding 300ms ease-out, margin 300ms ease-out; overflow: hidden; height: 0px;"
+        >
+          <div
+            class="item-1"
+          >
+            Item 4
+          </div>
+          <button
+            class="closeIcon"
+            type="button"
+          />
+        </li>
+        <li
+          class="listItem row middle space-between"
+          style="transition: height 300ms ease-out, padding 300ms ease-out, margin 300ms ease-out; overflow: hidden; height: 0px;"
+        >
+          <div
+            class="item-1"
+          >
+            Item 5
+          </div>
+          <button
+            class="closeIcon"
+            type="button"
+          />
+        </li>
+        <li
+          class="listItem row middle space-between"
+          style="transition: height 300ms ease-out, padding 300ms ease-out, margin 300ms ease-out; overflow: hidden; height: 0px;"
+        >
+          <div
+            class="item-1"
+          >
+            Item 6
+          </div>
+          <button
+            class="closeIcon"
+            type="button"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

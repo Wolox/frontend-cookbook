@@ -1,12 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from './styles.module.scss';
 import List from './List';
-
-interface Item {
-  id: number;
-  name: string;
-}
+import Item from './Item';
 
 export const data = [
   { id: 1, name: 'Item 1' },
@@ -18,14 +14,19 @@ export const data = [
 ];
 
 function Example() {
+  const [items, setItems] = useState(data);
   const handleDeleteItem = (id: number) => {
-    console.log(`Deleted item with id ${id}`);
+    const filteredItems = items?.map((item) => ({ ...item, deleted: item.id !== id }));
+    setItems(filteredItems);
   };
 
   return (
     <div className={styles.exampleContainer}>
-      <List onDeleteItem={handleDeleteItem} items={data} title="Título del listado">
-        {(item: Item) => <span>{item.name}</span>}
+      <List className="m-bottom-3" items={data} title="Listado de spans">
+        {(item) => <span className="m-bottom-1">{item.name}</span>}
+      </List>
+      <List className="m-bottom-3" items={items} title="Listado de custom items">
+        {(item) => <Item item={item} onDelete={handleDeleteItem} />}
       </List>
     </div>
   );
