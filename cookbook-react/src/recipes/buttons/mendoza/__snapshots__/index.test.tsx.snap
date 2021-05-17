@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render component 1`] = `
+<div>
+  <div
+    class="column center"
+  >
+    <button
+      class="button primary m-bottom-2"
+      type="button"
+    >
+      Primary
+    </button>
+    <button
+      class="button primary m-bottom-2"
+      disabled=""
+      type="button"
+    >
+      Primary Disabled
+    </button>
+    <button
+      class="button secondary m-bottom-2"
+      type="button"
+    >
+      Secondary
+    </button>
+    <button
+      class="button secondary"
+      disabled=""
+      type="button"
+    >
+      Secondary Disabled
+    </button>
+  </div>
+</div>
+`;

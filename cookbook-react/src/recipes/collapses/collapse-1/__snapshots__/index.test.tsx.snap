@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render component 1`] = `
+<div>
+  <div
+    class="collapse-container"
+    id="collapse-1"
+  >
+    <div
+      class="collapse-wrapper"
+    >
+      <div
+        class="title-container"
+      >
+        <h2
+          class="title"
+        >
+          Título / Pregunta / Ítem
+        </h2>
+        <button
+          class="icon"
+          type="button"
+        />
+      </div>
+      <p
+        class="text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+  </div>
+</div>
+`;
