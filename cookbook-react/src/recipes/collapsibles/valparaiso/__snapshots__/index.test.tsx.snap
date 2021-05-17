@@ -21,10 +21,9 @@ exports[`Should match snapshot 1`] = `
       />
     </div>
     <div
-      class="content"
       id="collapsable-example"
       role="region"
-      style="height: 0px;"
+      style="transition: height 300ms ease-out, padding 300ms ease-out, margin 300ms ease-out; overflow: hidden; height: 0px;"
     >
       <p
         class="m-bottom-3 text"

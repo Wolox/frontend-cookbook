@@ -1,0 +1,47 @@
+$dark-background: #E5E5E5;
+$light-background: #F7F7F7;
+$close-button-color: #92978B;
+$black: #000;
+
+.list-item {
+  border-radius: 6px;
+  height: 50px;
+  padding: 0 20px;
+  position: relative;
+
+  &:nth-child(2n) {
+    background-color: $light-background;
+  }
+
+  &:nth-child(2n - 1) {
+    background-color: $dark-background;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+}
+
+.close-icon {
+  cursor: pointer;
+  height: 20px;
+  position: relative;
+  width: 20px;
+
+  &::after,
+  &::before {
+    background-color: $close-button-color;
+    content: '';
+    height: 2px;
+    position: absolute;
+    width: 15px;
+  }
+
+  &::after {
+    transform: translate(calc(-50%), calc(-50%)) rotate(45deg);
+  }
+
+  &::before {
+    transform: translate(calc(-50%), calc(-50%)) rotate(-45deg);
+  }
+}
