@@ -40,8 +40,10 @@ const useCollapse = <Element extends HTMLElement>({
 
   // Sets initial height values
   useEffect(() => {
-    collapsibleRef.current!.style.transition = `height ${collapseTime}ms ease-out, padding ${collapseTime}ms ease-out, margin ${collapseTime}ms ease-out`;
-    collapsibleRef.current!.style.overflow = 'hidden';
+    if (collapsibleRef.current) {
+      collapsibleRef.current.style.transition = `height ${collapseTime}ms ease-out, padding ${collapseTime}ms ease-out, margin ${collapseTime}ms ease-out`;
+      collapsibleRef.current.style.overflow = 'hidden';
+    }
 
     calculateHeight();
   }, [calculateHeight, collapseTime]);

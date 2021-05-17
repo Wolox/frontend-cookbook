@@ -1,6 +1,6 @@
-$mercury: #E5E5E5;
-$alabaster: #F7F7F7;
-$oslo-gray: #92978B;
+$dark-background: #E5E5E5;
+$light-background: #F7F7F7;
+$close-button-color: #92978B;
 $black: #000;
 
 .list-item {
@@ -10,11 +10,11 @@ $black: #000;
   position: relative;
 
   &:nth-child(2n) {
-    background-color: $alabaster;
+    background-color: $light-background;
   }
 
   &:nth-child(2n - 1) {
-    background-color: $mercury;
+    background-color: $dark-background;
   }
 
   &:not(:last-child) {
@@ -30,7 +30,7 @@ $black: #000;
 
   &::after,
   &::before {
-    background-color: $oslo-gray;
+    background-color: $close-button-color;
     content: '';
     height: 2px;
     position: absolute;
