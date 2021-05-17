@@ -1,7 +1,6 @@
-$color-gray: #E1E1E1;
-$color-black: #000;
-$color-white: #FFF;
-$color-blue: #003DD5;
+$mercury: #E1E1E1;
+$black: #000;
+$blue: #003DD5;
 $btn-height: 45px;
 $options: 3;
 $btn-width: (100 / $options) * 1%;
@@ -13,7 +12,7 @@ $transition-time: 0.25s;
 }
 
 .separator {
-  background-color: $color-gray;
+  background-color: $mercury;
   min-height: 100%;
   min-width: 3px;
   transition: background-color $transition-time ease;
@@ -25,9 +24,9 @@ $transition-time: 0.25s;
 
 .option-label {
   align-items: center;
-  border-top: 3px solid $color-gray;
-  border-bottom: 3px solid $color-gray;
-  color: $color-black;
+  border-top: 3px solid $mercury;
+  border-bottom: 3px solid $mercury;
+  color: $black;
   cursor: pointer;
   display: flex;
   font-weight: 500;
@@ -38,12 +37,12 @@ $transition-time: 0.25s;
   width: $btn-width;
 
   &:first-child {
-    border-left: 3px solid $color-gray;
+    border-left: 3px solid $mercury;
     border-radius: 5px 0 0 5px;
   }
 
   &:last-child {
-    border-right: 3px solid $color-gray;
+    border-right: 3px solid $mercury;
     border-radius: 0 5px 5px 0;
   }
 
@@ -52,18 +51,18 @@ $transition-time: 0.25s;
   }
 
   &.disabled {
-    color: $color-gray;
+    color: $mercury;
     font-weight: 600;
   }
 
   &.active {
-    border-color: $color-blue;
-    color: $color-blue;
+    border-color: $blue;
+    color: $blue;
     font-weight: 600;
   }
 
   &.active + .separator {
-    background-color: $color-blue;
+    background-color: $blue;
   }
 }
 
