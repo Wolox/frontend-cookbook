@@ -1,0 +1,71 @@
+$silvr: #C4C4C4;
+$turquoise: #3DE7A9;
+$jade: #00B876;
+$black: #000;
+
+.status-container {
+  padding: 20px;
+}
+
+.status-bullet {
+  background: $silvr;
+  border-radius: 50%;
+  height: 22px;
+  position: relative;
+  width: 22px;
+}
+
+.status {
+  position: relative;
+
+  .status-text {
+    color: $silvr;
+  }
+}
+
+.status-checked {
+  .status-bullet {
+    background: $turquoise;
+  }
+
+  .status-text {
+    color: $jade;
+  }
+
+  .status-date {
+    color: $jade;
+  }
+}
+
+.status-current {
+  .status-bullet {
+    background: $jade;
+  }
+
+  .status-text {
+    color: $black;
+    font-weight: 500;
+  }
+
+  .status-date {
+    color: $black;
+    font-weight: 500;
+  }
+}
+
+.status-line {
+  background: $silvr;
+  height: 4px;
+  position: absolute;
+  right: -50%;
+  top: 9px;
+  width: 100%;
+}
+
+.status-line-checked {
+  background: $turquoise;
+}
+
+.status-line-current {
+  background: $silvr;
+}

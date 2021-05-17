@@ -26,7 +26,7 @@ describe('when the list does not allow multiple selection and starts with no ini
 
   test('initializes with no selected elements', () => {
     const radioButtons = screen.getAllByRole('radio') as HTMLInputElement[];
-    radioButtons.forEach(radio => expect(radio.checked).toBe(false));
+    radioButtons.forEach((radio) => expect(radio.checked).toBe(false));
   });
 
   test('selects an element when user clicks on it', () => {
@@ -98,7 +98,7 @@ describe('when the list allows multiple selection and starts with no initialValu
 
   test('initializes with no selected elements', () => {
     const checkboxes = screen.getAllByRole('checkbox') as HTMLInputElement[];
-    checkboxes.forEach(radio => expect(radio.checked).toBe(false));
+    checkboxes.forEach((radio) => expect(radio.checked).toBe(false));
   });
 
   test('selects an element when user clicks on it', () => {

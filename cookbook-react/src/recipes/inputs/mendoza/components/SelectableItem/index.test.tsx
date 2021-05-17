@@ -8,14 +8,18 @@ const item = { id: 'first_item', title: 'First item', subtitle: 'Small', price: 
 
 describe('when the selectable item is a radio', () => {
   test('Should match snapshot', () => {
-    const { container } = render(<SelectableItem onChange={jest.fn()} selected={false} item={item} type="radio" />);
+    const { container } = render(
+      <SelectableItem onChange={jest.fn()} selected={false} item={item} type="radio" />
+    );
     expect(container).toMatchSnapshot();
   });
 });
 
 describe('when the selectable item is a checkbox', () => {
   test('Should match snapshot', () => {
-    const { container } = render(<SelectableItem onChange={jest.fn()} selected={false} item={item} type="checkbox" />);
+    const { container } = render(
+      <SelectableItem onChange={jest.fn()} selected={false} item={item} type="checkbox" />
+    );
     expect(container).toMatchSnapshot();
   });
 });
