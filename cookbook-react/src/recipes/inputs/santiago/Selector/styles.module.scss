@@ -1,0 +1,71 @@
+$unselected-color: #E1E1E1;
+$text-color: #000;
+$selected-color: #003DD5;
+$btn-height: 45px;
+$options: 3;
+$btn-width: (100 / $options) * 1%;
+
+$transition-time: 0.25s;
+
+.options-container {
+  display: flex;
+}
+
+.separator {
+  background-color: $unselected-color;
+  min-height: 100%;
+  min-width: 3px;
+  transition: background-color $transition-time ease;
+
+  &.active {
+    background-color: $selected-color;
+  }
+}
+
+.option-label {
+  align-items: center;
+  border-top: 3px solid $unselected-color;
+  border-bottom: 3px solid $unselected-color;
+  color: $text-color;
+  cursor: pointer;
+  display: flex;
+  font-weight: 500;
+  height: $btn-height;
+  justify-content: center;
+  min-width: 100px;
+  transition: border-color $transition-time ease, color $transition-time ease;
+  width: $btn-width;
+
+  &:first-child {
+    border-left: 3px solid $unselected-color;
+    border-radius: 5px 0 0 5px;
+  }
+
+  &:last-child {
+    border-right: 3px solid $unselected-color;
+    border-radius: 0 5px 5px 0;
+  }
+
+  &:only-child {
+    border-radius: 5px;
+  }
+
+  &.disabled {
+    color: $unselected-color;
+    font-weight: 600;
+  }
+
+  &.active {
+    border-color: $selected-color;
+    color: $selected-color;
+    font-weight: 600;
+  }
+
+  &.active + .separator {
+    background-color: $selected-color;
+  }
+}
+
+.option {
+  display: none;
+}
