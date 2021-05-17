@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "@wolox/eslint-config",
+    "@wolox/eslint-config-typescript"
+  ],
+  "rules": {
+    "prettier/prettier": ["error", {"singleQuote": true, "trailingComma": "none"}],
+    "no-magic-numbers": "off",
+    "@typescript-eslint/no-magic-numbers": [
+      "error", { "ignoreEnums": true }
+    ]
+  }
+}

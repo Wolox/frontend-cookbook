@@ -1,4 +1,4 @@
-$silver: #C4C4C4;
+$silvr: #C4C4C4;
 $turquoise: #3DE7A9;
 $jade: #00B876;
 $black: #000;
@@ -8,7 +8,7 @@ $black: #000;
 }
 
 .status-bullet {
-  background: $silver;
+  background: $silvr;
   border-radius: 50%;
   height: 22px;
   position: relative;
@@ -19,7 +19,7 @@ $black: #000;
   position: relative;
 
   .status-text {
-    color: $silver;
+    color: $silvr;
   }
 }
 
@@ -54,7 +54,7 @@ $black: #000;
 }
 
 .status-line {
-  background: $silver;
+  background: $silvr;
   height: 4px;
   position: absolute;
   right: -50%;
@@ -67,5 +67,5 @@ $black: #000;
 }
 
 .status-line-current {
-  background: $silver;
+  background: $silvr;
 }

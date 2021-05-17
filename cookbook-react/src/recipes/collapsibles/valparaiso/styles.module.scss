@@ -1,0 +1,24 @@
+$text-color: #FFF;
+$border-color: #848486;
+$button-color: #00B876;
+$button-color-hover: #04A36A;
+
+.button {
+  background-color: $button-color;
+  border-radius: 6px;
+  color: $text-color;
+  font-size: 20px;
+  height: 50px;
+  min-width: 150px;
+  padding: 15px;
+  text-align: center;
+
+  &:hover:not(:disabled) {
+    background: $button-color-hover;
+    box-shadow: 0 0 10px $button-color-hover;
+  }
+}
+
+.text {
+  line-height: 1.5;
+}
