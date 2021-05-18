@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    class="collapseWrapper"
+  >
+    <div
+      class="titleContainer"
+    >
+      <h2
+        class="title"
+      >
+        Título / Pregunta / Ítem
+      </h2>
+      <button
+        class="arrow up"
+        type="button"
+      />
+    </div>
+    <div
+      class="textContainer"
+    >
+      <p
+        class="text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </div>
+  </div>
+</div>
+`;
