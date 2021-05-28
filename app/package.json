@@ -29,7 +29,7 @@
     "lodash.flatten": "^4.4.0",
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
-    "postcss": "^7.0.27",
+    "postcss": "^8.2.10",
     "prismjs": "^1.20.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
