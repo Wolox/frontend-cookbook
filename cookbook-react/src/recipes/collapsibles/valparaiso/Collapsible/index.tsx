@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
-import useCollapse from '../../../../hooks/useCollapse';
+import useCollapse from '../../../hooks/useCollapse';
 
 import styles from './styles.module.scss';
 
