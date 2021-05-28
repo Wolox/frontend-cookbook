@@ -1,6 +1,6 @@
 import React from 'react';
 
-import useCollapse from '../../../../hooks/useCollapse';
+import useCollapse from '../../../hooks/useCollapse';
 
 import styles from './styles.module.scss';
 
