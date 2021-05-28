@@ -5,6 +5,7 @@
 .env*
 
 now.json
+vercel.json
 .vercel
 
 node_modules

@@ -3,7 +3,7 @@ import { create } from 'apisauce';
 const api = create({ baseURL: process.env.REACT_APP_AUTH_BASE_URL });
 
 const getTokenFromResponse = queryParams =>
-  queryParams.match(/access_token=[a-z0-9]+/g)[0].substring('access_token='.length);
+  queryParams.match(/access_token=[a-zA-Z0-9_]+/g)[0].substring('access_token='.length);
 
 export const storeToken = response => {
   const token = getTokenFromResponse(response.data);
