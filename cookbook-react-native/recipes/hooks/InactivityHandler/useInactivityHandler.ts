@@ -1,5 +1,5 @@
 /* eslint-disable id-length */
-import { useCallback, useRef, ReactNode } from 'react';
+import { useCallback, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { PanResponder, View } from 'react-native';
 import { Nullable } from '@interfaces/globalInterfaces';
