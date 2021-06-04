@@ -1,4 +1,5 @@
 import { create } from 'apisauce';
+import { removeCurrentUser } from '../services/AuthServices';
 
 const baseURL = process.env.REACT_APP_AUTH_BASE_URL;
 
@@ -23,6 +24,7 @@ export const apiSetup = dispatch => {
        * TODO: These callbacks should only be called if no other callback was asigned for the response.
        * - dispatch(alertActions.error(i18next.t('apiErrors:expired')));
        */
+      removeCurrentUser();
     }
   });
 
