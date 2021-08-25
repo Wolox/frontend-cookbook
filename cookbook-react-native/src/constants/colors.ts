@@ -7,4 +7,7 @@ export const white: string = '#FFF';
 export const black: string = '#000';
 export const gray: string = '#rgba(0, 0, 0, 0.38)';
 export const darkGray: string = '#363636';
+export const mediumGray: string = '#939393';
 export const transparentBlack: string = 'rgba(0,0,0,0.5)';
+export const paleBlue: string = '#EEF6FF';
+export const secondaryBlue: string = '#005ECD';
