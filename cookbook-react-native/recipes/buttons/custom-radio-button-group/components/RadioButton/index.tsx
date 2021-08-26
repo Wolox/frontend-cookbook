@@ -10,7 +10,7 @@ interface Props<K, T> {
   optionKey: K;
   selected: boolean;
   disabled?: boolean;
-  onPress: (option: K) => void;
+  onPress: (optionKey: K) => void;
   textProps?: TextProps;
   style?: ViewStyle;
   radioButtonStyle?: ViewStyle;
