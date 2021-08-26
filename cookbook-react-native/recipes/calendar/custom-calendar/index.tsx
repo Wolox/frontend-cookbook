@@ -49,11 +49,11 @@ function CustomCalendar({
       setSelectedDay(dateString);
     }
   };
-  const handlePressArrowLeft = (substractMonth: any) => {
+  const handlePressArrowLeft = (substractMonth: () => void) => {
     substractMonth();
     onPressArrowLeft();
   };
-  const handlePressArrowRight = (addMonth: any) => {
+  const handlePressArrowRight = (addMonth: () => void) => {
     addMonth();
     onPressArrowRight();
   };
