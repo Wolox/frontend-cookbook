@@ -34,4 +34,4 @@ The component uses **Intersection Observer API** ([visit the official site](http
     npm install
     npm run start
 
-To see the demo use the url [http: // localhost: 3000 /? Category = lists & component = infinite-scroll & compact = true](http:%20//%20localhost:%203000%20/?%20Category%20=%20lists%20&%20component%20=%20infinite-scroll%20&%20compact%20=%20true)
+To see the demo use the url [http://localhost:3000/?Category=lists&component=infinite-scroll&compact=true](http:%20//%20localhost:%203000%20/?%20Category%20=%20lists%20&%20component%20=%20infinite-scroll%20&%20compact%20=%20true)
