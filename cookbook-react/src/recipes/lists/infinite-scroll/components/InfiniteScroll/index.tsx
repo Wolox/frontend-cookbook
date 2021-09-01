@@ -18,8 +18,8 @@ interface Props {
 const getAlertMessage = (defaultText: string, element?: ElementType, loading?: boolean) => {
   if (!element) {
     return (
-      <div className={styles.alert}>
-        {loading && <div className={styles.spinner} />} {defaultText}
+      <div className={styles.alert} data-testid="default-message">
+        {loading && <div className={styles.spinner} data-testid="spinner" />} {defaultText}
       </div>
     );
   }
@@ -27,7 +27,7 @@ const getAlertMessage = (defaultText: string, element?: ElementType, loading?: b
   if (typeof element === 'string') {
     return (
       <div className={styles.alert}>
-        {loading && <div className={styles.spinner} />} {element}
+        {loading && <div className={styles.spinner} data-testid="spinner" />} {element}
       </div>
     );
   }
