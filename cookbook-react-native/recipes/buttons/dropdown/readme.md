@@ -1,4 +1,4 @@
-# Cookbook React Native Bootstrap: CustomOpacityButton Recipe
+# Cookbook React Native Bootstrap: Dropdown Recipe
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Wolox/frontend-cookbook/master/cookbook-react-native/recipes/buttons/dropdown/recipe.gif">
