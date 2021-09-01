@@ -1,4 +1,4 @@
-# Cookbook React Native Bootstrap: CustomModal Recipe
+# Cookbook React Native Bootstrap: CustomCalendar Recipe
 
 <p align="center">
   <img width="400" height="400" src="https://raw.githubusercontent.com/Wolox/frontend-cookbook/master/cookbook-react-native/recipes/calendar/custom-calendar/recipe.gif">
