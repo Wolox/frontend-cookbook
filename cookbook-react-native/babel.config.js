@@ -11,6 +11,7 @@ module.exports = {
           '@app': './src/app',
           '@buttonsRecipes': './recipes/buttons',
           '@checkboxesRecipes': './recipes/checkboxes',
+          '@calendarRecipes': './recipes/calendar',
           '@components': './src/app/components',
           '@config': './src/config',
           '@constants': './src/constants',
