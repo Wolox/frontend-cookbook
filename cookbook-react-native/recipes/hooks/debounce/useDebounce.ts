@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Nullable } from '@interfaces/globalInterfaces';
 
-const DEFAULT_DELAY = 500;
+const DEFAULT_DELAY = 750;
 
 const useDebounce = <T>(
   debouncedFunction: (value: Nullable<T>) => void,
