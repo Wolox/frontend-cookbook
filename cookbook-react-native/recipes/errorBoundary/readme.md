@@ -2,7 +2,7 @@
 
 ## Usage
 
-Component that catchs JavaScript errors and displays a fallback UI instead of the component tree that crashed.
+Component that catches JavaScript errors and displays a fallback UI instead of the component tree that crashed.
 
 ``` ts
 import ErrorBoundary from 'recipes/errorBoundary';
