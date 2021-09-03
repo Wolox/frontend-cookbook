@@ -5,11 +5,13 @@ import { fetchMiddleware, configureMergeState } from 'redux-recompose';
 import { ImmutableObject } from 'seamless-immutable';
 import { State } from '@interfaces/reduxInterfaces';
 import auth from '@screensRecipes/login/redux/auth/reducer';
+import toastMessage from '@toastsRecipes/toast-message/redux/reducer';
 
 configureMergeState((state: ImmutableObject<State>, diff: State) => state.merge(diff));
 
 const reducers = combineReducers({
-  auth
+  auth,
+  toastMessage
 });
 
 const middlewares = [];

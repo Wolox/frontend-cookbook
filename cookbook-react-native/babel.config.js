@@ -27,7 +27,8 @@ module.exports = {
           '@screensRecipes': './recipes/screens',
           '@services': './src/services',
           '@textsRecipes': './recipes/texts',
-          '@utils': './src/utils'
+          '@utils': './src/utils',
+          '@toastsRecipes': './recipes/toasts'
         }
       }
     ]
