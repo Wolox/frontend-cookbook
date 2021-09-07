@@ -9,5 +9,32 @@ export const gray: string = '#rgba(0, 0, 0, 0.38)';
 export const darkGray: string = '#363636';
 export const mediumGray: string = '#939393';
 export const transparentBlack: string = 'rgba(0,0,0,0.5)';
+
+// Pale colors Palette
+export const paleRed: string = '#FFEFEF';
+export const paleRedBorder: string = '#FFDEDE';
 export const paleBlue: string = '#EEF6FF';
+export const paleBlueBorder: string = '#C9E4FF';
+export const palePurple: string = '#F2EDFF';
+export const palePurpleBorder: string = '#EBE1FF';
+export const paleOrange: string = '#FFF8F0';
+export const paleOrangeBorder: string = '#FFDAB4';
+export const paleGray: string = '#F5F5F5';
+export const paleGrayBorder: string = '#EBEBEB';
+export const paleGreen: string = '#DBFAF3';
+export const paleGreenBorder: string = '#AEF3E3';
+export const paleYellow: string = '#FFE7CF';
+export const palePink: string = '#FAECFC';
+
+export const primaryBlue: string = '#0073FA';
 export const secondaryBlue: string = '#005ECD';
+export const primaryGreen: string = '#3CD19A';
+export const secondaryGreen: string = '#32AE80';
+export const primaryOrange: string = '#FF8D16';
+export const secondaryOrange: string = '#E57D0F';
+export const primaryPurple: string = '#7659B6';
+export const secondaryPurple: string = '#61469E';
+export const primaryRed: string = '#DF4848';
+export const secondaryRed: string = '#CE3434';
+export const primaryOrangeWarning: string = '#E79903';
+export const secondaryOrangeWarning: string = '#CB8500';

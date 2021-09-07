@@ -1,6 +1,7 @@
 import { Dispatch } from 'react';
 import { ApiOkResponse, ApiErrorResponse } from 'apisauce';
 import { AuthState } from '@screensRecipes/login/interfaces/authInterfaces';
+import { ToastMessageState } from '@toastsRecipes/toast-message/interfaces';
 
 export interface Action<T = null, P = null, K = null> {
   type: string;
@@ -21,6 +22,7 @@ export type DispatcheableAction<T = null, P = null, K = null> = (
 
 export interface State {
   auth: AuthState;
+  toastMessage: ToastMessageState;
 }
 
 export interface ReduxObject {
