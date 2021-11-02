@@ -41,7 +41,7 @@ export default function CustomDateTimePicker({
 
   const handleConfirm = async (date: Date) => {
     if (onPressConfirm) await onPressConfirm();
-    await changeDate(date, mode, hourFormat, setHour, setDate);
+    changeDate(date, mode, hourFormat, setHour, setDate);
     hideDatePicker(setDatePickerVisibility);
   };
   const handleCancel = async () => {

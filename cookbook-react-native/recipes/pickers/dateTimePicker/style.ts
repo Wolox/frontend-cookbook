@@ -1,6 +1,5 @@
-import fonts from '@config/fonts';
-import { black, transparent, white } from '@constants/colors';
 import { StyleSheet } from 'react-native';
+import { black, transparent, white } from '@constants/colors';
 const styles = StyleSheet.create({
   defaultContainer: {
     backgroundColor: transparent
