@@ -1,6 +1,7 @@
 import {
   FULL_HOUR,
-  changeDate
+  changeDate,
+  hideDatePicker
 } from '@pickersRecipes/dateTimePicker/constants';
 
 describe('FULL_HOUR', () => {
@@ -16,10 +17,24 @@ describe('FULL_HOUR', () => {
     expect(response).toBe(expectReturn);
     expect(response).not.toBeNull();
   });
-  test('return throw error', () => {
+  test('return blank value', () => {
     const expectReturn = '';
     const response = FULL_HOUR();
     expect(response).toBe(expectReturn);
+  });
+});
+
+describe('hideDatePicker', () => {
+  test('calledDatePickerVisibility', () => {
+    const setDatePickerVisibility = jest.fn();
+    hideDatePicker(setDatePickerVisibility);
+    expect(setDatePickerVisibility).toBeCalled();
+    expect(setDatePickerVisibility).not.toBeNull();
+  });
+  test('throw hidepicker', () => {
+    expect(() => {
+      hideDatePicker();
+    }).toThrow('setDatePickerVisibility is not a functio');
   });
 });
 
