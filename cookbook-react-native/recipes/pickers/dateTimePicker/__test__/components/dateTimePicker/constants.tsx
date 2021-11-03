@@ -32,9 +32,10 @@ describe('hideDatePicker', () => {
     expect(setDatePickerVisibility).not.toBeNull();
   });
   test('throw hidepicker', () => {
+    const TYPE_ERROR = 'setDatePickerVisibility is not a function';
     expect(() => {
       hideDatePicker();
-    }).toThrow('setDatePickerVisibility is not a functio');
+    }).toThrow(TYPE_ERROR);
   });
 });
 
