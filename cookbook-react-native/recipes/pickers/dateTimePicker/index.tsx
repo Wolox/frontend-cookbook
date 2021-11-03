@@ -4,12 +4,8 @@ import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import i18next from 'i18next';
 
 import { IDateTimePicker } from './interfaces';
-import {
-  FULL_HOUR,
-  TouchButton,
-  hideDatePicker,
-  changeDate
-} from './constants';
+import { FULL_HOUR, hideDatePicker, changeDate } from './constants';
+import { TouchButton } from './components/TouchButton';
 import styles from './style';
 import './i18n';
 

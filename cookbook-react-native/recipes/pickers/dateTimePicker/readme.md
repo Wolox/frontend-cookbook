@@ -46,8 +46,8 @@ If you want to add this recipe to a project that wasn't created with our [bootst
 
 ```tsx
 function Home() {
-  const [date, setDate] = useState<Date | null>();
-  const [hour, setHour] = useState<string | null>();
+  const [date, setDate] = useState<Date>();
+  const [hour, setHour] = useState<string | Date>();
 
   console.log(hour);
   console.log(date);

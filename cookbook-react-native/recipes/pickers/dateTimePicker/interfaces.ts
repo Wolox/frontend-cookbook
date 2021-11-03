@@ -5,20 +5,23 @@ import {
   ViewStyle
 } from 'react-native';
 
+export type ISetHour = (hour: string | Date) => void;
+export type ISetDate = (date: Date) => void;
+
 export interface IDateTimePicker {
   accessibilityLabel: string;
   styleModal?: ViewStyle;
   styleContainer?: ViewStyle;
   mode?: 'date' | 'time' | 'datetime';
   is24hs: boolean;
-  setDate?: Function;
-  setHour?: Function;
+  setDate?: ISetDate;
+  setHour?: ISetHour;
   styleBtn?: ViewStyle;
   styleTextBtn?: TextStyle;
   textButton?: string;
-  onPressButton?: Function;
-  onPressConfirm?: Function;
-  onPressCancel?: Function;
+  onPressButton?: () => void;
+  onPressConfirm?: () => void;
+  onPressCancel?: () => void;
   icon?: ImageSourcePropType;
   styleIcon?: ImageStyle;
   hourFormat?: 'toLocaleTimeString' | 'toISOString';
@@ -34,3 +37,19 @@ export interface ITouchButton {
   styleTextBtn?: TextStyle;
   textButton?: string;
 }
+export type IpickerVisibility = (isVisible: boolean) => void;
+
+type date = 'date';
+type time = 'time';
+type datetime = 'datetime';
+type ItoLocaleTimeString = 'toLocaleTimeString';
+type ItoISOString = 'toISOString';
+
+type TIMES = {
+  date: 'date';
+  time: 'time';
+  datetime: 'datetime';
+};
+
+export type iMode = date | time | datetime | undefined;
+export type iHourFormat = ItoLocaleTimeString | ItoISOString | undefined;

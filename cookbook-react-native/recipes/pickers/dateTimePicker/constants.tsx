@@ -1,52 +1,26 @@
-import React from 'react';
-import { TouchableOpacity, Image, Text } from 'react-native';
-import i18next from 'i18next';
-
-import './i18n';
-import styles from './style';
-import { ITouchButton } from './interfaces';
+import {
+  IpickerVisibility,
+  ISetDate,
+  ISetHour,
+  iHourFormat,
+  iMode
+} from './interfaces';
 
 const toLocaleTimeString: string = 'toLocaleTimeString';
 const toISOString: string = 'toISOString';
 
 export const FULL_HOUR = (is24hs: boolean) => (is24hs ? 'en_GB' : '');
 
-export const hideDatePicker = (setDatePickerVisibility: Function) => {
+export const hideDatePicker = (setDatePickerVisibility: IpickerVisibility) => {
   setDatePickerVisibility(false);
 };
 
-export const TouchButton = ({
-  styleBtn,
-  showDatePicker,
-  icon,
-  styleIcon,
-  styleTextBtn,
-  textButton
-}: ITouchButton) => (
-  <TouchableOpacity
-    style={[styles.defaultButtonStyle, styleBtn]}
-    onPress={showDatePicker}>
-    {icon ? (
-      <Image
-        source={icon}
-        style={[styles.defaultIcon, styleIcon]}
-        resizeMode="cover"
-        resizeMethod="scale"
-      />
-    ) : (
-      <Text style={[styles.defaultTextBtn, styleTextBtn]}>
-        {textButton || i18next.t('CUSTOM_DATETIME_PICKER:OPEN')}
-      </Text>
-    )}
-  </TouchableOpacity>
-);
-
 export const changeDate = (
   date: Date,
-  mode: 'date' | 'time' | 'datetime' | undefined,
-  hourFormat: 'toLocaleTimeString' | 'toISOString' | undefined,
-  setHour: Function | undefined,
-  setDate: Function | undefined
+  mode: iMode,
+  hourFormat: iHourFormat,
+  setHour?: ISetHour,
+  setDate?: ISetDate
 ) => {
   switch (mode) {
     case 'time':

@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { black, transparent, white } from '@constants/colors';
+const IMAGE_SIZE: number = 30;
 const styles = StyleSheet.create({
   defaultContainer: {
     backgroundColor: transparent
@@ -15,8 +16,8 @@ const styles = StyleSheet.create({
     padding: 14
   },
   defaultIcon: {
-    width: 30,
-    height: 30
+    width: IMAGE_SIZE,
+    height: IMAGE_SIZE
   },
   defaultTextBtn: {
     color: black,
