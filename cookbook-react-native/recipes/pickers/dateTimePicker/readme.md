@@ -103,6 +103,6 @@ export default Home;
 ## Test
 
 - Added Snapshot and test constants
-- move the **test/components/dateTimePicker** to exactly path
-- update the imports ex:
+- moved the **test/components/dateTimePicker** to corresponding path
+- updated the import path:
   import {...} from '@pickersRecipes/dateTimePicker/constants' to '@components/dateTimePicker/constants' when added to project

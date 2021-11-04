@@ -2,8 +2,8 @@ import {
   IpickerVisibility,
   ISetDate,
   ISetHour,
-  iHourFormat,
-  iMode
+  IHourFormat,
+  IMode
 } from './interfaces';
 
 const toLocaleTimeString: string = 'toLocaleTimeString';
@@ -17,8 +17,8 @@ export const hideDatePicker = (setDatePickerVisibility: IpickerVisibility) => {
 
 export const changeDate = (
   date: Date,
-  mode: iMode,
-  hourFormat: iHourFormat,
+  mode: IMode,
+  hourFormat: IHourFormat,
   setHour?: ISetHour,
   setDate?: ISetDate
 ) => {

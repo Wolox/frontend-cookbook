@@ -45,11 +45,5 @@ type datetime = 'datetime';
 type ItoLocaleTimeString = 'toLocaleTimeString';
 type ItoISOString = 'toISOString';
 
-type TIMES = {
-  date: 'date';
-  time: 'time';
-  datetime: 'datetime';
-};
-
-export type iMode = date | time | datetime | undefined;
-export type iHourFormat = ItoLocaleTimeString | ItoISOString | undefined;
+export type IMode = date | time | datetime | undefined;
+export type IHourFormat = ItoLocaleTimeString | ItoISOString | undefined;
