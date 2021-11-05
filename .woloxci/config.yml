@@ -9,7 +9,8 @@ steps:
       node-version: "10"
       cache: "npm"
   - run: npm install
-  - run: npm run lint
+  lint:
+  - cd app && npm run lint
 
 environment:
   GIT_COMMITTER_NAME: a
