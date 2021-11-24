@@ -1,7 +1,7 @@
 # Cookbook React Native Bootstrap: pushNotification Recipe
 
 <p align="center">
-  <img width="400" height="700" src="https://i.ibb.co/Ltxn91Y/untitled.gif" alt="untitled" border="0">
+  <img width="350" height="700" src="https://i.ibb.co/Ltxn91Y/untitled.gif" alt="untitled" border="0">
 
   <img src="https://i.ibb.co/5kW8jBJ/Simulator-Screen-Recording-i-Phone-11-2021-11-24-at-16-36-40.gif" alt="Simulator-Screen-Recording-i-Phone-11-2021-11-24-at-16-36-40" border="0">
 </p>
@@ -297,7 +297,7 @@ import {
   IsetupPushNotification
 } from '@recipes/pushNotification/intefaces';
 
-function Home() {
+export default function Home() {
   const navigation = useNavigation();
   // we can write where redirect on open notification, or other callback if we needed
   const handleNotificationOpen = () => {
@@ -340,6 +340,4 @@ function Home() {
     </View>
   );
 }
-
-export default MyPicker;
 ```
