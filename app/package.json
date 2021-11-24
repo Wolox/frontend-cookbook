@@ -53,7 +53,7 @@
     "build": "node ./scripts/build.js",
     "test": "rescripts test",
     "eject": "./node_modules/react-scripts/bin/react-scripts.js eject",
-    "lint": "eslint src --ext .js,.ts,.jsx,.tsx",
+    "lint": "eslint src",
     "lint-fix": "./node_modules/eslint/bin/eslint.js src --fix && ./node_modules/stylelint/bin/stylelint.js '**/*.scss' --fix",
     "lint-scss": "./node_modules/stylelint/bin/stylelint.js '**/*.scss'",
     "lint-diff": "git diff --name-only --cached --relative --diff-filter=ACM | grep \\.js$ | xargs eslint"
