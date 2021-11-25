@@ -209,9 +209,24 @@ In AppDelegate.m add:
 }
 ```
 
+- Upload the authentication APNs key to Firebase, if you doesn't have key, you need to create one in Apple Developer website.
+
+<ol>
+<li>In Firebase console, select adjust icon, next select <b>configure project</b> and next select <b>Cloud Messaging</b></li>
+<li>In Authentication APNs key, in <b>IOS configuration app</b> press upload</li>
+<li>Search your key and press <b>open</b>, added ID key and press Upload</li>
+</ol>
+
+- Official documentations:
+<ul>
+<li><a href="https://firebase.google.com/docs/cloud-messaging/ios/first-message?hl=es#objective-c">Firebase documentation</a></li>
+<li><a href="https://github.com/react-native-push-notification/ios">react-native-push-notification-ios</a></li>
+<li><a href="https://github.com/zo0r/react-native-push-notification">react-native-push-notification</a></li>
+</ul>
+
 ### Potencial errors IOS
 
-In podfile
+In podfile:
 The library doesn't support platform <9, so if our proyect it's lower than, we need changed to some like `platform :ios, '10.0'` </br>
 Other changes we may need:
 
