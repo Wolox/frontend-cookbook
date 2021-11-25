@@ -2,9 +2,10 @@ import PushNotification, { Importance } from 'react-native-push-notification';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import { navigationRef } from '@components/AppNavigator/helper';
 import { isIos } from '@constants/platform';
+
 import {
   IsetupPushNotification,
-  IlocalNotification,
+  wLocalNotification,
   IlocalScheduleNotification
 } from './intefaces';
 
@@ -57,9 +58,6 @@ export default function setupPushNotification({
       channelId, // (required) by default 'your-channel-id',
       channelName, // (required) by default 'My channel'
       channelDescription: defaultChannelDescription, // (optional) default: 'A channel to categorise your notifications'.
-      playSound: true, // (optional) default: true
-      soundName: 'default', // (optional) See `soundName` parameter of `localNotification` function
-      importance: Importance.HIGH, // (optional) default: Importance.HIGH. Int value of the Android notification importance
       vibrate: true // (optional) default: true. Creates the default vibration pattern if true.
     },
     created => console.log(`createChannel returned '${created}'`) // (optional) callback returns whether the channel was created, false means it already existed.
@@ -77,7 +75,7 @@ export const showLocalNotification = ({
   smallIcon,
   color,
   id = defaultChannel
-}: IlocalNotification) => {
+}: wLocalNotification) => {
   if (isIos) {
     PushNotificationIOS.addNotificationRequest({
       id,

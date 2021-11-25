@@ -191,7 +191,8 @@ If you need Remote Notifications:
 
 - Download `GoogleServices-info.plist` to firebase then open proyect with xCode and go to `Your React Native Project -> ios -> projectName.xcodepro` next, select add Files to "project" and select your GoogleServices-info.plist
 
-Now we have to add Firebase Analytics on our POD file in iOS project:
+Manual installation without autolinking:
+We have to add Firebase Analytics on our POD file in iOS project:
 
 Go to podfile and add:
 `pod 'Firebase/Analytics'`

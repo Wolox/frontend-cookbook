@@ -13,7 +13,7 @@ export interface IsetupPushNotification {
   channelDescription?: string;
 }
 
-export interface IlocalNotification extends PushNotificationObject {
+export interface wLocalNotification extends PushNotificationObject {
   id?: string;
 }
 
