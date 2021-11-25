@@ -24,7 +24,7 @@ If you want to add this recipe to a project that wasn't created with our [bootst
 
 in `android/build.gradle`
 
-```ts
+```gradle
    ext {
         googlePlayServicesVersion = "+" // Your play services version, default: "+"
         firebaseMessagingVersion = "+" //  Your Firebase version, default: "21.1.0"
@@ -38,7 +38,7 @@ in `android/build.gradle`
 
 In `android/app/src/main/AndroidManifest.xml`
 
-```ts
+```xml
  <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 <!-- ADDED with this meta-data we can modify the icon in notifications, remember change resource name and apply the corrects sizes  -->
@@ -74,7 +74,7 @@ In `android/app/src/main/AndroidManifest.xml`
 
 In `android/app/src/main/res/values/colors.xml` (Create the file if it doesn't exist) for the notification_color
 
-```ts
+```xml
 <resources>
   <color name="white">#FFF</color>
 </resources>
@@ -84,7 +84,7 @@ If you need remote Notifications:
 
 `In android/build.gradle`
 
-```ts
+```gradle
 buildscript {
     ...
     repositories {
@@ -109,7 +109,7 @@ allprojects {
 
 In `android/app/build.gradle`
 
-```ts
+```gradle
 apply plugin: 'com.google.gms.google-services'
 
 dependencies{
