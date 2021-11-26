@@ -5,8 +5,8 @@ import { isIos } from '@constants/platform';
 
 import {
   IsetupPushNotification,
-  wLocalNotification,
-  IlocalScheduleNotification
+  IlocalNotification,
+  WLocalScheduleNotification
 } from './intefaces';
 
 const defaultChannel: string = 'your-channel-id';
@@ -75,7 +75,7 @@ export const showLocalNotification = ({
   smallIcon,
   color,
   id = defaultChannel
-}: wLocalNotification) => {
+}: IlocalNotification) => {
   if (isIos) {
     PushNotificationIOS.addNotificationRequest({
       id,
@@ -114,7 +114,7 @@ export const scheduleNotification = ({
   fireDate = defaultDate,
   date = defaultDate, //After 5 seconds by default
   id = defaultChannel
-}: IlocalScheduleNotification) => {
+}: WLocalScheduleNotification) => {
   isIos
     ? PushNotificationIOS.addNotificationRequest({
         id,

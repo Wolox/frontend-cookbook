@@ -13,11 +13,11 @@ export interface IsetupPushNotification {
   channelDescription?: string;
 }
 
-export interface wLocalNotification extends PushNotificationObject {
+export interface IlocalNotification extends PushNotificationObject {
   id?: string;
 }
 
-export interface IlocalScheduleNotification
+export interface WLocalScheduleNotification
   extends PushNotificationScheduleObject {
   id?: string;
   fireDate?: Date;
