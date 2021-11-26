@@ -112,9 +112,6 @@ In `android/app/build.gradle`
 ```gradle
 apply plugin: 'com.google.gms.google-services'
 
-dependencies{
-  implementation platform('com.google.firebase:firebase-bom:29.0.0')
-}
 ```
 
 Download the file `google-service.json` to Firebase console and put in `android/app`, verify the package_name need to be equal
