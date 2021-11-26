@@ -1,4 +1,4 @@
-import PushNotification, { Importance } from 'react-native-push-notification';
+import PushNotification from 'react-native-push-notification';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import { navigationRef } from '@components/AppNavigator/helper';
 import { isIos } from '@constants/platform';
