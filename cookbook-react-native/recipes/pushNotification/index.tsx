@@ -97,7 +97,9 @@ export const showLocalNotification = ({
   }
 };
 
+//This constant, return 5 seconds of delay to notification, it's fire date by default, you can change here or in props sheduleNotification
 const defaultDate: Date = new Date(Date.now() + 5 * 1000);
+
 export const scheduleNotification = ({
   message,
   title,
