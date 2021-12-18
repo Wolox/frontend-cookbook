@@ -1,0 +1,25 @@
+.spinner {
+  animation: spin 1s ease infinite;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #09F;
+  border-radius: 50%;
+  height: 36px;
+  margin: 0 auto 10px;
+  width: 36px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.alert {
+  font-style: italic;
+  margin: 15px auto;
+  max-width: 500px;
+}
