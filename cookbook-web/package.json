@@ -5,7 +5,7 @@
     "sass": "node ./scripts/compile-sass.js"
   },
   "devDependencies": {
-    "husky": "^4.2.5"
+    "husky": "^8.0.3"
   },
   "author": "Damián Finkelstein <dfinkelstein@wolox.com.ar>",
   "husky": {
