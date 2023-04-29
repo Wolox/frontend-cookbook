@@ -82,7 +82,7 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "eslint-plugin-testing-library": "^3.10.1",
     "husky": "^4.3.8",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.6",
     "msw": "^0.26.2",
     "mutationobserver-shim": "^0.3.7",
     "postcss-html": "^0.36.0",
