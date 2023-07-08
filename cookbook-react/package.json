@@ -92,7 +92,7 @@
     "prettier-eslint-cli": "^5.0.0",
     "prettier-stylelint": "^0.4.2",
     "react-test-renderer": "^17.0.1",
-    "stylelint": "^9.10.1",
+    "stylelint": "^15.10.1",
     "stylelint-config-wolox": "^1.0.7",
     "stylelint-no-indistinguishable-colors": "^1.2.1",
     "stylelint-scss": "^3.5.4"
